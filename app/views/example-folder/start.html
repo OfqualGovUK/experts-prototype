@@ -1,0 +1,27 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Start this service" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+    <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque id tortor nec laoreet. Curabitur tincidunt commodo arcu. Cras ipsum turpis, ornare eget volutpat id, tincidunt vel risus. Aliquam pellentesque dolor sit amet imperdiet iaculis. Aliquam dolor odio, luctus vel tortor non, fringilla aliquet mi. Pellentesque quam libero, imperdiet sed nulla sed, maximus laoreet lorem.</p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "./",
+      isStartButton: true
+    }) }}  
+
+    <h2 class="govuk-heading-m">Heading here</h2>
+    <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque id tortor nec laoreet. Curabitur tincidunt commodo arcu. Cras ipsum turpis, ornare eget volutpat id, tincidunt vel risus.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

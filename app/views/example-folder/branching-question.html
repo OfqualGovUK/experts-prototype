@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you want to search for a thing?" %}
+{% set formAction = "/branching-question-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Caption</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "I do not know",
+        text: "I do not know"
+      }
+    ]
+  } | decorateAttributes(data, "data.doWeSearch")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
