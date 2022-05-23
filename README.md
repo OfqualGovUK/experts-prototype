@@ -22,13 +22,13 @@ Go to [http://localhost:3000]() in your browser.
 
 ### Latest designs
 
-URL: [https://contact-ofqual-prototype.herokuapp.com/]
+URL: TBC
 
 This version will deploy automatically from merges to main and is the 'latest' version for UR and UX iteration.
 
 ### Admin settings
 
-URL: [https://contact-ofqual-prototype.herokuapp.com/admin]
+URL: TBC
 
 The <code>Admin</code> section allows us to set up the prototype in different states.
 
