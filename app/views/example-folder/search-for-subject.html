@@ -10,13 +10,11 @@
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
   <div class="body-text">
-
-    {# <p class="govuk-body">You can search for your subject by name or number, subject area and level.</p> #}
     <span class="govuk-hint">Education, Science or Psychology for example</span>
     <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
   </div>
 
-  <a href="./is-it-ao" class="govuk-link govuk-body">I can't find the subject, skip this step</a>
+  <a href="./check-answers" class="govuk-link govuk-body">I can't find the subject, skip this step</a>
 
   <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
 
@@ -68,11 +66,6 @@
       "Multiple"
     ];
 
-    {# var getSuggestions = () => {
-      var suggestions = []
-      subjects.forEach(result => suggestions.push(result.name));
-      return suggestions;
-    } #}
   </script>
 
   <script type="text/javascript">
@@ -81,7 +74,8 @@
     accessibleAutocomplete({
       element: element,
       id: id,
-      source: subjects
+      source: subjects,
+      name: "subject"
     })
   </script>
 

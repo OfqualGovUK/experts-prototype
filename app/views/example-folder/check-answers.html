@@ -23,7 +23,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "./../example-folder",
                   text: "Change",
                   visuallyHiddenText: "the title"
                 }
@@ -40,7 +40,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "./../example-folder",
                   text: "Change",
                   visuallyHiddenText: "the full name"
                 }
@@ -57,7 +57,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "./../example-folder",
                   text: "Change",
                   visuallyHiddenText: "the phone number"
                 }
@@ -74,32 +74,43 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "./../example-folder",
                   text: "Change",
-                  visuallyHiddenText: "the email"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "What best describes you?"
-            },
-            value: {
-              text: data.userType or 'Not provided'
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "what best describes you."
+                  visuallyHiddenText: " email address"
                 }
               ]
             }
           }
         ]
       }) }}
+
+      {% if data.subject %}
+      
+        <h2 class="govuk-heading-m">Subject details</h2>
+        
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Subject"
+              },
+              value: {
+                text: data.subject or 'Not provided'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./search-for-subject",
+                    text: "Change",
+                    visuallyHiddenText: " subject"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %}
 
       <input type="hidden" id="confirmEnquiry" name="confirmEnquiry" value="true">
 
