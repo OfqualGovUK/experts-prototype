@@ -28,18 +28,24 @@
   {% endif %}
 {% endblock %}
 
+
+
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  {% if layoutWidth != "fullWidthLayout"%}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  {% endif %}
 
     <form{% if formAction %} action="{{ formAction }}"{% endif %} method="post" novalidate spellcheck="false">
       {% block formContent %}
       {% endblock %}
     </form>
 
+  {% if layoutWidth != "fullWidthLayout"%}
+      </div>
     </div>
-  </div>
+  {% endif %}
 
 {% endblock %}
 

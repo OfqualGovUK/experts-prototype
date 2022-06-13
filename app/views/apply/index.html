@@ -1,0 +1,139 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Your application" %}
+{% set backLink = "false" %}
+
+{# Personal details #}
+{% set tagClassesForTask1 %}
+  {% if data.task1End == "Yes" %}
+    govuk-tag
+  {% elseif data.task1Start == "true" or data.task1End == "No"  %}
+    govuk-tag--blue
+  {% else %}
+    govuk-tag--grey
+  {% endif %}
+{% endset %}
+
+{% set tagTextForTask1 %}
+  {% if data.task1End == "Yes" %}
+    Completed
+  {% elseif data.task1Start == "true" or data.task1End == "No"  %}
+    In progress
+  {% else %}
+    Not started
+  {% endif %}
+{% endset %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+      <p class="govuk-hint govuk-!-margin-bottom-6">Last saved: <time datetime="">{{ "" | today |  govukDate }}, 14:54</time></p>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Personal details</h2>
+        {{ appTaskList({
+          items: [{
+            text: "Personal information",
+            href: "apply/personal-details",
+            id: "personal-information",
+            tag: {
+              classes: tagClassesForTask1,
+              text: tagTextForTask1
+            }
+          }]
+        }) }}
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Qualification details</h2>
+        {{ appTaskList({
+          items: [{
+            text: "Title",
+            href: "#",
+            id: "personal-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }, {
+            text: "Title",
+            href: "#",
+            id: "contact-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }]
+        }) }}
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Expertise details</h2>
+        {{ appTaskList({
+          items: [{
+            text: "Title",
+            href: "#",
+            id: "personal-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }, {
+            text: "Title",
+            href: "#",
+            id: "contact-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }]
+        }) }}
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">References</h2>
+        {{ appTaskList({
+          items: [{
+            text: "Title",
+            href: "#",
+            id: "personal-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }]
+        }) }}
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Personal statement</h2>
+        {{ appTaskList({
+          items: [{
+            text: "Title",
+            href: "#",
+            id: "personal-information",
+            tag: {
+              classes: "test",
+              text: "Complete"
+            }
+          }]
+        }) }}
+      </section>
+
+      <h2 class="govuk-heading-m">Review and send</h2>
+
+      <p class="govuk-body">Review and send your application to Ofqual.</p>
+
+      {{ govukButton({
+        text: "Review your application",
+        href: "#"
+      }) }}
+
+    </div>
+  </div>
+  
+{% endblock %}

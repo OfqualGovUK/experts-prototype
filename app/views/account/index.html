@@ -1,0 +1,56 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you want to search for a thing?" %}
+{% set backLink = "false" %}
+{% set formAction = "/existing-account-answer" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Create an account or sign in</h1>
+
+  {% set signinHtml %}
+    {{ govukInput({
+      label: {
+        text: "Email address",
+        classes: "govuk-label--s"
+      },
+      hint: {
+        text: "Enter the email address you used to register, and we’ll send you a link to sign in."
+      },
+      classes: "govuk-!-width-two-thirds",
+      attributes: {
+        spellcheck: "false"
+      },
+      autocomplete: "email",
+      type: "email"
+    } | decorateAttributes(data, "data.accountEmail")) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Do you already have an account?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "Yes, sign in",
+        text: "Yes, sign in",
+        conditional: {
+          html: signinHtml
+        }
+      },
+      {
+        value: "No, I need to create an account",
+        text: "No, I need to create an account"
+      }
+    ]
+  } | decorateAttributes(data, "data.existingAccount")) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

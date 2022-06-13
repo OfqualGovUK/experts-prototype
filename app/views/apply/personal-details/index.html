@@ -1,0 +1,31 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Personal details" %}
+{% set formAction = "./personal-details/check-answers" %}
+{# {% set taskId = "1" %} #}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Personal information</h1>
+
+  {{ govukInput({
+      label: {
+        text: "Full name",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+      attributes: {
+        spellcheck: "false"
+      },
+      type: "text"
+  } | decorateAttributes(data, "data.personalDetials.fullName")) }}
+  
+  {# This sets a flag in the data to tell us the user has started the this section #}
+  <input type="hidden" id="task1Start" name="task1Start" value="true">
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

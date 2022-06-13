@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// Ask a question
+// Example folder
 
 // Do you want to search for a thing?
 router.post('/branching-question-answer', function (req, res) {
@@ -14,6 +14,21 @@ router.post('/branching-question-answer', function (req, res) {
       res.redirect('/example-folder/search-for-subject')
     } else {
       res.redirect('/example-folder/check-answers')
+  }
+
+})
+
+// Account
+
+// Do you already have an account?
+router.post('/existing-account-answer', function (req, res) {
+
+  let existingAccount = req.session.data.existingAccount
+
+  if (existingAccount === 'Yes, sign in') {
+      res.redirect('/account/check-email')
+    } else {
+      res.redirect('/account/create-account')
   }
 
 })
