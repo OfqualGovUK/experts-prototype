@@ -1,12 +1,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Confirm personal details" %}
-{# {% set successMessage %}Your complaint has been closed{% endset %} #}
 {% set formAction = "/apply" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/apply" %}
 {% set layoutWidth = "fullWidthLayout" %}
-{% set taskId = "1" %} 
+{% set taskId = "1" %}
 
 {% block formContent %}
 
@@ -81,20 +80,121 @@
       text: "Full name"
     },
     value: {
-      text: record.trainingDetails.traineeId or "Not provided"
+      text: data.personalDetials.fullName or "Not provided"
     },
     actions: {
       items: [
         {
-          href: recordPath + "/trainee-id" | addReferrer(referrer),
+          href: "../personal-details",
           text: "Change",
-          visuallyHiddenText: "trainee ID"
+          visuallyHiddenText: "full name"
         }
       ]
-    } if canAmend
+    }
+  }, 
+  {
+    key: {
+      text: "Email address"
+    },
+    value: {
+      text: data.personalDetials.email or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "email address"
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Address line 1"
+    },
+    value: {
+      text: data.personalDetials.addressLine1 or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "address line 1"
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Address line 2"
+    },
+    value: {
+      text: data.personalDetials.addressLine2 or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "address line 2"
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Town or city"
+    },
+    value: {
+      text: data.personalDetials.townOrCity or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "town or city"
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "County"
+    },
+    value: {
+      text: data.personalDetials.county or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "county"
+        }
+      ]
+    }
+  },
+  {
+    key: {
+      text: "Postcode"
+    },
+    value: {
+      text: data.personalDetials.postCode or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: "../personal-details",
+          text: "Change",
+          visuallyHiddenText: "postcode"
+        }
+      ]
+    }
   }
   ] %}
-
 
   {% set recordBaseHtml %}
     {{ govukSummaryList({
@@ -104,10 +204,9 @@
 
   {{ appSummaryCard({
     classes: "govuk-!-margin-bottom-6",
-    titleText: "Personal details",
+    _titleText: "Personal details",
     html: recordBaseHtml
   }) }}
-
 
   {{ govukRadios({
     fieldset: {
@@ -118,19 +217,17 @@
     },
     items: [
       {
-        value: "Yes",
+        value: "complete",
         text: "Yes, I’ve completed this section"
       },
       {
-        value: "No",
+        value: "inProgress",
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.task" + taskId + "End")) }}
+  } | decorateAttributes(data, "data.personalDetails")) }}
 
-  {# This sets a flag in the data to tell us the user has submitted the close request   #}
-  <input type="hidden" id="task1End" name="task1End" value="true">
-
+  {# <input type="hidden" id="personalDetails" name="personalDetails" value="complete"> #}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -1,0 +1,16 @@
+{% from "./task-tag.html" import appTaskTag %}
+
+<li class="app-task-list__item">
+  <span class="app-task-list__task-name">
+    {% if taskName == 'complete'  %}
+      <a href="{{ params.href }}/check-answers">
+        {{ params.name }}
+      </a>
+    {% else %}
+      <a href="{{ params.href }}">
+        {{ params.name }}
+      </a>
+    {% endif %}
+  </span>
+  {{ appTaskTag(params.taskName) }}
+</li>

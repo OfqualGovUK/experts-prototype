@@ -4,7 +4,7 @@
 {% set backLink = "false" %}
 
 {# Personal details #}
-{% set tagClassesForTask1 %}
+{# {% set tagClassesForTask1 %}
   {% if data.task1End == "Yes" %}
     govuk-tag
   {% elseif data.task1Start == "true" or data.task1End == "No"  %}
@@ -22,7 +22,7 @@
   {% else %}
     Not started
   {% endif %}
-{% endset %}
+{% endset %} #}
 
 
 {% block content %}
@@ -35,40 +35,29 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal details</h2>
-        {{ appTaskList({
-          items: [{
-            text: "Personal information",
-            href: "apply/personal-details",
-            id: "personal-information",
-            tag: {
-              classes: tagClassesForTask1,
-              text: tagTextForTask1
-            }
-          }]
-        }) }}
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Personal information',
+            href: 'apply/personal-details',
+            taskName: data.personalDetails
+          })}}
+        </ul>
       </section>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Qualification details</h2>
-        {{ appTaskList({
-          items: [{
-            text: "Title",
-            href: "#",
-            id: "personal-information",
-            tag: {
-              classes: "test",
-              text: "Complete"
-            }
-          }, {
-            text: "Title",
-            href: "#",
-            id: "contact-information",
-            tag: {
-              classes: "test",
-              text: "Complete"
-            }
-          }]
-        }) }}
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Name and contact details',
+              url: '../org/name',
+              taskName: data['task--name-contact']
+            })}}
+            {{ appTaskListItem({
+              name: 'Test',
+              url: '../org/name',
+              taskName: data['task--name-contact']
+            })}}
+          </ul>
       </section>
       
       <section class="govuk-!-margin-bottom-8">
