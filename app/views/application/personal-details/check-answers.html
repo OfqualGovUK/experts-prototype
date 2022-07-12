@@ -5,6 +5,7 @@
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
+{% set referrer = "" %}
 
 {% block formContent %}
 
@@ -29,7 +30,7 @@
     ]
   } | decorateAttributes(data, "data.personalDetails")) }}
 
-  <input type="hidden" id="personalDetailsProgress" name="personalDetailsProgress" value="hasValues">
+  {# <input type="hidden" id="personalDetailsProgress" name="personalDetailsProgress" value="hasValues"> #}
 
   <div class="govuk-button-group">
     {{ govukButton({

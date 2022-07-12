@@ -32,7 +32,11 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
       <p class="govuk-hint govuk-!-margin-bottom-6">Last saved: <time datetime="">{{ "" | today |  govukDate }}, 14:54</time></p>
+    </div>
+  </div>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
@@ -44,23 +48,18 @@
         </ul>
       </section>
 
-      <section class="govuk-!-margin-bottom-8">
+      {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Qualification details</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Name and contact details',
-              url: '../org/name',
-              taskName: data['task--name-contact']
-            })}}
-            {{ appTaskListItem({
-              name: 'Test',
+              name: 'Title here',
               url: '../org/name',
               taskName: data['task--name-contact']
             })}}
           </ul>
-      </section>
+      </section> #}
       
-      <section class="govuk-!-margin-bottom-8">
+      {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Expertise details</h2>
         {{ appTaskList({
           items: [{
@@ -111,7 +110,7 @@
             }
           }]
         }) }}
-      </section>
+      </section> #}
 
       <h2 class="govuk-heading-m">Review and send</h2>
 
@@ -123,6 +122,15 @@
       }) }}
 
     </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related" role="complementary">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2" id="support-title">Get help</h2>
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>Call 0800 389 2500 or email <a class="govuk-link" href="websupport@ofqual.gov.uk">websupport@ofqual.gov.uk</a></li>
+          <li>Monday to Friday, 8:30am to 5:30pm (except public&nbsp;holidays)</li>
+          <li>Free of charge</li>
+        </ul>
+      </aside>
   </div>
   
 {% endblock %}
