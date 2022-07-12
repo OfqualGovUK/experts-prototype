@@ -1,0 +1,65 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Review your application" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+{% set layoutWidth = "fullWidthLayout" %}
+{% set referrer = "/check-answers" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Personal details</h2>
+        {% if data.personalDetails == "complete" or data.personalDetailsProgress == "hasValues" %}
+          {% include "_includes/summary-cards/personal-details/index.html" %}
+        {% else %}
+          <div class="govuk-inset-text app-inset-text--important app-inset-text--narrow-border">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Personal details are not marked as complete</h3>
+            <a class="govuk-link" href="/application/personal-details">
+            Complete your personal details</a>
+          </div>
+        {% endif %}
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Qualification details</h2>
+        {% if data.qualificationDetails == "complete" or data.qualificationDetailsProgress == "hasValues" %}
+          {% include "_includes/summary-cards/personal-details/index.html" %}
+        {% else %}
+          <div class="govuk-inset-text app-inset-text--important app-inset-text--narrow-border">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Qualification details are not marked as complete</h3>
+            <a class="govuk-link" href="/application/qualification-details">
+            Complete your qualification details</a>
+          </div>
+        {% endif %} 
+      </section>
+      
+      {# <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Expertise details</h2>
+        
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">References</h2>
+       
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Personal statement</h2>
+        
+      </section> #}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "#"
+      }) }}
+
+    </div>
+  </div>
+  
+{% endblock %}

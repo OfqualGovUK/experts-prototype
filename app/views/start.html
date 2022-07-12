@@ -1,35 +1,89 @@
+{% extends "layout.html" %}
+{% set bodyClasses = "start-page" %}
+{% set hideNav = true %}
+{% set hidePrimaryNav = true %}
 
-{% extends "_templates/page-template.html" %}
+{% block pageTitle %}
+  {{ pageHeading }} - GOV.UK
+{% endblock %}
 
-{% set pageHeading = "Apply to provide expertise" %}
+{% set pageHeading = 'Apply to provide expertise' %}
+
+{% block beforeContent %}
+{# beforeContent is reseting default phase banner #}
+{% endblock %}
+
+{% block main %}
+  <div class="start-page-banner">
+
+    <div class="govuk-width-container">
+      <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+          {{ govukTag({
+            text: "prototype",
+            classes: "govuk-phase-banner__content__tag start-page-banner__tag"
+          }) | indent(4) | trim }}
+          <span class="govuk-phase-banner__text start-page-banner__text">
+            This is a prototype of a new service. <a href="#" class="govuk-link start-page-banner__link">Give feedback to help us improve this service</a>.
+          </span>
+        </p>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="start-page-banner__text start-page-banner__heading govuk-heading-xl">{{pageHeading}}</h1>
+          <p class="start-page-banner__text start-page-banner__description govuk-body govuk-!-font-size-27">Apply to provide qualification, assessment or occupational expertise to Ofqual.
+          </p>
+          <div class="start-page-banner__actions">
+            {{ govukButton({
+              text: "Sign in",
+              href: "/account",
+              classes: "start-page-banner__button",
+              isStartButton: true
+            }) }}
+            <p class="govuk-body start-page-banner__text">or
+            <a class="govuk-link govuk-link--no-visited-state" href="/account">create an account</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  {# pulls in default gov uk template #}
+  {{super()}}
+{% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-
-    <p class="govuk-body">Use this service to Apply to provide expertise to regulating qualifications and assessments with Ofqual.</p>
-
-    {{ govukButton({
-      text: "Start now",
-      href: "./account",
-      isStartButton: true
-    }) }}  
-
-    <h2 class="govuk-heading-m">Before you start</h2>
-    <p class="govuk-body">Check what qualifications you’ll need. You’ll also need to:</p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li class="govuk-body">this thing</li>
-      <li class="govuk-body">another thing</li>
-    </ul>
-
-    <h2 class="govuk-heading-m">Get advice and support</h2>
-    <p class="govuk-body">You can get more information here...</p>
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">
+      Becoming an expert
+    </h2>
     
-    </div>
+    <p>We are looking for people to join us as external experts to help with our work on qualifications and assessments for GCSEs, A levels, a wide range of vocational and technical qualifications and new apprenticeship end-point assessments.</p>
+
+    <p>External experts are invaluable to the work we do to ensure the qualifications we regulate are fit for purpose ensuring that the right things can be assessed in a consistent way.</p>
+    
+    <p>The <a href="https://www.gov.uk/guidance/application-to-be-an-external-expert-with-ofqual" class="govuk-link">guidance about this service</a> has more information.</p>
+
+    <h2 class="govuk-heading-l">
+      Latest news and updates
+    </h2>
+
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Ofqual are now accepting bids for work</h3>
+    <p>20 January 2023</p> 
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus fringilla justo, at bibendum diam gravida vel. In blandit finibus orci, a fringilla massa. Nullam ut elementum neque, eu scelerisque risus. </p> 
+    
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Complete your ID check be to eligable to bid for work in 2023</h3>
+    <p>31 September 2022</p> 
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus fringilla justo, at bibendum diam gravida vel. In blandit finibus orci, a fringilla massa. Nullam ut elementum neque, eu scelerisque risus. </p>
+
+    <p><a href="#" class="govuk-link">More news and updates from {{ pageHeading }}</a>.</p> 
+
   </div>
+</div>
 
 {% endblock %}

@@ -4,7 +4,7 @@
 {% set backLink = "false" %}
 
 {# Personal details #}
-{% set tagClassesForTask1 %}
+{# {% set tagClassesForTask1 %}
   {% if data.task1End == "Yes" %}
     govuk-tag
   {% elseif data.task1Start == "true" or data.task1End == "No"  %}
@@ -22,7 +22,7 @@
   {% else %}
     Not started
   {% endif %}
-{% endset %}
+{% endset %} #}
 
 
 {% block content %}
@@ -32,46 +32,34 @@
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
       <p class="govuk-hint govuk-!-margin-bottom-6">Last saved: <time datetime="">{{ "" | today |  govukDate }}, 14:54</time></p>
+    </div>
+  </div>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal details</h2>
-        {{ appTaskList({
-          items: [{
-            text: "Personal information",
-            href: "apply/personal-details",
-            id: "personal-information",
-            tag: {
-              classes: tagClassesForTask1,
-              text: tagTextForTask1
-            }
-          }]
-        }) }}
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Personal information',
+            href: 'application/personal-details',
+            taskName: data.personalDetails
+          })}}
+        </ul>
       </section>
 
-      <section class="govuk-!-margin-bottom-8">
+      {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Qualification details</h2>
-        {{ appTaskList({
-          items: [{
-            text: "Title",
-            href: "#",
-            id: "personal-information",
-            tag: {
-              classes: "test",
-              text: "Complete"
-            }
-          }, {
-            text: "Title",
-            href: "#",
-            id: "contact-information",
-            tag: {
-              classes: "test",
-              text: "Complete"
-            }
-          }]
-        }) }}
-      </section>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Title here',
+              url: '../org/name',
+              taskName: data['task--name-contact']
+            })}}
+          </ul>
+      </section> #}
       
-      <section class="govuk-!-margin-bottom-8">
+      {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Expertise details</h2>
         {{ appTaskList({
           items: [{
@@ -122,7 +110,7 @@
             }
           }]
         }) }}
-      </section>
+      </section> #}
 
       <h2 class="govuk-heading-m">Review and send</h2>
 
@@ -130,10 +118,19 @@
 
       {{ govukButton({
         text: "Review your application",
-        href: "#"
+        href: "/application/review"
       }) }}
 
     </div>
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related" role="complementary">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2" id="support-title">Get help</h2>
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>Call 0800 389 2500 or email <a class="govuk-link" href="websupport@ofqual.gov.uk">websupport@ofqual.gov.uk</a></li>
+          <li>Monday to Friday, 8:30am to 5:30pm (except public&nbsp;holidays)</li>
+          <li>Free of charge</li>
+        </ul>
+      </aside>
   </div>
   
 {% endblock %}
