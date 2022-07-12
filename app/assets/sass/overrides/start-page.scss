@@ -1,4 +1,12 @@
 
+.start-page .govuk-header {
+  border-bottom: 10px solid #0b0c0c;
+}
+
+.start-page .govuk-header__container {
+  border-bottom: none;
+}
+
 .start-page .govuk-phase-banner {
   margin-bottom: govuk-spacing(6);
   border-bottom-color: govuk-colour("light-blue");
