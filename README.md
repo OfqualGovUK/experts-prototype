@@ -22,13 +22,13 @@ Go to [http://localhost:3000]() in your browser.
 
 ### Latest designs
 
-URL: TBC
+URL: https://apply-to-provide-expertise.herokuapp.com/
 
 This version will deploy automatically from merges to main and is the 'latest' version for UR and UX iteration.
 
 ### Admin settings
 
-URL: TBC
+URL: https://apply-to-provide-expertise.herokuapp.com/admin
 
 The <code>Admin</code> section allows us to set up the prototype in different states.
 
