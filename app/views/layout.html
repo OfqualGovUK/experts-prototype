@@ -49,7 +49,16 @@
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    navigation: [
+    {
+      text: data.accountEmail
+    },
+    {
+      href: "./home",
+      text: "Sign out"
+    } 
+  ] if data.signedIn == "true"
   }) }}
 {% endblock %}
 
