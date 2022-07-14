@@ -1,13 +1,36 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Confirm personal details" %}
-{% set formAction = "/application" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
 {% set referrer = "" %}
 
+{% set formActionHref %}
+  {%- if data.personalDetails == "complete" or data.personalDetails == "inProgress"  %}
+    /application
+  {%- else %}
+    /application/personal-details/check-answers?showPersonalDetailsErrors=true
+  {% endif %}
+{% endset %}
+
+{% set formAction = formActionHref %}
+
 {% block formContent %}
+
+  {# {% if data.showPersonalDetailsErrors == "true" %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Select whether you have completed this section",
+          href: "#"
+        } 
+      ]
+    }) }}
+  {% endif %} #}
+
+  <h1 class="govuk-heading-l">Confirm personal details</h1>
 
   {% include "_includes/summary-cards/personal-details/index.html" %}
 

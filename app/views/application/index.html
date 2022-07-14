@@ -31,7 +31,7 @@
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'Title here',
-              url: '#',
+              href: '#',
               taskName: data['task--name-contact']
             })}}
           </ul>
@@ -85,9 +85,18 @@
 
       <p class="govuk-body">Review and send your application to Ofqual.</p>
 
+      {# Clear out the errors on the review page if they exist  #}
+      {# {% set reviewPageHref %}
+        {% if data.applicationIncomplete == "true" %}
+          /application/review?showErrors=false
+        {% else %}
+          /application/review?applicationIncomplete=false
+        {% endif %}
+      {% endset %}  #}
+      
       {{ govukButton({
         text: "Review your application",
-        href: "/application/review"
+        href: " /application/review?showErrors=false"
       }) }}
 
     </div>

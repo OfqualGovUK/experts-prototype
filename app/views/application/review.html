@@ -3,39 +3,56 @@
 {% set pageHeading = "Review your application" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
-{% set layoutWidth = "fullWidthLayout" %}
 {% set referrer = "/check-answers" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
+      
+      {# Only show the error summary if one or more of the sections is empty on submit  #}
+      {% if data.showErrors == "true" %}
+        {{ govukErrorSummary({
+          titleText: "Your application cannot be submitted because it’s incomplete",
+          errorList: [
+            {
+              text: "Personal details not marked as complete",
+              href: "./personal-details"
+            } if data.personalDetails != "complete",
+            {
+              text: "Qualification details not marked as complete",
+              href: "#"
+            } if data.qualificationDetails != "complete"
+          ]
+        }) }}
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+      {% endif %}
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal details</h2>
-        {% if data.personalDetails == "complete" or data.personalDetailsProgress == "hasValues" %}
+        {% if data.personalDetails == "complete" %}
           {% include "_includes/summary-cards/personal-details/index.html" %}
         {% else %}
-          <div class="govuk-inset-text app-inset-text--important app-inset-text--narrow-border">
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Personal details are not marked as complete</h3>
-            <a class="govuk-link" href="/application/personal-details">
-            Complete your personal details</a>
-          </div>
+          {{ appInsetText({
+            sectionName: "Personal details",
+            sectionHref: "./personal-details",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
         {% endif %}
       </section>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Qualification details</h2>
-        {% if data.qualificationDetails == "complete" or data.qualificationDetailsProgress == "hasValues" %}
-          {% include "_includes/summary-cards/personal-details/index.html" %}
+        {% if data.qualificationDetails == "complete" %}
+          {% include "_includes/summary-cards/qualification-details/index.html" %}
         {% else %}
-          <div class="govuk-inset-text app-inset-text--important app-inset-text--narrow-border">
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Qualification details are not marked as complete</h3>
-            <a class="govuk-link" href="/application/qualification-details">
-            Complete your qualification details</a>
-          </div>
+          {{ appInsetText({
+            sectionName: "Qualification details",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
         {% endif %} 
       </section>
       
@@ -54,9 +71,19 @@
         
       </section> #}
 
+      {# If there are incomplete sections we want to keep the user on this page and display an error summary  #}
+      {# If all sections are complete we send them back to a completed application  #}
+      {% set reviewSubmissionHref %}
+        {% if data.personalDetails != "complete" or data.qualificationDetails != "complete" %}
+          /application/review?showErrors=true
+        {% else %}
+          /application?applicationSubmitted=true
+        {% endif %}
+      {% endset %}
+
       {{ govukButton({
         text: "Continue",
-        href: "#"
+        href: reviewSubmissionHref
       }) }}
 
     </div>
