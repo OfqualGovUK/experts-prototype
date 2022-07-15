@@ -6,15 +6,16 @@
 {% set layoutWidth = "fullWidthLayout" %}
 {% set referrer = "" %}
 
-{% set formActionHref %}
+{# {% set formActionHref %}
   {%- if data.personalDetails == "complete" or data.personalDetails == "inProgress"  %}
     /application
   {%- else %}
     /application/personal-details/check-answers?showPersonalDetailsErrors=true
   {% endif %}
-{% endset %}
+{% endset %} #}
 
-{% set formAction = formActionHref %}
+{# {% set formAction = formActionHref %} #}
+{% set formAction = "/application" %}
 
 {% block formContent %}
 
