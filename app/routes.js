@@ -18,6 +18,8 @@ router.post('/branching-question-answer', function (req, res) {
 
 })
 
+// ------ Apply to provide expertise ----- //
+
 // Account
 
 // Do you already have an account?
@@ -29,6 +31,25 @@ router.post('/existing-account-answer', function (req, res) {
       res.redirect('/account/check-email')
     } else {
       res.redirect('/account/create-account')
+  }
+
+})
+
+// ------ Register your interest  ----- //
+
+// Example folder
+
+// Do you want to search for a thing?
+router.post('/select-a-route-answer', function (req, res) {
+
+  let selectRoute = req.session.data.route
+
+  if (selectRoute === 'Agriculture, environmental and animal care') {
+      res.redirect('/register-your-interest/agriculture-pathways')
+    } else if (selectRoute === 'Business and administration') {
+      res.redirect('/register-your-interest/business-pathways') 
+    } else {
+      res.redirect('/register-your-interest/no-sector') 
   }
 
 })

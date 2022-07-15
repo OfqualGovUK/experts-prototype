@@ -1,0 +1,50 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Select a sector you specialise in" %}
+{% set formAction = "/select-a-route-answer" %}
+
+{% block formContent %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "You will have the ability to add another sector once you have finished telling us about the first one."
+    },
+    items: [
+      {
+        value: "Agriculture, environmental and animal care",
+        text: "Agriculture, environmental and animal care"
+      } if data.route != "Agriculture, environmental and animal care",
+      {
+        value: "Business and administration",
+        text: "Business and administration"
+      } if data.route != "Business and administration",
+      {
+        value: "Care services",
+        text: "Care services"
+      } if data.route != "Care services",
+      {
+        divider: "or"
+      },
+      {
+        value: "I dont see my sector",
+        text: "I dont see my sector"
+      }
+    ]
+  } | decorateAttributes(data, "data.route")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

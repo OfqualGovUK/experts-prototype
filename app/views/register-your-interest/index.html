@@ -1,0 +1,38 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Register your interest with Ofqual" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+    <p class="govuk-body">This page includes content about the information we'll collect, how we'll use it and the criteria to satisfy (including years of experience) before filling out this form.</p>
+
+    <h2 class="govuk-heading-m">Eligability criteria</h2>
+    <p class="govuk-body">To be eligable to register your interest with Ofqual you have the following:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>this thing</li>
+      <li>that thing</li>
+      <li>another thing</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">What if I dont have less than 3 years experience?</h2>
+    <p class="govuk-body">Something here about having the option to tell us in the form.</p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "/register-your-interest/about-you",
+      isStartButton: true
+    }) }}
+
+    <p class="govuk-bod govuk-hint">By clicking continue you are confirming your elagibility to register you interest to be an expert.</p>
+
+    </div>
+  </div>
+
+{% endblock %}
