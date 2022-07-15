@@ -1,14 +1,17 @@
 {% macro appTaskTag(taskName) %}
 
   {% set completeTagHTML %}
+    <span class="govuk-visually-hidden">Status</span>
     <strong class="govuk-tag">Completed</strong>
   {% endset %}
 
   {% set inProgressTagHTML %}
+    <span class="govuk-visually-hidden">Status</span>
     <strong class="govuk-tag govuk-tag--grey">Incomplete</strong>
   {% endset %}
 
   {% set notStartedTagHTML %}
+    <span class="govuk-visually-hidden">Status</span>
     <strong class="govuk-tag govuk-tag--grey">No started</strong>
   {% endset %}
 
