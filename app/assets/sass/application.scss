@@ -29,6 +29,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/timeline";
 
 // Patterns that aren't in Frontend
+@import "node_modules/govuk-prototype-components/x-govuk/all";
 @import "patterns/step-by-step-header";
 @import "patterns/step-by-step-nav";
 @import "patterns/step-by-step-related";

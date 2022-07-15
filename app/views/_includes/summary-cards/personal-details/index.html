@@ -1,133 +1,102 @@
- {% set recordBaseRows = [
-  {
-    key: {
-      text: "Full name"
-    },
-    value: {
-      text: data.personalDetials.fullName or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+   {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-8",
+    rows: [{
+      key: {
+        text: "Full name"
+      },
+      value: {
+        html: data.personalDetials.fullName or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "full name"
-        }
-      ]
-    }
-  }, 
-  {
-    key: {
-      text: "Email address"
-    },
-    value: {
-      text: data.personalDetials.email or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "full name",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: data.personalDetials.email or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "email address"
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "Address line 1"
-    },
-    value: {
-      text: data.personalDetials.addressLine1 or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "email address",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "Address line 1"
+      },
+      value: {
+        text: data.personalDetials.addressLine1 or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "address line 1"
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "Address line 2"
-    },
-    value: {
-      text: data.personalDetials.addressLine2 or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "address line 1",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "Address line 2"
+      },
+      value: {
+        text: data.personalDetials.addressLine2 or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "address line 2"
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "Town or city"
-    },
-    value: {
-      text: data.personalDetials.townOrCity or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "address line 2",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "Town or city"
+      },
+      value: {
+        text: data.personalDetials.townOrCity or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "town or city"
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "County"
-    },
-    value: {
-      text: data.personalDetials.county or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "town or city",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "County"
+      },
+      value: {
+        text: data.personalDetials.county or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "county"
-        }
-      ]
-    }
-  },
-  {
-    key: {
-      text: "Postcode"
-    },
-    value: {
-      text: data.personalDetials.postCode or "Not provided"
-    },
-    actions: {
-      items: [
-        {
-          href: "/application/personal-details" + referrer,
+          visuallyHiddenText: "county",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }, {
+      key: {
+        text: "Postcode"
+      },
+      value: {
+        text: data.personalDetials.postCode or "Not provided"
+      },
+      actions: {
+        items: [{
           text: "Change",
-          visuallyHiddenText: "postcode"
-        }
-      ]
-    }
-  }
-  ] %}
-
-  {% set recordBaseHtml %}
-    {{ govukSummaryList({
-      rows: recordBaseRows
-    }) }}
-  {% endset %}
-
-  {{ appSummaryCard({
-    classes: "govuk-!-margin-bottom-6",
-    _titleText: "Personal details",
-    html: recordBaseHtml
+          visuallyHiddenText: "county",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }]
   }) }}
