@@ -1,0 +1,22 @@
+{{ govukCheckboxes({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l",
+      isPgeHeading: false
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Human Resources",
+      text: "Human Resources"
+    },
+    {
+      value: "Management and Administration",
+      text: "Management and Administration"
+    }
+  ]
+} | decorateAttributes(data, "data.pathway.business")) }}

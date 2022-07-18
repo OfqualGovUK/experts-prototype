@@ -1,0 +1,134 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your answers" %}
+{% set formAction = "/select-route-answer" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Review your sectors and areas of focus</h1> 
+
+  {# {% if data.route %}
+    <h2 class="govuk-heading-m">{{ data.route }}</h2> 
+  {% endif %} #}
+  {# <h2 class="govuk-heading-m">Agriculture, environmental and animal care</h2>  #}
+
+  {% set cardTitle %}
+    <span class="govuk-!-font-weight-bold">Agriculture, environmental and animal care</span>
+  {% endset %}
+  
+  {% set levelsHtml %}
+    <ul class="govuk-list">
+      <li>
+        1
+      </li>
+      <li>
+        2
+      </li>
+    </ul>
+  {% endset %}
+  
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: "Agriculture, environmental and animal care",
+    actions: {
+      items: [{
+        text: "Delete",
+        visuallyHiddenText: "Sarah Philips",
+        href: "/user/A10/delete"
+      }]
+    },
+    rows: [{
+      key: {
+        text: "Specialty"
+      },
+      value: { 
+        text: "Animal Care and Management"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "full name",
+          href: "#"
+        }]
+      }
+    },{
+      key: {
+        text: "Level/s"
+      },
+      value: { 
+        html: levelsHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "full name",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }]
+  }) }}
+
+  {# <h2 class="govuk-heading-m">Care services</h2> #}
+  
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: "Care services",
+    actions: {
+      items: [{
+        text: "Delete",
+        visuallyHiddenText: "Sarah Philips",
+        href: "/user/A10/delete"
+      }]
+    },
+    rows: [{
+      key: {
+        text: "Specialty"
+      },
+      value: { 
+        text: "Care services"
+      }
+    },{
+      key: {
+        text: "Level/s"
+      },
+      value: { 
+        html: levelsHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "full name",
+          href: "/application/personal-details" + referrer
+        }]
+      }
+    }]
+  }) }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Did you want to add another sector and area of ficus",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes, I want to add more"
+      },
+      {
+        value: "no",
+        html: "No, I've finished"
+      }
+    ]
+  } | decorateAttributes(data, "data.addAnother")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}

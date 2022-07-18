@@ -1,0 +1,353 @@
+
+{# set a unique data model name #}
+{# {% set pathwayDataName%}
+  {% if data.pathway.agriculture == "Agriculture, Land Management and Production" %}
+    data.pathway.level.a
+  {% elseif data.pathway.agriculture == "Animal Care and Management" %}
+    data.pathway.level.b
+  {% elseif data.pathway.business == "Human Resources" %}
+    data.pathway.level.c
+  {% elseif data.pathway.business == "Management and Administration" %}
+    data.pathway.level.d
+  {% else %}
+    data.pathway.level.d
+  {% endif %}
+{% endset %} #}
+
+  {% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Enter details of the qualification (optional)",
+        classes: "govuk-label--s"
+      }
+    }) }}
+  {% endset -%}
+
+  {% if data.pathway.agriculture %}  
+    
+    {% if "Agriculture, Land Management and Production" in data.pathway.agriculture %}
+      {{ govukCheckboxes({
+        fieldset: {
+          legend: {
+            html: "Which qualification levels for Agriculture, Land Management and Production can you provide expertise in?",
+            classes: "govuk-fieldset__legend--m",
+            isPgeHeading: false
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Level 1",
+            text: "Level 1",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 2",
+            text: "Level 2",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 3",
+            text: "Level 3",
+            hint: {
+              text: "A/AS level or advanced apprenticeship for example"
+            }
+          },
+          {
+            value: "Level 4",
+            text: "Level 4",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 5",
+            text: "Level 5",
+            hint: {
+              text: "Diploma of higher education (DipHE) or foundation degree for example"
+            }
+          },
+          {
+            value: "Level 6",
+            text: "Level 6",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 7",
+            text: "Level 7",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "I don't know the level",
+            text: "I don't know the level"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Something else that isn't listed",
+            text: "Something else that isn't listed",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      } | decorateAttributes(data, data.pathway.agriculture.agriculture)) }}
+    {% endif %}
+
+    {% if "Animal Care and Management" in data.pathway.agriculture %}
+      {{ govukCheckboxes({
+        fieldset: {
+          legend: {
+            html: "Which qualification levels for Animal Care and Management can you provide expertise in?",
+            classes: "govuk-fieldset__legend--m",
+            isPgeHeading: false
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Level 1",
+            text: "Level 1",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 2",
+            text: "Level 2",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 3",
+            text: "Level 3",
+            hint: {
+              text: "A/AS level or advanced apprenticeship for example"
+            }
+          },
+          {
+            value: "Level 4",
+            text: "Level 4",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 5",
+            text: "Level 5",
+            hint: {
+              text: "Diploma of higher education (DipHE) or foundation degree for example"
+            }
+          },
+          {
+            value: "Level 6",
+            text: "Level 6",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 7",
+            text: "Level 7",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "I don't know the level",
+            text: "I don't know the level"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Something else that isn't listed",
+            text: "Something else that isn't listed",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      } | decorateAttributes(data, data.pathway.agriculture.animal)) }}
+    {% endif %}
+
+  {% endif %}
+
+  {% if data.pathway.business %}
+    
+    {% if "Human Resources" in data.pathway.business %}
+      {{ govukCheckboxes({
+        fieldset: {
+          legend: {
+            html: "Which qualification levels for Human Resources can you provide expertise in?",
+            classes: "govuk-fieldset__legend--m",
+            isPgeHeading: false
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Level 1",
+            text: "Level 1",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 2",
+            text: "Level 2",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 3",
+            text: "Level 3",
+            hint: {
+              text: "A/AS level or advanced apprenticeship for example"
+            }
+          },
+          {
+            value: "Level 4",
+            text: "Level 4",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 5",
+            text: "Level 5",
+            hint: {
+              text: "Diploma of higher education (DipHE) or foundation degree for example"
+            }
+          },
+          {
+            value: "Level 6",
+            text: "Level 6",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 7",
+            text: "Level 7",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "I don't know the level",
+            text: "I don't know the level"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Something else that isn't listed",
+            text: "Something else that isn't listed",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      } | decorateAttributes(data, data.pathway.business.human)) }}
+    {% endif %}
+
+    {% if "Management and Administration" in data.pathway.business %}
+      {{ govukCheckboxes({
+        fieldset: {
+          legend: {
+            html: "Which qualification levels for Management and Administration can you provide expertise in?",
+            classes: "govuk-fieldset__legend--m",
+            isPgeHeading: false
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Level 1",
+            text: "Level 1",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 2",
+            text: "Level 2",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 3",
+            text: "Level 3",
+            hint: {
+              text: "A/AS level or advanced apprenticeship for example"
+            }
+          },
+          {
+            value: "Level 4",
+            text: "Level 4",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 5",
+            text: "Level 5",
+            hint: {
+              text: "Diploma of higher education (DipHE) or foundation degree for example"
+            }
+          },
+          {
+            value: "Level 6",
+            text: "Level 6",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "Level 7",
+            text: "Level 7",
+            hint: {
+              text: "... for example"
+            }
+          },
+          {
+            value: "I don't know the level",
+            text: "I don't know the level"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Something else that isn't listed",
+            text: "Something else that isn't listed",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      } | decorateAttributes(data, data.pathway.business.management)) }}
+    {% endif %}
+
+  {% endif %}

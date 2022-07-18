@@ -22,47 +22,24 @@ $('a[href=#]').on('click', function (event) {
 // Powers the select all checkbox thingo
 // Found here: https://stackoverflow.com/a/21248785
 
-// FOI Flow
-// If the 'My request does not relate to specific qualification type checkbox exists'
-if ($('#foi-qualType-7').length) {
+
+// Register your interest
+// If they select 'I dont know the level' or 'Not listed'
+if ($('.select-levels-page').length) {
   
-  var deselectOthersCheckbox = $('#foi-chooseQual-7')
+  var deselectOthersCheckbox1 = $('#pathway-level-8');
+  var deselectOthersCheckbox2 = $('#pathway-level-10');
+  var combinedDeselectOthers = deselectOthersCheckbox1.add(deselectOthersCheckbox2)
 
   // Deselect all others if the checkbox is checked
-  $(deselectOthersCheckbox).change(function() {
+  combinedDeselectOthers.change(function() {
     $('.govuk-checkboxes__input').not(this).attr('checked', false);
   });
 
   // Deselect the checkbox if any of the others are checked
-  $('.govuk-checkboxes__input').not(deselectOthersCheckbox).change(function() {
-    $(deselectOthersCheckbox).attr('checked', false);
+  $('.govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
+    $(combinedDeselectOthers).attr('checked', false);
   });
 
 }
 
-// PE Flow
-// If the 'My request does not relate to specific qualification type checkbox exists'
-if ($('#qualType').length) {
-  
-  var deselectOthersCheckbox = $('#qualType-18')
-
-  // Deselect all others if the checkbox is checked
-  $(deselectOthersCheckbox).change(function() {
-    $('.govuk-checkboxes__input').not(this).attr('checked', false);
-  });
-
-  // Deselect the checkbox if any of the others are checked
-  $('.govuk-checkboxes__input').not(deselectOthersCheckbox).change(function() {
-    $(deselectOthersCheckbox).attr('checked', false);
-  });
-
-}
-
-// Moj Multi file upload thingo
-if (typeof MOJFrontend.MultiFileUpload !== "undefined") {
-  new MOJFrontend.MultiFileUpload({
-    container: $(".moj-multi-file-upload"),
-    uploadUrl: "/ajax-upload",
-    deleteUrl: "/ajax-delete",
-  });
-}

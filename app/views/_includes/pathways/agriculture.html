@@ -1,0 +1,22 @@
+{{ govukCheckboxes({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l",
+      isPgeHeading: false
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Agriculture, Land Management and Production",
+      text: "Agriculture, Land Management and Production"
+    },
+    {
+      value: "Animal Care and Management",
+      text: "Animal Care and Management"
+    }
+  ]
+} | decorateAttributes(data, "data.pathway.agriculture")) }}

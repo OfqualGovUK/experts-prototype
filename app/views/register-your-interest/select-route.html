@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Select a sector you specialise in" %}
-{% set formAction = "/select-a-route-answer" %}
+{% set formAction = "/select-route-answer" %}
 
 {% block formContent %}
 
@@ -34,8 +34,8 @@
         divider: "or"
       },
       {
-        value: "I dont see my sector",
-        text: "I dont see my sector"
+        value: "I can't see my sector",
+        text: "I can't see my sector"
       }
     ]
   } | decorateAttributes(data, "data.route")) }}

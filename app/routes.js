@@ -40,14 +40,14 @@ router.post('/existing-account-answer', function (req, res) {
 // Example folder
 
 // Do you want to search for a thing?
-router.post('/select-a-route-answer', function (req, res) {
+router.post('/select-route-answer', function (req, res) {
 
-  let selectRoute = req.session.data.route
+  let selectedRoute = req.session.data.route
 
-  if (selectRoute === 'Agriculture, environmental and animal care') {
-      res.redirect('/register-your-interest/agriculture-pathways')
-    } else if (selectRoute === 'Business and administration') {
-      res.redirect('/register-your-interest/business-pathways') 
+  if ( (selectedRoute === 'Agriculture, environmental and animal care') || (selectedRoute === 'Business and administration') ) {
+      res.redirect('/register-your-interest/select-pathways')
+    } else if (selectedRoute === 'Care services') {
+      res.redirect('/register-your-interest/review-sectors') 
     } else {
       res.redirect('/register-your-interest/no-sector') 
   }

@@ -1,38 +1,17 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "What specialisms within" + data.route +  " apply to you?" %}
-{% set formAction = "/pathway-levels" %}
-
-{# <span class="govuk-caption-l">{{ data.route }}</span>  
-<h1 class="govuk-heading-l">{{ pageHeading }}</h1> #}
+{% set pageHeading = "Whare are your areas of focus?" %}
+{% set formAction = "./select-levels" %}
 
 {% block formContent %}
 
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        classes: "govuk-fieldset__legend--m",
-        isPgeHeading: false
-      }
-    },
-    hint: {
-      text: "Select all that apply."
-    },
-    items: [
-      {
-        value: "Agriculture, Land Management and Production",
-        text: "Agriculture, Land Management and Production"
-      },
-      {
-        value: "Animal Care and Management",
-        text: "Animal Care and Management"
-      }
-    ]
-  } | decorateAttributes(data, "data.pathway.agriculture")) }}
-
-
+  <span class="govuk-caption-l">{{ data.route }}</span>  
+  {% if data.route == "Agriculture, environmental and animal care" %}
+    {% include "_includes/pathways/agriculture.html" %}
+  {% elseif data.route == "Business and administration" %}
+    {% include "_includes/pathways/business.html" %}
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({
