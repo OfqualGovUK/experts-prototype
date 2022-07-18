@@ -103,7 +103,7 @@
             }
           }
         ]
-      } | decorateAttributes(data, data.pathway.agriculture.agriculture)) }}
+      } | decorateAttributes(data, "data.pathway.agriculture.agriculture")) }}
     {% endif %}
 
     {% if "Animal Care and Management" in data.pathway.agriculture %}
@@ -183,7 +183,7 @@
             }
           }
         ]
-      } | decorateAttributes(data, data.pathway.agriculture.animal)) }}
+      } | decorateAttributes(data, "data.pathway.agriculture.animal")) }}
     {% endif %}
 
   {% endif %}
@@ -267,7 +267,7 @@
             }
           }
         ]
-      } | decorateAttributes(data, data.pathway.business.human)) }}
+      } | decorateAttributes(data, "data.pathway.business.human")) }}
     {% endif %}
 
     {% if "Management and Administration" in data.pathway.business %}
@@ -347,7 +347,7 @@
             }
           }
         ]
-      } | decorateAttributes(data, data.pathway.business.management)) }}
+      } | decorateAttributes(data, "data.pathway.business.management")) }}
     {% endif %}
 
   {% endif %}

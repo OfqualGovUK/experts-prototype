@@ -1,0 +1,19 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "What are your areas of focus within this sector?" %}
+{% set formAction = "./select-levels-business" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.route }}</span>  
+  {% include "_includes/pathways/business.html" %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

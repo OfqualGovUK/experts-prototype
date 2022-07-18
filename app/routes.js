@@ -39,20 +39,22 @@ router.post('/existing-account-answer', function (req, res) {
 
 // Example folder
 
-// Do you want to search for a thing?
 router.post('/select-route-answer', function (req, res) {
 
   let selectedRoute = req.session.data.route
 
-  if ( (selectedRoute === 'Agriculture, environmental and animal care') || (selectedRoute === 'Business and administration') ) {
-      res.redirect('/register-your-interest/select-pathways')
+    if (selectedRoute === 'Agriculture, environmental and animal care') {
+      res.redirect('/register-your-interest/select-pathways-agriculture')
+    } else if (selectedRoute === 'Business and administration') {
+      res.redirect('/register-your-interest/select-pathways-business')
     } else if (selectedRoute === 'Care services') {
-      res.redirect('/register-your-interest/review-sectors') 
+      res.redirect('/register-your-interest/select-levels-business') 
     } else {
       res.redirect('/register-your-interest/no-sector') 
   }
 
 })
+
 
 // Catch all route
 // Used for sendig data on the query string 
