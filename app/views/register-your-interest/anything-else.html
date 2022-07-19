@@ -8,14 +8,14 @@
 {% block formContent %}
 
   {{ govukCharacterCount({
-    maxlength: 300,
+    maxlength: 250,
     label: {
       text: pageHeading,
       classes: "govuk-label--l",
       isPageHeading: true
     },
     hint: {
-      text: "It might be nice to give people an opportunity to say something very brief?"
+      text: "This is to give people an opportunity to say something about their levels of experince if it's less than three?"
     }
   } | decorateAttributes(data, "data.additionalInformation")) }}
 

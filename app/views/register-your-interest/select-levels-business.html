@@ -34,6 +34,7 @@
   {% endset -%}
   
   {% if "Human resources" in data.pathway.business %}
+    <section id="human-resources">
       {{ govukCheckboxes({
         fieldset: {
           legend: {
@@ -112,9 +113,11 @@
           }
         ]
       } | decorateAttributes(data, "data.level.business.human")) }}
-    {% endif %}
+    </section>
+  {% endif %}
 
-    {% if "Management and administration" in data.pathway.business %}
+  {% if "Management and administration" in data.pathway.business %}
+    <section id="management-and-administration">
       {{ govukCheckboxes({
         fieldset: {
           legend: {
@@ -193,7 +196,8 @@
           }
         ]
       } | decorateAttributes(data, "data.level.business.management")) }}
-    {% endif %}
+    </section>
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({
