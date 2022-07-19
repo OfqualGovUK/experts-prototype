@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Qualification level details" %}
-{% set bodyClasses = "select-levels-page" %}
+{% set bodyClasses = "select-levels-page-care" %}
 {% set formAction = "./review-sectors" %}
 
 {% block formContent %}
@@ -19,7 +19,7 @@
         text: "Enter details of the qualification (optional)",
         classes: "govuk-label--s"
       }
-    }) }}
+    } | decorateAttributes(data, "data.level.careServicesOther")) }}
   {% endset -%}
   
   {{ govukCheckboxes({
@@ -98,7 +98,7 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.pathway.business.human")) }}
+  } | decorateAttributes(data, "data.level.careServices")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

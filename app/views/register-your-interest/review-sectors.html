@@ -2,108 +2,216 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{% set formAction = "/select-route-answer" %}
+{% set formAction = "/add-another-answer" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your sectors and areas of focus</h1> 
+  <h1 class="govuk-heading-l">Confirm your sectors and areas of focus</h1> 
 
-  {# {% if data.route %}
-    <h2 class="govuk-heading-m">{{ data.route }}</h2> 
-  {% endif %} #}
-  {# <h2 class="govuk-heading-m">Agriculture, environmental and animal care</h2>  #}
+  {{ data.level.careServices | log }}
+  
+  {% set levelsHtmlCareServices %}
+    
+    {% if data.level.careServices %}
+      
+      {% if data.level.careServices == "Something else that isn't listed" %}
+        {{ data.level.careServicesOther }}
+      {# if not either of these two, list out the levels #}
+      {% elseif data.level.careServices != "I don't know the level" or data.level.careServices != "Something else that isn't listed" %}
+        <ul class="govuk-list">
+          {% for level in data.level.careServices %}
+            <li>
+              {{ level }}
+            </li>
+          {% endfor %}
+        </ul>
+      {# if I dont know, list "I dont know" #}
+      {% elseif data.level.careServices == "I don't know the level" %}
+        {{ data.level.careServices }}
+      {% endif %}
 
-  {% set cardTitle %}
-    <span class="govuk-!-font-weight-bold">Agriculture, environmental and animal care</span>
+    {% endif %}
+
   {% endset %}
   
-  {% set levelsHtml %}
-    <ul class="govuk-list">
-      <li>
-        1
-      </li>
-      <li>
-        2
-      </li>
-    </ul>
+  {% set levelsHtmlBusinessHuman %}
+    
+    {% if data.level.business.human %}
+      
+      {% if data.level.business.human == "Something else that isn't listed" %}
+        {{ data.level.business.humanOther }}
+      {# if not either of these two, list out the levels #}
+      {% elseif data.level.business.human != "I don't know the level" or data.level.business.human != "Something else that isn't listed" %}
+        <ul class="govuk-list">
+          {% for level in data.level.business.human %}
+            <li>
+              {{ level }}
+            </li>
+          {% endfor %}
+        </ul>
+      {# if I dont know, list "I dont know" #}
+      {% elseif data.level.business.human == "I don't know the level" %}
+        {{ data.level.business.human }}
+      {% endif %}
+
+    {% endif %}
+
   {% endset %}
   
-  {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: "Agriculture, environmental and animal care",
-    actions: {
-      items: [{
-        text: "Delete",
-        visuallyHiddenText: "Sarah Philips",
-        href: "/user/A10/delete"
-      }]
-    },
-    rows: [{
-      key: {
-        text: "Area of focus"
-      },
-      value: { 
-        text: "Animal Care and Management"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "full name",
-          href: "#"
-        }]
-      }
-    },{
-      key: {
-        text: "Qualifcation level/s of expertise "
-      },
-      value: { 
-        html: levelsHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "full name",
-          href: "/application/personal-details" + referrer
-        }]
-      }
-    }]
-  }) }}
+  {% set levelsHtmlBusinessManagement %}
+    
+    {% if data.level.business.management %}
+      
+      {% if data.level.business.management == "Something else that isn't listed" %}
+        {{ data.level.business.managementOther }}
+      {# if not either of these two, list out the levels #}
+      {% elseif data.level.business.management != "I don't know the level" or data.level.business.management != "Something else that isn't listed" %}
+        <ul class="govuk-list">
+          {% for level in data.level.business.management %}
+            <li>
+              {{ level }}
+            </li>
+          {% endfor %}
+        </ul>
+      {# if I dont know, list "I dont know" #}
+      {% elseif data.level.business.management == "I don't know the level" %}
+        {{ data.level.business.management }}
+      {% endif %}
 
-  {# <h2 class="govuk-heading-m">Care services</h2> #}
+    {% endif %}
+
+  {% endset %}
+
+  {% if data.pathway.business == "Human Resources" and data.confirmDeleteBuisnessHuman != "true" %}
   
-  {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: "Care services",
-    actions: {
-      items: [{
-        text: "Delete",
-        visuallyHiddenText: "Sarah Philips",
-        href: "/user/A10/delete"
-      }]
-    },
-    rows: [{
-      key: {
-        text: "Area of focus"
-      },
-      value: { 
-        text: "Care services"
-      }
-    },{
-      key: {
-        text: "Qualifcation level/s of expertise "
-      },
-      value: { 
-        html: levelsHtml
-      },
+    {{ xGovukSummaryCard({
+      classes: "govuk-!-margin-bottom-9",
+      titleText: "Business and administration",
       actions: {
         items: [{
-          text: "Change",
-          visuallyHiddenText: "full name",
-          href: "/application/personal-details" + referrer
+          text: "Delete",
+          visuallyHiddenText: "Business and administration - Human Resources",
+          href: "/register-your-interest/delete?delete=deleteBuisnessHuman"
         }]
-      }
-    }]
-  }) }}
+      },
+      rows: [{
+        key: {
+          text: "Area of focus"
+        },
+        value: { 
+          text: "Human Resources"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "area of focus",
+            href: "./select-pathways-business"
+          }]
+        }
+      },{
+        key: {
+          text: "Qualifcation level/s of expertise"
+        },
+        value: { 
+          html: levelsHtmlBusinessHuman
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "qualifcation level/s of expertise ",
+            href: "./select-levels-business"
+          }]
+        }
+      }]
+    }) }}
+
+  {% endif %}
+
+  {% if data.pathway.business == "Management and Administration" and data.confirmDeleteBuisnessManagement != "true" %}
+  
+    {{ xGovukSummaryCard({
+      classes: "govuk-!-margin-bottom-9",
+      titleText: "Business and administration",
+      actions: {
+        items: [
+        {
+          text: "Delete",
+          visuallyHiddenText: "Care services",
+          href: "/register-your-interest/delete?delete=deleteCareServices"
+        }
+        ]
+      },
+      rows: [{
+        key: {
+          text: "Area of focus"
+        },
+        value: { 
+          text: "Management and Administration"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "area of focus",
+            href: "./select-pathways-business"
+          }]
+        }
+      },{
+        key: {
+          text: "Qualifcation level/s of expertise"
+        },
+        value: { 
+          html: levelsHtmlBusinessManagement
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "qualifcation level/s of expertise ",
+            href: "./select-levels-business"
+          }]
+        }
+      }]
+    }) }}
+
+  {% endif %}
+
+  {% if data.confirmDeleteCareServices != "true" %}
+  
+    {{ xGovukSummaryCard({
+      classes: "govuk-!-margin-bottom-9",
+      titleText: "Care services",
+      actions: {
+        items: [{
+          text: "Delete",
+          visuallyHiddenText: "Care services",
+          href: "/register-your-interest/delete?delete=deleteCareServices"
+        }]
+      },
+      rows: [{
+        key: {
+          text: "Area of focus"
+        },
+        value: { 
+          text: "Care services"
+        }
+      },{
+        key: {
+          text: "Qualifcation level/s of expertise"
+        },
+        value: { 
+          html: levelsHtmlCareServices
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "qualifcation level/s of expertise ",
+            href: "./select-levels-care-services"
+          }]
+        }
+      }]
+    }) }}
+
+  {% endif %}
+  
 
   {{ govukRadios({
     fieldset: {
@@ -119,10 +227,11 @@
       },
       {
         value: "no",
-        html: "No, I've finished"
+        html: "No, I've finished adding my expertise"
       }
     ]
   } | decorateAttributes(data, "data.addAnother")) }}
+
 
   <div class="govuk-button-group">
     {{ govukButton({

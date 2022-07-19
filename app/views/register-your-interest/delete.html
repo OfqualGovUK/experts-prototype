@@ -1,0 +1,39 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Are you sure you want to delete this area of expertise?" %}
+{% set formAction = "./review-sectors" %}
+
+{% block formContent %}
+
+  {% set areaOfExpertise %}
+    {% if data.delete == "deleteCareServices" %}
+      Care services
+    {% elseif data.delete == "deleteBuisnessHuman" %}
+      Business administration - Human Resources
+    {% elseif data.delete == "deleteBuisnessManagement" %}
+      Business administration - Management and Administration
+    {% endif %}
+  {% endset %}
+
+  <span class="govuk-caption-l">{{ areaOfExpertise }}</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Yes I'm sure - delete this area of expertise",
+      classes: "govuk-button--warning"
+    }) }}
+    <a class="govuk-link" href="./review-sectors">Cancel</a>
+  </div>
+
+  {# hidden inputs to set a delete flag based on query string#}
+  {% if data.delete == "deleteCareServices" %}
+    <input type="hidden" id="confirmDeleteCareServices" name="confirmDeleteCareServices" value="true">
+  {% elseif data.delete == "deleteBuisnessHuman" %}
+    <input type="hidden" id="confirmDeleteBuisnessHuman" name="confirmDeleteBuisnessHuman" value="true">
+  {% elseif data.delete == "deleteBuisnessManagement" %}
+    <input type="hidden" id="confirmDeleteBuisnessManagement" name="confirmDeleteBuisnessManagement" value="true">
+  {% endif %}
+
+{% endblock %}

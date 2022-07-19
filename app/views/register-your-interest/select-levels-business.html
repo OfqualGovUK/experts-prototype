@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Qualification level details" %}
-{% set bodyClasses = "select-levels-page" %}
+{% set bodyClasses = "select-levels-page-business" %}
 {% set formAction = "./review-sectors" %}
 
 {% block formContent %}
@@ -12,14 +12,24 @@
 
   <p class="govuk-body">List the qualification levels you can provide expertise on for each area of focus. <a href="https://www.gov.uk/what-different-qualification-levels-mean/list-of-qualification-levels" class="govuk-link">Learn more about what qualification levels mean</a>.</p>
 
-  {% set otherHtml %}
+  {% set otherHtmlHuman %}
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
         text: "Enter details of the qualification (optional)",
         classes: "govuk-label--s"
       }
-    }) }}
+    } | decorateAttributes(data, "data.level.business.humanOther")) }}
+  {% endset -%}
+  
+  {% set otherHtmlManagement %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Enter details of the qualification (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.level.business.managementOther")) }}
   {% endset -%}
   
   {% if "Human Resources" in data.pathway.business %}
@@ -95,11 +105,11 @@
             value: "Something else that isn't listed",
             text: "Something else that isn't listed",
             conditional: {
-              html: otherHtml
+              html: otherHtmlHuman
             }
           }
         ]
-      } | decorateAttributes(data, "data.pathway.business.human")) }}
+      } | decorateAttributes(data, "data.level.business.human")) }}
     {% endif %}
 
     {% if "Management and Administration" in data.pathway.business %}
@@ -175,11 +185,11 @@
             value: "Something else that isn't listed",
             text: "Something else that isn't listed",
             conditional: {
-              html: otherHtml
+              html: otherHtmlManagement
             }
           }
         ]
-      } | decorateAttributes(data, "data.pathway.business.management")) }}
+      } | decorateAttributes(data, "data.level.business.management")) }}
     {% endif %}
 
   <div class="govuk-button-group">

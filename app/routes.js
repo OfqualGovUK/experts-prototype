@@ -48,9 +48,21 @@ router.post('/select-route-answer', function (req, res) {
     } else if (selectedRoute === 'Business and administration') {
       res.redirect('/register-your-interest/select-pathways-business')
     } else if (selectedRoute === 'Care services') {
-      res.redirect('/register-your-interest/select-levels-business') 
+      res.redirect('/register-your-interest/select-levels-care-services') 
     } else {
       res.redirect('/register-your-interest/no-sector') 
+  }
+
+})
+
+router.post('/add-another-answer', function (req, res) {
+
+  let addAnother = req.session.data.addAnother
+
+    if (addAnother === 'yes') {
+      res.redirect('/register-your-interest/select-route')
+    } else {
+      res.redirect('/register-your-interest/anything-else') 
   }
 
 })

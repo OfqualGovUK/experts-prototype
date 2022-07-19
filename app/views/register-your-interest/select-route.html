@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Select a sector you specialise in" %}
+{% set pageHeading = "Select the sector you have expertise in" %}
 {% set formAction = "/select-route-answer" %}
 
 {% block formContent %}
@@ -18,10 +18,6 @@
       text: "You will have the ability to add another sector once you have finished telling us about the first one."
     },
     items: [
-      {
-        value: "Agriculture, environmental and animal care",
-        text: "Agriculture, environmental and animal care"
-      } if data.route != "Agriculture, environmental and animal care",
       {
         value: "Business and administration",
         text: "Business and administration"
