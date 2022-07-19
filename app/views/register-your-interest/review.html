@@ -1,118 +1,83 @@
 
 {% extends "_templates/form-template.html" %}
 
+{% set serviceName = "Register your interest to be an expert" %}
 {% set pageHeading = "Review your answers" %}
 {% set formAction = "/add-another-answer" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your answers</h1> 
-  
-  {% set levelsHtml %}
-    
-    {% if data.level.careServices %}
-      
-      {% if data.level.careServices == "Something else that isn't listed" %}
-        {{ data.level.careServicesOther }}
-      {# if not either of these two, list out the levels #}
-      {% elseif data.level.careServices != "I don't know the level" or data.level.careServices != "Something else that isn't listed" %}
-        <ul class="govuk-list">
-          {% for level in data.level.careServices %}
-            <li>
-              {{ level }}
-            </li>
-          {% endfor %}
-        </ul>
-      {# if I dont know, list "I dont know" #}
-      {% elseif data.level.careServices == "I don't know the level" %}
-        {{ data.level.careServices }}
-      {# If "other" list the other #}
-      {% endif %}
+  <h1 class="govuk-heading-l">Review your answers</h1>
 
-    {% endif %}
-
-  {% endset %}
-
-  {# {% if data.level.careServices %}
-    <ul class="govuk-list">
-      {% for level in data.level.careServices %}
-        <li>
-          {{ level }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %} #}
-  
-  {# {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: "Agriculture, environmental and animal care",
-    actions: {
-      items: [{
-        text: "Delete",
-        visuallyHiddenText: "Sarah Philips",
-        href: "/user/A10/delete"
-      }]
-    },
-    rows: [{
-      key: {
-        text: "Area of focus"
-      },
-      value: { 
-        text: "Animal Care and Management"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "full name",
-          href: "#"
-        }]
-      }
-    },{
-      key: {
-        text: "Qualifcation level/s of expertise "
-      },
-      value: { 
-        html: levelsHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "full name",
-          href: "/application/personal-details" + referrer
-        }]
-      }
-    }]
-  }) }} #}
+  <h2 class="govuk-heading-m">About you<h2> 
   
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: "Care services",
-    actions: {
-      items: [{
-        text: "Delete",
-        visuallyHiddenText: "Sarah Philips",
-        href: "/user/A10/delete"
-      }]
-    },
     rows: [{
       key: {
-        text: "Area of focus"
+        text: "Full name"
       },
       value: { 
-        text: "Care services"
-      }
-    },{
-      key: {
-        text: "Qualifcation level/s of expertise"
-      },
-      value: { 
-        html: levelsHtml
+        text: data.fullName or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "qualifcation level/s of expertise ",
-          href: "./select-levels-care-services"
+          visuallyHiddenText: "full name",
+          href: "./about-you"
+        }]
+      }
+    },{
+      key: {
+        text: "Email address"
+      },
+      value: { 
+        html: data.email
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "email address",
+          href: "./about-you"
+        }]
+      }
+    },{
+      key: {
+        text: "Job title"
+      },
+      value: { 
+        html: data.jobTitle or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "job title",
+          href: "./about-you"
+        }]
+      }
+    }]
+  }) }}
+
+  <h2 class="govuk-heading-m">Expertise details<h2>
+  
+  {% include "_includes/shared/sector-cards.html" %}
+
+  <h2 class="govuk-heading-m">Additional information<h2>
+
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    rows: [{
+      key: {
+        text: "Additional information"
+      },
+      value: { 
+        text: data.additionalInformation or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "full name",
+          href: "./about-you"
         }]
       }
     }]

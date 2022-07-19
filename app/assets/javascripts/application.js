@@ -53,11 +53,11 @@ if ($('#level-business-human').length) {
 
   // Deselect all others if the checkbox is checked
   combinedDeselectOthers.change(function() {
-    $('.govuk-checkboxes__input').not(this).attr('checked', false);
+    $('.human-resources .govuk-checkboxes__input').not(this).attr('checked', false);
   });
 
   // Deselect the checkbox if any of the others are checked
-  $('.govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
+  $('.human-resources .govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
     $(combinedDeselectOthers).attr('checked', false);
   });
 
@@ -72,11 +72,11 @@ if ($('#level-business-management').length) {
 
   // Deselect all others if the checkbox is checked
   combinedDeselectOthers.change(function() {
-    $('.govuk-checkboxes__input').not(this).attr('checked', false);
+    $('.management-and-administration .govuk-checkboxes__input').not(this).attr('checked', false);
   });
 
   // Deselect the checkbox if any of the others are checked
-  $('.govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
+  $('.management-and-administration .govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
     $(combinedDeselectOthers).attr('checked', false);
   });
 

@@ -1,6 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
+{% set serviceName = "Register your interest to be an expert" %}
 {% set pageHeading = "Qualification level details" %}
 {% set bodyClasses = "select-levels-page-care" %}
 {% set formAction = "./review-sectors" %}
@@ -16,7 +17,7 @@
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
-        text: "Enter details of the qualification (optional)",
+        text: "Enter details (optional)",
         classes: "govuk-label--s"
       }
     } | decorateAttributes(data, "data.level.careServicesOther")) }}
@@ -91,8 +92,8 @@
         divider: "or"
       },
       {
-        value: "Something else that isn't listed",
-        text: "Something else that isn't listed",
+        value: "Something that isn't listed",
+        text: "Something that isn't listed",
         conditional: {
           html: otherHtml
         }

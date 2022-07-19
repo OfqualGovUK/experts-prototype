@@ -1,7 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Is there anythig else you want to tell us?" %}
+{% set serviceName = "Register your interest to be an expert" %}
+{% set pageHeading = "Is there anything else you want to say? (optional)" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
@@ -14,9 +15,9 @@
       isPageHeading: true
     },
     hint: {
-      text: "I wonder what we want to say here."
+      text: "It might be nice to give people an opportunity to say something very brief?"
     }
-  } | decorateAttributes(data, "data.anythingElse")) }}
+  } | decorateAttributes(data, "data.additionalInformation")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

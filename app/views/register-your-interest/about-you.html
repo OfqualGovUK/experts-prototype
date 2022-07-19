@@ -1,6 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
+{% set serviceName = "Register your interest to be an expert" %}
 {% set pageHeading = "About you" %}
 {% set formAction = "./select-route" %}
 
@@ -15,8 +16,7 @@
     },
     classes: "govuk-input govuk-!-width-two-thirds"
   } | decorateAttributes(data, "data.fullName")) }}
-  
-  
+
   {{ govukInput({
     label: {
       text: "Email address",
@@ -25,8 +25,19 @@
     hint: {
       text: "This email will be used to send you updates about your registration"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
+    classes: "govuk-input govuk-!-width-two-thirds",
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false
   } | decorateAttributes(data, "data.email")) }}
+  
+  {{ govukInput({
+    label: {
+      text: "Job title (optional)",
+      classes: "govuk-label--s"
+    },
+    classes: "govuk-input govuk-!-width-two-thirds"
+  } | decorateAttributes(data, "data.jobTitle")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
