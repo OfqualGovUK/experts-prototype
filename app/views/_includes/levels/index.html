@@ -5,9 +5,9 @@
     data.pathway.level.a
   {% elseif data.pathway.agriculture == "Animal Care and Management" %}
     data.pathway.level.b
-  {% elseif data.pathway.business == "Human Resources" %}
+  {% elseif data.pathway.business == "Human resources" %}
     data.pathway.level.c
-  {% elseif data.pathway.business == "Management and Administration" %}
+  {% elseif data.pathway.business == "Management and administration" %}
     data.pathway.level.d
   {% else %}
     data.pathway.level.d
@@ -190,11 +190,11 @@
 
   {% if data.pathway.business %}
     
-    {% if "Human Resources" in data.pathway.business %}
+    {% if "Human resources" in data.pathway.business %}
       {{ govukCheckboxes({
         fieldset: {
           legend: {
-            html: "Which qualification levels for Human Resources can you provide expertise in?",
+            html: "Which qualification levels for Human resources can you provide expertise in?",
             classes: "govuk-fieldset__legend--m",
             isPgeHeading: false
           }
@@ -270,11 +270,11 @@
       } | decorateAttributes(data, "data.pathway.business.human")) }}
     {% endif %}
 
-    {% if "Management and Administration" in data.pathway.business %}
+    {% if "Management and administration" in data.pathway.business %}
       {{ govukCheckboxes({
         fieldset: {
           legend: {
-            html: "Which qualification levels for Management and Administration can you provide expertise in?",
+            html: "Which qualification levels for Management and administration can you provide expertise in?",
             classes: "govuk-fieldset__legend--m",
             isPgeHeading: false
           }

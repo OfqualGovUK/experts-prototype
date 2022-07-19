@@ -82,7 +82,7 @@
 
   {% endset %}
 
-  {% if data.pathway.business == "Human Resources" and data.confirmDeleteBuisnessHuman != "true" %}
+  {% if data.pathway.business == "Human resources" and data.confirmDeleteBuisnessHuman != "true" %}
   
     {{ xGovukSummaryCard({
       classes: "govuk-!-margin-bottom-9",
@@ -90,7 +90,7 @@
       actions: {
         items: [{
           text: "Delete",
-          visuallyHiddenText: "Business and administration - Human Resources",
+          visuallyHiddenText: "Business and administration - Human resources",
           href: "/register-your-interest/delete?delete=deleteBuisnessHuman"
         }]
       },
@@ -99,7 +99,7 @@
           text: "Area of focus"
         },
         value: { 
-          text: "Human Resources"
+          text: "Human resources"
         },
         actions: {
           items: [{
@@ -127,7 +127,7 @@
 
   {% endif %}
 
-  {% if data.pathway.business == "Management and Administration" and data.confirmDeleteBuisnessManagement != "true" %}
+  {% if data.pathway.business == "Management and administration" and data.confirmDeleteBuisnessManagement != "true" %}
   
     {{ xGovukSummaryCard({
       classes: "govuk-!-margin-bottom-9",
@@ -146,7 +146,7 @@
           text: "Area of focus"
         },
         value: { 
-          text: "Management and Administration"
+          text: "Management and administration"
         },
         actions: {
           items: [{
