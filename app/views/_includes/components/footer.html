@@ -9,9 +9,14 @@
         <div class="govuk-grid-column-one-half">
           <h2 class="govuk-heading-s">Get help</h2>
           <ul class="govuk-footer__meta-custom govuk-list govuk-!-font-size-16">
-            <li>Phone: <a class="govuk-link govuk-footer__link" href="tel:0300 303 3344">0300 303 3344</a></li>
-            <li>Email: <a class="govuk-link govuk-footer__link" href="mailto:websupport@ofqual.gov.uk?subject=Ofqual%20online%20support">websupport@ofqual.gov.uk</a></li>
-            <li>We aim to respond within 3 working days</li>
+            {% if serviceName == "Register your interest to be an expert" %}
+              <li>Email: <a class="govuk-link govuk-footer__link" href="mailto:experts@ofqual.gov.uk?subject=Ofqual%20experts%20online%20support">experts@ofqual.gov.uk</a></li>
+              <li>We aim to respond within 3 working days</li>
+            {% else %}
+              <li>Phone: <a class="govuk-link govuk-footer__link" href="tel:0300 303 3344">0300 303 3344</a></li>
+              <li>Email: <a class="govuk-link govuk-footer__link" href="mailto:websupport@ofqual.gov.uk?subject=Ofqual%20online%20support">websupport@ofqual.gov.uk</a></li>
+              <li>We aim to respond within 3 working days</li>
+            {% endif %}
           </ul>
         </div>
         <div class="govuk-grid-column-one-half">
