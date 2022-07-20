@@ -6,7 +6,8 @@
 
 {% set pageHeading %}
   {# the must be on theor second loop #}
-  {% if "Business and administration" in data.route or "Care services" in data.route %} 
+  {% if data.route %}
+  {# {% if data.route and "Business and administration" in data.route or "Care services" in data.route %}  #}
     Select another sector you have expertise in
   {# must be the first tie on the page #}
   {% else %}

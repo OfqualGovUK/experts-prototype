@@ -70,16 +70,113 @@
 
   {% endset %}
 
-  {% if "Human resources" in data.pathway.business  and data.confirmDeleteBuisnessHuman != "true" %}
+  {% if data.pathway.business %}
+  
+    {% if "Human resources" in data.pathway.business and data.confirmDeleteBuisnessHuman != "true" %}
 
+        {{ xGovukSummaryCard({
+          classes: "govuk-!-margin-bottom-9",
+          titleText: "Business and administration",
+          actions: {
+            items: [{
+              text: "Delete choice",
+              visuallyHiddenText: "Business and administration - Human resources",
+              href: "/register-your-interest/delete?delete=deleteBuisnessHuman"
+            }]
+          },
+          rows: [{
+            key: {
+              text: "Area of focus"
+            },
+            value: { 
+              text: "Human resources"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "area of focus",
+                href: "./select-pathways-business"
+              }]
+            }
+          },{
+            key: {
+              text: "Qualifcation level/s of expertise"
+            },
+            value: { 
+              html: levelsHtmlBusinessHuman
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "qualifcation level/s of expertise ",
+                href: "./select-levels-business#human-resources"
+              }]
+            }
+          }]
+        }) }}
+
+    {% endif %}
+
+    {% if "Management and administration" in data.pathway.business and data.confirmDeleteBuisnessManagement != "true" %}
+    
+        {{ xGovukSummaryCard({
+          classes: "govuk-!-margin-bottom-9",
+          titleText: "Business and administration",
+          actions: {
+            items: [
+            {
+              text: "Delete choice",
+              visuallyHiddenText: " management and administration",
+              href: "/register-your-interest/delete?delete=deleteBuisnessManagement"
+            }
+            ]
+          },
+          rows: [{
+            key: {
+              text: "Area of focus"
+            },
+            value: { 
+              text: "Management and administration"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "area of focus",
+                href: "./select-pathways-business"
+              }]
+            }
+          },{
+            key: {
+              text: "Qualifcation level/s of expertise"
+            },
+            value: { 
+              html: levelsHtmlBusinessManagement
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "qualifcation level/s of expertise ",
+                href: "./select-levels-business#management-and-administration"
+              }]
+            }
+          }]
+        }) }}
+    {% endif %}
+
+  {% endif %}
+
+  {% if data.route %}
+
+    {% if "Care services" in data.route and data.confirmDeleteCareServices != "true" %}
+    
       {{ xGovukSummaryCard({
         classes: "govuk-!-margin-bottom-9",
-        titleText: "Business and administration",
+        titleText: "Care services",
         actions: {
           items: [{
             text: "Delete choice",
-            visuallyHiddenText: "Business and administration - Human resources",
-            href: "/register-your-interest/delete?delete=deleteBuisnessHuman"
+            visuallyHiddenText: "Care services",
+            href: "/register-your-interest/delete?delete=deleteCareServices"
           }]
         },
         rows: [{
@@ -87,114 +184,25 @@
             text: "Area of focus"
           },
           value: { 
-            text: "Human resources"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "area of focus",
-              href: "./select-pathways-business"
-            }]
+            text: "Care services"
           }
         },{
           key: {
             text: "Qualifcation level/s of expertise"
           },
           value: { 
-            html: levelsHtmlBusinessHuman
+            html: levelsHtmlCareServices
           },
           actions: {
             items: [{
               text: "Change",
               visuallyHiddenText: "qualifcation level/s of expertise ",
-              href: "./select-levels-business#human-resources"
+              href: "./select-levels-care-services"
             }]
           }
         }]
       }) }}
 
-  {% endif %}
-
-  {% if "Management and administration" in data.pathway.business and data.confirmDeleteBuisnessManagement != "true" %}
-  
-      {{ xGovukSummaryCard({
-        classes: "govuk-!-margin-bottom-9",
-        titleText: "Business and administration",
-        actions: {
-          items: [
-          {
-            text: "Delete choice",
-            visuallyHiddenText: " management and administration",
-            href: "/register-your-interest/delete?delete=deleteBuisnessManagement"
-          }
-          ]
-        },
-        rows: [{
-          key: {
-            text: "Area of focus"
-          },
-          value: { 
-            text: "Management and administration"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "area of focus",
-              href: "./select-pathways-business"
-            }]
-          }
-        },{
-          key: {
-            text: "Qualifcation level/s of expertise"
-          },
-          value: { 
-            html: levelsHtmlBusinessManagement
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "qualifcation level/s of expertise ",
-              href: "./select-levels-business#management-and-administration"
-            }]
-          }
-        }]
-      }) }}
-  {% endif %}
-
-  {% if data.route == "Care services" and data.confirmDeleteCareServices != "true" %}
-  
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: "Care services",
-      actions: {
-        items: [{
-          text: "Delete choice",
-          visuallyHiddenText: "Care services",
-          href: "/register-your-interest/delete?delete=deleteCareServices"
-        }]
-      },
-      rows: [{
-        key: {
-          text: "Area of focus"
-        },
-        value: { 
-          text: "Care services"
-        }
-      },{
-        key: {
-          text: "Qualifcation level/s of expertise"
-        },
-        value: { 
-          html: levelsHtmlCareServices
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "qualifcation level/s of expertise ",
-            href: "./select-levels-care-services"
-          }]
-        }
-      }]
-    }) }}
+    {% endif %}
 
   {% endif %}
