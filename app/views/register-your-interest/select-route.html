@@ -11,7 +11,7 @@
     Select another sector you have expertise in
   {# must be the first tie on the page #}
   {% else %}
-      Select the sector you have expertise in
+      Select a sector you have expertise in
   {% endif %}
 {% endset %}
 
@@ -32,11 +32,11 @@
       {
         value: "Business and administration",
         text: "Business and administration"
-      } if data.route != "Business and administration",
+      },
       {
         value: "Care services",
         text: "Care services"
-      } if data.route != "Care services",
+      },
       {
         divider: "or"
       },
