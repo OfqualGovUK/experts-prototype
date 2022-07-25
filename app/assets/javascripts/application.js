@@ -28,18 +28,18 @@ $('a[href=#]').on('click', function (event) {
 // If Care services exist uncheck options based on "I dont know the level" and "somethig else..."  
 if ($('.select-levels-page-care').length) {
   
-  var deselectOthersCheckbox1 = $('#level-careServices-8');
-  var deselectOthersCheckbox2 = $('#level-careServices-10');
-  var combinedDeselectOthers = deselectOthersCheckbox1.add(deselectOthersCheckbox2);
+  var deselectOthersCheckbox1 = $('#level-careServices-10');
+  // var deselectOthersCheckbox2 = $('#level-careServices-10');
+  // var combinedDeselectOthers = deselectOthersCheckbox1.add(deselectOthersCheckbox2);
 
   // Deselect all others if the checkbox is checked
-  combinedDeselectOthers.change(function() {
+  deselectOthersCheckbox1.change(function() {
     $('.govuk-checkboxes__input').not(this).attr('checked', false);
   });
 
   // Deselect the checkbox if any of the others are checked
-  $('.govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
-    $(combinedDeselectOthers).attr('checked', false);
+  $('.govuk-checkboxes__input').not(deselectOthersCheckbox1).change(function() {
+    $(deselectOthersCheckbox1).attr('checked', false);
   });
 
 }
@@ -47,18 +47,18 @@ if ($('.select-levels-page-care').length) {
 // If  Business management - Human resources exist uncheck options based on "I dont know the level" and "somethig else..."  
 if ($('#level-business-human').length) {
   
-  var deselectOthersCheckbox1 = $('#level-business-human-8');
-  var deselectOthersCheckbox2 = $('#level-business-human-10');
-  var combinedDeselectOthers = deselectOthersCheckbox1.add(deselectOthersCheckbox2);
+  var deselectOthersCheckbox1 = $('#level-business-human-10');
+  // var deselectOthersCheckbox2 = $('#level-business-human-10');
+  // var combinedDeselectOthers = deselectOthersCheckbox1.add(deselectOthersCheckbox2);
 
   // Deselect all others if the checkbox is checked
-  combinedDeselectOthers.change(function() {
+  deselectOthersCheckbox1.change(function() {
     $('.human-resources .govuk-checkboxes__input').not(this).attr('checked', false);
   });
 
   // Deselect the checkbox if any of the others are checked
-  $('.human-resources .govuk-checkboxes__input').not(combinedDeselectOthers).change(function() {
-    $(combinedDeselectOthers).attr('checked', false);
+  $('.human-resources .govuk-checkboxes__input').not(deselectOthersCheckbox1).change(function() {
+    $(deselectOthersCheckbox1).attr('checked', false);
   });
 
 }
