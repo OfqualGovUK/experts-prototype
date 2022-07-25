@@ -2,10 +2,10 @@
     
     {% if data.level.careServices %}
       
-      {% if data.level.careServices == "Something that isn't listed" %}
+      {% if data.level.careServices == "An option that isn't listed" %}
         {{ data.level.careServicesOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.careServices != "I don't know the level" or data.level.careServices != "Something that isn't listed" %}
+      {% elseif data.level.careServices != "I don't know the level" or data.level.careServices != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.careServices %}
             <li>
@@ -26,10 +26,10 @@
     
     {% if data.level.business.human %}
       
-      {% if data.level.business.human == "Something that isn't listed" %}
+      {% if data.level.business.human == "An option that isn't listed" %}
         {{ data.level.business.humanOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.business.human != "I don't know the level" or data.level.business.human != "Something that isn't listed" %}
+      {% elseif data.level.business.human != "I don't know the level" or data.level.business.human != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.business.human %}
             <li>
@@ -50,10 +50,10 @@
     
     {% if data.level.business.management %}
       
-      {% if data.level.business.management == "Something that isn't listed" %}
+      {% if data.level.business.management == "An option that isn't listed" %}
         {{ data.level.business.managementOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.business.management != "I don't know the level" or data.level.business.management != "Something that isn't listed" %}
+      {% elseif data.level.business.management != "I don't know the level" or data.level.business.management != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.business.management %}
             <li>
