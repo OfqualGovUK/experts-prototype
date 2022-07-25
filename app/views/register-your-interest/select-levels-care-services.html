@@ -38,65 +38,65 @@
       {
         value: "Level 1",
         text: "Level 1",
-        _hint: {
-          text: "... for example"
+        hint: {
+          text: "First certificate or or GCSE - grade 3 or D and below for example"
         }
       },
       {
         value: "Level 2",
         text: "Level 2",
-        _hint: {
-          text: "... for example"
+        hint: {
+          text: "Intermediate apprenticeship or GCSE - grade 4 or C and above for example"
         }
       },
       {
         value: "Level 3",
         text: "Level 3",
-        _hint: {
+        hint: {
           text: "A/AS level or advanced apprenticeship for example"
         }
       },
       {
         value: "Level 4",
         text: "Level 4",
-        _hint: {
-          text: "... for example"
+        hint: {
+          text: "Certificate of higher education (CertHE) or higher apprenticeship for example"
         }
       },
       {
         value: "Level 5",
         text: "Level 5",
-        _hint: {
+        hint: {
           text: "Diploma of higher education (DipHE) or foundation degree for example"
         }
       },
       {
         value: "Level 6",
         text: "Level 6",
-        _hint: {
-          text: "... for example"
+        hint: {
+          text: "Degree apprenticeship, degree with honours, graduate certificate or graduate diploma for example"
         }
       },
       {
         value: "Level 7",
         text: "Level 7",
-        _hint: {
-          text: "... for example"
+        hint: {
+          text: "Master’s degree, postgraduate certificate or postgraduate diploma for example"
         }
       },
       {
-        value: "I don't know the level",
-        text: "I don't know the level"
-      },
+        value: "An option that isn't listed",
+        text: "An option that isn't listed",
+        conditional: {
+          html: otherHtml
+        }
+      },  
       {
         divider: "or"
       },
       {
-        value: "Something that isn't listed",
-        text: "Something that isn't listed",
-        conditional: {
-          html: otherHtml
-        }
+        value: "I don't know the level",
+        text: "I don't know the level"
       }
     ]
   } | decorateAttributes(data, "data.level.careServices")) }}
