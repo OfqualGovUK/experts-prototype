@@ -17,6 +17,9 @@ Example usage:
 
 */
 
+// Import data
+const routeData = require('./routeData.json')
+
 // Setting the default layout settings
 let settings = {
   caseStatus: "Has multiple cases in the service"
@@ -24,6 +27,7 @@ let settings = {
 
 module.exports = {
 
+  routeData,
   settings: settings
 
   // Insert values here

@@ -1,0 +1,69 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/select-route-answer" %}
+
+{% set pageHeading %}
+  {# the must be on theor second loop #}
+  {% if data.route %}
+  {# {% if data.route and "Business and administration" in data.route or "Care services" in data.route %}  #}
+    Select another sector you have expertise in
+  {# must be the first tie on the page #}
+  {% else %}
+      Select a sector you have expertise in
+  {% endif %}
+{% endset %}
+
+{% block formContent %}
+
+    {# {% for route in data.routes %}
+      test
+    {% endfor %}
+
+  {% set routeOptions = [] %}
+    {% for route in data.routes %}
+      {% set routeOptions = routes | push ({
+        text: route
+      }) %}
+  {% endfor %} #}
+
+  {% set routes = []  %}
+
+  {% for route in data.routeData  %}
+    {% set routes = routes | push ({ 
+      text: route.name
+    }) %}
+  {% endfor %}
+
+  {% set routes = routes | push ({ 
+    divider: "or"
+  }) %}
+
+  {% set routes = routes | push ({ 
+    text: "I can't find my sector"
+  }) %}
+
+  {{ routes | log }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "You will have the ability to add another sector once you have finished telling us about the first one"
+    },
+   items: routes
+  } | decorateAttributes(data, "data.selectedRoute")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+[
+
+  {
+    "name": "Agriculture environmental and animal care"
+  },
+  {
+    "name": "Business and administration",
+    "occupations": [
+      "one",
+      "two"
+    ]
+  },
+  {
+    "name": "Care services"
+  },
+  {
+    "name": "Catering and hospitality"
+  },
+  {
+    "name": "Construction and the built environment"
+  },
+  {
+    "name": "Creative and design"
+  },
+  {
+    "name": "Digital"
+  },
+  {
+    "name": "Education and childcare"
+  },
+  {
+    "name": "Engineering and manufacturing"
+  },
+  {
+    "name": "Hair and beauty"
+  },
+  {
+    "name": "Health and science"
+  },
+  {
+    "name": "Legal"
+  },
+  {
+    "name": "Protective services"
+  },
+  {
+    "name": "Sales"
+  },
+  {
+    "name": "Transport and logistics"
+  }
+]
