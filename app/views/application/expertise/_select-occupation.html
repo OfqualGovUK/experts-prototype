@@ -1,0 +1,129 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/select-route-answer" %}
+
+{% set pageHeading = "Select the occupations you have significant experience in" %}
+
+{% block formContent %}
+
+  {# {% set occupations = []  %}
+
+  {% for occupation in data.bussinessData  %}
+    {% set occupations = occupations | push ({ 
+      text: occupation
+    }) %}
+  {% endfor %}
+
+  {% set routes = occupations | push ({ 
+    divider: "or"
+  }) %}
+
+  {% set routes = routes | push ({ 
+    text: "I can't find my occupation"
+  }) %}
+
+  {{ occupations | log }}
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+   items: occupations
+  } | decorateAttributes(data, "data.selectedOccupation")) }} #}
+  
+  <span class="govuk-caption-l">{{ data.selectedRoute }}
+  <h1 class="govuk-heading-l">Select the occupations you have significant teaching, assessment or sector experience in</h1>
+
+  <div class="body-text">
+    <span class="govuk-hint">HR Support, Policy Officer for example</span>
+    <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
+  </div>
+
+  {% set detialsHtml %}
+    {{ govukInput({
+      label: {
+        text: "What is the name of the event?",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.selectedRoute")) }}
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "I can't find my occupation",
+    html: detailsHtml
+  }) }}
+
+  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+  <script type="text/javascript">
+    var occupations = [
+      "Business Administrator",
+      "Career Development Professional",
+      "Chartered Manager Degree Apprenticeship",
+      "Coaching Professional",
+      "Community Energy Specialist",
+      "Corporate responsibility and sustainability practitioner",
+      "Dental Practice Manager",
+      "Employability Practitioner",
+      "HR consultant partner",
+      "HR Support",
+      "Improvement leader",
+      "Improvement practitioner",
+      "Improvement specialist",
+      "Improvement technician",
+      "Information Manager",
+      "Junior Management Consultant",
+      "Learning and development consultant business partner",
+      "Learning and development practitioner",
+      "Leisure duty manager",
+      "Library",
+      "Operational Research Specialist",
+      "Operations or departmental manager",
+      "Policy Officer",
+      "Project Manager (integrated degree)",
+      "Public sector compliance Investigator and officer",
+      "Public Service Operational Delivery Officer",
+      "Quality Practitioner",
+      "Recruitment Consultant",
+      "Recruitment Resourcer",
+      "Regulatory Compliance Officer",
+      "Revenues and Welfare Benefits Practitioner",
+      "School Business Professional",
+      "Senior Leader",
+      "Senior People Professional",
+      "Sustainability business specialist  (integrated degree)",
+      "Systems Thinking Practitioner",
+      "Team Leader or supervisor",
+      "Trade Union Official"
+    ];
+
+    {# var getSuggestions = () => {
+      var suggestions = []
+      subjects.forEach(result => suggestions.push(result.name));
+      return suggestions;
+    } #}
+  </script>
+
+  <script type="text/javascript">
+    var element = document.querySelector('#tt-default')
+    var id = 'autocomplete-default'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+      source: occupations
+    })
+  </script>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

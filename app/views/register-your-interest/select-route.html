@@ -40,13 +40,6 @@
     ]
   } | decorateAttributes(data, "data.route")) }}
 
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-    <a class="govuk-link" href="#">Cancel</a>
-  </div>
-
   {% set detailsHtml %}
     <p class="govuk-body">
       If you can't see you sector that means we don't need you at this time. Thanks though! (this content is tbc)
@@ -57,5 +50,13 @@
     summaryText: "What if I can't see my sector?",
     text: detailsHtml | safe
   }) }}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
 
 {% endblock %}
