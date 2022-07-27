@@ -36,13 +36,6 @@
       {
         value: "Care services",
         text: "Care services"
-      },
-      {
-        divider: "or"
-      },
-      {
-        value: "I can't see my sector",
-        text: "I can't see my sector"
       }
     ]
   } | decorateAttributes(data, "data.route")) }}
@@ -53,5 +46,16 @@
     }) }}
     <a class="govuk-link" href="#">Cancel</a>
   </div>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">
+      If you can't see you secotr that means we don't need you at this time. Thanks though! (this content is tbc)
+    </p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What if I can't see my sector?",
+    text: detailsHtml | safe
+  }) }}
 
 {% endblock %}

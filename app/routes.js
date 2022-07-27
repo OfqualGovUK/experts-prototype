@@ -35,6 +35,21 @@ router.post('/existing-account-answer', function (req, res) {
 
 })
 
+// Do you already have an account?
+router.post('/application/select-sector-answer', function (req, res) {
+
+  let selectedRoute = req.session.data.selectedRoute
+
+  if (selectedRoute === "I can't find my sector") {
+      res.redirect('/application/no-sector')
+    } else {
+      res.redirect('/application/expertise/select-occupation')
+  }
+
+})
+
+
+
 // ------ Register your interest  ----- //
 
 // Example folder
@@ -49,9 +64,7 @@ router.post('/select-route-answer', function (req, res) {
       res.redirect('/register-your-interest/select-pathways-business')
     } else if (selectedRoute === 'Care services') {
       res.redirect('/register-your-interest/select-levels-care-services') 
-    } else {
-      res.redirect('/register-your-interest/no-sector') 
-  }
+    }
 
 })
 
