@@ -19,6 +19,7 @@ Example usage:
 
 // Import data
 const routeData = require('./routeData.json')
+const bussinessData = require('./bussinessData.json')
 
 // Setting the default layout settings
 let settings = {
@@ -28,6 +29,7 @@ let settings = {
 module.exports = {
 
   routeData,
+  bussinessData,
   settings: settings
 
   // Insert values here

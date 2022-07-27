@@ -1,0 +1,46 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/select-route-answer" %}
+
+{% set pageHeading = " Select the occupations you have significant experience in" %}
+
+{% block formContent %}
+
+  {% set occupations = []  %}
+
+  {% for occupation in data.bussinessData  %}
+    {% set occupations = occupations | push ({ 
+      text: occupation
+    }) %}
+  {% endfor %}
+
+  {% set routes = occupations | push ({ 
+    divider: "or"
+  }) %}
+
+  {% set routes = routes | push ({ 
+    text: "I can't find my occupation"
+  }) %}
+
+  {{ occupations | log }}
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+   items: occupations
+  } | decorateAttributes(data, "data.selectedOccupation")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

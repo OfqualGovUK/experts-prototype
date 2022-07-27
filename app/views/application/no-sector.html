@@ -1,0 +1,24 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set serviceName = "Register your interest to be an expert" %}
+{% set pageHeading = "We're sorry you can't see your sector" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+    <p class="govuk-body">What should they do now?</p>
+
+    {{ govukButton({
+      text: "Return home",
+      href: "./"
+    }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
