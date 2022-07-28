@@ -86,7 +86,8 @@
   position: relative;
   max-height: none;
   height: auto !important;
-  overflow-y: auto;
+  // overflow-y: auto;
+  overflow: visible;
   // overflow-x: hidden;
   background-color: govuk-colour("white");
 

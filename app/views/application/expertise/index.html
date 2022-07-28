@@ -10,7 +10,7 @@
     Select another sector you have expertise in
   {# must be the first tie on the page #}
   {% else %}
-      Select a sector you have expertise in
+      Select a sector you have expertise in.
   {% endif %}
 {% endset %}
 
@@ -35,14 +35,6 @@
     }) %}
   {% endfor %}
 
-  {% set routes = routes | push ({ 
-    divider: "or"
-  }) %}
-
-  {% set routes = routes | push ({ 
-    text: "I can't find my sector"
-  }) %}
-
   {{ routes | log }}
 
   {{ govukRadios({
@@ -54,10 +46,21 @@
       }
     },
     hint: {
-      text: "You will have the ability to add another sector once you have finished telling us about the first one"
+      text: "You will be able to add another sector later"
     },
    items: routes
   } | decorateAttributes(data, "data.selectedRoute")) }}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">
+      If you can't see you sector that means we don't need you at this time. Thanks though! (this content is tbc)
+    </p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What if I can't see my sector?",
+    text: detailsHtml | safe
+  }) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
