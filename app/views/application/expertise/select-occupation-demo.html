@@ -53,8 +53,16 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="/public/javascripts/option-select.js"></script>
+  {% set detailsHtml %}
+    <p class="govuk-body">
+      If you can't see your occupation then... 
+    </p>
+  {% endset %}
 
+  {{ govukDetails({
+    summaryText: "What if I can't see my occupation?",
+    text: detailsHtml | safe
+  }) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
@@ -62,5 +70,7 @@
     }) }}
     <a class="govuk-link" href="#">Cancel</a>
   </div>
+
+  <script type="text/javascript" src="/public/javascripts/option-select.js"></script>
 
 {% endblock %}
