@@ -35,7 +35,22 @@ router.post('/existing-account-answer', function (req, res) {
 
 })
 
-// Do you already have an account?
+// Select the area
+router.post('/application/select-area-answer', function (req, res) {
+
+  let selectedArea = req.session.data.selectedArea
+
+  if (selectedArea === "General Qualification subjects") {
+      res.redirect('/application/sorry')
+    } else if (selectedArea === "Vocational, industry and occupational qualifications") {
+      res.redirect('/application/expertise/select-sector')
+    } else if (selectedArea === "Other qualifications") {
+      res.redirect('/application/expertise/select-other-qualification')
+    }
+
+})
+
+// Select the sector
 router.post('/application/select-sector-answer', function (req, res) {
 
   let selectedRoute = req.session.data.selectedRoute

@@ -1,41 +1,11 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/select-sector-answer" %}
+{% set formAction = "/application/select-area-answer" %}
 
-{% set pageHeading %}
-  {# the must be on theor second loop #}
-  {% if data.route %}
-  {# {% if data.route and "Business and administration" in data.route or "Care services" in data.route %}  #}
-    Select another sector you have expertise in
-  {# must be the first tie on the page #}
-  {% else %}
-      Select a sector you have expertise in.
-  {% endif %}
-{% endset %}
+{% set pageHeading = "Select your area of expertise" %}
 
 {% block formContent %}
-
-    {# {% for route in data.routes %}
-      test
-    {% endfor %}
-
-  {% set routeOptions = [] %}
-    {% for route in data.routes %}
-      {% set routeOptions = routes | push ({
-        text: route
-      }) %}
-  {% endfor %} #}
-
-  {% set routes = []  %}
-
-  {% for route in data.routeData  %}
-    {% set routes = routes | push ({ 
-      text: route.name
-    }) %}
-  {% endfor %}
-
-  {{ routes | log }}
 
   {{ govukRadios({
     fieldset: {
@@ -45,22 +15,30 @@
         isPgeHeading: true
       }
     },
-    hint: {
-      text: "You will be able to add another sector later"
-    },
-   items: routes
-  } | decorateAttributes(data, "data.selectedRoute")) }}
-
-  {% set detailsHtml %}
-    <p class="govuk-body">
-      If you can't see you sector that means we don't need you at this time. Thanks though! (this content is tbc)
-    </p>
-  {% endset %}
-
-  {{ govukDetails({
-    summaryText: "What if I can't see my sector?",
-    text: detailsHtml | safe
-  }) }}
+    items: [
+      {
+        value: "Vocational, industry and occupational qualifications",
+        html: "Vocational, industry and occupational qualifications",
+        hint: {
+          text: "text, text"
+        }
+      },
+      {
+        value: "Other qualifications",
+        html: "Other qualifications",
+        hint: {
+          text: "text, text"
+        }
+      },
+      {
+        value: "General Qualification subjects",
+        text: "General Qualification subjects",
+        hint: {
+          text: "text, text"
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.selectedArea")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

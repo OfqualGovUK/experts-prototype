@@ -30,7 +30,12 @@
         <h2 class="govuk-heading-m">Your expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Select your expertise',
+              name: 'Select expertise',
+              href: 'application/expertise',
+              taskName: data['task--name-contact']
+            })}}
+            {{ appTaskListItem({
+              name: 'Expertise details',
               href: 'application/expertise',
               taskName: data['task--name-contact']
             })}}
