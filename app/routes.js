@@ -45,7 +45,7 @@ router.post('/application/select-area-answer', function (req, res) {
     } else if (selectedArea === "Vocational, industry and occupational qualifications") {
       res.redirect('/application/expertise/select-sector')
     } else if (selectedArea === "Other qualifications") {
-      res.redirect('/application/expertise/select-other-qualification')
+      res.redirect('/application/sorry')
     }
 
 })
