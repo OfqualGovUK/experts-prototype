@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/select-route-answer" %}
+{% set formAction = "/select-occuptation-answer" %}
 {# {% set backLink = "#" %} #}
 
 {% set pageHeading = "Select the occupations where you have teaching, assessment, training or industry experience" %}
@@ -109,7 +109,7 @@
   {# If its a route with less than 20-ish options, render plain checkboxes #}
   {% if data.selectedRoute == "Care services" or data.selectedRoute == "Catering and hospitality" or data.selectedRoute == "Digital" or data.selectedRoute == "Education and childcare" or data.selectedRoute == "Hair and beauty" or data.selectedRoute == "Protective services" %}
 
-    {{ govukCheckboxes({
+    {{ govukRadios({
       fieldset: {
         legend: {
           text: "Occupations",
@@ -132,7 +132,7 @@
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "What if I can't see my occupation?",
+    summaryText: "I can't find my occupation",
     text: detailsHtml | safe
   }) }}
 

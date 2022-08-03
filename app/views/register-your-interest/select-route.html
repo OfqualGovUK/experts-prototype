@@ -42,12 +42,12 @@
 
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you can't see you sector that means we don't need you at this time. Thanks though! (this content is tbc)
+      If you can't find your sector...
     </p>
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "What if I can't see my sector?",
+    summaryText: "I cant find my sector",
     text: detailsHtml | safe
   }) }}
   

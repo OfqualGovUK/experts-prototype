@@ -40,12 +40,10 @@ router.post('/application/select-area-answer', function (req, res) {
 
   let selectedArea = req.session.data.selectedArea
 
-  if (selectedArea === "General Qualification subjects") {
+  if (selectedArea === "General subject qualifications") {
       res.redirect('/application/sorry')
     } else if (selectedArea === "Vocational, industry and occupational qualifications") {
       res.redirect('/application/expertise/select-sector')
-    } else if (selectedArea === "Other qualifications") {
-      res.redirect('/application/sorry')
     }
 
 })

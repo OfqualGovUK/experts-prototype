@@ -1,11 +1,15 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/select-area-answer" %}
+{% set formAction = "./expertise/select-area" %}
 
-{% set pageHeading = "Select your area of expertise" %}
+{% set pageHeading = "Select your type of expertise" %}
+
 
 {% block formContent %}
+
+  {# <h1 class="">{{ pageHeading }}</h1> #}
+  {# <p class="govuk-body">You will have the opportunity to tell us about anther type of expertise once you have fiinshed tellig us aboug the first one.</p> #}
 
   {{ govukRadios({
     fieldset: {
@@ -15,30 +19,30 @@
         isPgeHeading: true
       }
     },
+    hint: {
+      text: "You will have the opportunity to tell us about other types of expertise once you have fininshed telling us about the first one."
+    },
     items: [
       {
-        value: "Vocational, industry and occupational qualifications",
-        html: "Vocational, industry and occupational qualifications",
+        text: "Teaching or training expertise",
         hint: {
-          text: "text, text"
+          text: "Hint text here"
         }
       },
       {
-        value: "General Qualification subjects",
-        text: "General Qualification subjects",
+        text: "Assessment expertise",
         hint: {
-          text: "text, text"
+          text: "Hint text here"
         }
       },
       {
-        value: "Other qualifications",
-        html: "Other qualifications",
-        hint: {
-          text: "text, text"
+        text: "Industry and occupational expertise",
+        _hint: {
+          text: "Industry and occupational experience"
         }
       }
     ]
-  } | decorateAttributes(data, "data.selectedArea")) }}
+  } | decorateAttributes(data, "data.selectedType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
