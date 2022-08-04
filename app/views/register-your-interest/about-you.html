@@ -30,6 +30,59 @@
     autocomplete: "email",
     spellcheck: false
   } | decorateAttributes(data, "data.email")) }}
+
+  {% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Enter details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.institutionTypeOther")) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "What type of institution or sector do you currently work in?",
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    _hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        value: "Further education provider",
+        text: "Further education provider"
+      },
+      {
+        value: "Higher education provider",
+        html: "Higher education provider"
+      },
+      {
+        value: "Independent training provider",
+        html: "Independent training provider"
+      },
+      {
+        value: "School",
+        html: "School"
+      },
+      {
+        value: "Sixth form college",
+        html: "Sixth form college"
+      },
+      {
+        divider: "or"
+      },
+      {
+        text: "An option that isn't listed",
+        conditional: {
+          html: otherHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.institutionType")) }}
   
   {# {{ govukInput({
     label: {

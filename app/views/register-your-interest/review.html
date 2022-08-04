@@ -9,7 +9,23 @@
 
   <h1 class="govuk-heading-l">Review your answers</h1>
 
-  <h2 class="govuk-heading-m">About you</h2> 
+  <h2 class="govuk-heading-m">About you</h2>
+
+  {% set institutionTypeHtml %}
+    {# List the "other" option or the selections #}
+    {% if data.institutionType == "An option that isn't listed" %}
+      {{ data.institutionTypeOther }}
+    {% elseif data.institutionType != "An option that isn't listed" %}
+      {# <ul class="govuk-list">
+        {% for type in data.institutionType %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul> #}
+      {{ data.institutionType }}
+    {% endif %} 
+  {% endset %} 
   
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
@@ -32,7 +48,21 @@
         text: "Email address"
       },
       value: { 
-        html: data.email
+        text: data.email or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "email address",
+          href: "./about-you"
+        }]
+      }
+    },{
+      key: {
+        text: "What type of institution or sector do you currently work in?"
+      },
+      value: { 
+        text: institutionTypeHtml
       },
       actions: {
         items: [{
