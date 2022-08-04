@@ -16,15 +16,13 @@
     {% if data.institutionType == "An option that isn't listed" %}
       {{ data.institutionTypeOther }}
     {% elseif data.institutionType != "An option that isn't listed" %}
-      {# <ul class="govuk-list">
+      <ul class="govuk-list">
         {% for type in data.institutionType %}
           <li>
             {{ type }}
           </li>
         {% endfor %}
-      </ul> #}
-      {{ data.institutionType }}
-    {% endif %} 
+      </ul>
   {% endset %} 
   
   {{ xGovukSummaryCard({
@@ -62,7 +60,7 @@
         text: "What type of institution or sector do you currently work in?"
       },
       value: { 
-        text: institutionTypeHtml
+        html: institutionTypeHtml
       },
       actions: {
         items: [{

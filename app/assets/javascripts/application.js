@@ -82,3 +82,20 @@ if ($('#level-business-management').length) {
 
 }
 
+// // If on the About ui page uncheck options based  "somethig else..."  
+// if ($('.about-you-page').length) {
+  
+//   var deselectOthersCheckbox = $('#institutionType-7');
+
+//   // Deselect all others if the checkbox is checked
+//   deselectOthersCheckbox.change(function() {
+//     $('.govuk-checkboxes__input').not(this).attr('checked', false);
+//   });
+
+//   // Deselect the checkbox if any of the others are checked
+//   $('.govuk-checkboxes__input').not(deselectOthersCheckbox).change(function() {
+//     $(deselectOthersCheckbox).attr('checked', false);
+//   });
+
+// }
+

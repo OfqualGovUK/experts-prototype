@@ -2,6 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set serviceName = "Register your interest to be an expert" %}
+{% set bodyClasses = "about-you-page" %}
 {% set pageHeading = "About you" %}
 {% set formAction = "./select-route" %}
 
@@ -41,14 +42,14 @@
     } | decorateAttributes(data, "data.institutionTypeOther")) }}
   {% endset -%}
 
-  {{ govukRadios({
+  {{ govukCheckboxes({
     fieldset: {
       legend: {
         text: "What type of institution or sector do you currently work in?",
         classes: "govuk-fieldset__legend--s"
       }
     },
-    _hint: {
+    hint: {
       text: "Select all that apply"
     },
     items: [
