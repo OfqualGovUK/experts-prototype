@@ -13,9 +13,9 @@
 
   {% set institutionTypeHtml %}
     {# List the "other" option or the selections #}
-    {% if data.institutionType == "An option that isn't listed" %}
+    {% if data.institutionType == "Something that isn't listed" %}
       {{ data.institutionTypeOther }}
-    {% elseif data.institutionType != "An option that isn't listed" %}
+    {% elseif data.institutionType != "Something that isn't listed" %}
       <ul class="govuk-list">
         {% for type in data.institutionType %}
           <li>
