@@ -36,7 +36,7 @@
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
-        text: "Enter details (optional)",
+        text: "Provide details (optional)",
         classes: "govuk-label--s"
       }
     } | decorateAttributes(data, "data.institutionTypeOther")) }}
@@ -78,7 +78,7 @@
         divider: "or"
       },
       {
-        text: "An option that isn't listed",
+        text: "Something that isn't listed",
         conditional: {
           html: otherHtml
         }

@@ -2,16 +2,16 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Do you want to search for a thing?" %}
-{% set backLink = "false" %}
+{# {% set backLink = "false" %} #}
 {% set formAction = "./check-email-account-created" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Create an account or sign in</h1>
+  <h1 class="govuk-heading-l">Create an account</h1>
 
   {{ govukInput({
     label: {
-      text: "Email address",
+      text: "Add your email address",
       classes: "govuk-label--m"
     },
     hint: {

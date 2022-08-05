@@ -61,6 +61,21 @@ router.post('/application/select-sector-answer', function (req, res) {
 
 })
 
+// Select the tpe of expertise
+router.post('/application/select-type-answer', function (req, res) {
+
+  let selectedType = req.session.data.selectedType
+
+  if (selectedType.includes("Assessment expertise")) {
+    res.redirect('/application/expertise/assessment-expertise')
+  } else if ( (!selectedType.includes("Assessment expertise")) && (selectedType.includes("Industry or occupational expertise")) ) {
+    res.redirect('/application/expertise/industry-expertise')
+  } else {
+    res.redirect('/application/expertise/teaching-expertise')
+  }
+
+})
+
 
 
 // ------ Register your interest  ----- //

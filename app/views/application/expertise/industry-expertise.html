@@ -1,0 +1,76 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/industry-expertise-answer" %}
+{% set pageHeading = "Select the industry or occupational expertise you have for this occupation" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.selectedOccupation }}</span>
+
+  {% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.industryExpertiseOther")) }}
+  {% endset -%}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Awarding qualifications or setting standards"
+      },
+      {
+        text: "Evaluation the effectiveness of assessments"
+      },
+      {
+        text: "Designing or setting assessments"
+      },
+      {
+        text: "Marking assessments"
+      },
+      {
+        text: "Moderation of assessment marking"
+      },
+      {
+        text: "Researchor work on assessment policy and practices"
+      },
+      {
+        text: "Reviewing performance of assessments"
+      },
+      {
+        text: "Standardisation of assessment marking"
+      },
+      {
+        divider: "or"
+      },
+      {
+        text: "Something else that isn't listed",
+        conditional: {
+          html: otherHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.industryExpertise")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

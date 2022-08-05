@@ -1,0 +1,54 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./expertise/select-area" %}
+
+{% set pageHeading = "Select your type of expertise" %}
+
+
+{% block formContent %}
+
+  {# <h1 class="">{{ pageHeading }}</h1> #}
+  {# <p class="govuk-body">You will have the opportunity to tell us about anther type of expertise once you have fiinshed tellig us aboug the first one.</p> #}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "You will have the opportunity to tell us about other types of expertise once you have fininshed telling us about the first one."
+    },
+    items: [
+      {
+        text: "Teaching or training expertise",
+        hint: {
+          text: "Hint text here"
+        }
+      },
+      {
+        text: "Assessment expertise",
+        hint: {
+          text: "Hint text here"
+        }
+      },
+      {
+        text: "Industry and occupational expertise",
+        _hint: {
+          text: "Industry and occupational experience"
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.selectedType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

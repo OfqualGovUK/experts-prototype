@@ -1,0 +1,42 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/select-type-answer" %}
+{% set pageHeading = "Select the type of expertise you have for this occupation" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.selectedOccupation }}</span>
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Assessment expertise"
+      },
+      {
+        text: "Industry or occupational expertise"
+      },
+      {
+        text: "Teaching, lecturing or training expertise"
+      }
+    ]
+  } | decorateAttributes(data, "data.selectedType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

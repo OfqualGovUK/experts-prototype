@@ -1,48 +1,45 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./expertise/select-area" %}
+{% set formAction = "/application/select-area-answer" %}
+{% set pageHeading = " Select the qualification area that your expertise relates to" %}
 
-{% set pageHeading = "Select your type of expertise" %}
-
+{# Not being used #}
+{# {% set expertiseType %}
+  {% if data.selectedType == "Teaching or training expertise" %}
+    teaching or training
+  {% elseif data.selectedType == "assessment expertise" %}
+    assessment
+  {% elseif data.selectedType == "Subject matter expertise" %}
+    subject matter
+  {% endif %}
+{% endset %} #}
 
 {% block formContent %}
-
-  {# <h1 class="">{{ pageHeading }}</h1> #}
-  {# <p class="govuk-body">You will have the opportunity to tell us about anther type of expertise once you have fiinshed tellig us aboug the first one.</p> #}
 
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
+        classes: "govuk-fieldset__legend--l govuk-fieldset__legend--sentence-case",
         isPgeHeading: true
       }
     },
-    hint: {
-      text: "You will have the opportunity to tell us about other types of expertise once you have fininshed telling us about the first one."
-    },
     items: [
       {
-        text: "Teaching or training expertise",
+        text: "General subject qualifications",
         hint: {
           text: "Hint text here"
         }
       },
       {
-        text: "Assessment expertise",
+        text: "Vocational, industry and occupational qualifications",
         hint: {
           text: "Hint text here"
-        }
-      },
-      {
-        text: "Industry and occupational expertise",
-        _hint: {
-          text: "Industry and occupational experience"
         }
       }
     ]
-  } | decorateAttributes(data, "data.selectedType")) }}
+  } | decorateAttributes(data, "data.selectedArea")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

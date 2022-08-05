@@ -1,14 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/select-occuptation-answer" %}
-{# {% set backLink = "#" %} #}
-
-{% set pageHeading = "Select the occupations where you have teaching, assessment, training or industry experience" %}
+{% set formAction = "/application/expertise/select-type" %}
+{% set pageHeading = "Select an occupation where you have teaching, training, assessment, or industry expertise" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.selectedRoute }}</span>
+  {# <span class="govuk-caption-l">{{ data.selectedRoute }}</span> #}
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
   {# set up which data set to pull from depednng on which route was chosen #}
@@ -115,6 +113,9 @@
           text: "Occupations",
           classes: "govuk-visually-hidden"
         }
+      },
+      hint: {
+        text: "You will be able to add another occupation after you finshed telling us about the first one."
       },
     items: occupations
     } | decorateAttributes(data, "data.selectedOccupation")) }}

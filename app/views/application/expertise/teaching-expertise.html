@@ -1,0 +1,61 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/industry-expertise-answer" %}
+{% set pageHeading = "Select the teaching, lecturing or training expertise you have for this occupation" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.selectedOccupation }}</span>
+
+{% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.assessmentTeachingOther")) }}
+  {% endset -%}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "teaching or lecturing experince"
+      },
+      {
+        text: "Training staff within the industry"
+      },
+      {
+        text: "Senior position within your organisation"
+      },
+      {
+        divider: "or"
+      },
+      {
+        text: "Something else that isn't listed",
+        conditional: {
+          html: otherHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.teachingExpertise")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
