@@ -1,29 +1,29 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/industry-expertise-answer" %}
-{% set pageHeading = "Select the teaching, lecturing or training expertise you have for this occupation" %}
+{% set formAction = "/application/expertise/review-expertise" %}
+{% set pageHeading = "Provide details of your teaching, lecturing or training expertise" %}
 
 {% block formContent %}
 
   <span class="govuk-caption-l">{{ data.selectedOccupation }}</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-{% set otherHtml %}
+  {% set otherCapacityHtml %}
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
         text: "Provide details (optional)",
         classes: "govuk-label--s"
       }
-    } | decorateAttributes(data, "data.assessmentTeachingOther")) }}
+    } | decorateAttributes(data, "data.teachingCapacityOther")) }}
   {% endset -%}
   
   {{ govukCheckboxes({
     fieldset: {
       legend: {
-        text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
-        isPgeHeading: true
+        text: "In what capacity have you gained this expertise?",
+        classes: "govuk-fieldset__legend--m"
       }
     },
     hint: {
@@ -31,13 +31,13 @@
     },
     items: [
       {
-        text: "teaching or lecturing experince"
+        text: "A senior position within your organisation",
+        hint: {
+          text: "Head of department or PGCE course leader for example"
+        }  
       },
       {
-        text: "Training staff within the industry"
-      },
-      {
-        text: "Senior position within your organisation"
+        text: "Substantial work experience"
       },
       {
         divider: "or"
@@ -45,11 +45,95 @@
       {
         text: "Something else that isn't listed",
         conditional: {
-          html: otherHtml
+          html: otherCapacityHtml
         }
       }
     ]
-  } | decorateAttributes(data, "data.teachingExpertise")) }}
+  } | decorateAttributes(data, "data.teachingCapacity")) }}
+  
+  {% set otherNatureHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.teachingNatureOther")) }}
+  {% endset -%}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "What was the nature of the expertise?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Working as part of a team"
+      },
+      {
+        text: "Overseeing activities in your own workplace only"
+      },
+      {
+        text: "Leading a team or overseeing the work of others"
+      },
+      {
+        text: "Overseeing activities across other learning environments"
+      },
+      {
+        divider: "or"
+      },
+      {
+        text: "Something else that isn't listed",
+        conditional: {
+          html: otherNatureHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.teachingNature")) }}
+
+  {{ govukInput({
+    label: {
+      text: "How many years of experience do you have?",
+      classes: "govuk-label--m"
+    },
+    classes: "govuk-input govuk-!-width-one-third"
+  } | decorateAttributes(data, "data.teachingDuration")) }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "How recent is your experience?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "I'm currently active in this area"
+      },
+      {
+        text: "Within the last 5 years"
+      },
+      {
+        text: "More than 5 years ago"
+      }
+    ]
+  } | decorateAttributes(data, "data.teachingRecency")) }}
+
+  {{ govukTextarea({
+    label: {
+      text: "Provide supporting evidence and examples of your experience in this area of expertise",
+      classes: "govuk-label--m"
+    },
+    rows: "12",
+    hint: {
+      text: "Hint text?"
+    }
+  } | decorateAttributes(data, "data.teachingSupportingEvidence")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -76,6 +76,34 @@ router.post('/application/select-type-answer', function (req, res) {
 
 })
 
+// Decide where to go form the Assessment expertise page
+router.post('/application/assessment-expertise-answer', function (req, res) {
+
+  let selectedType = req.session.data.selectedType
+
+  if (selectedType.includes("Industry or occupational expertise")) {
+    res.redirect('/application/expertise/industry-expertise')
+  } else if ( (!selectedType.includes("Industry or occupational expertise")) && (selectedType.includes("Teaching, lecturing or training expertise")) ) {
+    res.redirect('/application/expertise/teaching-expertise')
+  } else if ( (!selectedType.includes("Industry or occupational expertise")) && (!selectedType.includes("Teaching, lecturing or training expertise")) ) {
+    res.redirect('/application/expertise/review-expertise')
+  }
+
+})
+
+// Decide where to go form the Industry or occupational expertise page
+router.post('/application/industry-expertise-answer', function (req, res) {
+
+  let selectedType = req.session.data.selectedType
+
+  if (selectedType.includes("Teaching, lecturing or training expertise")) {
+    res.redirect('/application/expertise/teaching-expertise')
+  } else if (!selectedType.includes("Teaching, lecturing or training expertise")) {
+    res.redirect('/application/expertise/review-expertise')
+  }
+
+})
+
 
 
 // ------ Register your interest  ----- //

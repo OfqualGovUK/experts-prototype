@@ -1,0 +1,69 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "Register your interest to be an expert" %}
+{% set pageHeading = "Review your answers" %}
+{% set formAction = "/add-another-answer" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Review your areas of expertise</h1> 
+  
+  {# {% include "_includes/shared/sector-cards.html" %} #}
+
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.selectedOccupation,
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedOccupation,
+        href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
+      }]
+    },
+    rows: [{
+      key: {
+        text: "Area of focus"
+      },
+      value: { 
+        text: "Human resources"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "area of focus",
+          href: "./select-pathways-business"
+        }]
+      }
+    }]
+  }) }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Did you want to add more areas of expertise?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes, I want to add another area"
+      },
+      {
+        value: "no",
+        html: "No, I've finished adding my expertise"
+      }
+    ]
+  } | decorateAttributes(data, "data.addAnotherExpertise")) }}
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}
