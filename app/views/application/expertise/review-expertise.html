@@ -10,34 +10,7 @@
 
   <h1 class="govuk-heading-l">Review your areas of expertise</h1> 
   
-  {# {% include "_includes/shared/sector-cards.html" %} #}
-
-  {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: data.selectedOccupation,
-    actions: {
-      items: [{
-        text: "Delete choice",
-        visuallyHiddenText: data.selectedOccupation,
-        href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
-      }]
-    },
-    rows: [{
-      key: {
-        text: "Area of focus"
-      },
-      value: { 
-        text: "Human resources"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "area of focus",
-          href: "./select-pathways-business"
-        }]
-      }
-    }]
-  }) }}
+  {% include "_includes/shared/expertise-card.html" %}
 
   {{ govukRadios({
     fieldset: {
@@ -61,7 +34,7 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Continue"
+      text: "Save and continue"
     }) }}
     <a class="govuk-link" href="./">Cancel</a>
   </div>

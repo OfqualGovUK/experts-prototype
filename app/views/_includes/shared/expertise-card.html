@@ -1,0 +1,37 @@
+  {% set expertiseTypeHtml %}
+    {# List the "other" option or the selections #}
+      <ul class="govuk-list">
+        {% for type in data.selectedType %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul>
+  {% endset %} 
+
+{{ xGovukSummaryCard({
+  classes: "govuk-!-margin-bottom-9",
+  titleText: data.selectedOccupation,
+  actions: {
+    items: [{
+      text: "Delete choice",
+      visuallyHiddenText: data.selectedOccupation,
+      href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
+    }]
+  },
+  rows: [{
+    key: {
+      text: "Type of expertise"
+    },
+    value: { 
+      html: expertiseTypeHtml
+    },
+    actions: {
+      items: [{
+        text: "Change",
+        visuallyHiddenText: "type of expertise",
+        href: "./select-type"
+      }]
+    }
+  }]
+}) }}

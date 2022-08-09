@@ -33,6 +33,7 @@ const healthData = require('./healthData.json')
 const legalData = require('./legalData.json')
 const protectiveData = require('./protectiveData.json')
 const salesData = require('./salesData.json')
+const subjectData = require('./subjectData.json')
 const trasnsportData = require('./trasnsportData.json')
 
 // Setting the default layout settings
@@ -57,6 +58,7 @@ module.exports = {
   legalData,
   protectiveData,
   salesData,
+  subjectData,
   trasnsportData,
   settings: settings
 

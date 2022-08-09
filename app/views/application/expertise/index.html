@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/application/select-area-answer" %}
-{% set pageHeading = " Select the qualification area that your expertise relates to" %}
+{% set pageHeading = "Select the qualification area" %}
 
 {# Not being used #}
 {# {% set expertiseType %}
@@ -17,17 +17,21 @@
 
 {% block formContent %}
 
+  <h1 class="govuk-heading-l">Tell us about your teaching, training, assessment, or industry expertise.</h1>
+  <p class="govuk-body">
+    What do we mean by expertise?
+  </p>
+
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l govuk-fieldset__legend--sentence-case",
-        isPgeHeading: true
+        classes: "govuk-fieldset__legend--m"
       }
     },
     items: [
       {
-        text: "General subject qualifications",
+        text: "Subject qualifications",
         hint: {
           text: "Hint text here"
         }
@@ -43,7 +47,7 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Continue"
+      text: "Save and continue"
     }) }}
     <a class="govuk-link" href="#">Cancel</a>
   </div>

@@ -96,13 +96,13 @@
     ]
   } | decorateAttributes(data, "data.industryNature")) }}
 
-  {{ govukInput({
+  {# {{ govukInput({
     label: {
       text: "How years of years of experience do you have?",
       classes: "govuk-label--m"
     },
     classes: "govuk-input govuk-!-width-one-third"
-  } | decorateAttributes(data, "data.industryDuration")) }}
+  } | decorateAttributes(data, "data.industryDuration")) }} #}
 
   {{ govukRadios({
     fieldset: {
@@ -137,7 +137,7 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Continue"
+      text: "Save and continue"
     }) }}
     <a class="govuk-link" href="#">Cancel</a>
   </div>

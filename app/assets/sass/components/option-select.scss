@@ -1,8 +1,9 @@
 .app-c-option-select {
   position: relative;
-  padding: 0 0 govuk-spacing(2);
-  margin-bottom: govuk-spacing(2);
-  // border-bottom: 1px solid $govuk-border-colour;
+  // padding: 0 0 govuk-spacing(2);
+  padding: 0;
+  margin-bottom: govuk-spacing(4);
+  border-bottom: 1px solid $govuk-border-colour;
 
   @include govuk-media-query($from: desktop) {
     // Redefine scrollbars on desktop where these lists are scrollable
@@ -85,9 +86,10 @@
 .app-c-option-select__container {
   position: relative;
   max-height: none;
-  height: auto !important;
-  // overflow-y: auto;
-  overflow: visible;
+  // height: auto !important;
+  height: 300px;
+  overflow-y: auto;
+  // overflow: visible;
   // overflow-x: hidden;
   background-color: govuk-colour("white");
 
@@ -102,7 +104,7 @@
 }
 
 .app-c-option-select__container-inner {
-  // padding: govuk-spacing(1) 13px;
+  padding: govuk-spacing(1) govuk-spacing(2);
 }
 
 .app-c-option-select__filter {
@@ -136,7 +138,8 @@
   }
 
   .app-c-option-select__container {
-    height: 200px;
+    // height: 200px;
+    height: 320px;
   }
 
   [data-closed-on-load="true"] .app-c-option-select__container {
