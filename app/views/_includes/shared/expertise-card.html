@@ -1,37 +1,157 @@
-  {% set expertiseTypeHtml %}
-    {# List the "other" option or the selections #}
-      <ul class="govuk-list">
-        {% for type in data.selectedType %}
+{% if "Academic subjects" in data.selectedArea  %}
+
+  {% set qualificationHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list">
+      {% for qualification in data.selectedQualification %}
+        <li>
+          {{ qualification }}
+        </li>
+        {% if "Something that isn't listed" in data.selectedQualification %}
           <li>
-            {{ type }}
+            {{ data.selectedQualificationOther }}
           </li>
-        {% endfor %}
-      </ul>
+        {% endif %}
+      {% endfor %}
+    </ul>
   {% endset %} 
 
-{{ xGovukSummaryCard({
-  classes: "govuk-!-margin-bottom-9",
-  titleText: data.selectedOccupation,
-  actions: {
-    items: [{
-      text: "Delete choice",
-      visuallyHiddenText: data.selectedOccupation,
-      href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
-    }]
-  },
-  rows: [{
-    key: {
-      text: "Type of expertise"
-    },
-    value: { 
-      html: expertiseTypeHtml
-    },
+  {% set levelHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list">
+      {% for level in data.selectedLevel %}
+        <li>
+          {{ level }}
+        </li>
+        {% if "Something that isn't listed" in data.selectedLevel %}
+          <li>
+            {{ data.selectedLevelOther }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endset %} 
+
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.selectedSubject,
     actions: {
       items: [{
-        text: "Change",
-        visuallyHiddenText: "type of expertise",
-        href: "./select-type"
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedSubject,
+        href: "./delete?delete=delete" + data.selectedSubject
       }]
-    }
-  }]
-}) }}
+    },
+    rows: [
+      {
+        key: {
+          text: "Area of expertise"
+        },
+        value: { 
+          text: data.selectedArea or "Not provided"
+        }
+      },
+      {
+        key: {
+          text: "Subject"
+        },
+        value: { 
+          text: data.selectedSubject or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "subject",
+            href: "./select-subject"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualifications"
+        },
+        value: { 
+          html: qualificationHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualifications",
+            href: "./select-qualification"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification levels"
+        },
+        value: { 
+          html: levelHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification levels",
+            href: "./select-levels"
+          }]
+        }
+      }
+    ]
+  }) }}
+
+{% elseif "Vocational, sector or industry" in data.selectedArea %}
+  
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.selectedOccupation,
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedOccupation,
+        href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Area of expertise"
+        },
+        value: { 
+          text: data.selectedArea
+        }
+      },
+      {
+        key: {
+          text: "Sector"
+        },
+        value: { 
+          text: data.selectedRoute
+        }
+      },
+      {
+        key: {
+          text: "Occupation"
+        },
+        value: { 
+          text: data.selectedOccupation
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "occupation",
+            href: "./select-occupation"
+          }]
+        }
+      }
+    ]
+  }) }}
+
+{% else %}
+
+  {{ appInsetText({
+    sectionName: "Expertise details",
+    sectionHref: "./../expertise",
+    classes: "app-inset-text--error" if data.showErrors == "true"
+  })}}
+
+{% endif %}

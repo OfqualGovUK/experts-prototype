@@ -40,9 +40,9 @@ router.post('/application/select-area-answer', function (req, res) {
 
   let selectedArea = req.session.data.selectedArea
 
-  if (selectedArea === "Subject qualifications") {
+  if (selectedArea === "Academic subjects") {
       res.redirect('/application/expertise/select-subject')
-    } else if (selectedArea === "Vocational, industry and occupational qualifications") {
+    } else if (selectedArea === "Vocational, sector or industry") {
       res.redirect('/application/expertise/select-sector')
     }
 
@@ -104,6 +104,18 @@ router.post('/application/industry-expertise-answer', function (req, res) {
 
 })
 
+// Do you want to add more expertise? 
+router.post('/review-expertise-answer', function (req, res) {
+
+  let addAnotherExpertise = req.session.data.addAnotherExpertise
+
+    if (addAnotherExpertise === 'yes') {
+      res.redirect('/application/expertise')
+    } else {
+      res.redirect('/sorry') 
+  }
+
+})
 
 
 // ------ Register your interest  ----- //

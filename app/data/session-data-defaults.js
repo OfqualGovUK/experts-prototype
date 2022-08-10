@@ -35,6 +35,7 @@ const protectiveData = require('./protectiveData.json')
 const salesData = require('./salesData.json')
 const subjectData = require('./subjectData.json')
 const trasnsportData = require('./trasnsportData.json')
+const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
 let settings = {
@@ -60,6 +61,7 @@ module.exports = {
   salesData,
   subjectData,
   trasnsportData,
+  qualificationData,
   settings: settings
 
   // Insert values here

@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/application/select-area-answer" %}
-{% set pageHeading = "Select the qualification area" %}
+{% set pageHeading = "Select your area of exptertise" %}
 
 {# Not being used #}
 {# {% set expertiseType %}
@@ -17,9 +17,9 @@
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Tell us about your teaching, training, assessment, or industry expertise.</h1>
+  <h1 class="govuk-heading-l">Your areas of expertise</h1>
   <p class="govuk-body">
-    What do we mean by expertise?
+    Tell us about your academic, assessment, industry and vocational and technical expertise to support our review and monitoring of the qualifications we regulate.
   </p>
 
   {{ govukRadios({
@@ -31,15 +31,15 @@
     },
     items: [
       {
-        text: "Subject qualifications",
+        text: "Academic subjects",
         hint: {
-          text: "Hint text here"
+          text: "Including advanced extension award qualifications, project qualifications (at any level), GCE Qualifications and GCSE Qualifications"
         }
       },
       {
-        text: "Vocational, industry and occupational qualifications",
+        text: "Vocational, sector or industry",
         hint: {
-          text: "Hint text here"
+          text: "Including apprenticeship end-point assessments, technical and occupational routes, and industry/sector expertise"
         }
       }
     ]

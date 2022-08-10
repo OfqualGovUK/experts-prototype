@@ -3,16 +3,7 @@
 
 {% set formAction = "/application/select-sector-answer" %}
 
-{% set pageHeading %}
-  {# the must be on their second loop #}
-  {% if data.route %}
-  {# {% if data.route and "Business and administration" in data.route or "Care services" in data.route %}  #}
-    Select another sector
-  {# must be the first tie on the page #}
-  {% else %}
-      Select a sector
-  {% endif %}
-{% endset %}
+{% set pageHeading = "Select a sector" %}
 
 {% block formContent %}
 
@@ -45,7 +36,7 @@
         isPgeHeading: true
       }
     },
-    hint: {
+    _hint: {
       text: "You will be able to add another sector after you finshed telling us about the first one."
     },
    items: routes

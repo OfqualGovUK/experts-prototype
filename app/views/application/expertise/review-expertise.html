@@ -1,9 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set serviceName = "Register your interest to be an expert" %}
 {% set pageHeading = "Review your answers" %}
-{% set formAction = "/add-another-answer" %}
+{% set formAction = "/review-expertise-answer" %}
 {% set layoutWidth = "fullWidthLayout" %}
 
 {% block formContent %}
@@ -15,14 +14,14 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Did you want to add more areas of expertise?",
+        text: "Did you want to add more expertise?",
         classes: "govuk-fieldset__legend--m"
       }
     },
     items: [
       {
         value: "yes",
-        text: "Yes, I want to add another area"
+        text: "Yes"
       },
       {
         value: "no",

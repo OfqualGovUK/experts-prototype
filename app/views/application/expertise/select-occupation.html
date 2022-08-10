@@ -1,8 +1,18 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/expertise/select-type" %}
-{% set pageHeading = "Select an occupation where you have teaching, training, assessment, or industry expertise" %}
+{# {% set formAction = "/application/expertise/select-type" %} #}
+{% set formAction = "/application/expertise/review-expertise" %}
+{# {% set pageHeading = "Select an occupation" %} #}
+
+{% set pageHeading %}
+  {# the must be on their second loop #}
+  {% if data.selectedOccupation %}
+    Select another occupation
+  {% else %}
+    Select a occupation
+  {% endif %}
+{% endset %}
 
 {% block formContent %}
 
