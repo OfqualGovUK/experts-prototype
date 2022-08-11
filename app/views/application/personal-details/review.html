@@ -10,7 +10,7 @@
   {%- if data.personalDetails == "complete" or data.personalDetails == "inProgress"  %}
     /application
   {%- else %}
-    /application/personal-details/check-answers?showPersonalDetailsErrors=true
+    /application/personal-details/review?showPersonalDetailsErrors=true
   {% endif %}
 {% endset %} #}
 

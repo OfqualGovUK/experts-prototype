@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Search for the subject" %}
-{% set formAction = "./check-answers" %}
+{% set formAction = "./review" %}
 
 {% block formContent %}
 
@@ -14,7 +14,7 @@
     <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
   </div>
 
-  <a href="./check-answers" class="govuk-link govuk-body">I can't find the subject, skip this step</a>
+  <a href="./review" class="govuk-link govuk-body">I can't find the subject, skip this step</a>
 
   <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
 

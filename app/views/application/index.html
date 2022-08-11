@@ -20,8 +20,8 @@
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Personal information',
-            _href: 'application/personal-details',
-            href: '#',
+            href: 'application/personal-details',
+            _href: '#',
             taskName: data.personalDetails
           })}}
         </ul>
@@ -34,6 +34,22 @@
               name: 'Add areas of expertise',
               href: 'application/expertise',
               taskName: data.expertiseDetails
+            })}}
+          </ul>
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Experience details</h2>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Add work experience',
+              href: 'application/experience-details',
+              taskName: data.experienceDetails
+            })}}
+            {{ appTaskListItem({
+              name: 'Add references',
+              href: '#',
+              taskName: data.experienceDetails
             })}}
           </ul>
       </section>

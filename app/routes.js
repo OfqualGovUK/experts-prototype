@@ -86,7 +86,7 @@ router.post('/application/assessment-expertise-answer', function (req, res) {
   } else if ( (!selectedType.includes("Industry or occupational expertise")) && (selectedType.includes("Teaching, lecturing or training expertise")) ) {
     res.redirect('/application/expertise/teaching-expertise')
   } else if ( (!selectedType.includes("Industry or occupational expertise")) && (!selectedType.includes("Teaching, lecturing or training expertise")) ) {
-    res.redirect('/application/expertise/review-expertise')
+    res.redirect('/application/expertise/review')
   }
 
 })
@@ -99,13 +99,13 @@ router.post('/application/industry-expertise-answer', function (req, res) {
   if (selectedType.includes("Teaching, lecturing or training expertise")) {
     res.redirect('/application/expertise/teaching-expertise')
   } else if (!selectedType.includes("Teaching, lecturing or training expertise")) {
-    res.redirect('/application/expertise/review-expertise')
+    res.redirect('/application/expertise/review')
   }
 
 })
 
 // Do you want to add more expertise? 
-router.post('/review-expertise-answer', function (req, res) {
+router.post('/review-answer', function (req, res) {
 
   let addAnotherExpertise = req.session.data.addAnotherExpertise
 

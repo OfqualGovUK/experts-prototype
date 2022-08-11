@@ -1,0 +1,27 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/industry-expertise-answer" %}
+{% set pageHeading = "Provide details of your industry or occupational expertise" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Work history</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukInput({
+    classes: "govuk-!-width-two-thirds",
+    label: {
+      text: "Provide details (optional)",
+      classes: "govuk-label--s"
+    }
+  } | decorateAttributes(data, "data.industryExpertiseOther")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
