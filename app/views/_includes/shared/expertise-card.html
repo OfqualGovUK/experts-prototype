@@ -57,7 +57,7 @@
             text: "Area of expertise"
           },
           value: { 
-            text: data.selectedArea or "Not provided"
+            text: "Academic subjects"
           }
         },
         {
@@ -131,7 +131,7 @@
           text: "Area of expertise"
         },
         value: { 
-          text: data.selectedArea
+          text: "Vocational, sector or industry"
         }
       },
       {
@@ -139,7 +139,7 @@
           text: "Sector"
         },
         value: { 
-          text: data.selectedRoute
+          text: data.selectedRoute or "Not provided"
         }
       },
       {
@@ -147,7 +147,7 @@
           text: "Occupation"
         },
         value: { 
-          text: data.selectedOccupation
+          text: data.selectedOccupation or "Not provided"
         },
         actions: {
           items: [{

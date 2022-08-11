@@ -3,7 +3,7 @@
 
 {% set formAction = "/application/select-sector-answer" %}
 
-{% set pageHeading = "Select a sector" %}
+{% set pageHeading = "Select a route" %}
 
 {% block formContent %}
 
@@ -44,12 +44,12 @@
 
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you can't find your sector...
+      If you can't find your route choose the closest match.
     </p>
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "I can't find my sector",
+    summaryText: "I can't find my route",
     text: detailsHtml | safe
   }) }}
 
