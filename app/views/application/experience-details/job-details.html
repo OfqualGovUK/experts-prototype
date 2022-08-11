@@ -1,0 +1,123 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./expertise-type" %}
+{% set pageHeading = "Provide details of your industry or occupational expertise" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Work history</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Name of employer",
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: "If you worked for yourself, enter ‘self-employed’."
+    }
+  } | decorateAttributes(data, "data.employerName")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Role",
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: "If you had more than one role with this employer, enter your last role."
+    }
+  } | decorateAttributes(data, "data.roleName")) }}
+
+  {% set startDateHintHtml %}
+    For example, <time datetime="">{{ "" | today | moment('subtract', 875, 'days') |  govukDate }}</time>. If you cannot remember the exact month or year, enter an estimate.
+  {% endset %}
+
+  {{ govukDateInput({
+    id: "roleStartDate",
+    namePrefix: "roleStartDate",
+    fieldset: {
+      legend: {
+      text: "When did you start this job?",
+      classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      html: startDateHintHtml
+    },
+    items: [
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: dateOfInterviewArray["0"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: dateOfInterviewArray["1"]
+        }
+      ]
+  }) }}
+
+  {% set conditionalCloseDateHtml %}
+
+    {% set startDateHintHtml %}
+      For example, <time datetime="">{{ "" | today | moment('subtract', 510, 'days') |  govukDate }}</time>. If you cannot remember the exact month or year, enter an estimate.
+    {% endset %}
+
+    {{ govukDateInput({
+      id: "roleEndDate",
+      namePrefix: "roleEndDate",
+      fieldset: {
+        legend: {
+        text: "When did you leave this job?",
+        classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        html: startDateHintHtml
+      },
+      items: [
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: dateOfInterviewArray["0"]
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: dateOfInterviewArray["1"]
+          }
+        ]
+    }) }}
+
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Are you still working in this job?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No",
+        conditional: {
+          html: conditionalCloseDateHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.roleEndDate")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

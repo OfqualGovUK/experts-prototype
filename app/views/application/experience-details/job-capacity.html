@@ -1,0 +1,202 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/select-type-answer" %}
+{% set pageHeading = "What was the nature of the role?" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Work history</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {% if data.expertiseType == "Assessment expertise" %}
+
+    {% set assessmentNatureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.assessmentNatureOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: "What was the nature of the role?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Awarding qualifications or setting standards"
+        },
+        {
+          text: "Evaluation the effectiveness of assessments"
+        },
+        {
+          text: "Designing or setting assessments"
+        },
+        {
+          text: "Marking assessments"
+        },
+        {
+          text: "Moderation of assessment marking"
+        },
+        {
+          text: "Researchor work on assessment policy and practices"
+        },
+        {
+          text: "Reviewing performance of assessments"
+        },
+        {
+          text: "Standardisation of assessment marking"
+        },
+        {
+          text: "Examiner"
+        },
+        {
+          text: "Lead or principle examiner"
+        },
+        {
+          text: "Author of assessment materials (question paper writer or mark scheme writer)"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else",
+          conditional: {
+            html: assessmentNatureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.assessmentNature")) }}
+  
+  {% endif %}
+
+  {% if data.expertiseType == "Industry or occupational expertise" %}
+
+    {% set industryNatureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.industryNatureOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: "What was the nature of the role?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Substantial work experience",
+          hint: {
+            text: "Professional publications, contribution to research, industry awards for example"
+          }
+        },
+        {
+          text: "Significant work or achievements",
+          hint: {
+            text: "Professional publications, contribution to research, industry awards for example"
+          }
+        },
+        {
+          text: "Working as part of a team"
+        },
+        {
+          text: "Overseeing activities in your own workplace only"
+        },
+        {
+          text: "Leading a team or overseeing the work of others"
+        },
+        {
+          text: "Overseeing activities across other learning environments"
+        },
+        {
+          text: "Senior role"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else",
+          conditional: {
+            html: industryNatureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.industryNature")) }}
+  
+  {% endif %}
+
+  {% if data.expertiseType == "Teaching, lecturing or training expertise" %}
+
+    {% set teachingNatureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.teachingNatureOther")) }}
+    {% endset -%}
+
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: "What was the nature of the role?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Senior leadership team"
+        },
+        {
+          text: "Senior practioner"
+        },
+        {
+          text: "Head of department"
+        },
+        {
+          text: "Training staff"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else that isn't listed",
+          conditional: {
+            html: teachingNatureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.teachingNature")) }}
+  
+  {% endif %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

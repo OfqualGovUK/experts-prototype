@@ -1,0 +1,42 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./job-capacity" %}
+{% set pageHeading = "Select your type of expertise for this job" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Work history</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--m"      
+      }
+    },
+    _hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Assessment expertise"
+      },
+      {
+        text: "Industry or occupational expertise"
+      },
+      {
+        text: "Teaching, lecturing or training expertise"
+      }
+    ]
+  } | decorateAttributes(data, "data.expertiseType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
