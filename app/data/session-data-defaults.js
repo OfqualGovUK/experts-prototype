@@ -20,6 +20,7 @@ Example usage:
 // Import data
 const routeData = require('./routeData.json')
 const agricultureData = require('./agricultureData.json')
+const allOccupationData = require('./allOccupationData.json')
 const bussinessData = require('./bussinessData.json')
 const careData = require('./careData.json')
 const cateringData = require('./cateringData.json')
@@ -46,6 +47,7 @@ module.exports = {
 
   routeData,
   agricultureData,
+  allOccupationData,
   bussinessData,
   careData,
   cateringData,

@@ -125,7 +125,7 @@
         }
       },
       hint: {
-        text: "You will be able to add another occupation after you finshed telling us about the first one."
+        text: "You will be able to add another occupation afterwards if you need to."
       },
     items: occupations
     } | decorateAttributes(data, "data.selectedOccupation")) }}
@@ -138,7 +138,7 @@
 
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you can't see your occupation then... 
+      <a href="./search-all-occupations" class="govuk-link">Search for an occupation</a> across all sectors.
     </p>
   {% endset %}
 

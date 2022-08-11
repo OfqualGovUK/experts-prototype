@@ -112,7 +112,7 @@ router.post('/review-expertise-answer', function (req, res) {
     if (addAnotherExpertise === 'yes') {
       res.redirect('/application/expertise')
     } else {
-      res.redirect('/sorry') 
+      res.redirect('/application/sorry') 
   }
 
 })

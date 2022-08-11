@@ -1,4 +1,11 @@
-{% if "Academic subjects" in data.selectedArea  %}
+{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
+{% set deletedSubject = data.delete %}
+
+{{ deletedSubject | log }}
+{{ data.selectedSubject | log }}
+
+{# If a subject has been selected #}
+{% if data.selectedSubject  %}
 
   {% set qualificationHtml %}
     {# Build an list of the items selected #}
@@ -30,76 +37,83 @@
         {% endif %}
       {% endfor %}
     </ul>
-  {% endset %} 
+  {% endset %}
 
-  {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: data.selectedSubject,
-    actions: {
-      items: [{
-        text: "Delete choice",
-        visuallyHiddenText: data.selectedSubject,
-        href: "./delete?delete=delete" + data.selectedSubject
-      }]
-    },
-    rows: [
-      {
-        key: {
-          text: "Area of expertise"
-        },
-        value: { 
-          text: data.selectedArea or "Not provided"
-        }
-      },
-      {
-        key: {
-          text: "Subject"
-        },
-        value: { 
-          text: data.selectedSubject or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "subject",
-            href: "./select-subject"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "Qualifications"
-        },
-        value: { 
-          html: qualificationHtml
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Qualifications",
-            href: "./select-qualification"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "Qualification levels"
-        },
-        value: { 
-          html: levelHtml
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Qualification levels",
-            href: "./select-levels"
-          }]
-        }
-      }
-    ]
-  }) }}
+  {% if deletedSubject != data.selectedSubject %}
 
-{% elseif "Vocational, sector or industry" in data.selectedArea %}
+    {{ xGovukSummaryCard({
+      classes: "govuk-!-margin-bottom-9",
+      titleText: data.selectedSubject,
+      actions: {
+        items: [{
+          text: "Delete choice",
+          visuallyHiddenText: data.selectedSubject,
+          href: "./delete?delete=" + data.selectedSubject
+        }]
+      },
+      rows: [
+        {
+          key: {
+            text: "Area of expertise"
+          },
+          value: { 
+            text: data.selectedArea or "Not provided"
+          }
+        },
+        {
+          key: {
+            text: "Subject"
+          },
+          value: { 
+            text: data.selectedSubject or "Not provided"
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "subject",
+              href: "./select-subject"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Qualifications"
+          },
+          value: { 
+            html: qualificationHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Qualifications",
+              href: "./select-qualification"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Qualification levels"
+          },
+          value: { 
+            html: levelHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Qualification levels",
+              href: "./select-levels"
+            }]
+          }
+        }
+      ]
+    }) }}
+
+  {% endif %}
+
+{% endif %}
+
+{# If an occupation has been selected #}
+{% if data.selectedOccupation %}
   
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
@@ -108,7 +122,7 @@
       items: [{
         text: "Delete choice",
         visuallyHiddenText: data.selectedOccupation,
-        href: "/register-your-interest/delete?delete=delete" + data.selectedOccupation
+        href: "/register-your-interest/delete?delete=" + data.selectedOccupation
       }]
     },
     rows: [
@@ -146,7 +160,9 @@
     ]
   }) }}
 
-{% else %}
+{% endif %}
+
+{% if not data.selectedArea %}
 
   {{ appInsetText({
     sectionName: "Expertise details",

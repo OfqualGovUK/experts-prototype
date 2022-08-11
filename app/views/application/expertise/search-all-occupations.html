@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/expertise/review-expertise" %}
+{% set pageHeading = "Search for an occupation" %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">{{ data.selectedRoute }}</span> #}
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  {# set up which data set to pull from depednng on which route was chosen #}
+  {% set occupations = []  %}
+  
+  {% for occupation in data.allOccupationData  %}
+    {% set occupations = occupations | push ({ 
+      text: occupation
+    }) %}
+  {% endfor %}
+
+  {% include "_includes/components/option-select/index.html" %}
+  
+  {% set detailsHtml %}
+    <p class="govuk-body">
+      If you still can't see your occupation then select the closest match. 
+    </p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "I still can't find my occupation",
+    text: detailsHtml | safe
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
