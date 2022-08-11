@@ -1,0 +1,31 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./conflict-of-interest" %}
+{% set pageHeading = "Select your type of expertise for this job" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukCharacterCount({
+    maxlength: 10000,
+    rows: "12",
+    label: {
+      text: "Provide supporting evidence and examples of your experiences",
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: "Add suggestions on what we want them to say here?"
+    }
+   } | decorateAttributes(data, "data.job.supportingEvidence")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

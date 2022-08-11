@@ -1,0 +1,57 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./expertise-type" %}
+{% set pageHeading = "What areas of your expertise are relevant to this job?" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukCheckboxes ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--m"      
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Bicycle mechanic"
+      },
+      {
+        text: "Butcher"
+      },
+      {
+        text: "Butcher (Advanced)"
+      },
+      {
+        text: "Fisher"
+      },  
+      {
+        text: "Fishmonger"
+      }
+    ]
+  } | decorateAttributes(data, "data.job.expertiseArea")) }}
+
+  <p class="govuk-body">
+    <a href="./../expertise" class="govuk-link">Add another area of expertise</a>
+  </p>
+
+  {# {{ govukDetails({
+    summaryText: "I can't find my occupation",
+    text: detailsHtml | safe
+  }) }} #}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

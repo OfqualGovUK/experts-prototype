@@ -39,34 +39,40 @@
     </ul>
   {% endset %}
 
-  {# if the subeject that was deleted doesnt match the subject for this item #}
   {% if deletedSubject != data.selectedSubject %}
 
     {{ xGovukSummaryCard({
       classes: "govuk-!-margin-bottom-9",
-      titleText: data.selectedSubject,
+      titleText: data.job.roleName,
       actions: {
         items: [{
           text: "Delete choice",
-          visuallyHiddenText: data.selectedSubject,
-          href: "./delete?delete=" + data.selectedSubject
+          visuallyHiddenText: data.job.roleName,
+          href: "./delete?delete=" + data.job.roleName
         }]
       },
       rows: [
         {
           key: {
-            text: "Area of expertise"
+            text: "Employer"
           },
           value: { 
-            text: "Academic subjects"
+            text: data.job.employerName or "Not provided"
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "employer",
+              href: "./job-details"
+            }]
           }
         },
         {
           key: {
-            text: "Subject"
+            text: "Role"
           },
           value: { 
-            text: data.selectedSubject or "Not provided"
+            text: data.job.roleName or "Not provided"
           },
           actions: {
             items: [{
@@ -113,61 +119,11 @@
 
 {% endif %}
 
-{# If an occupation has been selected #}
-{% if data.selectedOccupation %}
-  
-  {{ xGovukSummaryCard({
-    classes: "govuk-!-margin-bottom-9",
-    titleText: data.selectedOccupation,
-    actions: {
-      items: [{
-        text: "Delete choice",
-        visuallyHiddenText: data.selectedOccupation,
-        href: "/register-your-interest/delete?delete=" + data.selectedOccupation
-      }]
-    },
-    rows: [
-      {
-        key: {
-          text: "Area of expertise"
-        },
-        value: { 
-          text: "Vocational, sector or industry"
-        }
-      },
-      {
-        key: {
-          text: "Sector"
-        },
-        value: { 
-          text: data.selectedRoute or "Not provided"
-        }
-      },
-      {
-        key: {
-          text: "Occupation"
-        },
-        value: { 
-          text: data.selectedOccupation or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "occupation",
-            href: "./select-occupation"
-          }]
-        }
-      }
-    ]
-  }) }}
-
-{% endif %}
-
-{% if not data.selectedArea %}
+{% if not data.job.roleName %}
 
   {{ appInsetText({
-    sectionName: "Expertise details",
-    sectionHref: "./../expertise",
+    sectionName: "Experience details",
+    sectionHref: "./../experience",
     classes: "app-inset-text--error" if data.showErrors == "true"
   })}}
 

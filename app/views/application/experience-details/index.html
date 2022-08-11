@@ -1,25 +1,30 @@
 
-{% extends "_templates/form-template.html" %}
+{% extends "_templates/page-template.html" %}
 
-{% set formAction = "/application/select-area-answer" %}
 {% set pageHeading = "Select your area of exptertise" %}
 
-{% block formContent %}
+{% block content %}
 
-  <h1 class="govuk-heading-l">Your work history</h1>
-  <p class="govuk-body">
-    Add work history relevant to your academic, assessment, industry and vocational and technical expertise. 
-  </p>
-  <p class="govuk-body">
-    Is there anythig else we want to say here? 
-  </p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Add a job",
-      href: "./experience-details/job-details"
-    }) }}
-    {# <a class="govuk-link" href="#">Cancel</a> #}
+      <h1 class="govuk-heading-l">Your work history</h1>
+      <p class="govuk-body">
+        Add work history relevant to your academic, assessment, industry and vocational and technical expertise. 
+      </p>
+      <p class="govuk-body">
+        Is there anythig else we want to say here? 
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Add a job",
+          href: "./experience-details/job-details"
+        }) }}
+        {# <a class="govuk-link" href="#">Cancel</a> #}
+      </div>
+
+    </div>
   </div>
 
 {% endblock %}

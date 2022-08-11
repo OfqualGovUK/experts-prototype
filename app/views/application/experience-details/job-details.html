@@ -1,12 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./expertise-type" %}
+{% set formAction = "./expertise-area" %}
 {% set pageHeading = "Provide details of your industry or occupational expertise" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">Work history</span>
+  {# <span class="govuk-caption-l">Work history</span> #}
   <h1 class="govuk-heading-l">Add a job</h1>
 
   {{ govukInput({
@@ -17,7 +17,7 @@
     hint: {
       text: "If you worked for yourself, enter ‘self-employed’."
     }
-  } | decorateAttributes(data, "data.employerName")) }}
+  } | decorateAttributes(data, "data.job.employerName")) }}
 
   {{ govukInput({
     label: {
@@ -27,7 +27,7 @@
     hint: {
       text: "If you had more than one role with this employer, enter your last role."
     }
-  } | decorateAttributes(data, "data.roleName")) }}
+  } | decorateAttributes(data, "data.job.roleName")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">{{ "" | today | moment('subtract', 875, 'days') |  govukDate }}</time>. If you cannot remember the exact month or year, enter an estimate.

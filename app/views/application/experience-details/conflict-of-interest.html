@@ -1,0 +1,26 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Is there any conflict of interest?" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {{ govukInput({
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.job.conflictOfInterest")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

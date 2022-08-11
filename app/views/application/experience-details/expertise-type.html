@@ -6,7 +6,7 @@
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">Work history</span>
+  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
   <h1 class="govuk-heading-l">Add a job</h1>
 
   {{ govukRadios ({
@@ -21,16 +21,16 @@
     },
     items: [
       {
-        text: "Assessment expertise"
+        text: "Assessment"
       },
       {
-        text: "Industry or occupational expertise"
+        text: "Industry or occupational"
       },
       {
-        text: "Teaching, lecturing or training expertise"
+        text: "Teaching, lecturing or training"
       }
     ]
-  } | decorateAttributes(data, "data.expertiseType")) }}
+  } | decorateAttributes(data, "data.job.expertiseType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
