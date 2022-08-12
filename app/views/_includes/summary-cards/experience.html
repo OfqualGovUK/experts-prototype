@@ -5,7 +5,7 @@
 {{ data.selectedSubject | log }}
 
 {# If a the job details screen has been submitted - this looks for the hidden form filed on the job details page #}
-{% if data.jobDetails == "true"  %}
+{# {% if data.jobDetails == "true"  %} #}
 
   {% set occupationOrSubjectHtml %}
     {# Build an list of the items selected #}
@@ -18,6 +18,22 @@
     </ul>
   {% endset %} 
 
+  {% set natureHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list">
+      {% for item in data.job.nature %}
+        <li>
+          {{ item }}
+        </li>
+      {% endfor %}
+      {% if data.job.natureOther %}
+        <li>
+          {{ data.job.natureOther }}
+        </li>
+      {% endif %}
+    </ul>
+  {% endset %} 
+
   {# {% if deletedSubject != data.selectedSubject %} #}
 
     {{ xGovukSummaryCard({
@@ -25,7 +41,7 @@
       titleText: data.job.roleName,
       actions: {
         items: [{
-          text: "Delete choice",
+          text: "Delete job",
           visuallyHiddenText: data.job.roleName,
           href: "./delete?delete=" + data.job.roleName
         }]
@@ -71,47 +87,82 @@
           actions: {
             items: [{
               text: "Change",
-              visuallyHiddenText: "Area of exertise",
+              visuallyHiddenText: "area of exertise",
               href: "./expertise-area"
             }]
           }
         },
         {
           key: {
-            text: "Qualification levels"
+            text: "Type of expertise"
           },
           value: { 
-            html: levelHtml
+            text: data.job.expertiseType
           },
           actions: {
             items: [{
               text: "Change",
-              visuallyHiddenText: "Qualification levels",
-              href: "./select-levels"
+              visuallyHiddenText: "type of expertise",
+              href: "./expertise-type"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Nature of the role"
+          },
+          value: { 
+            html: natureHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "nature of the role",
+              href: "./job-capacity"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Supporting evidence and examples of your experiences"
+          },
+          value: { 
+            text: data.job.supportingEvidence
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "supporting evidence and examples of your experiences",
+              href: "./supporting-evidence"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Conflict of interest"
+          },
+          value: { 
+            text: ""
+          },
+          _actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "supporting evidence and examples of your experiences",
+              href: "./supporting-evidence"
             }]
           }
         }
       ]
     }) }}
 
-{% elseif data.jobDetails != "true" %}
+{# {% elseif data.jobDetails != "true" %} #}
 
-  {{ appInsetText({
+  {# {{ appInsetText({
     sectionName: "Experience details",
     sectionHref: "./experience-details",
     classes: "app-inset-text--error" if data.showErrors == "true"
-  })}}
-
-{% endif %}
+  })}} #}
 
 {# {% endif %} #}
 
-{# {% if not data.job.roleName %}
-
-  {{ appInsetText({
-    sectionName: "Experience details",
-    sectionHref: "./../experience",
-    classes: "app-inset-text--error" if data.showErrors == "true"
-  })}}
-
-{% endif %} #}
+{# {% endif %} #}

@@ -1,6 +1,13 @@
 // Summary card
 .x-govuk-summary-card {
+    margin-bottom: govuk-spacing(4) !important;
+    
+    & + .x-govuk-summary-card {
+        margin-top: govuk-spacing(9) !important;
+    }
+    
     .x-govuk-summary-card__title {
         font-weight: 700;
     }
+    
 }

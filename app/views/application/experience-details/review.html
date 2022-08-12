@@ -12,13 +12,13 @@
 
 
   {# If there are no jobs listed - show the section not complete #}
-  {% if not data.job.roleName %}
+  {# {% if not data.job.roleName %}
     {{ appInsetText({
       sectionName: "Experience details",
       sectionHref: "./../experience-details",
       classes: "app-inset-text--error" if data.showErrors == "true"
     })}}
-  {% endif %} 
+  {% endif %}  #}
   
   {% include "_includes/summary-cards/experience.html" %}
 
@@ -27,7 +27,7 @@
     {{ govukButton({
       text: "Add another job",
       classes: "govuk-button--secondary",
-      href: "./"
+      href: "./job-details"
     }) }}
   {# {% endif %}  #}
 

@@ -11,14 +11,14 @@
 
   {% if data.job.expertiseType == "Assessment" %}
 
-    {% set assessmentNatureOtherHtml %}
+    {% set natureOtherHtml %}
       {{ govukInput({
         classes: "govuk-!-width-two-thirds",
         label: {
           text: "Provide details (optional)",
           classes: "govuk-label--s"
         }
-      } | decorateAttributes(data, "data.assessmentNatureOther")) }}
+      } | decorateAttributes(data, "data.job.natureOther")) }}
     {% endset -%}
     
     {{ govukCheckboxes({
@@ -71,24 +71,24 @@
         {
           text: "Something else",
           conditional: {
-            html: assessmentNatureOtherHtml
+            html: natureOtherHtml
           }
         }
       ]
-    } | decorateAttributes(data, "data.assessmentNature")) }}
+    } | decorateAttributes(data, "data.job.nature")) }}
   
   {% endif %}
 
   {% if data.job.expertiseType == "Industry or occupational" %}
 
-    {% set industryNatureOtherHtml %}
+    {% set natureOtherHtml %}
       {{ govukInput({
         classes: "govuk-!-width-two-thirds",
         label: {
           text: "Provide details (optional)",
           classes: "govuk-label--s"
         }
-      } | decorateAttributes(data, "data.industryNatureOther")) }}
+      } | decorateAttributes(data, "data.job.natureOther")) }}
     {% endset -%}
     
     {{ govukCheckboxes({
@@ -135,24 +135,24 @@
         {
           text: "Something else",
           conditional: {
-            html: industryNatureOtherHtml
+            html: natureOtherHtml
           }
         }
       ]
-    } | decorateAttributes(data, "data.industryNature")) }}
+    } | decorateAttributes(data, "data.job.nature")) }}
   
   {% endif %}
 
   {% if data.job.expertiseType == "Teaching, lecturing or training" %}
 
-    {% set teachingNatureOtherHtml %}
+    {% set natureOtherHtml %}
       {{ govukInput({
         classes: "govuk-!-width-two-thirds",
         label: {
           text: "Provide details (optional)",
           classes: "govuk-label--s"
         }
-      } | decorateAttributes(data, "data.teachingNatureOther")) }}
+      } | decorateAttributes(data, "data.job.natureOther")) }}
     {% endset -%}
 
     {{ govukCheckboxes({
@@ -187,11 +187,11 @@
         {
           text: "Something else",
           conditional: {
-            html: teachingNatureOtherHtml
+            html: natureOtherHtml
           }
         }
       ]
-    } | decorateAttributes(data, "data.teachingNature")) }}
+    } | decorateAttributes(data, "data.job.nature")) }}
   
   {% endif %}
 
