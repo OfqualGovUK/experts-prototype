@@ -15,7 +15,14 @@
     <strong class="govuk-tag govuk-tag--grey">Not started</strong>
   {% endset %}
 
-	{% if taskName == 'complete' %}
+  {% set canNotStartTagHTML %}
+    <span class="govuk-visually-hidden">Status</span>
+    <strong class="govuk-tag govuk-tag--grey">Cannot start yet</strong>
+  {% endset %}
+
+	{% if taskName == 'canNotStartYet' %}
+		{{ canNotStartTagHTML | safe }}
+  {% elseif taskName == 'complete' %}
 		{{ completeTagHTML | safe }}
 	{% elseif taskName == 'inProgress' %}
 		{{ inProgressTagHTML | safe }}

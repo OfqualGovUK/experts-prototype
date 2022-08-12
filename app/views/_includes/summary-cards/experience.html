@@ -4,8 +4,8 @@
 {{ deletedSubject | log }}
 {{ data.selectedSubject | log }}
 
-{# If a subject has been selected #}
-{% if data.selectedSubject  %}
+{# If a the job details screen has been submitted - this looks for the hidden form filed on the job details page #}
+{% if data.jobDetails == "true"  %}
 
   {% set occupationOrSubjectHtml %}
     {# Build an list of the items selected #}
@@ -18,22 +18,7 @@
     </ul>
   {% endset %} 
 
-  {# {% set levelHtml %}
-    <ul class="govuk-list">
-      {% for level in data.selectedLevel %}
-        <li>
-          {{ level }}
-        </li>
-        {% if "Something that isn't listed" in data.selectedLevel %}
-          <li>
-            {{ data.selectedLevelOther }}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {% endset %} #}
-
-  {% if deletedSubject != data.selectedSubject %}
+  {# {% if deletedSubject != data.selectedSubject %} #}
 
     {{ xGovukSummaryCard({
       classes: "govuk-!-margin-bottom-9",
@@ -109,9 +94,17 @@
       ]
     }) }}
 
-  {% endif %}
+{% elseif data.jobDetails != "true" %}
+
+  {{ appInsetText({
+    sectionName: "Experience details",
+    sectionHref: "./experience-details",
+    classes: "app-inset-text--error" if data.showErrors == "true"
+  })}}
 
 {% endif %}
+
+{# {% endif %} #}
 
 {# {% if not data.job.roleName %}
 

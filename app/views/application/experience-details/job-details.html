@@ -30,7 +30,7 @@
   } | decorateAttributes(data, "data.job.roleName")) }}
 
   {% set startDateHintHtml %}
-    For example, <time datetime="">{{ "" | today | moment('subtract', 875, 'days') |  govukDate }}</time>. If you cannot remember the exact month or year, enter an estimate.
+    For example, <time datetime="">3 2019</time>. If you cannot remember the exact month or year, enter an estimate.
   {% endset %}
 
   {{ govukDateInput({
@@ -62,7 +62,7 @@
   {% set conditionalCloseDateHtml %}
 
     {% set startDateHintHtml %}
-      For example, <time datetime="">{{ "" | today | moment('subtract', 510, 'days') |  govukDate }}</time>. If you cannot remember the exact month or year, enter an estimate.
+      For example, <time datetime="">5 2021</time>. If you cannot remember the exact month or year, enter an estimate.
     {% endset %}
 
     {{ govukDateInput({
@@ -112,6 +112,8 @@
       }
     ]
   } | decorateAttributes(data, "data.roleEndDate")) }}
+
+  <input type="hidden" id="jobDetails" name="jobDetails" value="true">
 
   <div class="govuk-button-group">
     {{ govukButton({

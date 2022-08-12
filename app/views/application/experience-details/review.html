@@ -10,14 +10,6 @@
 
   <h1 class="govuk-heading-l">Review your work experience</h1>
 
-  {# If there are jobs listed - show the add another button #}
-  {% if data.job.roleName %}
-    {{ govukButton({
-      text: "Add another job",
-      classes: "govuk-button--secondary",
-      href: "./"
-    }) }}
-  {% endif %} 
 
   {# If there are no jobs listed - show the section not complete #}
   {% if not data.job.roleName %}
@@ -29,6 +21,15 @@
   {% endif %} 
   
   {% include "_includes/summary-cards/experience.html" %}
+
+  {# If there are jobs listed - show the add another button #}
+  {# {% if data.job.roleName %} #}
+    {{ govukButton({
+      text: "Add another job",
+      classes: "govuk-button--secondary",
+      href: "./"
+    }) }}
+  {# {% endif %}  #}
 
   {{ govukRadios({
     fieldset: {
@@ -49,6 +50,8 @@
     ]
   } | decorateAttributes(data, "data.experienceDetails")) }}
 
+  {# Enable the next section to be active by resetting the value #}
+  <input type="hidden" id="referenceDetails" name="referenceDetails" value="">
 
   <div class="govuk-button-group">
     {{ govukButton({

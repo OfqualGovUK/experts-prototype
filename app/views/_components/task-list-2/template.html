@@ -2,7 +2,12 @@
 
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
-    {% if params.taskName == 'complete'  %}
+    {% if params.taskName == 'canNotStartYet'  %}
+      {{ params.name }}
+      {% if params.hint %}
+        <br><span class="govuk-hint">{{ params.hint }}</span>
+      {% endif %}
+    {% elseif params.taskName == 'complete'  %}
       <a href="{{ params.href }}/review">
         {{ params.name }}
       </a>

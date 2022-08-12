@@ -64,8 +64,11 @@ module.exports = {
   subjectData,
   trasnsportData,
   qualificationData,
-  settings: settings
+  settings: settings,
 
-  // Insert values here
+  // Setting the sections that aren't able to be started yet
+  // This will be enabled through hidden inputs in the dependant sections
+  "experienceDetails": "canNotStartYet",
+  "referenceDetails": "canNotStartYet"
 
 }

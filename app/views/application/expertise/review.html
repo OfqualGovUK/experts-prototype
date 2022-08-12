@@ -9,14 +9,14 @@
 {% block formContent %}
 
   <h1 class="govuk-heading-l">Review your areas of expertise</h1>
+  
+  {% include "_includes/summary-cards/expertise.html" %}
 
   {{ govukButton({
     text: "Add another area of expertise",
     classes: "govuk-button--secondary",
     href: "./"
   }) }} 
-  
-  {% include "_includes/summary-cards/expertise.html" %}
 
   {{ govukRadios({
     fieldset: {
@@ -37,6 +37,8 @@
     ]
   } | decorateAttributes(data, "data.expertiseDetails")) }}
 
+  {# Enable the next section to be active by resetting the value #}
+  <input type="hidden" id="experienceDetails" name="experienceDetails" value="">
 
   <div class="govuk-button-group">
     {{ govukButton({
