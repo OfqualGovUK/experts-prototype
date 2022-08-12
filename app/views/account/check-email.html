@@ -12,6 +12,12 @@
       <p class="govuk-body">If you have registered this email address with us a verification link has been sent to the email address: <a href="./account-created-email" style="color: #0b0c0c !important; text-decoration: none;">your-email@domain.com.</a></p>
       <p class="govuk-body">If you have not received an email, please check your spam and junk folders or <a href="./login">try again</a>.</p>
 
+      {{ govukButton({
+        text: "Go to the next screen",
+        classes: "govuk-button--secondary",
+        href: "./account-created-email"
+      }) }}
+
     </div>
   </div>
 

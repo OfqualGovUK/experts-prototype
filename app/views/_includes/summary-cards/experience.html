@@ -1,0 +1,124 @@
+{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
+{% set deletedSubject = data.delete %}
+
+{{ deletedSubject | log }}
+{{ data.selectedSubject | log }}
+
+{# If a subject has been selected #}
+{% if data.selectedSubject  %}
+
+  {% set occupationOrSubjectHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list">
+      {% for item in data.job.expertiseArea %}
+        <li>
+          {{ item }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endset %} 
+
+  {# {% set levelHtml %}
+    <ul class="govuk-list">
+      {% for level in data.selectedLevel %}
+        <li>
+          {{ level }}
+        </li>
+        {% if "Something that isn't listed" in data.selectedLevel %}
+          <li>
+            {{ data.selectedLevelOther }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endset %} #}
+
+  {% if deletedSubject != data.selectedSubject %}
+
+    {{ xGovukSummaryCard({
+      classes: "govuk-!-margin-bottom-9",
+      titleText: data.job.roleName,
+      actions: {
+        items: [{
+          text: "Delete choice",
+          visuallyHiddenText: data.job.roleName,
+          href: "./delete?delete=" + data.job.roleName
+        }]
+      },
+      rows: [
+        {
+          key: {
+            text: "Employer"
+          },
+          value: { 
+            text: data.job.employerName or "Not provided"
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "employer",
+              href: "./job-details"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Role"
+          },
+          value: { 
+            text: data.job.roleName or "Not provided"
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "role",
+              href: "./job-details"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Area of exertise"
+          },
+          value: { 
+            html: occupationOrSubjectHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Area of exertise",
+              href: "./expertise-area"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Qualification levels"
+          },
+          value: { 
+            html: levelHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Qualification levels",
+              href: "./select-levels"
+            }]
+          }
+        }
+      ]
+    }) }}
+
+  {% endif %}
+
+{% endif %}
+
+{# {% if not data.job.roleName %}
+
+  {{ appInsetText({
+    sectionName: "Experience details",
+    sectionHref: "./../experience",
+    classes: "app-inset-text--error" if data.showErrors == "true"
+  })}}
+
+{% endif %} #}
