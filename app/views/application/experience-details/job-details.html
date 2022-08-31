@@ -1,12 +1,13 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./expertise-area" %}
+{% set formAction = "./summary-of-activity" %}
 {% set pageHeading = "Provide details of your industry or occupational expertise" %}
+{# TODO: Get the date arrays working #}
+{% set startDateArray = data.roleStartDate | toDateArray %}
 
 {% block formContent %}
 
-  {# <span class="govuk-caption-l">Work history</span> #}
   <h1 class="govuk-heading-l">Add a job</h1>
 
   {{ govukInput({
@@ -24,18 +25,44 @@
       text: "Role",
       classes: "govuk-label--m"
     },
-    hint: {
-      text: "If you had more than one role with this employer, enter your last role."
+    _hint: {
+      text: "If you had more than one role with this employer, enter your most relevant role."
     }
   } | decorateAttributes(data, "data.job.roleName")) }}
+
+  {{ govukButton({
+    text: "Add another role for this employer",
+    herf: "#",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Was the position a senior role?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "A senior role is..."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.roleSenior")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">3 2019</time>. If you cannot remember the exact month or year, enter an estimate.
   {% endset %}
 
   {{ govukDateInput({
-    id: "roleStartDate",
-    namePrefix: "roleStartDate",
+    id: "data.roleStartDate",
+    namePrefix: "data.roleStartDate",
     fieldset: {
       legend: {
       text: "When did you start this job?",
@@ -49,12 +76,12 @@
         {
           name: "month",
           classes: "govuk-input--width-2",
-          value: dateOfInterviewArray["0"]
+          value: startDateArray["0"]
         },
         {
           name: "year",
           classes: "govuk-input--width-4",
-          value: dateOfInterviewArray["1"]
+          value: startDateArray["1"]
         }
       ]
   }) }}
@@ -81,12 +108,12 @@
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: dateOfInterviewArray["0"]
+            value: endDateArray["0"]
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: dateOfInterviewArray["1"]
+            value: endDateArray["1"]
           }
         ]
     }) }}
@@ -111,7 +138,7 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.roleEndDate")) }}
+  } | decorateAttributes(data, "data.roleEnded")) }}
 
   <input type="hidden" id="jobDetails" name="jobDetails" value="true">
 

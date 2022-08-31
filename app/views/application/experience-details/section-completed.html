@@ -1,0 +1,42 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your answers" %}
+{# {% set formAction = "/review-expertise-answer" %} #}
+{% set formAction = "./../../application" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Review your work experience</h1>
+  
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Have you completed this section?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "complete",
+        text: "Yes, I’ve completed this section"
+      },
+      {
+        value: "inProgress",
+        html: "No, I’ll come back to it later"
+      }
+    ]
+  } | decorateAttributes(data, "data.experienceDetails")) }}
+
+  {# Enable the next section to be active by resetting the value #}
+  <input type="hidden" id="referenceDetails" name="referenceDetails" value="">
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}

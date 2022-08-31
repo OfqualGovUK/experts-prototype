@@ -9,12 +9,57 @@
   <span class="govuk-caption-l">{{ data.job.roleName }}</span>
   <h1 class="govuk-heading-l">Add a job</h1>
 
-  {{ govukInput({
+  {# {{ govukInput({
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.job.conflictOfInterest")) }}
+   } | decorateAttributes(data, "data.job.conflictOfInterest")) }} #}
+
+   {# {% set conflictDetailsHtml %}
+    {{ govukInput({
+      label: {
+        text: "Provide details",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+    } | decorateAttributes(data, "data.conflictDetails")) }}
+  {% endset %} #}
+
+  {% set conflictDetailsHtml %}
+    {{ govukTextarea({
+      label: {
+        text: "Provide details",
+        classes: "govuk-label--s"
+      },
+      _hint: {
+        text: "Enter the email address you used to register, and we’ll send you a link to sign in."
+      }
+    } | decorateAttributes(data, "data.conflictDetails")) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      test: ""
+    },
+    items: [
+      {
+        text: "Yes",
+        conditional: {
+          html: conflictDetailsHtml
+        }
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.conflictOfInterest")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
