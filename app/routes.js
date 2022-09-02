@@ -117,6 +117,32 @@ router.post('/review-answer', function (req, res) {
 
 })
 
+// Do you want to add another job? 
+router.post('/review-jobs-answer', function (req, res) {
+
+  let addAnotherJob = req.session.data.addAnotherJob
+
+    if (addAnotherJob === 'Yes') {
+      res.redirect('/application/experience-details/job-details')
+    } else {
+      res.redirect('/application/experience-details/section-completed') 
+  }
+
+})
+
+// Add a qualification
+router.post('/qualification-type-answer', function (req, res) {
+
+  let addAnotherJob = req.session.data.addAnotherJob
+
+    if (addAnotherJob === 'GCSEs') {
+      res.redirect('/application/experience-details/job-details')
+    } else {
+      res.redirect('/application/experience-details/section-completed') 
+  }
+
+})
+
 
 // ------ Register your interest  ----- //
 

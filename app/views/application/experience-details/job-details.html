@@ -1,13 +1,21 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./expertise-area" %}
-{% set pageHeading = "Provide details of your industry or occupational expertise" %}
+{% set formAction = "./summary-of-activity" %}
+{# TODO: Get the date arrays working #}
+{% set startDateArray = data.roleStartDate | toDateArray %}
+{% set pageHeading %}
+ {# If a job already exists #}
+ {% if data.job.roleName %}
+    Add another job
+  {% else %}
+    Add a job
+  {% endif%}
+{% endset %}
 
 {% block formContent %}
 
-  {# <span class="govuk-caption-l">Work history</span> #}
-  <h1 class="govuk-heading-l">Add a job</h1>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
   {{ govukInput({
     label: {
@@ -25,17 +33,43 @@
       classes: "govuk-label--m"
     },
     hint: {
-      text: "If you had more than one role with this employer, enter your last role."
+      text: "If you had more than one role with this employer, enter your most relevant role."
     }
   } | decorateAttributes(data, "data.job.roleName")) }}
+
+  {# {{ govukButton({
+    text: "Add another role for this employer",
+    herf: "#",
+    classes: "govuk-button--secondary"
+  }) }} #}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Was the position a senior role?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "A senior role is..."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.roleSenior")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">3 2019</time>. If you cannot remember the exact month or year, enter an estimate.
   {% endset %}
 
   {{ govukDateInput({
-    id: "roleStartDate",
-    namePrefix: "roleStartDate",
+    id: data[roleStartDate],
+    namePrefix: data[roleStartDate],
     fieldset: {
       legend: {
       text: "When did you start this job?",
@@ -49,12 +83,12 @@
         {
           name: "month",
           classes: "govuk-input--width-2",
-          value: dateOfInterviewArray["0"]
+          value: data[roleStartDate][month]
         },
         {
           name: "year",
           classes: "govuk-input--width-4",
-          value: dateOfInterviewArray["1"]
+          value: data[roleStartDate][year]
         }
       ]
   }) }}
@@ -66,8 +100,8 @@
     {% endset %}
 
     {{ govukDateInput({
-      id: "roleEndDate",
-      namePrefix: "roleEndDate",
+      id: data[roleEndDate],
+      namePrefix: data[roleEndDate],
       fieldset: {
         legend: {
         text: "When did you leave this job?",
@@ -81,12 +115,12 @@
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: dateOfInterviewArray["0"]
+            value: data.roleEndDate.month
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: dateOfInterviewArray["1"]
+            value: data.roleEndDate.year
           }
         ]
     }) }}
@@ -111,7 +145,7 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.roleEndDate")) }}
+  } | decorateAttributes(data, "data.roleEnded")) }}
 
   <input type="hidden" id="jobDetails" name="jobDetails" value="true">
 

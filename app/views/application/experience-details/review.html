@@ -2,14 +2,12 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{# {% set formAction = "/review-expertise-answer" %} #}
-{% set formAction = "./../../application" %}
+{% set formAction = "/review-jobs-answer" %}
 {% set layoutWidth = "fullWidthLayout" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your work experience</h1>
-
+  <h1 class="govuk-heading-l">Review your work history</h1>
 
   {# If there are no jobs listed - show the section not complete #}
   {# {% if not data.job.roleName %}
@@ -22,36 +20,22 @@
   
   {% include "_includes/summary-cards/experience.html" %}
 
-  {# If there are jobs listed - show the add another button #}
-  {# {% if data.job.roleName %} #}
-    {{ govukButton({
-      text: "Add another job",
-      classes: "govuk-button--secondary",
-      href: "./job-details"
-    }) }}
-  {# {% endif %}  #}
-
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Have you completed this section?",
+        text: "Did you want to add another job?",
         classes: "govuk-fieldset__legend--m"
       }
     },
     items: [
       {
-        value: "complete",
-        text: "Yes, I’ve completed this section"
+        text: "Yes"
       },
       {
-        value: "inProgress",
-        html: "No, I’ll come back to it later"
+        text: "No, I've finished adding jobs"
       }
     ]
-  } | decorateAttributes(data, "data.experienceDetails")) }}
-
-  {# Enable the next section to be active by resetting the value #}
-  <input type="hidden" id="referenceDetails" name="referenceDetails" value="">
+  } | decorateAttributes(data, "data.addAnotherJob")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
