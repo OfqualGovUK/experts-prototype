@@ -122,10 +122,23 @@ router.post('/review-jobs-answer', function (req, res) {
 
   let addAnotherJob = req.session.data.addAnotherJob
 
-    if (addAnotherJob === 'yes') {
+    if (addAnotherJob === 'Yes') {
       res.redirect('/application/experience-details/job-details')
     } else {
-      res.redirect('/application/section-completed') 
+      res.redirect('/application/experience-details/section-completed') 
+  }
+
+})
+
+// Add a qualification
+router.post('/qualification-type-answer', function (req, res) {
+
+  let addAnotherJob = req.session.data.addAnotherJob
+
+    if (addAnotherJob === 'GCSEs') {
+      res.redirect('/application/experience-details/job-details')
+    } else {
+      res.redirect('/application/experience-details/section-completed') 
   }
 
 })

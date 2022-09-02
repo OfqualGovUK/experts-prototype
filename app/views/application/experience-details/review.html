@@ -3,7 +3,6 @@
 
 {% set pageHeading = "Review your answers" %}
 {% set formAction = "/review-jobs-answer" %}
-{% set formAction = "./../../application" %}
 {% set layoutWidth = "fullWidthLayout" %}
 
 {% block formContent %}
@@ -30,12 +29,10 @@
     },
     items: [
       {
-        value: "yes",
         text: "Yes"
       },
       {
-        value: "no",
-        html: "No, I've finished adding jobs"
+        text: "No, I've finished adding jobs"
       }
     ]
   } | decorateAttributes(data, "data.addAnotherJob")) }}
