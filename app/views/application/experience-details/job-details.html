@@ -2,13 +2,20 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./summary-of-activity" %}
-{% set pageHeading = "Provide details of your industry or occupational expertise" %}
 {# TODO: Get the date arrays working #}
 {% set startDateArray = data.roleStartDate | toDateArray %}
+{% set pageHeading %}
+ {# If a job already exists #}
+ {% if data.job.roleName %}
+    Add another job
+  {% else %}
+    Add a job
+  {% endif%}
+{% endset %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Add a job</h1>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
   {{ govukInput({
     label: {
@@ -25,16 +32,16 @@
       text: "Role",
       classes: "govuk-label--m"
     },
-    _hint: {
+    hint: {
       text: "If you had more than one role with this employer, enter your most relevant role."
     }
   } | decorateAttributes(data, "data.job.roleName")) }}
 
-  {{ govukButton({
+  {# {{ govukButton({
     text: "Add another role for this employer",
     herf: "#",
     classes: "govuk-button--secondary"
-  }) }}
+  }) }} #}
 
   {{ govukRadios({
     fieldset: {
@@ -61,8 +68,8 @@
   {% endset %}
 
   {{ govukDateInput({
-    id: "data.roleStartDate",
-    namePrefix: "data.roleStartDate",
+    id: data[roleStartDate],
+    namePrefix: data[roleStartDate],
     fieldset: {
       legend: {
       text: "When did you start this job?",
@@ -76,12 +83,12 @@
         {
           name: "month",
           classes: "govuk-input--width-2",
-          value: startDateArray["0"]
+          value: data[roleStartDate][month]
         },
         {
           name: "year",
           classes: "govuk-input--width-4",
-          value: startDateArray["1"]
+          value: data[roleStartDate][year]
         }
       ]
   }) }}
@@ -93,8 +100,8 @@
     {% endset %}
 
     {{ govukDateInput({
-      id: "roleEndDate",
-      namePrefix: "roleEndDate",
+      id: data[roleEndDate],
+      namePrefix: data[roleEndDate],
       fieldset: {
         legend: {
         text: "When did you leave this job?",
@@ -108,12 +115,12 @@
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: endDateArray["0"]
+            value: data.roleEndDate.month
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: endDateArray["1"]
+            value: data.roleEndDate.year
           }
         ]
     }) }}

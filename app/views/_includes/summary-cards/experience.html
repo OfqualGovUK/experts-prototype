@@ -2,8 +2,8 @@
 {% set deletedSubject = data.delete %}
 
 {# TODO: Get the date arrays working #}
-{% set startDateArray = data.roleStartDate | toDateArray %}
-{{ data.roleStartDate | log }}
+{# {% set startDateArray = data.roleStartDate | toDateArray %} #}
+{{ data.roleStartDate.month | log }}
 
 
 {# If a the job details screen has been submitted - this looks for the hidden form filed on the job details page #}
@@ -99,8 +99,8 @@
             text: "When did you start this job?"
           },
           value: { 
-            _text: data.roleStartDate | govukDate or 'Not provided',
-            text: "12 June 2005" 
+            text: "June 2005", 
+            _text: data[roleStartDate][month] 
           },
           actions: {
             items: [{
@@ -130,7 +130,7 @@
             text: "When did you leave this job?"
           },
           value: { 
-            text: "12 June 2015"
+            text: "March 2015"
           },
           actions: {
             items: [{
@@ -154,23 +154,26 @@
               href: "./summary-of-activity"
             }]
           }
-        },
-        {
-          key: {
-            text: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?"
-          },
-          value: { 
-            text: data.conflictOfInterest or "Not provided"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?",
-              href: "./conflict-of-interest"
-            }]
-          }
-        },
-        {
+        }
+      ]
+    }) }}
+
+    {# Not used #}
+    {# {
+      key: {
+        text: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?"
+      },
+      value: { 
+        text: data.conflictOfInterest or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?",
+          href: "./conflict-of-interest"
+        }]
+      },
+      {
           key: {
             text: "Conflict of interest details"
           },
@@ -185,8 +188,7 @@
             }]
           }
         } if data.conflictOfInterest == "Yes"
-      ]
-    }) }}
+    }, #}
 
 {# {% elseif data.jobDetails != "true" %} #}
 
@@ -195,7 +197,5 @@
     sectionHref: "./experience-details",
     classes: "app-inset-text--error" if data.showErrors == "true"
   })}} #}
-
-{# {% endif %} #}
 
 {# {% endif %} #}
