@@ -1,0 +1,26 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Select your area of exptertise" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Tell us about your education and qualifications</h1>
+      <p class="govuk-body">
+        Content here to explain why we are asking about...
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Add a qualification",
+          href: "./education/qualification-type"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,205 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./supporting-evidence" %}
+{% set pageHeading = "What was the nature of the role?" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
+  <h1 class="govuk-heading-l">Add a job</h1>
+
+  {% if data.job.expertiseType == "Assessment" %}
+
+    {% set natureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.job.natureOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Awarding qualifications or setting standards"
+        },
+        {
+          text: "Evaluation the effectiveness of assessments"
+        },
+        {
+          text: "Designing or setting assessments"
+        },
+        {
+          text: "Marking assessments"
+        },
+        {
+          text: "Moderation of assessment marking"
+        },
+        {
+          text: "Researchor work on assessment policy and practices"
+        },
+        {
+          text: "Reviewing performance of assessments"
+        },
+        {
+          text: "Standardisation of assessment marking"
+        },
+        {
+          text: "Examiner"
+        },
+        {
+          text: "Lead or principle examiner"
+        },
+        {
+          text: "Author of assessment materials (question paper writer or mark scheme writer)"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else",
+          conditional: {
+            html: natureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.job.nature")) }}
+  
+  {% endif %}
+
+  {% if data.job.expertiseType == "Industry or occupational" %}
+
+    {% set natureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.job.natureOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Substantial work experience",
+          hint: {
+            text: "Professional publications, contribution to research, industry awards for example"
+          }
+        },
+        {
+          text: "Significant work or achievements",
+          hint: {
+            text: "Professional publications, contribution to research, industry awards for example"
+          }
+        },
+        {
+          text: "Working as part of a team"
+        },
+        {
+          text: "Overseeing activities in your own workplace only"
+        },
+        {
+          text: "Leading a team or overseeing the work of others"
+        },
+        {
+          text: "Overseeing activities across other learning environments"
+        },
+        {
+          text: "Senior role"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else",
+          conditional: {
+            html: natureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.job.nature")) }}
+  
+  {% endif %}
+
+  {% if data.job.expertiseType == "Teaching, lecturing or training" %}
+
+    {% set natureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.job.natureOther")) }}
+    {% endset -%}
+
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: "What was the nature of the role?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Senior leadership team"
+        },
+        {
+          text: "Senior practioner"
+        },
+        {
+          text: "Head of department"
+        },
+        {
+          text: "Teaching for 3+ years"
+        },
+        {
+          text: "Training staff"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something else",
+          conditional: {
+            html: natureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.job.nature")) }}
+  
+  {% endif %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

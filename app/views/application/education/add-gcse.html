@@ -1,0 +1,142 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./summary-of-activity" %}
+{% set pageHeading = "Add GCSEs" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  {{ govukInput({
+    label: {
+      text: "School, college, or other organisation",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.education.schoolNameGcse")) }}
+
+  {% call govukFieldset({
+    legend: {
+      text: "Subjects",
+      classes: "govuk-fieldset__legend--m"
+    }
+  }) %}
+
+  <div class="flex-row" style="display: flex; width: 100%">
+
+    <div class="govuk-!-width-three-quarters" style="margin-right: 20px">
+      {{ govukInput({
+        label: {
+          text: "Subject 1"
+        }
+      } | decorateAttributes(data, "data.education.subject1Gcse")) }}
+    </div>
+    
+    <div class="govuk-!-width-one-quarter"> 
+      {{ govukInput({
+        label: {
+          text: "Grade"
+        }
+      } | decorateAttributes(data, "data.education.subject1Gcse")) }}
+    </div>
+
+  </div>
+
+  {% endcall %}
+
+  {{ govukButton({
+    text: "Add another subject",
+    herf: "#",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  {{ govukDateInput({
+    id: data[roleStartDate],
+    namePrefix: data[roleStartDate],
+    fieldset: {
+      legend: {
+      text: "When did you start this job?",
+      classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      html: startDateHintHtml
+    },
+    items: [
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: data[roleStartDate][month]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: data[roleStartDate][year]
+        }
+      ]
+  }) }}
+
+  {% set conditionalCloseDateHtml %}
+
+    {% set startDateHintHtml %}
+      For example, <time datetime="">5 2021</time>. If you cannot remember the exact month or year, enter an estimate.
+    {% endset %}
+
+    {{ govukDateInput({
+      id: data[roleEndDate],
+      namePrefix: data[roleEndDate],
+      fieldset: {
+        legend: {
+        text: "When did you leave this job?",
+        classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        html: startDateHintHtml
+      },
+      items: [
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data.roleEndDate.month
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data.roleEndDate.year
+          }
+        ]
+    }) }}
+
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Are you still working in this job?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No",
+        conditional: {
+          html: conditionalCloseDateHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.roleEnded")) }}
+
+  <input type="hidden" id="jobDetails" name="jobDetails" value="true">
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
