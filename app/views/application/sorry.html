@@ -10,11 +10,11 @@
 
     <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-    <p class="govuk-body">Check back soon.</p>
+    <p class="govuk-body">Check another time soon.</p>
 
     {{ govukButton({
-      text: "Return to your application",
-      href: "./../application"
+      text: "Go back",
+      href: "javascript:history.back();"
     }) }}
 
     </div>

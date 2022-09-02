@@ -110,7 +110,7 @@ router.post('/review-answer', function (req, res) {
   let addAnotherExpertise = req.session.data.addAnotherExpertise
 
     if (addAnotherExpertise === 'yes') {
-      res.redirect('/application/expertise')
+      res.redirect('/application/sorry')
     } else {
       res.redirect('/application/sorry') 
   }
@@ -123,7 +123,7 @@ router.post('/review-jobs-answer', function (req, res) {
   let addAnotherJob = req.session.data.addAnotherJob
 
     if (addAnotherJob === 'Yes') {
-      res.redirect('/application/experience-details/job-details')
+      res.redirect('/application/sorry')
     } else {
       res.redirect('/application/experience-details/section-completed') 
   }
@@ -133,12 +133,25 @@ router.post('/review-jobs-answer', function (req, res) {
 // Add a qualification
 router.post('/qualification-type-answer', function (req, res) {
 
-  let addAnotherJob = req.session.data.addAnotherJob
+  let addAQualification = req.session.data.qualificationType
 
-    if (addAnotherJob === 'GCSEs') {
-      res.redirect('/application/experience-details/job-details')
+    if (addAQualification === 'GCSEs') {
+      res.redirect('/application/education/add-gcse')
     } else {
       res.redirect('/application/experience-details/section-completed') 
+  }
+
+})
+
+// Did you want to add another qualification?
+router.post('/review-qualifications-answer', function (req, res) {
+
+  let addAnotherqualification = req.session.data.addAnotherqualification
+
+    if (addAnotherqualification === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/education/section-completed') 
   }
 
 })

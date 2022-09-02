@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./summary-of-activity" %}
+{% set formAction = "./review" %}
 {% set pageHeading = "Add GCSEs" %}
 
 {% block formContent %}
@@ -37,7 +37,7 @@
         label: {
           text: "Grade"
         }
-      } | decorateAttributes(data, "data.education.subject1Gcse")) }}
+      } | decorateAttributes(data, "data.education.subject1GradeGcse")) }}
     </div>
 
   </div>
@@ -49,86 +49,14 @@
     herf: "#",
     classes: "govuk-button--secondary"
   }) }}
-
-  {{ govukDateInput({
-    id: data[roleStartDate],
-    namePrefix: data[roleStartDate],
-    fieldset: {
-      legend: {
-      text: "When did you start this job?",
-      classes: "govuk-fieldset__legend--m"
-      }
+  
+  {{ govukInput({
+    label: {
+      text: "Year qualification was awarded",
+      classes: "govuk-label--m"
     },
-    hint: {
-      html: startDateHintHtml
-    },
-    items: [
-        {
-          name: "month",
-          classes: "govuk-input--width-2",
-          value: data[roleStartDate][month]
-        },
-        {
-          name: "year",
-          classes: "govuk-input--width-4",
-          value: data[roleStartDate][year]
-        }
-      ]
-  }) }}
-
-  {% set conditionalCloseDateHtml %}
-
-    {% set startDateHintHtml %}
-      For example, <time datetime="">5 2021</time>. If you cannot remember the exact month or year, enter an estimate.
-    {% endset %}
-
-    {{ govukDateInput({
-      id: data[roleEndDate],
-      namePrefix: data[roleEndDate],
-      fieldset: {
-        legend: {
-        text: "When did you leave this job?",
-        classes: "govuk-fieldset__legend--m"
-        }
-      },
-      hint: {
-        html: startDateHintHtml
-      },
-      items: [
-          {
-            name: "month",
-            classes: "govuk-input--width-2",
-            value: data.roleEndDate.month
-          },
-          {
-            name: "year",
-            classes: "govuk-input--width-4",
-            value: data.roleEndDate.year
-          }
-        ]
-    }) }}
-
-  {% endset %}
-
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Are you still working in this job?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      },
-      {
-        text: "No",
-        conditional: {
-          html: conditionalCloseDateHtml
-        }
-      }
-    ]
-  } | decorateAttributes(data, "data.roleEnded")) }}
+    classes: "govuk-!-width-one-quarter"
+  } | decorateAttributes(data, "data.education.yearAwardedGcse")) }}
 
   <input type="hidden" id="jobDetails" name="jobDetails" value="true">
 

@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./qualification-type-answer" %}
+{% set formAction = "/qualification-type-answer" %}
 {% set pageHeading = "Add a qualification" %}
 
 {% block formContent %}
@@ -33,7 +33,7 @@
         text: "Other qualification or course"
       }
     ]
-  } | decorateAttributes(data, "data.education.qualificationType")) }}
+  } | decorateAttributes(data, "data.qualificationType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
