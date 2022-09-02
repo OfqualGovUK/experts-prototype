@@ -1,0 +1,71 @@
+{% set subjectsAndGrades %}
+  {% if data.education.subject1Gcse and data.education.subject1GradeGcse %}
+  <ul class="govuk-list">
+    <li>
+      <span class="govuk-visually-hidden">Subject 1: </span>{{ data.education.subject1Gcse }}
+      (<span class="govuk-visually-hidden">Grade 1: </span>{{ data.education.subject1GradeGcse }}) 
+    <li>
+  </ul>
+  {% else %}
+    Not provided
+  {% endif%}
+{% endset %}
+
+{{ xGovukSummaryCard({
+  classes: "govuk-!-margin-bottom-9",
+  titleText: data.qualificationType,
+  actions: {
+    items: [{
+      text: "Delete job",
+      visuallyHiddenText: data.job.roleName,
+      href: "./delete?delete=" + data.job.roleName
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "School, college, or other organisation"
+      },
+      value: { 
+        text: data.education.schoolNameGcse or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "school, college, or other organisation",
+          href: "./add-gcse"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Subjects and grades"
+      },
+      value: { 
+        html: subjectsAndGrades or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "subjects",
+          href: "./add-gcse"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Year qualification was awarded"
+      },
+      value: { 
+        text: data.education.yearAwardedGcse or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "year qualification was awarded",
+          href: "./add-gcse"
+        }]
+      }
+    }
+  ]
+}) }}

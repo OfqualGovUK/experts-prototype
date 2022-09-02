@@ -137,8 +137,10 @@ router.post('/qualification-type-answer', function (req, res) {
 
     if (addAQualification === 'GCSEs') {
       res.redirect('/application/education/add-gcse')
+    } else if (addAQualification === 'A/AS level or equivalent') {
+      res.redirect('/application/education/add-a-level')
     } else {
-      res.redirect('/application/experience-details/section-completed') 
+      res.redirect('/application/sorry') 
   }
 
 })
