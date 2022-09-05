@@ -1,0 +1,73 @@
+{{ xGovukSummaryCard({
+  classes: "govuk-!-margin-bottom-9",
+  titleText: data.qualificationType,
+  actions: {
+    items: [{
+      text: "Delete qualification",
+      visuallyHiddenText: data.qualificationType,
+      href: "./delete?delete=" + data.qualificationType
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "Awarding body"
+      },
+      value: { 
+        text: data.education.awardingBodyDegree or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "awarding body",
+          href: "./add-degree"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Subject"
+      },
+      value: { 
+        text: data.education.subjectDegree or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "subject",
+          href: "./add-degree"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Grade"
+      },
+      value: { 
+        text: data.education.gradeDegree or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "grade",
+          href: "./add-degree"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Year qualification was awarded"
+      },
+      value: { 
+        text: data.education.yearAwardedDegree or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "year qualification was awarded",
+          href: "./add-degree"
+        }]
+      }
+    }
+  ]
+}) }}

@@ -1,0 +1,88 @@
+{{ xGovukSummaryCard({
+  classes: "govuk-!-margin-bottom-9",
+  titleText: data.qualificationType,
+  actions: {
+    items: [{
+      text: "Delete qualification",
+      visuallyHiddenText: data.qualificationType,
+      href: "./delete?delete=" + data.qualificationType
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "School, college, university or other organisationy"
+      },
+      value: { 
+        text: data.education.schoolNameOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "school, college, university or other organisation",
+          href: "./add-other"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Qualification or course name"
+      },
+      value: { 
+        text: data.education.courseNameOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "qualification or course name",
+          href: "./add-other"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Subject"
+      },
+      value: { 
+        text: data.education.subjectOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "subject",
+          href: "./add-other"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Grade"
+      },
+      value: { 
+        text: data.education.gradeOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "grade",
+          href: "./add-other"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Year qualification was awarded"
+      },
+      value: { 
+        text: data.education.yearAwardedOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "year qualification was awarded",
+          href: "./add-other"
+        }]
+      }
+    }
+  ]
+}) }}

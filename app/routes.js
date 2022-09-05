@@ -139,6 +139,10 @@ router.post('/qualification-type-answer', function (req, res) {
       res.redirect('/application/education/add-gcse')
     } else if (addAQualification === 'A/AS level or equivalent') {
       res.redirect('/application/education/add-a-level')
+    } else if ( (addAQualification === 'Undergraduate degree') || (addAQualification === 'Postgraduate degree') ) {
+      res.redirect('/application/education/add-degree')
+    } else if (addAQualification === 'Other qualification or course') {
+      res.redirect('/application/education/add-other')
     } else {
       res.redirect('/application/sorry') 
   }
