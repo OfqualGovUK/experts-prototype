@@ -1,0 +1,37 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/achievement-answer" %}
+{% set pageHeading = "Do you have any professional achievements?" %}
+
+{% block formContent %}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    hint: {
+      text: "For example, written a book, had a paper or article published or made a significant contribution to research."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyAchievement")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

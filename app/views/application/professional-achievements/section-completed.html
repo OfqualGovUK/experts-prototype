@@ -2,12 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{# {% set formAction = "/review-expertise-answer" %} #}
 {% set formAction = "./../../application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Education and qualification details</h1>
+  <h1 class="govuk-heading-l">Professional achievement details</h1>
   
   {{ govukRadios({
     fieldset: {
@@ -26,7 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.educationDetails")) }}
+  } | decorateAttributes(data, "data.professionalAchievementDetails")) }}
 
   {# Enable the next section to be active by resetting the value #}
   <input type="hidden" id="referenceDetails" name="referenceDetails" value="">

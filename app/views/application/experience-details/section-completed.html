@@ -8,15 +8,13 @@
 
 {% block formContent %}
 
-  {# <h1 class="govuk-heading-l">Work history details</h1> #}
-  <span class="govuk-caption-l">Education and qualifications</span>
+  <h1 class="govuk-heading-l">Work history details</h1>
 
   {{ govukRadios({
     fieldset: {
       legend: {
         text: "Have you completed this section?",
-        classes: "govuk-fieldset__legend--m",
-        isPageHeading: true
+        classes: "govuk-fieldset__legend--m"
       }
     },
     items: [

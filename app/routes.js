@@ -162,6 +162,19 @@ router.post('/review-qualifications-answer', function (req, res) {
 
 })
 
+// Do you have any professional achievements?
+router.post('/achievement-answer', function (req, res) {
+
+  let anyAchievement = req.session.data.anyAchievement
+
+    if (anyAchievement === 'Yes') {
+      res.redirect('/application/professional-achievements/add-achievements')
+    } else {
+      res.redirect('/application/professional-achievements/section-completed') 
+  }
+
+})
+
 
 // ------ Register your interest  ----- //
 
