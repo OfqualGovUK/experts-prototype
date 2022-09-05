@@ -101,31 +101,44 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Expertise details</h2>
+        <h2 class="govuk-heading-m">Subjects you can help us review</h2>
         {% if data.expertiseDetails == "complete" %}
-          {% include "_includes/summary-cards/expertise.html" %}
+          {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Expertise details",
+            sectionName: "Subjects you can help us review",
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
       </section>
-      {# <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Expertise details</h2>
-        
-      </section>
-      
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">References</h2>
-       
-      </section>
-      
+
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal statement</h2>
-        
-      </section> #}
+        {% if data.expertiseDetails == "complete" %}
+          {% include "_includes/summary-cards/personal-statement.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Personal statement",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Verify your identity</h2>
+        {% if data.expertiseDetails == "complete" %}
+          {% include "_includes/summary-cards/identity.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Verify your identity",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+      </section>
+      
 
       {# If there are incomplete sections we want to keep the user on this page and display an error summary  #}
       {# If all sections are complete we send them back to a completed application  #}
