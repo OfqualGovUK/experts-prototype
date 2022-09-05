@@ -42,7 +42,64 @@
           })}}
         {% endif %}
       </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Work history</h2>
+        {% if data.experienceDetails == "complete" %}
+          {% include "_includes/summary-cards/experience.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Work history",
+            sectionHref: "./experience-details",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.referenceDetails == "complete" %}
+          {% include "_includes/summary-cards/references.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "References",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+      </section>
 
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Education and qualifications</h2>
+        {% if data.educationDetails == "complete" %}
+          {% include "_includes/summary-cards/qualifications.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Qualifications",
+            sectionHref: "./education",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
+        {% if data.professionalAchievementDetails == "complete" %}
+          {% include "_includes/summary-cards/professional-achievements.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Professional achievements",
+            sectionHref: "./professional-achievements",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Roles and responsibilities</h2>
+        {% if data.personalDetails == "complete" %}
+          {% include "_includes/summary-cards/roles.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Roles and responsibilities",
+            sectionHref: "./roles",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
+      </section>
+      
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Expertise details</h2>
         {% if data.expertiseDetails == "complete" %}
@@ -50,25 +107,11 @@
         {% else %}
           {{ appInsetText({
             sectionName: "Expertise details",
-            sectionHref: "./expertise",
+            sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
       </section>
-      
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Experience details</h2>
-        {% if data.experienceDetails == "complete" %}
-          {% include "_includes/summary-cards/experience.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Experience details",
-            sectionHref: "./experience-details",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %} 
-      </section>
-      
       {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Expertise details</h2>
         
