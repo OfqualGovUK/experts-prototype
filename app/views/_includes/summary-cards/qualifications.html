@@ -1,0 +1,24 @@
+{% set subjectsAndGrades %}
+  {% if data.education.subject1Gcse and data.education.subject1GradeGcse %}
+  <ul class="govuk-list">
+    <li>
+      <span class="govuk-visually-hidden">Subject 1: </span>{{ data.education.subject1Gcse }}
+      (<span class="govuk-visually-hidden">Grade 1: </span>{{ data.education.subject1GradeGcse }}) 
+    <li>
+  </ul>
+  {% else %}
+    Not provided
+  {% endif%}
+{% endset %}
+
+
+{# Pull in the specific summary card depending on qualification #}
+{% if data.qualificationType == "GCSEs" %}
+  {% include "_includes/summary-cards/qualifications-gcse.html" %}
+{% elseif data.qualificationType == "A/AS Level or equivalent" %}
+  {% include "_includes/summary-cards/qualifications-a-as-level.html" %}
+{% elseif data.qualificationType == "Undergraduate degree" or data.qualificationType == "Postgraduate degree"  %}
+  {% include "_includes/summary-cards/qualifications-degree.html" %}
+{% elseif data.qualificationType == "Other qualification or course" %}
+  {% include "_includes/summary-cards/qualifications-other.html" %}
+{% endif %}

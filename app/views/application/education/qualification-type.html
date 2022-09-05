@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/qualification-type-answer" %}
+{% set pageHeading = "Add a qualification" %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">Education and qualifications</span> #}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    items: [
+      {
+        text: "GCSEs"
+      },
+      {
+        text: "A/AS level or equivalent"
+      },
+      {
+        text: "Undergraduate degree"
+      },
+      {
+        text: "Postgraduate degree"
+      },
+      {
+        text: "Other qualification or course"
+      }
+    ]
+  } | decorateAttributes(data, "data.qualificationType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

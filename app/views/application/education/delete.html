@@ -1,0 +1,27 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Are you sure you want to delete this qualification?" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  {% set qualificationType %}
+    {{ data.delete }}
+  {% endset %}
+
+  <span class="govuk-caption-l">{{ qualificationType }}</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Yes, delete this qualification",
+      classes: "govuk-button--warning",
+      href: "#"
+    }) }}
+    <a class="govuk-link" href="./review">Cancel</a>
+  </div>
+  
+  <input type="hidden" id="confirmDelete{{ data.delete }}" name="confirmDelete{{ data.delete }}" value="true">
+
+{% endblock %}

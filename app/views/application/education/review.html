@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your qualifications" %}
+{% set formAction = "/review-qualifications-answer" %}
+{% set layoutWidth = "fullWidthLayout" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">Education and qualifications</span> #}
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  
+  {% include "_includes/summary-cards/qualifications.html" %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Did you want to add another qualification?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No, I've finished adding qualifications"
+      }
+    ]
+  } | decorateAttributes(data, "data.addAnotherqualification")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}

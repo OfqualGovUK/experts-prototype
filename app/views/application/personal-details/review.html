@@ -19,46 +19,14 @@
 
 {% block formContent %}
 
-  {# {% if data.showPersonalDetailsErrors == "true" %}
-    {{ govukErrorSummary({
-      titleText: "There is a problem",
-      errorList: [
-        {
-          text: "Select whether you have completed this section",
-          href: "#"
-        } 
-      ]
-    }) }}
-  {% endif %} #}
-
   <h1 class="govuk-heading-l">Confirm personal details</h1>
 
   {% include "_includes/summary-cards/personal-details.html" %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Have you completed this section?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        value: "complete",
-        text: "Yes, I’ve completed this section"
-      },
-      {
-        value: "inProgress",
-        html: "No, I’ll come back to it later"
-      }
-    ]
-  } | decorateAttributes(data, "data.personalDetails")) }}
-
-  {# <input type="hidden" id="personalDetailsProgress" name="personalDetailsProgress" value="hasValues"> #}
-
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Save and continue"
+      text: "Save and continue",
+      href: "./section-completed"
     }) }}
     <a class="govuk-link" href="/application">Cancel</a>
   </div>

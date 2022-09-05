@@ -1,0 +1,58 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Add other qualification or course" %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">Education and qualifications</span> #}
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  {{ govukInput({
+    label: {
+      text: "School, college, university or other organisation",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.education.schoolNameOther")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Qualification or course name",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.education.courseNameOther")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Subject (optional)",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.education.subjectOther")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Grade",
+      classes: "govuk-label--m"
+    },
+    classes: "govuk-!-width-one-quarter"
+  } | decorateAttributes(data, "data.education.gradeOther")) }}
+  
+  {{ govukInput({
+    label: {
+      text: "Year qualification was awarded",
+      classes: "govuk-label--m"
+    },
+    classes: "govuk-!-width-one-quarter"
+  } | decorateAttributes(data, "data.education.yearAwardedOther")) }}
+
+  <input type="hidden" id="jobDetails" name="jobDetails" value="true">
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

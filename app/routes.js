@@ -110,7 +110,7 @@ router.post('/review-answer', function (req, res) {
   let addAnotherExpertise = req.session.data.addAnotherExpertise
 
     if (addAnotherExpertise === 'yes') {
-      res.redirect('/application/expertise')
+      res.redirect('/application/sorry')
     } else {
       res.redirect('/application/sorry') 
   }
@@ -123,7 +123,7 @@ router.post('/review-jobs-answer', function (req, res) {
   let addAnotherJob = req.session.data.addAnotherJob
 
     if (addAnotherJob === 'Yes') {
-      res.redirect('/application/experience-details/job-details')
+      res.redirect('/application/sorry')
     } else {
       res.redirect('/application/experience-details/section-completed') 
   }
@@ -133,12 +133,44 @@ router.post('/review-jobs-answer', function (req, res) {
 // Add a qualification
 router.post('/qualification-type-answer', function (req, res) {
 
-  let addAnotherJob = req.session.data.addAnotherJob
+  let addAQualification = req.session.data.qualificationType
 
-    if (addAnotherJob === 'GCSEs') {
-      res.redirect('/application/experience-details/job-details')
+    if (addAQualification === 'GCSEs') {
+      res.redirect('/application/education/add-gcse')
+    } else if (addAQualification === 'A/AS level or equivalent') {
+      res.redirect('/application/education/add-a-level')
+    } else if ( (addAQualification === 'Undergraduate degree') || (addAQualification === 'Postgraduate degree') ) {
+      res.redirect('/application/education/add-degree')
+    } else if (addAQualification === 'Other qualification or course') {
+      res.redirect('/application/education/add-other')
     } else {
-      res.redirect('/application/experience-details/section-completed') 
+      res.redirect('/application/sorry') 
+  }
+
+})
+
+// Did you want to add another qualification?
+router.post('/review-qualifications-answer', function (req, res) {
+
+  let addAnotherqualification = req.session.data.addAnotherqualification
+
+    if (addAnotherqualification === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/education/section-completed') 
+  }
+
+})
+
+// Do you have any professional achievements?
+router.post('/achievement-answer', function (req, res) {
+
+  let anyAchievement = req.session.data.anyAchievement
+
+    if (anyAchievement === 'Yes') {
+      res.redirect('/application/professional-achievements/add-achievements')
+    } else {
+      res.redirect('/application/professional-achievements/section-completed') 
   }
 
 })

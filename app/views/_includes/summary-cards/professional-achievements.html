@@ -1,0 +1,36 @@
+   {# {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-8",
+    rows: [{
+      key: {
+        text: "Provide details of your professional achievements"
+      },
+      value: {
+        text: data.professionalAchievementSummary or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "full name",
+          href: "./add-achievements
+        }]
+      }
+    }]
+  }) }} #}
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-8",
+    rows: [{
+      key: {
+        text: "Provide details of your professional achievements"
+      },
+      value: {
+        text: data.professionalAchievementSummary or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details of your professional achievements",
+          href: "./add-achievements"
+        }]
+      }
+    }]
+  }) }}

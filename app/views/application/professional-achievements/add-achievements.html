@@ -1,0 +1,29 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details of your professional achievements" %}
+
+{% block formContent %}
+
+  {{ govukCharacterCount({
+    maxlength: 10000,
+    rows: "12",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    hint: {
+      text: "Add suggestions on what we want them to say here..."
+    }
+   } | decorateAttributes(data, "data.professionalAchievementSummary")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

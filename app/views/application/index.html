@@ -19,7 +19,7 @@
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Personal information',
+            name: 'Add personal information',
             href: 'application/personal-details',
             _href: '#',
             taskName: data.personalDetails
@@ -31,7 +31,7 @@
         <h2 class="govuk-heading-m">Work history</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Work history',
+              name: 'Add work history',
               href: 'application/experience-details',
               taskName: data.experienceDetails
             })}}
@@ -48,9 +48,16 @@
         <h2 class="govuk-heading-m">Education and qualifications</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Education and qualifications',
+              name: 'Add qualifications',
               href: 'application/education',
               taskName: data.educationDetails
+            })}}
+          </ul>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Add professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
             })}}
           </ul>
       </section>
@@ -59,7 +66,7 @@
         <h2 class="govuk-heading-m">Expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Areas of expertise',
+              name: 'Add areas of expertise',
               href: 'application/expertise',
               taskName: data.expertiseDetails
             })}}
