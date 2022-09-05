@@ -19,7 +19,7 @@
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Personal information',
+            name: 'Add personal information',
             href: 'application/personal-details',
             _href: '#',
             taskName: data.personalDetails
@@ -51,6 +51,13 @@
               name: 'Add qualifications',
               href: 'application/education',
               taskName: data.educationDetails
+            })}}
+          </ul>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Add professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
             })}}
           </ul>
       </section>

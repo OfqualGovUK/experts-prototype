@@ -4,19 +4,16 @@
 {% set pageHeading = "Review your answers" %}
 {# {% set formAction = "/review-expertise-answer" %} #}
 {% set formAction = "./../../application" %}
-{% set layoutWidth = "fullWidthLayout" %}
 
 {% block formContent %}
 
-  {# <h1 class="govuk-heading-l">Work history details</h1> #}
-  <span class="govuk-caption-l">Education and qualifications</span>
-
+  <h1 class="govuk-heading-l">Education and qualification details</h1>
+  
   {{ govukRadios({
     fieldset: {
       legend: {
         text: "Have you completed this section?",
-        classes: "govuk-fieldset__legend--m",
-        isPageHeading: true
+        classes: "govuk-fieldset__legend--m"
       }
     },
     items: [
@@ -29,7 +26,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.experienceDetails")) }}
+  } | decorateAttributes(data, "data.educationDetails")) }}
 
   {# Enable the next section to be active by resetting the value #}
   <input type="hidden" id="referenceDetails" name="referenceDetails" value="">
