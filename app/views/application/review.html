@@ -90,12 +90,12 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Expertise and responsibilities</h2>
-        {% if data.personalDetails == "complete" %}
-          {% include "_includes/summary-cards/expertise-type.html" %}
+        {% if data.expertiseTypeDetails == "complete" %}
+          {% include "_includes/summary-cards/expertise.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Expertise and responsibilities",
-            sectionHref: "./roles",
+            sectionHref: "./expertise-type",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %}
