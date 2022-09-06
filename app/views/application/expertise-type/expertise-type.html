@@ -1,22 +1,20 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./job-capacity" %}
-{% set pageHeading = "Select your type of expertise for this job" %}
+{% set formAction = "/expertise-type-answer" %}
+{% set pageHeading = "What types of expertise do you have?" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.job.roleName }}</span>
-  <h1 class="govuk-heading-l">Add a job</h1>
-
-  {{ govukRadios ({
+  {{ govukCheckboxes ({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--m"      
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true      
       }
     },
-    _hint: {
+    hint: {
       text: "Select all that apply"
     },
     items: [
@@ -30,7 +28,7 @@
         text: "Teaching, lecturing or training"
       }
     ]
-  } | decorateAttributes(data, "data.job.expertiseType")) }}
+  } | decorateAttributes(data, "data.expertiseType.type")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

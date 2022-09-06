@@ -2,22 +2,12 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{% set backText = "Back to application" %}
-{% set backLink = "/application" %}
-{% set layoutWidth = "fullWidthLayout" %}
+{% set formAction = "./../../application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your types of expertise</h1>
+  <h1 class="govuk-heading-l">Type of expertise details</h1>
   
-  {% include "_includes/summary-cards/expertise.html" %}
-
-  {{ govukButton({
-    text: "Add another area of expertise",
-    classes: "govuk-button--secondary",
-    href: "./"
-  }) }} 
-
   {{ govukRadios({
     fieldset: {
       legend: {
@@ -35,10 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.expertiseDetails")) }}
-
-  {# Enable the next section to be active by resetting the value #}
-  <input type="hidden" id="experienceDetails" name="experienceDetails" value="">
+  } | decorateAttributes(data, "data.expertiseTypeDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -1,0 +1,27 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Are you sure you want to delete this area of expertise?" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  {% set areaOfExpertise %}
+    {{ data.delete }}
+  {% endset %}
+
+  <span class="govuk-caption-l">{{ areaOfExpertise }}</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Yes, delete this area of expertise",
+      classes: "govuk-button--warning",
+      href: "/application/sorry"
+    }) }}
+    <a class="govuk-link" href="./review">Cancel</a>
+  </div>
+  
+  <input type="hidden" id="confirmDelete{{ data.delete }}" name="confirmDelete{{ data.delete }}" value="true">
+
+{% endblock %}

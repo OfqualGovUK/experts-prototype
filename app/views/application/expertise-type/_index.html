@@ -1,0 +1,102 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Personal details" %}
+{% set formAction = "./personal-details/review" %}
+
+{{ data.personalDetails | log }}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Personal information</h1>
+
+  {{ govukInput({
+      label: {
+        text: "Full name",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-full-width",
+      attributes: {
+        spellcheck: "false"
+      },
+      type: "text"
+  } | decorateAttributes(data, "data.personalDetials.fullName")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Email address",
+      classes: "govuk-label--s"
+    },
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false
+  } | decorateAttributes(data, "data.personalDetials.email")) }}
+
+  {% call govukFieldset({
+    legend: {
+      text: "Your address",
+      classes: "govuk-fieldset__legend--m",
+      isPageHeading: false
+    }
+  }) %}
+
+    {{ govukInput({
+      label: {
+        text: 'Address line 1',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line1"
+    } | decorateAttributes(data, "data.personalDetials.addressLine1")) }}
+
+    {{ govukInput({
+      label: {
+        text: 'Address line 2 (optional)',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line2"
+    } | decorateAttributes(data, "data.personalDetials.addressLine2")) }}
+
+    {{ govukInput({
+      label: {
+        text: "Town or city",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+      autocomplete: "address-level2"
+    } | decorateAttributes(data, "data.personalDetials.townOrCity")) }}
+
+    {{ govukInput({
+      label: {
+        text: "County (optional)",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds"
+    } | decorateAttributes(data, "data.personalDetials.county")) }}
+
+    {{ govukInput({
+      label: {
+        text: "Postcode",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-input--width-10",
+      autocomplete: "postal-code"
+    } | decorateAttributes(data, "data.personalDetials.postCode")) }}
+
+  {% endcall %}
+  
+  {# This sets a flag in the data to tell us the user has started the this section #}
+  {# <input type="hidden" id="personalDetails" name="personalDetails" value="inProgress"> #}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    {# {{ govukButton({
+      text: "Save and finish later",
+      classes: "govuk-button--secondary",
+      href: "#"
+    }) }} #}
+  </div>
+  <a class="govuk-link govuk-body" href="#">Cancel</a>
+
+{% endblock %}

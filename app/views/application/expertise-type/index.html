@@ -1,0 +1,29 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Tell us about your types of expertise" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">
+        What is this section asking for?
+      </p>
+      <p class="govuk-body">
+        What do we mean by expertise?
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "./expertise-type/expertise-type"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

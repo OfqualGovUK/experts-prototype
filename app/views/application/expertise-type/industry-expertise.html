@@ -1,0 +1,71 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./teaching-expertise" %}
+{% set pageHeading = "What is the nature of your industry or occupational expertise?" %}
+
+{% block formContent %}
+
+    {% set natureOtherHtml %}
+      {{ govukInput({
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.expertiseType.industryOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Leading a team or overseeing the work of others"
+        },
+        {
+          text: "Overseeing activities across other learning environments"
+        },
+        {
+          text: "Overseeing activities in your own workplace only"
+        },
+        {
+          text: "Substantial work experience",
+          hint: {
+            text: "Professional publications, contribution to research, industry awards for example"
+          }
+        },
+        {
+          text: "Senior role"
+        },
+        {
+          text: "Working as part of a team"
+        },
+        {
+          divider: "or"
+        },
+        {
+          text: "Something that isn't listed",
+          conditional: {
+            html: natureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.expertiseType.industry")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
