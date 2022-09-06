@@ -89,12 +89,12 @@
 
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Roles and responsibilities</h2>
+        <h2 class="govuk-heading-m">Expertise and responsibilities</h2>
         {% if data.personalDetails == "complete" %}
-          {% include "_includes/summary-cards/roles.html" %}
+          {% include "_includes/summary-cards/expertise-type.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Roles and responsibilities",
+            sectionName: "Expertise and responsibilities",
             sectionHref: "./roles",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
