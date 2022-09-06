@@ -28,6 +28,22 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Education and qualifications</h2>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Add qualifications',
+              href: 'application/education',
+              taskName: data.educationDetails
+            })}}
+            {{ appTaskListItem({
+              name: 'Add professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
+            })}}
+          </ul>
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Work history</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
@@ -44,21 +60,6 @@
           </ul>
       </section>
 
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Education and qualifications</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Add qualifications',
-              href: 'application/education',
-              taskName: data.educationDetails
-            })}}
-            {{ appTaskListItem({
-              name: 'Add professional achievements',
-              href: 'application/professional-achievements',
-              taskName: data.professionalAchievementDetails
-            })}}
-          </ul>
-      </section>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Roles and responsibilities</h2>
