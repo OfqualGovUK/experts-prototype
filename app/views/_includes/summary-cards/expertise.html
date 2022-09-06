@@ -4,165 +4,145 @@
 {{ deletedSubject | log }}
 {{ data.selectedSubject | log }}
 
-  {% set assessmentHtml %}
-    {# Build an list of the items selected #}
-    <ul class="govuk-list">
-      {% for role in data.expertiseType.assessment %}
-        {% if role != "Something that isn't listed" %}
-          <li>
-            {{ role }}
-          </li>
-        {% endif %}
-      {% endfor %}
-      {% if data.expertiseType.assessmentOther %}
-        <li>
+{% set assessmentHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items #}
+    {% for role in data.expertiseType.assessment %}
+      <li>
+        {% if role == "Something that isn't listed" %}
           {{ data.expertiseType.assessmentOther }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endset %} 
-
-  {% set industryHtml %}
-    {# Build an list of the items selected #}
-    <ul class="govuk-list">
-      {% for role in data.expertiseType.industry %}
-        {% if role != "Something that isn't listed" %}
-          <li>
-            {{ role }}
-          </li>
+        {% else %} 
+          {{ role }}
         {% endif %}
-      {% endfor %}
-      {% if data.expertiseType.industryOther %}
-        <li>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endset %} 
+
+{% set industryHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.expertiseType.industry %}
+      <li>
+        {% if role == "Something that isn't listed" %}
           {{ data.expertiseType.industryOther }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endset %} 
-
-  {% set teachingHtml %}
-    {# Build an list of the items selected #}
-    <ul class="govuk-list">
-      {% for role in data.expertiseType.teaching %}
-        {% if role != "Something that isn't listed" %}
-          <li>
-            {{ role }}
-          </li>
+        {% else %} 
+          {{ role }}
         {% endif %}
-      {% endfor %}
-      {% if data.expertiseType.teachingOther %}
-        <li>
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{% set teachingHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.expertiseType.teaching %}
+      <li>
+        {% if role == "Something that isn't listed" %}
           {{ data.expertiseType.teachingOther }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endset %}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
 
-  {% if "Assessment" in data.expertiseType.type %}
-  
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: "Assessment",
-      actions: {
-        items: [{
-          text: "Delete choice",
-          visuallyHiddenText: "Assessment expertise",
-          href: "./delete?delete=Assessment expertise"
-        }]
-      },
-      rows: [
-        {
-          key: {
-            text: "Areas of expertise"
-          },
-          value: { 
-            html: assessmentHtml
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "areas of expertise",
-              href: "./assessment-expertise"
-            }]
-          }
+{# If a type of expertise has been selected an it contains assessment #}
+{% if data.expertiseType.type and "Assessment" in data.expertiseType.type %}
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: "Assessment",
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: "Assessment expertise",
+        href: "./delete?delete=Assessment expertise"
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Areas of expertise"
+        },
+        value: { 
+          html: assessmentHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "areas of expertise",
+            href: "./assessment-expertise"
+          }]
         }
-      ]
-    }) }}
+      }
+    ]
+  }) }}
+{% endif %}
 
-  {% endif %}
-
-  {% if "Industry or occupational" in data.expertiseType.type %}
-  
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: "Industry or occupational",
-      actions: {
-        items: [{
-          text: "Delete choice",
-          visuallyHiddenText: "Industry or occupational expertise",
-          href: "./delete?delete=Industry or occupational expertise"
-        }]
-      },
-      rows: [
-        {
-          key: {
-            text: "Areas of expertise"
-          },
-          value: { 
-            html: industryHtml
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "full name",
-              href: "./industry-expertise"
-            }]
-          }
+{# If a type of expertise has been selected an it contains industry #}
+{% if data.expertiseType.type and "Industry or occupational" in data.expertiseType.type %} 
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: "Industry or occupational",
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: "Industry or occupational expertise",
+        href: "./delete?delete=Industry or occupational expertise"
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Areas of expertise"
+        },
+        value: { 
+          html: industryHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "full name",
+            href: "./industry-expertise"
+          }]
         }
-      ]
-    }) }}
+      }
+    ]
+  }) }}
+{% endif %}
 
-  {% endif %}
-
-  {% if "Teaching, lecturing or training" in data.expertiseType.type %}
-
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: "Teaching, lecturing or training",
-      actions: {
-        items: [{
-          text: "Delete choice",
-          visuallyHiddenText: "Assessment expertise",
-          href: "./delete?delete=Teaching, lecturing or training expertise"
-        }]
-      },
-      rows: [
-        {
-          key: {
-            text: "Areas of expertise"
-          },
-          value: { 
-            html: teachingHtml
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "full name",
-              href: "./teaching-expertise"
-            }]
-          }
+{# If a type of expertise has been selected an it contains teaching #}
+{% if data.expertiseType.type and "Teaching, lecturing or training" in data.expertiseType.type %}
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: "Teaching, lecturing or training",
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: "Assessment expertise",
+        href: "./delete?delete=Teaching, lecturing or training expertise"
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Areas of expertise"
+        },
+        value: { 
+          html: teachingHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "full name",
+            href: "./teaching-expertise"
+          }]
         }
-      ]
-    }) }}
-
-  {% endif %}
-
-{# {% if not data.selectedArea %}
-
-  {{ appInsetText({
-    sectionName: "Expertise details",
-    sectionHref: "./../expertise",
-    classes: "app-inset-text--error" if data.showErrors == "true"
-  })}}
-
-{% endif %} #}
+      }
+    ]
+  }) }}
+{% endif %}
