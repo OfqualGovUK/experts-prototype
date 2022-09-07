@@ -1,0 +1,63 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/expertise/select-level" %}
+{% set pageHeading = "Select the qualifications you have expertise in for this subject" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.selectedSubject }}</span>
+
+  {# set up which data set to pull from #}
+  {% set qualifications = []  %}
+  
+  {% for qualification in data.qualificationData  %}
+    {% set qualifications = qualifications | push ({ 
+      text: qualification
+    }) %}
+  {% endfor %}
+
+  {% set qualifications = qualifications | push ({
+    divider: "or"
+  }) %}
+
+  {% set otherQualificationHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.selectedQualificationOther")) }}
+  {% endset -%}
+
+  {% set qualifications = qualifications | push ({
+    text: "Something that isn't listed",
+    conditional: {
+      html: otherQualificationHtml
+    }
+  }) %}
+
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: qualifications
+  } | decorateAttributes(data, "data.selectedQualification")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

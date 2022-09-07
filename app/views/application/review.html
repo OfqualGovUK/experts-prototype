@@ -102,12 +102,12 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Subjects you can help us review</h2>
-        {% if data.expertiseDetails == "complete" %}
+        <h2 class="govuk-heading-m">Areas you can help review</h2>
+        {% if data.areaReviewDetails == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Subjects you can help us review",
+            sectionName: "Areas you can help review",
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}

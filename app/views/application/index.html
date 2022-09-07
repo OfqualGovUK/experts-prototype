@@ -72,13 +72,27 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Subjects you can help us review</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Add subjects',
-              href: '#',
-              taskName: data.subjectDetails
-            })}}
+        {% if data.settings.searchApproach == "Version 1" %}
+          <h2 class="govuk-heading-m">Your expertise</h2>
+          <ul class="app-task-list">
+            {# First pass where we branch between vocational and academic #}
+              {{ appTaskListItem({
+                name: 'Add your expertise',
+                href: 'application/expertise',
+                taskName: data.areaDetails
+              })}}
+            {# Second iteration which includes a bucket search #}
+          </ul>
+          {% elseif data.settings.searchApproach == "Version 2" %}
+          <h2 class="govuk-heading-m">Subjects you can advise on</h2>
+            <ul class="app-task-list">
+              {{ appTaskListItem({
+                name: 'Add subjects',
+                href: 'application/search',
+                taskName: data.areaDetails
+              })}}
+            <ul>
+          {% endif %}
           </ul>
       </section>
       

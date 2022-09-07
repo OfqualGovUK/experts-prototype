@@ -1,0 +1,26 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Tell us which subjects you are confident to advise on" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">
+        Content here to explain why we are asking about...
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "./search/search-type"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

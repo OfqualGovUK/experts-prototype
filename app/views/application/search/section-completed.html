@@ -1,0 +1,38 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your answers" %}
+{# {% set formAction = "/review-expertise-answer" %} #}
+{% set formAction = "./../../application" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Subjects you can advise on</h1>
+  
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Have you completed this section?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "complete",
+        text: "Yes, I’ve completed this section"
+      },
+      {
+        value: "inProgress",
+        html: "No, I’ll come back to it later"
+      }
+    ]
+  } | decorateAttributes(data, "data.areaDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}
