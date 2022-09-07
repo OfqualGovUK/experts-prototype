@@ -175,6 +175,19 @@ router.post('/industry-expertise-answer', function (req, res) {
 
 })
 
+// Decide where to go form the Industry or occupational expertise page
+router.post('/search-type-answer', function (req, res) {
+
+  let searchType = req.session.data.searchType
+
+  if (searchType === "Yes") {
+    res.redirect('/application/search/subject-search')
+  } else {
+    res.redirect('/application/search/sector-search')
+  }
+
+})
+
 
 // ------ Register your interest  ----- //
 

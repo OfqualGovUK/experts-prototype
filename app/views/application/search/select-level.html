@@ -1,12 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Select the qualification levels you have expertise in for this subject" %}
+{% set pageHeading = "Select the qualification levels you can advise for this industry or sector" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.selectedSubject }}</span>  
+  <span class="govuk-caption-l">{{ data.selectedIndustry }}</span>  
   
   {% set otherHtml %}
     {{ govukInput({
@@ -19,7 +19,7 @@
   {% endset -%}
 
   {% set hintHtml %}
-    Select all that apply. Learn more about what <a href="https://www.gov.uk/what-different-qualification-levels-mean/list-of-qualification-levels" class="govuk-link">qualification levels mean</a>.
+    Select all that apply. Learn more about what <a href="https://www.gov.uk/what-different-qualification-levels-mean/list-of-qualification-levels" class="govuk-link" rel="noreferrer noopener" target="_blank">qualification levels mean (opens in new tab)</a>.
   {% endset %}
   
   <section id="human-resources">

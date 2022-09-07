@@ -1,38 +1,40 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/select-area-answer" %}
-{% set pageHeading = "Select your area of exptertise" %}
+{% set formAction = "/search-type-answer" %}
+{% set pageHeading = "Do you know the specific subjects, apprenticeships or T Levels that you can provide advice on?" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Tell us about your types of expertise</h1>
-  <p class="govuk-body">
-    This will help support our review and monitoring of the qualifications we regulate.
-  </p>
+  {# <h1 class="govuk-heading-l">Tell us what you are confident to advise on</h1> #}
+  {# <p class="govuk-body">
+    More content here?
+  </p> #}
 
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--m"
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
       }
     },
     items: [
       {
-        text: "Academic subjects",
-        hint: {
-          text: "Including GCSE qualifications, GCE AS and A level qualifications and advanced extension award qualifications."
+        text: "Yes",
+        _hint: {
+          text: "For example GCSEs, A/AS levels, Apprentiship standards"
         }
       },
       {
-        text: "Vocational, sector or industry",
-        hint: {
-          text: "Including apprenticeship end-point assessments, technical and occupational routes, and industry/sector expertise."
+        _text: "No, I will select an industry sector instead",
+        text: "No, though I know my industry or sector",
+        _hint: {
+          text: "For example"
         }
       }
     ]
-  } | decorateAttributes(data, "data.selectedArea")) }}
+  } | decorateAttributes(data, "data.searchType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

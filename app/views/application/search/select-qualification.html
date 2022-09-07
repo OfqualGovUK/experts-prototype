@@ -1,12 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/expertise/select-level" %}
-{% set pageHeading = "Select the qualifications you have expertise in for this subject" %}
+{% set formAction = "./select-level" %}
+{% set pageHeading = "Select the qualifications types you can advise for this industry or sector" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.selectedSubject }}</span>
+  <span class="govuk-caption-l">{{ data.selectedIndustry }}</span>
 
   {# set up which data set to pull from #}
   {% set qualifications = []  %}
