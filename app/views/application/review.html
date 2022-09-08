@@ -20,7 +20,35 @@
               href: "./personal-details"
             } if data.personalDetails != "complete",
             {
-              text: "Qualification details not marked as complete",
+              text: "Education and qualifications not marked as complete",
+              href: "#"
+            } if data.educationDetails != "complete",
+            {
+              text: "Professional achievements is not marked as complete",
+              href: "#"
+            } if data.professionalAchievementDetails != "complete",
+            {
+              text: "Work history is not marked as complete",
+              href: "#"
+            } if data.experienceDetails != "complete",
+            {
+              text: "References is not marked as complete",
+              href: "#"
+            } if data.referenceDetails != "complete",
+            {
+              text: "Type of expertise is not marked as complete",
+              href: "#"
+            } if data.expertiseTypeDetails != "complete",
+            {
+              text: "Areas you can help review is not marked as complete",
+              href: "#"
+            } if data.areaDetails != "complete",
+            {
+              text: "Personal statement is not marked as complete",
+              href: "#"
+            } if data.qualificationDetails != "complete",
+            {
+              text: "Verify your identity is not marked as complete",
               href: "#"
             } if data.qualificationDetails != "complete"
           ]
