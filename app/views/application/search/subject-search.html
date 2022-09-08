@@ -1009,7 +1009,7 @@
         { "name": "Youth justice practitioner", "qualType": "End-Point Assessment", "level": "Level 5" },
         { "name": "Youth support worker", "qualType": "End-Point Assessment", "level": "Level 3" },
         { "name": "Youth worker", "qualType": "End-Point Assessment", "level": "Level 6" }
-    ]
+      ]
 
       var getSuggestions = () => {
         var suggestions = []
@@ -1027,7 +1027,7 @@
         templates: {
           suggestion: (value) => {
             var result = results.find(result => result.name == value);
-            return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'> (${result.level})</span>`
+            return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0'> (${result.level})</span>`
           }
         }
       })
