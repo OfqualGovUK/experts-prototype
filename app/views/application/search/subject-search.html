@@ -1013,7 +1013,7 @@
 
       var getSuggestions = () => {
         var suggestions = []
-        results.forEach(vacancy => suggestions.push(vacancy.name));
+        results.forEach(result => suggestions.push(result.name));
         return suggestions;
       }
 
@@ -1026,8 +1026,8 @@
         name: "subjectSearch",
         templates: {
           suggestion: (value) => {
-            var vacancy = results.find(vacancy => vacancy.name == value);
-            return `<span class='job-title'>${vacancy.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>${vacancy.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'> (${vacancy.level})</span>`
+            var result = results.find(result => result.name == value);
+            return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'> (${result.level})</span>`
           }
         }
       })
