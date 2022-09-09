@@ -96,7 +96,7 @@
           href: "./assessment-expertise"
         }]
       }
-    },
+    } if "Assessment" in data.expertiseType.type,
     {
       key: {
         text: "Industry or occupational expertise"
@@ -111,7 +111,7 @@
           href: "./industry-expertise"
         }]
       }
-    },
+    } if "Industry or occupational" in data.expertiseType.type,
     {
       key: {
         text: "Teaching, lecturing or training expertise"
@@ -126,7 +126,7 @@
           href: "./teaching-expertise"
         }]
       }
-    }
+    } if "Teaching, lecturing or training" in data.expertiseType.type
     
   ]
 }) }}
