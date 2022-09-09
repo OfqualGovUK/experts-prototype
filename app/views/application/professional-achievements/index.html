@@ -1,26 +1,37 @@
 
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Tell us about your professional achievements" %}
+{% set formAction = "/achievement-answer" %}
+{% set pageHeading = "Do you have any professional achievements?" %}
 
-{% block content %}
+{% block formContent %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    hint: {
+      text: "Professional publications, significant contributions to research or industry awards."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyAchievement")) }}
 
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">
-        Content here to explain why we are asking about...
-      </p>
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue",
-          href: "./professional-achievements/any-achievements"
-        }) }}
-      </div>
-
-    </div>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
   </div>
 
 {% endblock %}

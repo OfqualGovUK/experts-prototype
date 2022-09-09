@@ -5,197 +5,106 @@
 {# {% set startDateArray = data.roleStartDate | toDateArray %} #}
 {{ data.roleStartDate.month | log }}
 
-
-{# If a the job details screen has been submitted - this looks for the hidden form filed on the job details page #}
-{# {% if data.jobDetails == "true"  %} #}
-
-  {% set occupationOrSubjectHtml %}
-    {# Build an list of the items selected #}
-    <ul class="govuk-list">
-      {% for item in data.job.expertiseArea %}
-        <li>
-          {{ item }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endset %} 
-
-  {% set natureHtml %}
-    {# Build an list of the items selected #}
-    <ul class="govuk-list">
-      {% for item in data.job.nature %}
-        <li>
-          {{ item }}
-        </li>
-      {% endfor %}
-      {% if data.job.natureOther %}
-        <li>
-          {{ data.job.natureOther }}
-        </li>
-      {% endif %}
-    </ul>
-  {% endset %} 
-
-  {# {% if deletedSubject != data.selectedSubject %} #}
-
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: data.job.roleName,
-      actions: {
-        items: [{
-          text: "Delete job",
-          visuallyHiddenText: data.job.roleName,
-          href: "./delete?delete=" + data.job.roleName
-        }]
-      },
-      rows: [
-        {
-          key: {
-            text: "Employer"
-          },
-          value: { 
-            text: data.job.employerName or "Not provided"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "employer",
-              href: "./job-details"
-            }]
-          }
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.job.roleName,
+    actions: {
+      items: [{
+        text: "Delete job",
+        visuallyHiddenText: data.job.roleName,
+        href: "./delete?delete=" + data.job.roleName
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Employer"
         },
-        {
-          key: {
-            text: "Role"
-          },
-          value: { 
-            text: data.job.roleName or "Not provided"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "role",
-              href: "./job-details"
-            }]
-          }
+        value: { 
+          text: data.job.employerName or "Not provided"
         },
-        {
-          key: {
-            text: "Was the position a senior role?"
-          },
-          value: { 
-            text: data.job.roleSenior or "Not provided"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "role",
-              href: "./job-details"
-            }]
-          }
-        },
-        {
-          key: {
-            text: "When did you start this job?"
-          },
-          value: { 
-            text: "June 2005", 
-            _text: data[roleStartDate][month] 
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "When did you start this job?",
-              href: "./job-details"
-            }]
-          }
-        },
-        {
-          key: {
-            text: "Are you still working in this job?"
-          },
-          value: { 
-            text: data.roleEnded 
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "When did you start this job?",
-              href: "./job-details"
-            }]
-          }
-        },
-        {
-          key: {
-            text: "When did you leave this job?"
-          },
-          value: { 
-            text: "March 2015"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "When did you leave this job?",
-              href: "./job-details"
-            }]
-          }
-        } if data.roleEnded == "No",
-        {
-          key: {
-            text: "Provide a summary of your responsibilities and activities for this role"
-          },
-          value: { 
-            text: data.job.summaryOfActivity
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Provide a summary of your responsibilities and activities for this role",
-              href: "./summary-of-activity"
-            }]
-          }
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "employer",
+            href: "./job-details"
+          }]
         }
-      ]
-    }) }}
-
-    {# Not used #}
-    {# {
-      key: {
-        text: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?"
-      },
-      value: { 
-        text: data.conflictOfInterest or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Is there potential for a conflict of interest to arise due to the nature of the Ofqual Experts role?",
-          href: "./conflict-of-interest"
-        }]
       },
       {
-          key: {
-            text: "Conflict of interest details"
-          },
-          value: { 
-            text: data.conflictDetails or "Not provided"
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Conflict of interest details",
-              href: "./conflict-of-interest"
-            }]
-          }
-        } if data.conflictOfInterest == "Yes"
-    }, #}
-
-{# {% elseif data.jobDetails != "true" %} #}
-
-  {# {{ appInsetText({
-    sectionName: "Experience details",
-    sectionHref: "./experience-details",
-    classes: "app-inset-text--error" if data.showErrors == "true"
-  })}} #}
-
-{# {% endif %} #}
+        key: {
+          text: "Role"
+        },
+        value: { 
+          text: data.job.roleName or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "role",
+            href: "./job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "When did you start this job?"
+        },
+        value: { 
+          text: "June 2005", 
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "When did you start this job?",
+            href: "./job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Are you still working in this job?"
+        },
+        value: { 
+          text: data.roleEnded 
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "When did you start this job?",
+            href: "./job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "When did you leave this job?"
+        },
+        value: { 
+          text: "March 2015"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "When did you leave this job?",
+            href: "./job-details"
+          }]
+        }
+      } if data.roleEnded == "No",
+      {
+        key: {
+          text: "Provide a summary of your responsibilities and activities for this role"
+        },
+        value: { 
+          text: data.job.summaryOfActivity
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Provide a summary of your responsibilities and activities for this role",
+            href: "./summary-of-activity"
+          }]
+        }
+      }
+    ]
+  }) }}
