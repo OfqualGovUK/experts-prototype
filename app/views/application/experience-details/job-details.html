@@ -17,7 +17,7 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">You will be able to add more roles after you finsh telling us about the first one.</p>
+  <p class="govuk-body">You will be able to add more roles after you finish telling us about the first one.</p>
 
   {{ govukInput({
     label: {
@@ -25,7 +25,7 @@
       classes: "govuk-label--m"
     },
     hint: {
-      text: "If you have worked for yourself, enter 'self-employed"
+      text: "If you have worked for yourself, enter 'self-employed'"
     }
   } | decorateAttributes(data, "data.job.employerName")) }}
 

@@ -7,7 +7,7 @@
 {% block formContent %}
 
   <span class="govuk-caption-l">{{ data.job.roleName }}</span>
-  <h1 class="govuk-heading-l">Add a job</h1>
+  <h1 class="govuk-heading-l">Add a role</h1>
 
   {{ govukCharacterCount({
     maxlength: 10000,
@@ -16,7 +16,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     },
-    hint: {
+    _hint: {
       text: "Add suggestions on what we want them to say here..."
     }
    } | decorateAttributes(data, "data.job.summaryOfActivity")) }}
