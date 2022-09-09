@@ -1,9 +1,9 @@
 // Summary card
 .x-govuk-summary-card {
-    margin-bottom: govuk-spacing(4) !important;
+    margin-bottom: govuk-spacing(8) !important;
     
     & + .x-govuk-summary-card {
-        margin-top: govuk-spacing(9) !important;
+        margin-top: govuk-spacing(8) !important;
     }
     
     .x-govuk-summary-card__title {
