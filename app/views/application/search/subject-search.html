@@ -27,7 +27,7 @@
 
     <script type="text/javascript">
 
-      var results = [
+      var rawResults = [
         { "name": "Abattoir Worker", "qualType": "End-Point Assessment", "level": "Level 2" },
         { "name": "Academic Professional", "qualType": "End-Point Assessment", "level": "Level 7" },
         { "name": "Accident repair technician", "qualType": "End-Point Assessment", "level": "Level 3" },
@@ -1011,10 +1011,17 @@
         { "name": "Youth worker", "qualType": "End-Point Assessment", "level": "Level 6" }
       ]
 
+      const results = rawResults.map((x, ix) => ({ id: ix, ...x }))
+
       var getSuggestions = () => {
         var suggestions = []
         results.forEach(result => suggestions.push(result.name));
         return suggestions;
+      }
+
+      function suggest(query, populateResults) {
+        const filteredResults = results.filter(x => x.name.toLowerCase().includes(query.toLowerCase()));
+        populateResults(filteredResults)
       }
 
       var element = document.querySelector('#tt-default')
@@ -1022,11 +1029,11 @@
       accessibleAutocomplete({
         element: element,
         id: id,
-        source: getSuggestions(),
+        source: suggest,
         name: "subjectSearchResult",
         templates: {
           suggestion: (value) => {
-            var result = results.find(result => result.name == value);
+            var result = results.find(result => result.id == value.id);
             return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0'> (${result.level})</span>`
           }
         }
