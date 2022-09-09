@@ -7,9 +7,9 @@
 {% set pageHeading %}
  {# If a job already exists #}
  {% if data.job.roleName %}
-    Add another job
+    Add another role
   {% else %}
-    Add a job
+    Add a role
   {% endif%}
 {% endset %}
 
@@ -17,13 +17,15 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
+  <p class="govuk-body">You will be able to add more roles after you finsh telling us about the first one.</p>
+
   {{ govukInput({
     label: {
       text: "Name of employer",
       classes: "govuk-label--m"
     },
     hint: {
-      text: "If you worked for yourself, enter ‘self-employed’."
+      text: "If you have worked for yourself, enter 'self-employed"
     }
   } | decorateAttributes(data, "data.job.employerName")) }}
 
@@ -32,39 +34,13 @@
       text: "Role",
       classes: "govuk-label--m"
     },
-    hint: {
-      text: "If you had more than one role with this employer, enter your most relevant role."
+    _hint: {
+      text: "If you have had more than one role, enter your most relevant role"
     }
   } | decorateAttributes(data, "data.job.roleName")) }}
 
-  {# {{ govukButton({
-    text: "Add another role for this employer",
-    herf: "#",
-    classes: "govuk-button--secondary"
-  }) }} #}
-
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Was the position a senior role?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: "A senior role is..."
-    },
-    items: [
-      {
-        text: "Yes"
-      },
-      {
-        text: "No"
-      }
-    ]
-  } | decorateAttributes(data, "data.roleSenior")) }}
-
   {% set startDateHintHtml %}
-    For example, <time datetime="">3 2019</time>. If you cannot remember the exact month or year, enter an estimate.
+    For example, <time datetime="">3 2019</time>
   {% endset %}
 
   {{ govukDateInput({
@@ -72,7 +48,7 @@
     namePrefix: data[roleStartDate],
     fieldset: {
       legend: {
-      text: "When did you start this job?",
+      text: "Add your start date",
       classes: "govuk-fieldset__legend--m"
       }
     },
@@ -96,7 +72,7 @@
   {% set conditionalCloseDateHtml %}
 
     {% set startDateHintHtml %}
-      For example, <time datetime="">5 2021</time>. If you cannot remember the exact month or year, enter an estimate.
+      For example, <time datetime="">5 2021</time>
     {% endset %}
 
     {{ govukDateInput({
@@ -104,7 +80,7 @@
       namePrefix: data[roleEndDate],
       fieldset: {
         legend: {
-        text: "When did you leave this job?",
+        text: "Add your end date",
         classes: "govuk-fieldset__legend--m"
         }
       },
@@ -130,7 +106,7 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Are you still working in this job?",
+        text: "Are you still in this role?",
         classes: "govuk-fieldset__legend--m"
       }
     },

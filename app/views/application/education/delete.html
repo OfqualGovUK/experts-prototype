@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Are you sure you want to delete this qualification?" %}
+{% set pageHeading = "Are you sure you want to delete this certification?" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
@@ -15,7 +15,7 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Yes, delete this qualification",
+      text: "Yes, delete this certification",
       classes: "govuk-button--warning",
       href: "#"
     }) }}

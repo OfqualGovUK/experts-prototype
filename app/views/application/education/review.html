@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your qualifications" %}
+{% set pageHeading = "Review your certifications" %}
 {% set formAction = "/review-qualifications-answer" %}
 {% set layoutWidth = "fullWidthLayout" %}
 {% set backText = "Back to application" %}
@@ -17,7 +17,7 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Did you want to add another qualification?",
+        text: "Did you want to add another certification?",
         classes: "govuk-fieldset__legend--m"
       }
     },
@@ -26,7 +26,7 @@
         text: "Yes"
       },
       {
-        text: "No, I've finished adding qualifications"
+        text: "No, I've finished adding certifications"
       }
     ]
   } | decorateAttributes(data, "data.addAnotherqualification")) }}
