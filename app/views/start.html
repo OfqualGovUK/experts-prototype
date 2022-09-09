@@ -7,7 +7,7 @@
   {{ pageHeading }} - GOV.UK
 {% endblock %}
 
-{% set pageHeading = 'Apply to provide expertise' %}
+{% set pageHeading = serviceName %}
 
 {% block beforeContent %}
 {# beforeContent is reseting default phase banner #}
@@ -32,7 +32,7 @@
         <div class="govuk-grid-column-two-thirds">
 
           <h1 class="start-page-banner__text start-page-banner__heading govuk-heading-xl">{{pageHeading}}</h1>
-          <p class="start-page-banner__text start-page-banner__description govuk-body govuk-!-font-size-27">Apply to provide qualification, assessment or occupational expertise to Ofqual.
+          <p class="start-page-banner__text start-page-banner__description govuk-body govuk-!-font-size-27">Apply to provide qualification, assessment or occupational advice.
           </p>
           <div class="start-page-banner__actions">
             {{ govukButton({
