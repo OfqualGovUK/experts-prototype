@@ -16,9 +16,10 @@
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Yes, delete this area",
-      classes: "govuk-button--warning"
+      classes: "govuk-button--warning",
+      href: "/application/sorry"
     }) }}
-    <a class="govuk-link" href="./review">Cancel</a>
+    <a class="govuk-link" href="/application">Cancel</a>
   </div>
   
   <input type="hidden" id="confirmDelete{{ data.delete }}" name="confirmDelete{{ data.delete }}" value="true">
