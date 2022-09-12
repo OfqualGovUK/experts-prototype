@@ -25,7 +25,7 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Did you want to add another job?",
+        text: "Did you want to add another role?",
         classes: "govuk-fieldset__legend--m"
       }
     },
@@ -34,7 +34,7 @@
         text: "Yes"
       },
       {
-        text: "No, I've finished adding jobs"
+        text: "No, I've finished adding roles"
       }
     ]
   } | decorateAttributes(data, "data.addAnotherJob")) }}
