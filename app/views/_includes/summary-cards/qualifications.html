@@ -1,4 +1,78 @@
-{% set subjectsAndGrades %}
+{{ xGovukSummaryCard({
+  classes: "govuk-!-margin-bottom-9",
+  titleText: data.education.courseNameOther,
+  actions: {
+    items: [{
+      text: "Delete certification",
+      visuallyHiddenText: data.education.courseNameOther,
+      href: "./delete?delete=" + data.education.courseNameOther
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "School, college, university or other organisationy"
+      },
+      value: { 
+        text: data.education.schoolNameOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "school, college, university or other organisation",
+          href: "./add-certification"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Qualification or course name"
+      },
+      value: { 
+        text: data.education.courseNameOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "qualification or course name",
+          href: "./add-certification"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Grade"
+      },
+      value: { 
+        text: data.education.gradeOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "grade",
+          href: "./add-certification"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Year qualification was awarded"
+      },
+      value: { 
+        text: data.education.yearAwardedOther or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "year qualification was awarded",
+          href: "./add-certification"
+        }]
+      }
+    }
+  ]
+}) }}
+
+{# {% set subjectsAndGrades %}
   {% if data.education.subject1Gcse and data.education.subject1GradeGcse %}
   <ul class="govuk-list">
     <li>
@@ -9,11 +83,10 @@
   {% else %}
     Not provided
   {% endif%}
-{% endset %}
-
+{% endset %} #}
 
 {# Pull in the specific summary card depending on qualification #}
-{% if data.qualificationType == "GCSEs" %}
+{# {% if data.qualificationType == "GCSEs" %}
   {% include "_includes/summary-cards/qualifications-gcse.html" %}
 {% elseif data.qualificationType == "A/AS Level or equivalent" %}
   {% include "_includes/summary-cards/qualifications-a-as-level.html" %}
@@ -21,4 +94,4 @@
   {% include "_includes/summary-cards/qualifications-degree.html" %}
 {% elseif data.qualificationType == "Other qualification or course" %}
   {% include "_includes/summary-cards/qualifications-other.html" %}
-{% endif %}
+{% endif %} #}

@@ -1,7 +1,7 @@
 
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Tell us about your education and qualifications" %}
+{% set pageHeading = "Add your relevant certifications that support your application" %}
 
 {% block content %}
 
@@ -11,13 +11,13 @@
       {# <span class="govuk-caption-l">Education and qualifications</span> #}
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
       <p class="govuk-body">
-        Content here to explain why we are asking about...
+        Include all certifications related to the teaching, assessment or industry expertise that you can advise Ofqual on.
       </p>
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Add a qualification",
-          href: "./education/qualification-type"
+          text: "Add a certification",
+          href: "./education/add-certification"
         }) }}
       </div>
 

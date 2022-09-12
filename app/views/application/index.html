@@ -28,10 +28,10 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Education and qualifications</h2>
+        <h2 class="govuk-heading-m">Education details</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Add qualifications',
+              name: 'Add certifications',
               href: 'application/education',
               taskName: data.educationDetails
             })}}
@@ -61,7 +61,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Type of expertise</h2>
+        <h2 class="govuk-heading-m">Types of expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'Add types of expertise',
@@ -72,27 +72,13 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        {% if data.settings.searchApproach == "Version 1" %}
-          <h2 class="govuk-heading-m">Your expertise</h2>
-          <ul class="app-task-list">
-            {# First pass where we branch between vocational and academic #}
-              {{ appTaskListItem({
-                name: 'Add your expertise',
-                href: 'application/expertise',
-                taskName: data.areaDetails
-              })}}
-          </ul>
-          {% elseif data.settings.searchApproach == "Version 2" %}
-          {# Second iteration which includes a bucket search #}
-            <h2 class="govuk-heading-m">Areas you can advise on</h2>
-            <ul class="app-task-list">
-              {{ appTaskListItem({
-                name: 'Add areas',
-                href: 'application/search',
-                taskName: data.areaDetails
-              })}}
-            <ul>
-          {% endif %}
+        <h2 class="govuk-heading-m">Subjects that you can advise on</h2>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Add subjects',
+              href: '#',
+              taskName: data.subjectDetails
+            })}}
           </ul>
       </section>
       

@@ -72,12 +72,12 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Education and qualifications</h2>
+        <h2 class="govuk-heading-m">Education details</h2>
         {% if data.educationDetails == "complete" %}
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Qualifications",
+            sectionName: "Certifications",
             sectionHref: "./education",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}

@@ -139,7 +139,7 @@ router.post('/expertise-type-answer', function (req, res) {
   
   if (selectedType.includes("Assessment")) {
     res.redirect('/application/expertise-type/assessment-expertise')
-  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational expertise")) ) {
+  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
     res.redirect('/application/expertise-type/industry-expertise')
   } else {
     res.redirect('/application/expertise-type/teaching-expertise')
