@@ -1,0 +1,40 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your answers" %}
+{% set formAction = "/review-subjects-answer" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Review the areas you can advise on</h1>
+  
+  {% include "_includes/summary-cards/subjects.html" %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Did you want to add another area?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No, I've finished adding areas I can advise on"
+      }
+    ]
+  } | decorateAttributes(data, "data.addAnotherSubject")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -35,12 +35,14 @@ const legalData = require('./legalData.json')
 const protectiveData = require('./protectiveData.json')
 const salesData = require('./salesData.json')
 const subjectData = require('./subjectData.json')
+const subSectorSubjectAreasData = require('./subSectorSubjectAreasData.json')
 const trasnsportData = require('./trasnsportData.json')
 const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
 let settings = {
-  caseStatus: "Has multiple cases in the service"
+  // Methods of searching for subjects
+  searchApproach: "Version 2"
 }
 
 module.exports = {
@@ -62,6 +64,7 @@ module.exports = {
   protectiveData,
   salesData,
   subjectData,
+  subSectorSubjectAreasData,
   trasnsportData,
   qualificationData,
   settings: settings,
@@ -70,5 +73,4 @@ module.exports = {
   // This will be enabled through hidden inputs in the dependant sections
   // "experienceDetails": "canNotStartYet",
   "referenceDetails": "canNotStartYet"
-
 }

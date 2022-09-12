@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/search-type-answer" %}
+{% set pageHeading = "Do you know the specific subjects, apprenticeships or T Levels that you can provide advice on?" %}
+
+{% block formContent %}
+
+  {# <h1 class="govuk-heading-l">Tell us what you are confident to advise on</h1> #}
+  {# <p class="govuk-body">
+    More content here?
+  </p> #}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        text: "Yes",
+        _hint: {
+          text: "For example GCSEs, A/AS levels, Apprentiship standards"
+        }
+      },
+      {
+        text: "No, I'll select my industry or sector instead",
+        _hint: {
+          text: "For example"
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.searchType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

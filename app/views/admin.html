@@ -2,22 +2,30 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Admin settings" %}
-{% set formAction = "" %}
+{% set formAction = "/application" %}
 
 {% block formContent %}
 
   <h1 class="govuk-heading-l">Admin settings<h1>
   
-  <h2 class="govuk-heading-m">Case status<h2>
+  <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
 
-   {{ govukCheckboxes({
+   {{ govukRadios({
     items: [
       {
-        value: "Has multiple cases in the service",
-        text: "Has multiple cases in the service"
+        text: "Version 1",
+        hint: {
+          text: "Search by acamedic or vocational subjects"
+        }
+      },
+      {
+        text: "Version 2",
+        hint: {
+          text: "Search by qualification or sub-sector subject area"
+        }
       }
     ]
-  } | decorateAttributes(data, "data.settings.caseStatus")) }}
+  } | decorateAttributes(data, "data.settings.searchApproach")) }}
 
   {{ govukButton({
     text: "Update settings"
