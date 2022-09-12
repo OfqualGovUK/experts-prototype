@@ -21,12 +21,12 @@
   
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you still can't see your industry then select the closest match. 
+      If you still can't see your industry or sector then select the closest match. 
     </p>
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "I can't see my industry",
+    summaryText: "I can't see my industry or sector",
     text: detailsHtml | safe
   }) }}
 

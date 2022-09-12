@@ -9,14 +9,14 @@
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review the subjects you can advise on</h1>
+  <h1 class="govuk-heading-l">Review the areas you can advise on</h1>
   
   {% include "_includes/summary-cards/subjects.html" %}
-  
+
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Did you want to add another subject?",
+        text: "Did you want to add another area?",
         classes: "govuk-fieldset__legend--m"
       }
     },
@@ -25,7 +25,7 @@
         text: "Yes"
       },
       {
-        text: "No, I've finished adding subjects"
+        text: "No, I've finished adding areas"
       }
     ]
   } | decorateAttributes(data, "data.addAnotherSubject")) }}

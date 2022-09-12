@@ -84,10 +84,10 @@
           </ul>
           {% elseif data.settings.searchApproach == "Version 2" %}
           {# Second iteration which includes a bucket search #}
-            <h2 class="govuk-heading-m">Subjects you can advise on</h2>
+            <h2 class="govuk-heading-m">Areas you can advise on</h2>
             <ul class="app-task-list">
               {{ appTaskListItem({
-                name: 'Add subjects',
+                name: 'Add areas',
                 href: 'application/search',
                 taskName: data.areaDetails
               })}}

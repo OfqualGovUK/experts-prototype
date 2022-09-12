@@ -40,7 +40,7 @@
               href: "#"
             } if data.expertiseTypeDetails != "complete",
             {
-              text: "Areas you can help review is not marked as complete",
+              text: "Areas you can advise on is not marked as complete",
               href: "#"
             } if data.areaDetails != "complete",
             {
@@ -130,13 +130,13 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Areas you can help review</h2>
+        <h2 class="govuk-heading-m">Areas you can advise on</h2>
         {% if data.areaReviewDetails == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Areas you can help review",
-            sectionHref: "#",
+            sectionName: "Areas you can advise on",
+            sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 

@@ -1,8 +1,13 @@
 {% set qualTypeHtml %}
   <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
     {% for qualificationType in data.selectedQualification %}
       <li>
-        {{ qualificationType }}
+        {% if role == "Something that isn't listed" %}
+          {{ data.selectedQualificationOther }}
+        {% else %} 
+          {{ qualificationType }}
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
@@ -10,36 +15,29 @@
 
 {% set levelHtml %}
   <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
     {% for level in data.selectedLevel %}
       <li>
-        {{ level }}
+        {% if role == "Something that isn't listed" %}
+          {{ data.selectedLevelOther }}
+        {% else %} 
+          {{ level }}
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
 {% endset %}
 
-{# <ul class="govuk-list">
-  loops through and gets al the checked items 
-  {% for role in data.expertiseType.assessment %}
-    <li>
-      {% if role == "Something that isn't listed" %}
-        {{ data.expertiseType.assessmentOther }}
-      {% else %} 
-        {{ role }}
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul> #}
 
-{# If its a subjects, apprenticeships or T Levels  #}
-{% if data.subjectSearchResult %}
+{# If it is a subjects, apprenticeships or T Level  #}
+{% if data.selectedSubject %}
   {{ xGovukSummaryCard({
-    titleText: data.subjectSearchResult,
+    titleText: data.selectedSubject,
     actions: {
       items: [{
         text: "Delete choice",
-        visuallyHiddenText: subjectSearchResult,
-        href: "./delete?delete=" + subjectSearchResult
+        visuallyHiddenText: data.selectedSubject,
+        href: "./delete?delete=" + data.selectedSubject
       }]
     },
     rows: [
@@ -48,7 +46,7 @@
           text: "Subject"
         },
         value: { 
-          html: data.subjectSearchResult
+          html: data.selectedSubject
         },
         actions: {
           items: [{
@@ -79,7 +77,7 @@
 {% endif %}
 
 {# If its a sector or industry  #}
-{% if data.subjectSearchResult %}
+{% if data.selectedIndustry %}
   {{ xGovukSummaryCard({
     titleText: data.selectedIndustry,
     actions: {
@@ -110,7 +108,7 @@
           text: "Qualification type"
         },
         value: { 
-          text: "A level"
+          html: qualTypeHtml
         },
         actions: {
           items: [{
@@ -125,7 +123,7 @@
           text: "Qualification level"
         },
         value: { 
-          text: data.selectedQualification
+          html: levelHtml
         },
         actions: {
           items: [{
