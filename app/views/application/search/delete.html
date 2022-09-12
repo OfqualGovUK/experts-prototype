@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Are you sure you want to delete this area of expertise?" %}
+{% set pageHeading = "Are you sure you want to delete this area?" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
@@ -15,7 +15,7 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Yes, delete this area of expertise",
+      text: "Yes, delete this area",
       classes: "govuk-button--warning"
     }) }}
     <a class="govuk-link" href="./review">Cancel</a>
