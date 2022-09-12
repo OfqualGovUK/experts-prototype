@@ -20,7 +20,35 @@
               href: "./personal-details"
             } if data.personalDetails != "complete",
             {
-              text: "Qualification details not marked as complete",
+              text: "Education and qualifications not marked as complete",
+              href: "#"
+            } if data.educationDetails != "complete",
+            {
+              text: "Professional achievements is not marked as complete",
+              href: "#"
+            } if data.professionalAchievementDetails != "complete",
+            {
+              text: "Work history is not marked as complete",
+              href: "#"
+            } if data.experienceDetails != "complete",
+            {
+              text: "References is not marked as complete",
+              href: "#"
+            } if data.referenceDetails != "complete",
+            {
+              text: "Type of expertise is not marked as complete",
+              href: "#"
+            } if data.expertiseTypeDetails != "complete",
+            {
+              text: "Areas you can advise on is not marked as complete",
+              href: "#"
+            } if data.areaDetails != "complete",
+            {
+              text: "Personal statement is not marked as complete",
+              href: "#"
+            } if data.qualificationDetails != "complete",
+            {
+              text: "Verify your identity is not marked as complete",
               href: "#"
             } if data.qualificationDetails != "complete"
           ]
@@ -102,13 +130,13 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Subjects you can help us review</h2>
-        {% if data.expertiseDetails == "complete" %}
+        <h2 class="govuk-heading-m">Areas you can advise on</h2>
+        {% if data.areaReviewDetails == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Subjects you can help us review",
-            sectionHref: "#",
+            sectionName: "Areas you can advise on",
+            sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 

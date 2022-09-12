@@ -1,0 +1,138 @@
+{% set qualTypeHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for qualificationType in data.selectedQualification %}
+      <li>
+        {% if role == "Something that isn't listed" %}
+          {{ data.selectedQualificationOther }}
+        {% else %} 
+          {{ qualificationType }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+{% set levelHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for level in data.selectedLevel %}
+      <li>
+        {% if role == "Something that isn't listed" %}
+          {{ data.selectedLevelOther }}
+        {% else %} 
+          {{ level }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+
+{# If it is a subjects, apprenticeships or T Level  #}
+{% if data.selectedSubject %}
+  {{ xGovukSummaryCard({
+    titleText: data.selectedSubject,
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedSubject,
+        href: "./delete?delete=" + data.selectedSubject
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Subjects, apprenticeship or T Level"
+        },
+        value: { 
+          html: data.selectedSubject
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "type of expertise",
+            href: "./subject-search"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification type"
+        },
+        value: { 
+          text: "A level"
+        }
+      },
+      {
+        key: {
+          text: "Qualification level"
+        },
+        value: { 
+          text: "Level 3"
+        }
+      }
+    ]
+  }) }}
+{% endif %}
+
+{# If its a sector or industry  #}
+{% if data.selectedIndustry %}
+  {{ xGovukSummaryCard({
+    titleText: data.selectedIndustry,
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedIndustry,
+        href: "./delete?delete=" + data.selectedIndustry
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Industry or sector"
+        },
+        value: { 
+          html: data.selectedIndustry
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "type of expertise",
+            href: "./sector-search"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification type"
+        },
+        value: { 
+          html: qualTypeHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification type",
+            href: "./select-qualification"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification level"
+        },
+        value: { 
+          html: levelHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification level",
+            href: "./select-level"
+          }]
+        }
+      }
+    ]
+  }) }}
+{% endif %}

@@ -1,0 +1,157 @@
+
+{% extends "_templates/form-template.html" %}
+
+{# {% set formAction = "/application/expertise/select-type" %} #}
+{% set formAction = "/application/expertise/review" %}
+{# {% set pageHeading = "Select an occupation" %} #}
+
+{% set pageHeading %}
+  {# the must be on their second loop #}
+  {% if data.selectedOccupation %}
+    Select another occupation
+  {% else %}
+    Select a occupation
+  {% endif %}
+{% endset %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">{{ data.selectedRoute }}</span> #}
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  {# set up which data set to pull from depednng on which route was chosen #}
+  {% set occupations = []  %}
+
+  {% if data.selectedRoute == "Agriculture, environmental and animal care" %}
+    {% for occupation in data.agricultureData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}    
+  {% elseif data.selectedRoute == "Business and administration" %}
+    {% for occupation in data.bussinessData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Care services" %}
+    {% for occupation in data.careData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Catering and hospitality" %}
+    {% for occupation in data.cateringData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Construction and the built environment" %}
+    {% for occupation in data.constructionData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Creative and design" %}
+    {% for occupation in data.creativeData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Digital" %}
+    {% for occupation in data.digitalData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Education and childcare" %}
+    {% for occupation in data.educationData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Engineering and manufacturing" %}
+    {% for occupation in data.engineeringData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Hair and beauty" %}
+    {% for occupation in data.hairData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Health and science" %}
+    {% for occupation in data.healthData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Legal, finance and accounting" %}
+    {% for occupation in data.legalData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Protective services" %}
+    {% for occupation in data.protectiveData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Sales" %}
+    {% for occupation in data.salesData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% elseif data.selectedRoute == "Transport and logistics" %}
+    {% for occupation in data.trasnsportData  %}
+      {% set occupations = occupations | push ({ 
+        text: occupation
+      }) %}
+    {% endfor %}
+  {% endif %}
+
+  {# If its a route with less than 20-ish options, render plain checkboxes #}
+  {% if data.selectedRoute == "Care services" or data.selectedRoute == "Catering and hospitality" or data.selectedRoute == "Digital" or data.selectedRoute == "Education and childcare" or data.selectedRoute == "Hair and beauty" or data.selectedRoute == "Protective services" %}
+
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: "Occupations",
+          classes: "govuk-visually-hidden"
+        }
+      },
+      hint: {
+        text: "You will be able to add more occupations after you finsh telling us about the first one."
+      },
+    items: occupations
+    } | decorateAttributes(data, "data.selectedOccupation")) }}
+  {# otherwise there must be a heap of options os show the search/filter too #}
+  {% else %}
+
+    {% include "_includes/components/option-select/index.html" %}
+  
+  {% endif %}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">
+      <a href="./search-all-occupations" class="govuk-link">Search for an occupation</a> across all routes.
+    </p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "I can't find my occupation",
+    text: detailsHtml | safe
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
