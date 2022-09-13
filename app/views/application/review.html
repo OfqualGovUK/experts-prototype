@@ -131,7 +131,7 @@
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Areas you can advise on</h2>
-        {% if data.areaReviewDetails == "complete" %}
+        {% if data.areaDetails == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
