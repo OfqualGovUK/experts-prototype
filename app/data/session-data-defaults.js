@@ -35,6 +35,7 @@ const legalData = require('./legalData.json')
 const protectiveData = require('./protectiveData.json')
 const salesData = require('./salesData.json')
 const subjectData = require('./subjectData.json')
+const subectSearchData = require('./subectSearchData.json')
 const subSectorSubjectAreasData = require('./subSectorSubjectAreasData.json')
 const trasnsportData = require('./trasnsportData.json')
 const qualificationData = require('./qualificationData.json')
@@ -64,6 +65,7 @@ module.exports = {
   protectiveData,
   salesData,
   subjectData,
+  subectSearchData,
   subSectorSubjectAreasData,
   trasnsportData,
   qualificationData,

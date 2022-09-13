@@ -23,7 +23,7 @@
     {# loops through and gets al the checked items #}
     {% for role in data.expertiseType.assessment %}
       <li>
-        {% if role == "Something that isn't listed" %}
+        {% if role == "An option that isn't listed" %}
           {{ data.expertiseType.assessmentOther }}
         {% else %} 
           {{ role }}
@@ -31,7 +31,6 @@
       </li>
     {% endfor %}
   </ul>
-
 {% endset %} 
 
 {% set industryHtml %}
@@ -39,7 +38,7 @@
   <ul class="govuk-list">
     {% for role in data.expertiseType.industry %}
       <li>
-        {% if role == "Something that isn't listed" %}
+        {% if role == "An option that isn't listed" %}
           {{ data.expertiseType.industryOther }}
         {% else %} 
           {{ role }}
@@ -54,7 +53,7 @@
   <ul class="govuk-list">
     {% for role in data.expertiseType.teaching %}
       <li>
-        {% if role == "Something that isn't listed" %}
+        {% if role == "An option that isn't listed" %}
           {{ data.expertiseType.teachingOther }}
         {% else %} 
           {{ role }}

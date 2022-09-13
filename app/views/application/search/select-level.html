@@ -10,7 +10,7 @@
 
   <span class="govuk-caption-l">{{ data.selectedIndustry }}</span>  
   
-  {% set otherHtml %}
+  {% set otherLevelHtml %}
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
@@ -89,18 +89,10 @@
           }
         },
         {
-          value: "An option that isn't listed",
-          text: "An option that isn't listed",
+          text: "A qualification level that isn't listed",
           conditional: {
             html: otherLevelHtml
           }
-        },
-        {
-          divider: "or"
-        },
-        {
-          value: "I don't know the level",
-          text: "I don't know the level"
         }
       ]
     } | decorateAttributes(data, "data.selectedLevel")) }}

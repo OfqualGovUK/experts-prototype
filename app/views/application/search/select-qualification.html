@@ -17,9 +17,9 @@
     }) %}
   {% endfor %}
 
-  {% set qualifications = qualifications | push ({
+  {# {% set qualifications = qualifications | push ({
     divider: "or"
-  }) %}
+  }) %} #}
 
   {% set otherQualificationHtml %}
     {{ govukInput({
@@ -32,7 +32,7 @@
   {% endset -%}
 
   {% set qualifications = qualifications | push ({
-    text: "Something that isn't listed",
+    text: "A qualification type that isn't listed",
     conditional: {
       html: otherQualificationHtml
     }

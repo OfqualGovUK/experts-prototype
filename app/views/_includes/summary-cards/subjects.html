@@ -3,7 +3,7 @@
     {# loops through and gets al the checked items  #}
     {% for qualificationType in data.selectedQualification %}
       <li>
-        {% if role == "Something that isn't listed" %}
+        {% if qualificationType == "A qualification type that isn't listed" %}
           {{ data.selectedQualificationOther }}
         {% else %} 
           {{ qualificationType }}
@@ -18,7 +18,7 @@
     {# loops through and gets al the checked items  #}
     {% for level in data.selectedLevel %}
       <li>
-        {% if role == "Something that isn't listed" %}
+        {% if level == "A qualification level that isn't listed" %}
           {{ data.selectedLevelOther }}
         {% else %} 
           {{ level }}
