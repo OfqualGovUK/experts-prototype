@@ -201,6 +201,24 @@ router.post('/review-subjects-answer', function (req, res) {
 
 })
 
+router.post('/application/search/review', function (req, res) {
+  const qualType = req.session.data.resultQualType
+  const qualLevel = req.session.data.resultLevel
+  
+  // case-insensitive string match
+  const qualTypeRegex = new RegExp(/Other qualification type/i)
+  const qualLevelRegex = new RegExp(/Other qualification level/i)
+
+  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
+
+  // TODO for Jesse
+  if (isMatch) {
+    res.redirect('/path/for/other')
+  } else {
+    res.redirect('/path/for/not-other')
+  }
+})
+
 // ------ Register your interest  ----- //
 
 // Example folder
