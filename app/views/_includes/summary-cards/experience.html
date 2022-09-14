@@ -66,7 +66,7 @@
           text: "Are you still working in this role?"
         },
         value: { 
-          text: data.roleEnded 
+          text: data.roleEnded or "Not provided"
         },
         actions: {
           items: [{
@@ -96,7 +96,7 @@
           text: "Provide a summary of your responsibilities and activities for this role"
         },
         value: { 
-          text: data.job.summaryOfActivity
+          text: data.job.summaryOfActivity or "Not provided"
         },
         actions: {
           items: [{
