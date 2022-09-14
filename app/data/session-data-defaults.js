@@ -36,6 +36,7 @@ const protectiveData = require('./protectiveData.json')
 const salesData = require('./salesData.json')
 const subjectData = require('./subjectData.json')
 const subectSearchData = require('./subectSearchData.json')
+const subjectSearch2Data = require('./subjectSearchData2.json')
 const subSectorSubjectAreasData = require('./subSectorSubjectAreasData.json')
 const trasnsportData = require('./trasnsportData.json')
 const qualificationData = require('./qualificationData.json')
@@ -70,6 +71,7 @@ module.exports = {
   trasnsportData,
   qualificationData,
   settings: settings,
+  subjectSearch2Data,
 
   // Setting the sections that aren't able to be started yet
   // This will be enabled through hidden inputs in the dependant sections

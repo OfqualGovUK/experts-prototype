@@ -201,6 +201,26 @@ router.post('/review-subjects-answer', function (req, res) {
 
 })
 
+// This route has been contributed to by Joe Ingledew
+router.post('/application/search/subject-search-answer', function (req, res) {
+  const qualType = req.session.data.resultQualType
+  const qualLevel = req.session.data.resultLevel
+  
+  // case-insensitive string match
+  const qualTypeRegex = new RegExp(/Other qualification type/i)
+  const qualLevelRegex = new RegExp(/Other qualification level/i)
+
+  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
+
+  // TODO for Jesse
+  if (isMatch) {
+    // if its an "other" qual type they need ot specify qual type and level
+    res.redirect('/application/search/select-qualification')
+  } else {
+    res.redirect('/application/search/review')
+  }
+})
+
 // ------ Register your interest  ----- //
 
 // Example folder
