@@ -201,7 +201,8 @@ router.post('/review-subjects-answer', function (req, res) {
 
 })
 
-router.post('/application/search/review', function (req, res) {
+// This route has been contributed to by Joe Ingledew
+router.post('/application/search/subject-search-answer', function (req, res) {
   const qualType = req.session.data.resultQualType
   const qualLevel = req.session.data.resultLevel
   
@@ -213,9 +214,10 @@ router.post('/application/search/review', function (req, res) {
 
   // TODO for Jesse
   if (isMatch) {
-    res.redirect('/path/for/other')
+    // if its an "other" qual type they need ot specify qual type and level
+    res.redirect('/application/search/select-qualification')
   } else {
-    res.redirect('/path/for/not-other')
+    res.redirect('/application/search/review')
   }
 })
 

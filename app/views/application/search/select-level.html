@@ -3,12 +3,19 @@
 
 {% set pageHeading = "Select the qualification levels you can advise for this industry or sector" %}
 {% set formAction = "./review" %}
-{# {% setCaption %}
-{% endset %} #}
+{% set captionHeading %}
+  {# if its  a subject result #}
+  {% if data.resultName %}
+    {{ data.resultName }}
+  {# else it must be a secotr of industry #}
+  {% else %}
+    {{ data.selectedIndustry }}
+  {% endif %}
+{% endset %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.selectedIndustry }}</span>  
+  <span class="govuk-caption-l">{{ captionHeading }}</span>  
   
   {% set otherLevelHtml %}
     {{ govukInput({

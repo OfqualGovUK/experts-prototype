@@ -32,12 +32,12 @@
 {# If it is a subjects, apprenticeships or T Level  #}
 {% if data.selectedSubject %}
   {{ xGovukSummaryCard({
-    titleText: data.selectedSubject,
+    titleText: data.resultName,
     actions: {
       items: [{
         text: "Delete choice",
-        visuallyHiddenText: data.selectedSubject,
-        href: "./delete?delete=" + data.selectedSubject
+        visuallyHiddenText: data.resultName,
+        href: "./delete?delete=" + data.resultName
       }]
     },
     rows: [
@@ -46,12 +46,12 @@
           text: "Subjects, apprenticeship or T Level"
         },
         value: { 
-          html: data.selectedSubject
+          html: data.resultName
         },
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "type of expertise",
+            visuallyHiddenText: "Subjects, apprenticeship or T Level",
             href: "./subject-search"
           }]
         }
@@ -61,7 +61,7 @@
           text: "Qualification type"
         },
         value: { 
-          text: "A level"
+          text: data.resultQualType
         }
       },
       {
@@ -69,7 +69,7 @@
           text: "Qualification level"
         },
         value: { 
-          text: "Level 3"
+          text: data.resultLevel
         }
       }
     ]
