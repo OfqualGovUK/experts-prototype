@@ -160,12 +160,12 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Conflict of interest</h2>
+        <h2 class="govuk-heading-m">Conflicts of interest</h2>
         {% if data.conflictDetails == "complete" %}
           {% include "_includes/summary-cards/conflict.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Conflict of interest",
+            sectionName: "Conflicts of interest",
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
