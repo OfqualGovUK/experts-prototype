@@ -95,6 +95,17 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Conflict of interest</h2>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Add conflicts of interest',
+            href: 'application/sorry',
+            taskName: data['task--name-contact']
+          })}}
+        </ul>
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Verify your identity</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({

@@ -48,6 +48,10 @@
               href: "#"
             } if data.qualificationDetails != "complete",
             {
+              text: "Conflicts of interest is not marked as complete",
+              href: "#"
+            } if data.conflictDetails != "complete",
+            {
               text: "Verify your identity is not marked as complete",
               href: "#"
             } if data.qualificationDetails != "complete"
@@ -149,6 +153,19 @@
         {% else %}
           {{ appInsetText({
             sectionName: "Personal statement",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Conflict of interest</h2>
+        {% if data.conflictDetails == "complete" %}
+          {% include "_includes/summary-cards/conflict.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Conflict of interest",
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
