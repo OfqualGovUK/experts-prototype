@@ -32,9 +32,13 @@
 
 {% block content %}
 
+  {# If full width isnt set, make it a 2/3 column #}
   {% if layoutWidth != "fullWidthLayout" %}
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+  {% else %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
   {% endif %}
 
     <form{% if formAction %} action="{{ formAction }}"{% endif %} method="post" novalidate spellcheck="false">
