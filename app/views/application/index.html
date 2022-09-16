@@ -6,7 +6,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
       <p class="govuk-hint govuk-!-margin-bottom-6">Last saved: <time datetime="">{{ "" | today |  govukDate }}, 14:54</time></p>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
@@ -31,7 +31,7 @@
         <h2 class="govuk-heading-m">Education details</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Add certifications',
+              name: 'List relevant certifications',
               href: 'application/education',
               taskName: data.educationDetails
             })}}
@@ -47,12 +47,12 @@
         <h2 class="govuk-heading-m">Work history</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Add work history',
+              name: 'List relevant work history',
               href: 'application/experience-details',
               taskName: data.experienceDetails
             })}}
             {{ appTaskListItem({
-              name: 'Add references',
+              name: 'Add your references',
               href: 'application/sorry',
               hint: "Complete work history first",
               taskName: data.referenceDetails
@@ -75,7 +75,7 @@
         <h2 class="govuk-heading-m">Areas that you can advise on</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Add areas',
+              name: 'Select qualifications and/or sectors ',
               href: 'application/search',
               taskName: data.areaDetails
             })}}
@@ -87,7 +87,7 @@
         <h2 class="govuk-heading-m">Personal statement</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add personal statement',
+            name: 'Add a personal statement',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
@@ -98,9 +98,20 @@
         <h2 class="govuk-heading-m">Conflict of interest</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add conflicts of interest',
+            name: 'List conflicts of interest',
             href: 'application/sorry',
             taskName: data['task--name-contact']
+          })}}
+        </ul>
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m">Self declaration</h2>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Complete self declaration',
+            href: 'application/self-declaration',
+            taskName: data.declarationDetails
           })}}
         </ul>
       </section>
@@ -109,12 +120,13 @@
         <h2 class="govuk-heading-m">Verify your identity</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add proof of identification',
+            name: 'Provide proof of identification',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
         </ul>
       </section>
+     
 
       <h2 class="govuk-heading-m">Review and send</h2>
 
