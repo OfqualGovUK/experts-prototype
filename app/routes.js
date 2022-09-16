@@ -221,6 +221,19 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
 })
 
+// Did you want to add another qualification?
+router.post('/right-to-work-answer', function (req, res) {
+
+  let rightToWork = req.session.data.rightToWork
+
+    if (rightToWork === 'Yes') {
+      res.redirect('/application/self-declaration/right-to-work-status')
+    } else {
+      res.redirect('/application/self-declaration/review') 
+  }
+
+})
+
 // ------ Register your interest  ----- //
 
 // Example folder

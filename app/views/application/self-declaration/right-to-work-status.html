@@ -1,0 +1,34 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "What is your right to work status?" %}
+{% set formAction = "/self-declaration/review" %}
+
+{% block formContent %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.rightToWork")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

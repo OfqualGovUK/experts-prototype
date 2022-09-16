@@ -1,8 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Have you ever been declared bankrupt?" %}
-{% set formAction = "./self-declaration/judgements" %}
+{% set pageHeading = "Have you had judgements made against you (or do you have any pending) for legal proceedings or professional disciplinary proceedings?" %}
+{% set formAction = "./live-in-uk" %}
 
 {% block formContent %}
 
@@ -12,7 +12,7 @@
         text: "Provide details",
         classes: "govuk-label--s"
       }
-    } | decorateAttributes(data, "data.bankruptDetails")) }}
+    } | decorateAttributes(data, "data.judgementsDetails")) }}
   {% endset %}
 
   {{ govukRadios({
@@ -33,7 +33,7 @@
         text: "No"
       }
     ]
-  } | decorateAttributes(data, "data.bankrupt")) }}
+  } | decorateAttributes(data, "data.judgements")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
