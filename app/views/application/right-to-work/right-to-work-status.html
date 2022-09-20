@@ -1,39 +1,43 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Have you had judgements made against you (or do you have any pending) for legal proceedings or professional disciplinary proceedings?" %}
+{% set pageHeading = "What is your right to work status?" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
 
-  {% set yesDetailsHtml %}
-    {{ govukTextarea({
+  {% set otherDetailsHtml %}
+    {{ govukInput({
       label: {
         text: "Provide details",
         classes: "govuk-label--s"
       }
-    } | decorateAttributes(data, "data.judgementsDetails")) }}
+    } | decorateAttributes(data, "data.otherStatusDetails")) }}
   {% endset %}
 
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l"
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
       }
     },
     items: [
       {
-        text: "Yes",
-        conditional: {
-          html: yesDetailsHtml
-        }
+        text: "UK citizenship"
       },
       {
-        text: "No"
+        text: "European Economic Area (EEA) citizenship"
+      },
+      {
+        text: "An option that isn't listed",
+        conditional: {
+          html: otherDetailsHtml
+        }
       }
     ]
-  } | decorateAttributes(data, "data.judgements")) }}
+  } | decorateAttributes(data, "data.rightToWorkStatus")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

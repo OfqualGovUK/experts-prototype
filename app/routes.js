@@ -227,9 +227,9 @@ router.post('/right-to-work-answer', function (req, res) {
   let rightToWork = req.session.data.rightToWork
 
     if (rightToWork === 'Yes') {
-      res.redirect('/application/self-declaration/right-to-work-status')
+      res.redirect('/application/right-to-work/right-to-work-status')
     } else {
-      res.redirect('/application/self-declaration/review') 
+      res.redirect('/application/right-to-work/review') 
   }
 
 })

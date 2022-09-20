@@ -179,7 +179,16 @@
         {% else %}
           {{ appInsetText({
             sectionName: "Self declaration",
-            sectionHref: "#",
+            sectionHref: "./self-declaration",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.rightToWorkDetails == "complete" %}
+          {% include "_includes/summary-cards/right-to-work.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Right to work",
+            sectionHref: "./right-to-work",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
