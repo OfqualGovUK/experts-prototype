@@ -173,18 +173,27 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Self declaration</h2>
+        <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
         {% if data.declarationDetails == "complete" %}
           {% include "_includes/summary-cards/self-declaration.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Self declaration",
-            sectionHref: "#",
+            sectionHref: "./self-declaration",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.rightToWorkDetails == "complete" %}
+          {% include "_includes/summary-cards/right-to-work.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Right to work",
+            sectionHref: "./right-to-work",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
       </section>
-
+      
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Verify your identity</h2>
         {% if data.expertiseDetails == "complete" %}
@@ -197,6 +206,7 @@
           })}}
         {% endif %} 
       </section>
+      
 
       {# If there are incomplete sections we want to keep the user on this page and display an error summary  #}
       {# If all sections are complete we send them back to a completed application  #}

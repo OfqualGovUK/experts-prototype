@@ -63,13 +63,13 @@
     containerClasses: "govuk-width-container",
     navigation: [
     {
-      text: data.accountEmail
+      text: "name@email.com"
     },
     {
       href: "./home",
       text: "Sign out"
     } 
-  ] if data.signedIn == "true"
+  ] if signedOut != "true"
   }) }}
 {% endblock %}
 

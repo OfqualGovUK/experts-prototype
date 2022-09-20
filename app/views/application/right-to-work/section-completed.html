@@ -1,0 +1,38 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your answers" %}
+{# {% set formAction = "/review-expertise-answer" %} #}
+{% set formAction = "./../../application" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Right to work status</h1>
+  
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Have you completed this section?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "complete",
+        text: "Yes, I’ve completed this section"
+      },
+      {
+        value: "inProgress",
+        html: "No, I’ll come back to it later"
+      }
+    ]
+  } | decorateAttributes(data, "data.rightToWorkDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

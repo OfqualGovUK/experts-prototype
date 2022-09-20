@@ -20,7 +20,7 @@
         spellcheck: "false"
       },
       type: "text"
-  } | decorateAttributes(data, "data.personalDetials.fullName")) }}
+  } | decorateAttributes(data, "data.personalDetails.fullName")) }}
 
   {{ govukInput({
     label: {
@@ -30,7 +30,17 @@
     type: "email",
     autocomplete: "email",
     spellcheck: false
-  } | decorateAttributes(data, "data.personalDetials.email")) }}
+  } | decorateAttributes(data, "data.personalDetails.email")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Telephone number",
+      classes: "govuk-label--s"
+    },
+    type: "tel",
+    autocomplete: "tel",
+    classes: "govuk-!-width-two-thirds"
+ } | decorateAttributes(data, "data.personalDetails.telephone")) }}
 
   {% call govukFieldset({
     legend: {
@@ -46,7 +56,7 @@
         classes: "govuk-label--s"
       },
       autocomplete: "address-line1"
-    } | decorateAttributes(data, "data.personalDetials.addressLine1")) }}
+    } | decorateAttributes(data, "data.personalDetails.addressLine1")) }}
 
     {{ govukInput({
       label: {
@@ -54,7 +64,7 @@
         classes: "govuk-label--s"
       },
       autocomplete: "address-line2"
-    } | decorateAttributes(data, "data.personalDetials.addressLine2")) }}
+    } | decorateAttributes(data, "data.personalDetails.addressLine2")) }}
 
     {{ govukInput({
       label: {
@@ -63,7 +73,7 @@
       },
       classes: "govuk-!-width-two-thirds",
       autocomplete: "address-level2"
-    } | decorateAttributes(data, "data.personalDetials.townOrCity")) }}
+    } | decorateAttributes(data, "data.personalDetails.townOrCity")) }}
 
     {{ govukInput({
       label: {
@@ -71,7 +81,7 @@
         classes: "govuk-label--s"
       },
       classes: "govuk-!-width-two-thirds"
-    } | decorateAttributes(data, "data.personalDetials.county")) }}
+    } | decorateAttributes(data, "data.personalDetails.county")) }}
 
     {{ govukInput({
       label: {
@@ -80,7 +90,7 @@
       },
       classes: "govuk-input--width-10",
       autocomplete: "postal-code"
-    } | decorateAttributes(data, "data.personalDetials.postCode")) }}
+    } | decorateAttributes(data, "data.personalDetails.postCode")) }}
 
   {% endcall %}
   

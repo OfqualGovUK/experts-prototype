@@ -1,0 +1,46 @@
+  {% set bankruptHtml %}
+    {{ data.bankrupt }}
+    {% if data.bankrupt == "Yes" %}
+      <p class="govuk-body">{{data.bankruptDetails}}</p> 
+    {% endif %}
+  {% endset %}
+
+  {% set judgementHtml %}
+    {{ data.judgements }}
+    {% if data.judgements == "Yes" %}
+      <p class="govuk-body">{{data.judgementsDetails}}</p> 
+    {% endif %}
+  {% endset %}
+
+  {{ xGovukSummaryCard({
+    rows: [{
+      key: {
+        text: "Have you ever been declared bankrupt?"
+      },
+      value: {
+        html: bankruptHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "have you ever been declared bankrupt?",
+          href: "/application/self-declaration"
+        }]
+      }
+    }, 
+    {
+      key: {
+        text: "Have you had judgements made against you (or do you have any pending) for legal proceedings or professional disciplinary proceedings?"
+      },
+      value: {
+        html: judgementHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "have you had judgements made against you (or do you have any pending) for legal proceedings or professional disciplinary proceedings?",
+          href: "/application/self-declaration/judgements"
+        }]
+      }
+    }]
+  }) }}

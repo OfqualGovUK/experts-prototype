@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Have you ever been declared bankrupt?" %}
+{% set formAction = "./self-declaration/judgements" %}
+
+{% block formContent %}
+
+  {% set yesDetailsHtml %}
+    {{ govukTextarea({
+      label: {
+        text: "Provide details",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.bankruptDetails")) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        text: "Yes",
+        conditional: {
+          html: yesDetailsHtml
+        }
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.bankrupt")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

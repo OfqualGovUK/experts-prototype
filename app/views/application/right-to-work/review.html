@@ -4,13 +4,14 @@
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
+{% set referrer = "" %}
 {% set formAction = "/application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your personal details</h1>
+  <h1 class="govuk-heading-l">Review your right to work status</h1>
 
-  {% include "_includes/summary-cards/personal-details.html" %}
+  {% include "_includes/summary-cards/right-to-work.html" %}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -106,12 +106,17 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Self declaration</h2>
+        <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Complete self declaration',
             href: 'application/self-declaration',
             taskName: data.declarationDetails
+          })}}
+          {{ appTaskListItem({
+            name: 'Provide right to work status',
+            href: 'application/right-to-work',
+            taskName: data.rightToWorkDetails
           })}}
         </ul>
       </section>

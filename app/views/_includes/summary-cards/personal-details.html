@@ -5,69 +5,88 @@
         text: "Full name"
       },
       value: {
-        html: data.personalDetials.fullName or "Not provided"
+        html: data.personalDetails.fullName or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "full name",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Email address"
       },
       value: {
-        text: data.personalDetials.email or "Not provided"
+        text: data.personalDetails.email or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "email address",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
+      key: {
+        text: "Telephone number"
+      },
+      value: {
+        text: data.personalDetails.telephone or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Telephone number",
+          href: "/application/personal-details"
+        }]
+      }
+    }, 
+    {
       key: {
         text: "Address line 1"
       },
       value: {
-        text: data.personalDetials.addressLine1 or "Not provided"
+        text: data.personalDetails.addressLine1 or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 1",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Address line 2"
       },
       value: {
-        text: data.personalDetials.addressLine2 or "Not provided"
+        text: data.personalDetails.addressLine2 or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 2",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Town or city"
       },
       value: {
-        text: data.personalDetials.townOrCity or "Not provided"
+        text: data.personalDetails.townOrCity or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "town or city",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
     }, {
@@ -75,27 +94,28 @@
         text: "County"
       },
       value: {
-        text: data.personalDetials.county or "Not provided"
+        text: data.personalDetails.county or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "county",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Postcode"
       },
       value: {
-        text: data.personalDetials.postCode or "Not provided"
+        text: data.personalDetails.postCode or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "county",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
     }]

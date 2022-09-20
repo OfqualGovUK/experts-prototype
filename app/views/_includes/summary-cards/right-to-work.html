@@ -1,0 +1,41 @@
+  {% set statusHtml %}
+    {% if data.rightToWorkStatus == "An option that isn't listed" %}
+      {{ data.otherStatusDetails }}
+    {% else %} 
+      {{ data.rightToWorkStatus }}
+    {% endif %}
+  {% endset %}
+
+  {{ xGovukSummaryCard({
+    rows: [{
+      key: {
+        text: "Do you have the right to work in the UK?"
+      },
+      value: {
+        text: data.rightToWork
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Do you have the right to work in the UK?",
+          href: "/application/right-to-work"
+        }]
+      }
+    }, 
+    {
+      key: {
+        text: "What is your right to work status?"
+      },
+      value: {
+        html: statusHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "What is your right to work status?",
+          href: "/application/right-to-work/right-to-work-status"
+        }]
+      }
+    } if data.rightToWork == "Yes"
+    ]
+  }) }}

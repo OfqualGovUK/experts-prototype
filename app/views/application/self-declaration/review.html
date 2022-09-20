@@ -4,13 +4,24 @@
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
+{% set referrer = "" %}
+
+{# {% set formActionHref %}
+  {%- if data.personalDetails == "complete" or data.personalDetails == "inProgress"  %}
+    /application
+  {%- else %}
+    /application/personal-details/review?showPersonalDetailsErrors=true
+  {% endif %}
+{% endset %} #}
+
+{# {% set formAction = formActionHref %} #}
 {% set formAction = "/application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your personal details</h1>
+  <h1 class="govuk-heading-l">Review your self declaration</h1>
 
-  {% include "_includes/summary-cards/personal-details.html" %}
+  {% include "_includes/summary-cards/self-declaration.html" %}
 
   <div class="govuk-button-group">
     {{ govukButton({
