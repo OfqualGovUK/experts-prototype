@@ -11,10 +11,11 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "full name",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Email address"
       },
@@ -25,10 +26,26 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "email address",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
+      key: {
+        text: "Telephone number"
+      },
+      value: {
+        text: data.personalDetials.telephone or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Telephone number",
+          href: "/application/personal-details"
+        }]
+      }
+    }, 
+    {
       key: {
         text: "Address line 1"
       },
@@ -39,10 +56,11 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 1",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Address line 2"
       },
@@ -53,10 +71,11 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 2",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Town or city"
       },
@@ -67,7 +86,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "town or city",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
     }, {
@@ -81,10 +100,11 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "county",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
         text: "Postcode"
       },
@@ -95,7 +115,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "county",
-          href: "/application/personal-details" + referrer
+          href: "/application/personal-details"
         }]
       }
     }]

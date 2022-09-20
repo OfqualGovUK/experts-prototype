@@ -32,6 +32,16 @@
     spellcheck: false
   } | decorateAttributes(data, "data.personalDetials.email")) }}
 
+  {{ govukInput({
+    label: {
+      text: "Telephone number",
+      classes: "govuk-label--s"
+    },
+    type: "tel",
+    autocomplete: "tel",
+    classes: "govuk-!-width-two-thirds"
+ } | decorateAttributes(data, "data.personalDetials.telephone")) }}
+
   {% call govukFieldset({
     legend: {
       text: "Your address",
