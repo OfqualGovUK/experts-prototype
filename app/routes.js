@@ -35,19 +35,6 @@ router.post('/existing-account-answer', function (req, res) {
 
 })
 
-// Where do you live?
-router.post('/where-do-you-live-answer', function (req, res) {
-
-  let whereDoYouLive = req.session.data.whereDoYouLive
-
-    if (whereDoYouLive === 'In the UK') {
-      res.redirect('/application/personal-details/live-in-uk')
-    } else {
-      res.redirect('/application/personal-details/live-outside-uk') 
-  }
-
-})
-
 // Select the area
 router.post('/application/select-area-answer', function (req, res) {
 
