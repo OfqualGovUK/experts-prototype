@@ -1,4 +1,12 @@
-   {{ xGovukSummaryCard({
+  {% set livingLocation %}
+    {% if data.whereDoYouLive == "In the UK" %}
+      {{ data.whereDoYouLive }}
+    {% elseif data.whereDoYouLive == "Outside the UK"  %}
+      {{ data.selectedCountry }}
+    {% endif %}
+  {% endset %}
+  
+  {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-8",
     rows: [{
       key: {
@@ -47,6 +55,21 @@
     }, 
     {
       key: {
+        text: "Where do you live?"
+      },
+      value: {
+        html: livingLocation 
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "where do you live",
+          href: "/application/personal-details/where-do-you-live"
+        }]
+      }
+    }, 
+    {
+      key: {
         text: "Address line 1"
       },
       value: {
@@ -56,7 +79,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 1",
-          href: "/application/personal-details"
+          href: "/application/personal-details/contact-address"
         }]
       }
     }, 
@@ -71,7 +94,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "address line 2",
-          href: "/application/personal-details"
+          href: "/application/personal-details/contact-address"
         }]
       }
     }, 
@@ -86,24 +109,25 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "town or city",
-          href: "/application/personal-details"
+          href: "/application/personal-details/contact-address"
         }]
       }
-    }, {
+    }, 
+    {
       key: {
-        text: "County"
+        text: "Region, state or province"
       },
       value: {
-        text: data.personalDetails.county or "Not provided"
+        text: data.personalDetails.region or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "county",
-          href: "/application/personal-details"
+          visuallyHiddenText: "region, state or province",
+          href: "/application/personal-details/contact-address"
         }]
       }
-    }, 
+    } if data.whereDoYouLive == "Outside the UK",
     {
       key: {
         text: "Postcode"
@@ -115,7 +139,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "county",
-          href: "/application/personal-details"
+          href: "/application/personal-details/contact-address"
         }]
       }
     }]

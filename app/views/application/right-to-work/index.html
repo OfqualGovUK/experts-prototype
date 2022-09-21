@@ -6,11 +6,22 @@
 
 {% block formContent %}
 
+  <h1 class="govuk-heading-l">Right to work status</h1>
+  <p class="govuk-body">Successful applicants who:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      have the right to work in the United Kingdom (UK) may be commissioned by Ofqual to carry out any assignment that is relevant to their area of expertise.
+    </li>
+    <li>
+      do not have the right to work in the UK, and live outside of the UK, EEA or Switzerland, may be commissioned to carry out limited desk based assignments from their home country.
+    </li>
+  </ul>  
+
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
+        classes: "govuk-fieldset__legend--m",
         isPageHeading: true
       }
     },

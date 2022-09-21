@@ -25,6 +25,7 @@ const bussinessData = require('./bussinessData.json')
 const careData = require('./careData.json')
 const cateringData = require('./cateringData.json')
 const constructionData = require('./constructionData.json')
+const countryData = require('./countryData.json')
 const creativeData = require('./creativeData.json')
 const digitalData = require('./digitalData.json')
 const educationData = require('./educationData.json')
@@ -56,6 +57,7 @@ module.exports = {
   careData,
   cateringData,
   constructionData,
+  countryData,
   creativeData,
   digitalData,
   educationData,
