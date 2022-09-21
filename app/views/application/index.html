@@ -19,7 +19,7 @@
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add personal information',
+            name: 'Personal information',
             href: 'application/personal-details',
             _href: '#',
             taskName: data.personalDetails
@@ -31,12 +31,12 @@
         <h2 class="govuk-heading-m">Education details</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'List relevant certifications',
+              name: 'Certifications relevant to your expertise',
               href: 'application/education',
               taskName: data.educationDetails
             })}}
             {{ appTaskListItem({
-              name: 'Add professional achievements',
+              name: 'Professional achievements',
               href: 'application/professional-achievements',
               taskName: data.professionalAchievementDetails
             })}}
@@ -47,12 +47,12 @@
         <h2 class="govuk-heading-m">Work history</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'List relevant work history',
+              name: 'Work history relevent how you can help Ofqual',
               href: 'application/experience-details',
               taskName: data.experienceDetails
             })}}
             {{ appTaskListItem({
-              name: 'Add your references',
+              name: 'Provide a minimum of one reference',
               href: 'application/sorry',
               hint: "Complete work history first",
               taskName: data.referenceDetails
@@ -64,7 +64,7 @@
         <h2 class="govuk-heading-m">Types of expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Add types of expertise',
+              name: 'Your types of expertise',
               href: 'application/expertise-type',
               taskName: data.expertiseTypeDetails
             })}}
@@ -75,7 +75,7 @@
         <h2 class="govuk-heading-m">Areas that you can advise on</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Select qualifications and/or sectors ',
+              name: 'Select qualifications and/or areas',
               href: 'application/search',
               taskName: data.areaDetails
             })}}
@@ -87,7 +87,7 @@
         <h2 class="govuk-heading-m">Personal statement</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add a personal statement',
+            name: 'A statement to support your application',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
@@ -98,7 +98,7 @@
         <h2 class="govuk-heading-m">Conflict of interest</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'List conflicts of interest',
+            name: 'Conflicts of interest',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
@@ -109,12 +109,12 @@
         <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Complete self declaration',
+            name: 'Self declaration',
             href: 'application/self-declaration',
             taskName: data.declarationDetails
           })}}
           {{ appTaskListItem({
-            name: 'Provide right to work status',
+            name: 'Your right to work status',
             href: 'application/right-to-work',
             taskName: data.rightToWorkDetails
           })}}
@@ -125,7 +125,7 @@
         <h2 class="govuk-heading-m">Verify your identity</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Provide proof of identification',
+            name: 'Upload proof of identification',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
