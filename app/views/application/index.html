@@ -19,7 +19,7 @@
         <h2 class="govuk-heading-m">Personal details</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Personal information',
+            name: 'Personal information and contact address',
             href: 'application/personal-details',
             _href: '#',
             taskName: data.personalDetails
@@ -29,42 +29,42 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Education details</h2>
-        <ul class="app-task-list">
-          {{ appTaskListItem({
-            name: 'Relevent certifications',
-            href: 'application/education',
-            taskName: data.educationDetails
-          })}}
-          {{ appTaskListItem({
-            name: 'Professional achievements',
-            href: 'application/professional-achievements',
-            taskName: data.professionalAchievementDetails
-          })}}
-        </ul>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'List relevant certifications',
+              href: 'application/education',
+              taskName: data.educationDetails
+            })}}
+            {{ appTaskListItem({
+              name: 'Add professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
+            })}}
+          </ul>
       </section>
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Work history</h2>
-        <ul class="app-task-list">
-          {{ appTaskListItem({
-            name: 'Relevent work history',
-            href: 'application/experience-details',
-            taskName: data.experienceDetails
-          })}}
-          {{ appTaskListItem({
-            name: 'Provide a minimum of one reference',
-            href: 'application/sorry',
-            hint: "Complete work history first",
-            taskName: data.referenceDetails
-          })}}
-        </ul>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'List relevant work history',
+              href: 'application/experience-details',
+              taskName: data.experienceDetails
+            })}}
+            {{ appTaskListItem({
+              name: 'Add your references',
+              href: 'application/sorry',
+              hint: "Complete work history first",
+              taskName: data.referenceDetails
+            })}}
+          </ul>
       </section>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Types of expertise</h2>
-        <ul class="app-task-list">
+         <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'Your types of expertise',
+              name: 'Add types of expertise',
               href: 'application/expertise-type',
               taskName: data.expertiseTypeDetails
             })}}
@@ -73,14 +73,13 @@
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Areas that you can advise on</h2>
-        {# <p class="govuk-body">Select the areas you specialise in and are confident to review for Ofqual</p> #}
-        <ul class="app-task-list">
-          {{ appTaskListItem({
-            name: 'Select qualifications and/or areas',
-            href: 'application/search',
-            taskName: data.areaDetails
-          })}}
-        </ul>
+         <ul class="app-task-list">
+            {{ appTaskListItem({
+              name: 'Select qualifications and/or sectors ',
+              href: 'application/search',
+              taskName: data.areaDetails
+            })}}
+          </ul>
       </section>
       
       
@@ -88,17 +87,7 @@
         <h2 class="govuk-heading-m">Personal statement</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'A statement to support your application',
-            href: 'application/sorry',
-            taskName: data['task--name-contact']
-          })}}
-          {{ appTaskListItem({
-            name: 'A statement to support your application',
-            href: 'application/sorry',
-            taskName: data['task--name-contact']
-          })}}
-          {{ appTaskListItem({
-            name: 'A statement to support your application',
+            name: 'Add a personal statement',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
@@ -109,7 +98,7 @@
         <h2 class="govuk-heading-m">Conflict of interest</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Conflicts of interest',
+            name: 'List conflicts of interest',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
@@ -120,12 +109,12 @@
         <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Self declaration',
+            name: 'Complete self declaration',
             href: 'application/self-declaration',
             taskName: data.declarationDetails
           })}}
           {{ appTaskListItem({
-            name: 'Your right to work status',
+            name: 'Provide right to work status',
             href: 'application/right-to-work',
             taskName: data.rightToWorkDetails
           })}}
@@ -136,7 +125,7 @@
         <h2 class="govuk-heading-m">Verify your identity</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Upload proof of identification',
+            name: 'Provide proof of identification',
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}

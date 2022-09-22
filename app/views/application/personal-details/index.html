@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Personal details" %}
-{% set formAction = "./personal-details/review" %}
+{% set formAction = "./personal-details/where-do-you-live" %}
 
 {{ data.personalDetails | log }}
 
@@ -37,12 +37,15 @@
       text: "Telephone number",
       classes: "govuk-label--s"
     },
+    hint: {
+      text: "For international numbers include the country code" 
+    },
     type: "tel",
     autocomplete: "tel",
     classes: "govuk-!-width-two-thirds"
  } | decorateAttributes(data, "data.personalDetails.telephone")) }}
 
-  {% call govukFieldset({
+  {# {% call govukFieldset({
     legend: {
       text: "Your address",
       classes: "govuk-fieldset__legend--m",
@@ -92,7 +95,7 @@
       autocomplete: "postal-code"
     } | decorateAttributes(data, "data.personalDetails.postCode")) }}
 
-  {% endcall %}
+  {% endcall %} #}
   
   {# This sets a flag in the data to tell us the user has started the this section #}
   {# <input type="hidden" id="personalDetails" name="personalDetails" value="inProgress"> #}
