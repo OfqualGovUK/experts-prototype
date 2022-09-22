@@ -100,7 +100,7 @@
     }, 
     {
       key: {
-        text: "Town or city"
+        text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
       },
       value: {
         text: data.personalDetails.townOrCity or "Not provided"
@@ -130,7 +130,7 @@
     } if data.whereDoYouLive == "Outside the UK",
     {
       key: {
-        text: "Postcode"
+        text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
       },
       value: {
         text: data.personalDetails.postCode or "Not provided"
