@@ -139,7 +139,7 @@
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Areas you can advise on",
+            sectionName: "Subjects and/or sectors you can advise on",
             sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
@@ -152,7 +152,25 @@
           {% include "_includes/summary-cards/personal-statement.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Personal statement",
+            sectionName: "Analytical and judgement skills",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.expertiseDetails == "complete" %}
+          {% include "_includes/summary-cards/personal-statement.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Communication skills",
+            sectionHref: "#",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.expertiseDetails == "complete" %}
+          {% include "_includes/summary-cards/personal-statement.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Additional information",
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
