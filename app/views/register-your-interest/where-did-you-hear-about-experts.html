@@ -1,0 +1,67 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "Register your interest to be an expert" %}
+{% set bodyClasses = "about-you-page" %}
+{% set pageHeading = "Where did you hear about applying to become a subject expert for Ofqual? (optional)" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  {% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.whereDidYouHereOther")) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    items: [
+      {
+        text: "Conference"
+      },
+      {
+        text: "Facebook"
+      },
+      {
+        text: "In-person meeting"
+      },
+      {
+        text: "LinkedIn"
+      },
+      {
+        text: "Online networking/webinar event"
+      },
+      {
+        text: "Personal recommendation"
+      },
+      {
+        text: "Trade journal"
+      },
+      {
+        text: "An option that isn't listed",
+        conditional: {
+          html: otherHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.whereDidYouHere")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./">Cancel</a>
+  </div>
+
+{% endblock %}
