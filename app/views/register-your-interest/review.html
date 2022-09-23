@@ -1,8 +1,9 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set serviceName = "Register your interest to be an expert" %}
+{% set serviceName = "Register your interest to be a subject expert" %}
 {% set pageHeading = "Review your answers" %}
+{% set layoutWidth = "fullWidthLayout" %}
 {% set formAction = "/add-another-answer" %}
 
 {% block formContent %}
@@ -13,9 +14,9 @@
 
   {% set institutionTypeHtml %}
     {# List the "other" option or the selections #}
-    {% if data.institutionType == "Something that isn't listed" %}
+    {% if data.institutionType == "An option that isn't listed" %}
       {{ data.institutionTypeOther }}
-    {% elseif data.institutionType != "Something that isn't listed" %}
+    {% else %}
       <ul class="govuk-list">
         {% for type in data.institutionType %}
           <li>
@@ -77,26 +78,34 @@
   
   {% include "_includes/shared/sector-cards.html" %}
 
-  {# <h2 class="govuk-heading-m">Additional information</h2>
+  {% set whereHearHtml %}
+    {% if data.whereDidYouHere == "An option that isn't listed" %}
+      {{ data.whereDidYouHereOther }}
+    {% else %} 
+      {{ data.whereDidYouHere }}
+    {% endif %}
+  {% endset %}
+
+  <h2 class="govuk-heading-m">How did you hear about us?</h2>
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
     rows: [{
       key: {
-        text: "Additional information"
+        text: "How did you hear about us?"
       },
       value: { 
-        text: data.additionalInformation or "Not provided"
+        html: whereHearHtml
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "additional information",
-          href: "./anything-else"
+          visuallyHiddenText: "How did you hear about us?",
+          href: "./how-did-you-hear-about-us"
         }]
       }
     }]
-  }) }} #}
+  }) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
