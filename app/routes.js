@@ -259,7 +259,7 @@ router.post('/add-another-answer', function (req, res) {
     if (addAnother === 'yes') {
       res.redirect('/register-your-interest/select-route')
     } else {
-      res.redirect('/register-your-interest/where-did-you-hear-about-experts') 
+      res.redirect('/register-your-interest/how-did-you-hear-about-us') 
   }
 
 })
