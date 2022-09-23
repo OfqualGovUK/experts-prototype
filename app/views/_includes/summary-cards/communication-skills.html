@@ -1,0 +1,17 @@
+  {{ xGovukSummaryCard({
+    rows: [{
+      key: {
+        text: "Provide details of your communication skills"
+      },
+      value: {
+        text: data.commnicationSkills or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details of your communication skills",
+          href: "./../communication-skills"
+        }]
+      }
+    }]
+  }) }}

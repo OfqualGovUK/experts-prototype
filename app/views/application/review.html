@@ -148,25 +148,25 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m">Personal statement</h2>
-        {% if data.expertiseDetails == "complete" %}
-          {% include "_includes/summary-cards/personal-statement.html" %}
+        {% if data.analyticalSkillsCompleted == "complete" %}
+          {% include "_includes/summary-cards/analytical-skills.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Analytical and judgement skills",
-            sectionHref: "#",
+            sectionHref: "./analytical-skills",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.expertiseDetails == "complete" %}
-          {% include "_includes/summary-cards/personal-statement.html" %}
+        {% if data.communicationSkillsCompleted == "complete" %}
+          {% include "_includes/summary-cards/communication-skills.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Communication skills",
-            sectionHref: "#",
+            sectionHref: "./communication-skills",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.expertiseDetails == "complete" %}
+        {# {% if data.expertiseDetails == "complete" %}
           {% include "_includes/summary-cards/personal-statement.html" %}
         {% else %}
           {{ appInsetText({
@@ -174,7 +174,7 @@
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
-        {% endif %} 
+        {% endif %}  #}
       </section>
       
       <section class="govuk-!-margin-bottom-8">
