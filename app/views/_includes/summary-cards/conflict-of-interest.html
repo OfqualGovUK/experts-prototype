@@ -1,0 +1,115 @@
+{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
+{% set deletedSubject = data.delete %}
+
+{% if data.conflictOfInterest == "Yes" %}
+
+  {{ xGovukSummaryCard({
+    titleText: data.conflict.organisation,
+    actions: {
+      items: [{
+        text: "Delete role",
+        visuallyHiddenText: data.conflict.organisation,
+        href: "/application/experience-details/delete?delete=" + data.conflict.organisation
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Name of organisation"
+        },
+        value: { 
+          text: data.conflict.organisation or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "name of organisation",
+            href: "./add-conflict"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Actual or potential areas of conflict"
+        },
+        value: { 
+          text: data.conflict.details or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "role",
+            href: "./add-conflict"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Start date"
+        },
+        value: { 
+          text: "June 2005"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Start date",
+            href: "./job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Is this a current conflict of interest?"
+        },
+        value: { 
+          text: data.conflict.currentConflict or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "End date",
+            href: "./add-conflict"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "End date"
+        },
+        value: { 
+          text: "March 2015"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "End date",
+            href: "./add-conflict"
+          }]
+        }
+      } if data.conflict.currentConflict == "No"
+    ]
+  }) }}
+
+{% endif %}
+
+{% if data.conflictOfInterest == "No" %}
+  {{ xGovukSummaryCard({
+    rows: [
+      {
+        key: {
+          text: "Do you have any potential conflicts of interests?"
+        },
+        value: { 
+          text: data.conflictOfInterest or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "do you have any potential conflicts of interests?",
+            href: "./../conflict-of-interest"
+          }]
+        }
+      }]
+  }) }}
+{% endif %}

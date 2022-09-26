@@ -1,0 +1,119 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Add a conflict of interest" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Name of organisation",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.conflict.organisation")) }}
+
+  {{ govukTextarea({
+    label: {
+      text: "Actual or potential areas of conflict",
+      classes: "govuk-label--m"
+    },
+    _hint: {
+      text: "If you have had more than one role, enter your most relevant role"
+    }
+  } | decorateAttributes(data, "data.conflict.details")) }}
+
+  {% set startDateHintHtml %}
+    For example, <time datetime="">3 2019</time>
+  {% endset %}
+
+  {{ govukDateInput({
+    id: data[roleStartDate],
+    namePrefix: data[roleStartDate],
+    fieldset: {
+      legend: {
+      text: "Add the start date",
+      classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      html: startDateHintHtml
+    },
+    items: [
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: data[roleStartDate][month]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: data[roleStartDate][year]
+        }
+      ]
+  }) }}
+
+  {% set conditionalCloseDateHtml %}
+
+    {% set startDateHintHtml %}
+      For example, <time datetime="">5 2021</time>
+    {% endset %}
+
+    {{ govukDateInput({
+      id: data[roleEndDate],
+      namePrefix: data[roleEndDate],
+      fieldset: {
+        legend: {
+        text: "Add the end date",
+        classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        html: startDateHintHtml
+      },
+      items: [
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data.roleEndDate.month
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data.roleEndDate.year
+          }
+        ]
+    }) }}
+
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Is this a current conflict of interest?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No",
+        conditional: {
+          html: conditionalCloseDateHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.conflict.currentConflict")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

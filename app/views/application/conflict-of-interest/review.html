@@ -1,0 +1,43 @@
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Confirm conflicts of interest" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+{% set layoutWidth = "fullWidthLayout" %}
+{% set referrer = "" %}
+{% set formAction = "/review-conflict-of-interest-answer" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Review your conflicts of interest</h1>
+
+  {% include "_includes/summary-cards/conflict-of-interest.html" %}
+
+  {% if data.conflictOfInterest == "Yes" %}
+    {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Did you want to add another conflict of interest?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No, I've finished adding conflicts of interest"
+      }
+    ]
+  } | decorateAttributes(data, "data.addAnotherConflictOfInterest")) }}
+{% endif %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue",
+    href: "./section-completed"
+  }) }}
+  <a class="govuk-link" href="/application">Cancel</a>
+</div>
+
+{% endblock %}
