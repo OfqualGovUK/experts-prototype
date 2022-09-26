@@ -8,7 +8,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
       <p class="govuk-hint govuk-!-margin-bottom-6">Last saved <time datetime="">{{ "" | today |  govukDate }}, 14:54</time></p>
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Personal information and contact address',
@@ -28,7 +28,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Education details</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'Relevant certifications',
@@ -44,7 +44,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Work history</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'Relevant work history',
@@ -61,7 +61,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Types of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Types of expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'The nature of your expertise',
@@ -72,7 +72,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Areas that you can advise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Areas that you can advise on</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
               name: 'Subjects and/or sectors you can advise on',
@@ -84,7 +84,7 @@
       
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Personal statement</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal statement</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Analytical and judgement skills',
@@ -96,16 +96,16 @@
             href: 'application/sorry',
             taskName: data['task--name-contact']
           })}}
-          {{ appTaskListItem({
+          {# {{ appTaskListItem({
             name: 'Additional information',
             href: 'application/sorry',
             taskName: data['task--name-contact']
-          })}}
+          })}} #}
         </ul>
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Conflict of interest</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Conflicts of interest',
@@ -116,7 +116,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Self declaration and right to work status</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Self declaration',
@@ -132,7 +132,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Verify your identity</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Provide proof of identification',
@@ -143,7 +143,7 @@
       </section>
      
 
-      <h2 class="govuk-heading-m">Review and send</h2>
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Review and send</h2>
 
       <p class="govuk-body">Review and send your application to Ofqual.</p>
 

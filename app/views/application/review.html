@@ -166,7 +166,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.expertiseDetails == "complete" %}
+        {# {% if data.expertiseDetails == "complete" %}
           {% include "_includes/summary-cards/personal-statement.html" %}
         {% else %}
           {{ appInsetText({
@@ -174,7 +174,7 @@
             sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
-        {% endif %} 
+        {% endif %}  #}
       </section>
       
       <section class="govuk-!-margin-bottom-8">
