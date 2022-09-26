@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Has your organisation, or you as an individual, ever been in breach of obligations related to tax or social security?" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  {% set yesDetailsHtml %}
+    {{ govukTextarea({
+      label: {
+        text: "Provide details about the breach, confirm if you have paid, or have entered into a binding arrangement with a view to paying, the outstanding sum, including where applicable any accrued interest and/or fines",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.breachDetails")) }}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        text: "Yes",
+        conditional: {
+          html: yesDetailsHtml
+        }
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.breach")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
