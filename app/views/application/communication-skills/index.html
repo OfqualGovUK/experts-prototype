@@ -7,7 +7,15 @@
 {% block formContent %}
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-  <p class="govuk-body">Guidance here about what we want from the applicant<p>
+  <p class="govuk-body">Tell us about your communication skills. Provide evidence of the following topics in your response.</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      Communicating concisely and clearly: The ability to provide accurate and useful spoken and written advice to inform decisions
+    </li>
+    <li>
+      Working effectively with others: The ability to provide constructive input when working with others, face-to-face and by remote means
+    </li>
+  </ul>
   
   {{ govukCharacterCount({
     maxwords: 500,

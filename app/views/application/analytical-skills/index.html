@@ -2,14 +2,27 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./analytical-skills/review" %}
-{% set pageHeading = "Analytical skills" %}
+{% set pageHeading = "Analytical and judgement skills" %}
 
-<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
 {% block formContent %}
   
-  <h1 class="govuk-heading-l">Analytical skills</h1>
-  <p class="govuk-body">Guidance here about what we want from the applicant<p>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  <p class="govuk-body">Tell us about your analytical and judgement skills. Provide evidence of the following topics in your response.</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      Objectivity: The ability to be impartial and put aside personal preference when considering issues and evidence
+    </li>
+    <li>
+      Analysis: The ability to consider individual aspects, make connections between them, and ‘see the bigger picture’
+    </li>
+    <li>
+      Reasoning: The ability to consider complex issues and extensive materials logically and systematically
+    </li>
+    <li>
+      Judgement: The ability to come to sound and reasoned conclusions, and support these effectively with evidence
+    </li>
+  </ul>
 
   {{ govukCharacterCount({
     maxwords: 500,
