@@ -4,7 +4,6 @@
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
-{% set referrer = "" %}
 {% set formAction = "/review-conflict-of-interest-answer" %}
 
 {% block formContent %}
@@ -13,6 +12,7 @@
 
   {% include "_includes/summary-cards/conflict-of-interest.html" %}
 
+  {# Show this if the user says they have conflicts of interest #}
   {% if data.conflictOfInterest == "Yes" %}
     {{ govukRadios({
     fieldset: {
@@ -34,8 +34,7 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-    text: "Save and continue",
-    href: "./section-completed"
+    text: "Save and continue"
   }) }}
   <a class="govuk-link" href="/application">Cancel</a>
 </div>

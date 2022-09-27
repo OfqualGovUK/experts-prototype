@@ -8,6 +8,8 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
+  <p class="govuk-body">You will be able to add more potential conflicts of interest after you finish telling us about the first one.</p>
+
   {{ govukInput({
     label: {
       text: "Name of organisation",
@@ -17,7 +19,7 @@
 
   {{ govukTextarea({
     label: {
-      text: "Actual or potential areas of conflict",
+      text: "Areas of conflict",
       classes: "govuk-label--m"
     },
     _hint: {
