@@ -82,19 +82,18 @@
           </ul>
       </section>
       
-      
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Personal statement</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Analytical and judgement skills',
-            href: 'application/sorry',
-            taskName: data['task--name-contact']
+            href: 'application/analytical-skills',
+            taskName: data.analyticalSkillsCompleted
           })}}
           {{ appTaskListItem({
             name: 'Communication skills',
-            href: 'application/sorry',
-            taskName: data['task--name-contact']
+            href: 'application/communication-skills',
+            taskName: data.communicationSkillsCompleted
           })}}
           {# {{ appTaskListItem({
             name: 'Additional information',

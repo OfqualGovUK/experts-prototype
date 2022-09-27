@@ -1,0 +1,23 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review details of your analytical skills" %}
+{% set formAction = "./section-completed" %}
+{% set layoutWidth = "fullWidthLayout" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  
+  {% include "_includes/summary-cards/analytical-skills.html" %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
