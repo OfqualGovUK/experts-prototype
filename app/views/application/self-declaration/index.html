@@ -1,25 +1,38 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Have you ever been declared bankrupt?" %}
-{% set formAction = "./self-declaration/judgements" %}
+{% set pageHeading = "Have you ever been convicted of the listed offences?" %}
+{% set formAction = "./self-declaration/bankrupt" %}
 
 {% block formContent %}
+
+  <h1 class="govuk-heading-l">Court Judgements</h1>
+
+  <p class="govuk-body">We need to know if you have been convicted of any of the following offences:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>participation in a criminal organisation</li>
+    <li>corruption</li>
+    <li>fraud</li>
+    <li>terrorist offences or offences linked to terrorist activities</li>
+    <li>money laundering or terrorist financing</li>
+    <li>child labour or any forms of trafficking in human beings</li>
+  </ul>
 
   {% set yesDetailsHtml %}
     {{ govukTextarea({
       label: {
-        text: "Provide details",
+        text: "Provide details of the date of conviction, which of the grounds listed the conviction was for and the reasons for conviction",
         classes: "govuk-label--s"
       }
-    } | decorateAttributes(data, "data.bankruptDetails")) }}
+    } | decorateAttributes(data, "data.judgementsDetails")) }}
   {% endset %}
 
   {{ govukRadios({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l"
+        classes: "govuk-fieldset__legend--m"
       }
     },
     items: [
@@ -33,7 +46,7 @@
         text: "No"
       }
     ]
-  } | decorateAttributes(data, "data.bankrupt")) }}
+  } | decorateAttributes(data, "data.judgements")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

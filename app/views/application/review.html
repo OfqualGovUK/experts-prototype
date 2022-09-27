@@ -60,10 +60,10 @@
 
       {% endif %}
 
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
         {% if data.personalDetails == "complete" %}
           {% include "_includes/summary-cards/personal-details.html" %}
         {% else %}
@@ -76,8 +76,9 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Education details</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
         {% if data.educationDetails == "complete" %}
+          <h2 class="govuk-heading-m">Relevant certifications</h2>
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
           {{ appInsetText({
@@ -87,6 +88,7 @@
           })}}
         {% endif %}
         {% if data.professionalAchievementDetails == "complete" %}
+          <h2 class="govuk-heading-m">Professional achievements</h2>
           {% include "_includes/summary-cards/professional-achievements.html" %}
         {% else %}
           {{ appInsetText({
@@ -98,8 +100,9 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Work history</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
         {% if data.experienceDetails == "complete" %}
+          <h2 class="govuk-heading-m">Relevant work history</h2>
           {% include "_includes/summary-cards/experience.html" %}
         {% else %}
           {{ appInsetText({
@@ -109,6 +112,7 @@
           })}}
         {% endif %} 
         {% if data.referenceDetails == "complete" %}
+          <h2 class="govuk-heading-m">References</h2>
           {% include "_includes/summary-cards/references.html" %}
         {% else %}
           {{ appInsetText({
@@ -121,7 +125,7 @@
 
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Type of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Type of expertise</h2>
         {% if data.expertiseTypeDetails == "complete" %}
           {% include "_includes/summary-cards/expertise.html" %}
         {% else %}
@@ -134,7 +138,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Areas you can advise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Areas you can advise on</h2>
         {% if data.areaDetails == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
@@ -147,22 +151,24 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Personal statement</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal statement</h2>
         {% if data.analyticalSkillsCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Analytical and judgement skills</h2>
           {% include "_includes/summary-cards/analytical-skills.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Analytical and judgement skills",
-            sectionHref: "./analytical-skills",
+            sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
         {% if data.communicationSkillsCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Communication skills</h2>
           {% include "_includes/summary-cards/communication-skills.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Communication skills",
-            sectionHref: "./communication-skills",
+            sectionHref: "#",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
@@ -178,21 +184,22 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Conflicts of interest</h2>
-        {% if data.conflictDetails == "complete" %}
-          {% include "_includes/summary-cards/conflict.html" %}
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
+        {% if data.conflictOfInterestCompleted == "complete" %}
+          {% include "_includes/summary-cards/conflict-of-interest.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Conflicts of interest",
-            sectionHref: "#",
+            sectionName: "Conflict of interest",
+            sectionHref: "./conflict-of-interest",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Self declaration and right to work status</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Self declaration and right to work status</h2>
         {% if data.declarationDetails == "complete" %}
+          <h2 class="govuk-heading-m">Self declaration</h2>
           {% include "_includes/summary-cards/self-declaration.html" %}
         {% else %}
           {{ appInsetText({
@@ -202,6 +209,7 @@
           })}}
         {% endif %} 
         {% if data.rightToWorkDetails == "complete" %}
+          <h2 class="govuk-heading-m">Your right to work status</h2>
           {% include "_includes/summary-cards/right-to-work.html" %}
         {% else %}
           {{ appInsetText({
@@ -213,7 +221,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m">Verify your identity</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
         {% if data.expertiseDetails == "complete" %}
           {% include "_includes/summary-cards/identity.html" %}
         {% else %}

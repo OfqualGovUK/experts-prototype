@@ -1,0 +1,38 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you have any potential conflicts of interests?" %}
+{% set formAction = "/conflict-of-interest-answer" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Conflict of interest</h1>
+  <p class="govuk-body">Conflicts of interests include any affiliations with awarding organisations, subject associations, or with other organisations such as the Department for Education.</p>
+  <p class="govuk-body">This includes details of assessment roles (for example, marker, examiner, moderator, etc.) you hold, advisory roles held, any relationship to awarding organisation employees, and any other affiliation (for example, if you are a member of an awarding organisation's board)</p>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--m",
+        isPageHeading: true
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.conflictOfInterest")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

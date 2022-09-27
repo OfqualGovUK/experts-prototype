@@ -221,7 +221,7 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
 })
 
-// Did you want to add another qualification?
+// Do you have the right to work in the UK?
 router.post('/right-to-work-answer', function (req, res) {
 
   let rightToWork = req.session.data.rightToWork
@@ -230,6 +230,32 @@ router.post('/right-to-work-answer', function (req, res) {
       res.redirect('/application/right-to-work/right-to-work-status')
     } else {
       res.redirect('/application/right-to-work/review') 
+  }
+
+})
+
+// Do you have any potential conflicts of interests?
+router.post('/conflict-of-interest-answer', function (req, res) {
+
+  let conflictOfInterest = req.session.data.conflictOfInterest
+
+    if (conflictOfInterest === 'Yes') {
+      res.redirect('/application/conflict-of-interest/add-conflict')
+    } else {
+      res.redirect('/application/conflict-of-interest/review') 
+  }
+
+})
+
+// Did you want to add another conflict of interest?
+router.post('/review-conflict-of-interest-answer', function (req, res) {
+
+  let addAnotherConflictOfInterest = req.session.data.addAnotherConflictOfInterest
+
+    if (addAnotherConflictOfInterest === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/conflict-of-interest/section-completed') 
   }
 
 })
