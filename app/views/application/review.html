@@ -184,13 +184,13 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Conflicts of interest</h2>
-        {% if data.conflictDetails == "complete" %}
-          {% include "_includes/summary-cards/conflict.html" %}
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
+        {% if data.conflictOfInterestCompleted == "complete" %}
+          {% include "_includes/summary-cards/conflict-of-interest.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Conflicts of interest",
-            sectionHref: "#",
+            sectionName: "Conflict of interest",
+            sectionHref: "./conflict-of-interest",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
