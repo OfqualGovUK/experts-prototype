@@ -1,14 +1,14 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your answers" %}
+{% set pageHeading = "Review your details" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review your types of expertise</h1>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
   
   {% include "_includes/summary-cards/expertise.html" %}
 
