@@ -1,0 +1,57 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Add a reference" %}
+{% set formAction = "./review" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <p class="govuk-body">You will be able to add more references after you finish telling us about the first one.</p>
+
+  {{ govukInput({
+    label: {
+      text: "Name of refernece",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.conflict.organisation")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Email address",
+      classes: "govuk-label--m"
+    },
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false
+  } | decorateAttributes(data, "data.personalDetails.email")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Telephone number",
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: "For international numbers include the country code" 
+    },
+    type: "tel",
+    autocomplete: "tel",
+    classes: "govuk-!-width-two-thirds"
+  } | decorateAttributes(data, "data.personalDetails.telephone")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Company or organisation name",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.conflict.organisation")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
