@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your answers" %}
+{% set pageHeading = "Review your details" %}
 {% set formAction = "/review-subjects-answer" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
@@ -9,7 +9,7 @@
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Review the areas you can advise on</h1>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
   
   {% include "_includes/summary-cards/subjects.html" %}
 
