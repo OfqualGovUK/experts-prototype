@@ -1,0 +1,38 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./verify-your-identity/review" %}
+{% set pageHeading = "Verify your identity" %}
+
+
+{% block formContent %}
+  
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  <p class="govuk-body">To help us ensure your identity upload a scanned copy of one of the following:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      valid UK driver's licence 
+    </li>
+    <li>
+      valid UK passport
+    </li>
+  </ul>
+
+  <p class="govuk-body">Supported file types: gif, jpg, jpeg, png <br>
+  Maximum file size: 5mb</p>
+
+  {{ govukFileUpload({
+    label: {
+      text: "Upload a file",
+      classes: "govuk-label--s"
+    }
+  } | decorateAttributes(data, "data.idUpload")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

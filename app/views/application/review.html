@@ -222,12 +222,12 @@
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
-        {% if data.expertiseDetails == "complete" %}
-          {% include "_includes/summary-cards/identity.html" %}
+        {% if data.verifyIdentityCompleted == "complete" %}
+          {% include "_includes/summary-cards/verify.html" %}
         {% else %}
           {{ appInsetText({
             sectionName: "Verify your identity",
-            sectionHref: "#",
+            sectionHref: "./verify-your-identity",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 

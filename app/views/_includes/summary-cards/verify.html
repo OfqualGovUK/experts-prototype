@@ -1,0 +1,17 @@
+  {{ xGovukSummaryCard({
+    rows: [{
+      key: {
+        text: "Uploaded file"
+      },
+      value: {
+        text: data.idUpload or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "uploaded file",
+          href: "/application/verify-your-identity"
+        }]
+      }
+    }]
+  }) }}
