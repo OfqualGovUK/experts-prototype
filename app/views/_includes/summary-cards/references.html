@@ -1,0 +1,76 @@
+{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
+{% set deletedSubject = data.delete %}
+
+
+{{ xGovukSummaryCard({
+  titleText: data.reference.name,
+  actions: {
+    items: [{
+      text: "Delete reference",
+      visuallyHiddenText: data.reference.name,
+      href: "/application/references/delete?delete=" + data.reference.name
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: { 
+        text: data.reference.name or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "name",
+          href: "./add-reference"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: { 
+        text: data.reference.email or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "email address",
+          href: "./add-reference"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Telephone number"
+      },
+      value: { 
+        text: data.reference.telephone or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "telephone number",
+          href: "./add-reference"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Company or organisation name"
+      },
+      value: { 
+        text: data.reference.organisation or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "company or organisation name",
+          href: "./add-reference"
+        }]
+      }
+    }
+  ]
+}) }}
