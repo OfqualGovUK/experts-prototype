@@ -111,7 +111,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.referenceDetails == "complete" %}
+        {% if data.referencesCompleted == "complete" %}
           <h2 class="govuk-heading-m">References</h2>
           {% include "_includes/summary-cards/references.html" %}
         {% else %}

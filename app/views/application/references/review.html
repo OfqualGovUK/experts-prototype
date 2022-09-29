@@ -4,7 +4,7 @@
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
-{% set formAction = "/review-refernces-answer" %}
+{% set formAction = "/review-references-answer" %}
 
 {% block formContent %}
 
@@ -27,7 +27,7 @@
       text: "No, I've finished adding references"
     }
   ]
-} | decorateAttributes(data, "data.addAnotherConflictOfInterest")) }}
+} | decorateAttributes(data, "data.addAnotherReference")) }}
 
 <div class="govuk-button-group">
   {{ govukButton({

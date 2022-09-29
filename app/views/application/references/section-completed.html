@@ -2,12 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{# {% set formAction = "/review-expertise-answer" %} #}
 {% set formAction = "./../../application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Conflict of interest</h1>
+  <h1 class="govuk-heading-l">References</h1>
   
   {{ govukRadios({
     fieldset: {
@@ -26,7 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.conflictOfInterestCompleted")) }}
+  } | decorateAttributes(data, "data.referencesCompleted")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

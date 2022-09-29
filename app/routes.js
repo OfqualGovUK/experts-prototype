@@ -87,6 +87,19 @@ router.post('/review-jobs-answer', function (req, res) {
 
 })
 
+// Did you want to add another refernce?
+router.post('/review-references-answer', function (req, res) {
+
+  let addAnotherReference = req.session.data.addAnotherReference
+
+    if (addAnotherReference === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/references/section-completed') 
+  }
+
+})
+
 // Add a qualification
 router.post('/qualification-type-answer', function (req, res) {
 

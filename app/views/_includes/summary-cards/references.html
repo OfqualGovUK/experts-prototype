@@ -3,89 +3,74 @@
 
 
 {{ xGovukSummaryCard({
-  titleText: data.conflict.organisation,
+  titleText: data.reference.name,
   actions: {
     items: [{
-      text: "Delete conflict  of interest",
-      visuallyHiddenText: data.conflict.organisation,
-      href: "/application/references/delete?delete=" + data.conflict.organisation
+      text: "Delete reference",
+      visuallyHiddenText: data.reference.name,
+      href: "/application/references/delete?delete=" + data.reference.name
     }]
   },
   rows: [
     {
       key: {
-        text: "Name of organisation"
+        text: "Name"
       },
       value: { 
-        text: data.conflict.organisation or "Not provided"
+        text: data.reference.name or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "name of organisation",
-          href: "./add-conflict"
+          visuallyHiddenText: "name",
+          href: "./add-reference"
         }]
       }
     },
     {
       key: {
-        text: "Actual or potential areas of conflict"
+        text: "Email address"
       },
       value: { 
-        text: data.conflict.details or "Not provided"
+        text: data.reference.email or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "role",
-          href: "./add-conflict"
+          visuallyHiddenText: "email address",
+          href: "./add-reference"
         }]
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Telephone number"
       },
       value: { 
-        text: "June 2005"
+        text: data.reference.telephone or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Start date",
-          href: "./job-details"
+          visuallyHiddenText: "telephone number",
+          href: "./add-reference"
         }]
       }
     },
     {
       key: {
-        text: "Is this a current conflict of interest?"
+        text: "Company or organisation name"
       },
       value: { 
-        text: data.conflict.currentConflict or "Not provided"
+        text: data.reference.organisation or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "End date",
-          href: "./add-conflict"
+          visuallyHiddenText: "company or organisation name",
+          href: "./add-reference"
         }]
       }
-    },
-    {
-      key: {
-        text: "End date"
-      },
-      value: { 
-        text: "March 2015"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "End date",
-          href: "./add-conflict"
-        }]
-      }
-    } if data.conflict.currentConflict == "No"
+    }
   ]
 }) }}
