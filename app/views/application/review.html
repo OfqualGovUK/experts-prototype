@@ -1,6 +1,6 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Review your application" %}
+{% set pageHeading = "Your application" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set referrer = "/review" %}
@@ -9,6 +9,17 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
+      {% set html %}
+        <p class="govuk-notification-banner__heading">
+          <h2 class="govuk-m">You need to add more information to the following sections:<br> 
+          <a class="govuk-notification-banner__link" href="#">Personal details</a>
+        </p>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html
+      }) }}
       
       {# Only show the error summary if one or more of the sections is empty on submit  #}
       {% if data.showErrors == "true" %}
@@ -64,15 +75,144 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
-        {% if data.personalDetails == "complete" %}
-          {% include "_includes/summary-cards/personal-details.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Personal details",
-            sectionHref: "./personal-details",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
+        {{ xGovukSummaryCard({
+    
+          rows: [{
+            key: {
+              text: "Full name"
+            },
+            value: {
+              html: data.personalDetails.fullName or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "full name",
+                href: "/application/personal-details"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data.personalDetails.email or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "email address",
+                href: "/application/personal-details"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Telephone number"
+            },
+            value: {
+              text: data.personalDetails.telephone or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "Telephone number",
+                href: "/application/personal-details"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Where do you live?"
+            },
+            value: {
+              html: livingLocation 
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "where do you live",
+                href: "/application/personal-details/where-do-you-live"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Address line 1"
+            },
+            value: {
+              text: data.personalDetails.addressLine1 or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "address line 1",
+                href: "/application/personal-details/contact-address"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Address line 2"
+            },
+            value: {
+              text: data.personalDetails.addressLine2 or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "address line 2",
+                href: "/application/personal-details/contact-address"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
+            },
+            value: {
+              text: data.personalDetails.townOrCity or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "town or city",
+                href: "/application/personal-details/contact-address"
+              }]
+            }
+          }, 
+          {
+            key: {
+              text: "Region, state or province"
+            },
+            value: {
+              text: data.personalDetails.region or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "region, state or province",
+                href: "/application/personal-details/contact-address"
+              }]
+            }
+          } if data.whereDoYouLive == "Outside the UK",
+          {
+            key: {
+              text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
+            },
+            value: {
+              text: data.personalDetails.postCode or "Not provided"
+            },
+            actions: {
+              items: [{
+                text: "Change",
+                visuallyHiddenText: "county",
+                href: "/application/personal-details/contact-address"
+              }]
+            }
+          }]
+        }) }}
       </section>
       
       <section class="govuk-!-margin-bottom-8">
