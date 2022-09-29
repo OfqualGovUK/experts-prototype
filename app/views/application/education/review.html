@@ -14,22 +14,25 @@
   
   {% include "_includes/summary-cards/qualifications.html" %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Did you want to add another certification?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
+  {# Show this if the user says they have qualificatiosn to enter #}
+  {% if data.anyQualifications == "Yes" %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: "Did you want to add another qualification?",
+          classes: "govuk-fieldset__legend--m"
+        }
       },
-      {
-        text: "No, I've finished adding certifications"
-      }
-    ]
-  } | decorateAttributes(data, "data.addAnotherqualification")) }}
+      items: [
+        {
+          text: "Yes"
+        },
+        {
+          text: "No, I've finished adding qualifications"
+        }
+      ]
+    } | decorateAttributes(data, "data.addAnotherqualification")) }}
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({

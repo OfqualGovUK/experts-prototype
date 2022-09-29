@@ -1,97 +1,100 @@
-{{ xGovukSummaryCard({
-  classes: "govuk-!-margin-bottom-9",
-  titleText: data.education.courseNameOther,
-  actions: {
-    items: [{
-      text: "Delete certification",
-      visuallyHiddenText: data.education.courseNameOther,
-      href: "/application/education/delete?delete=" + data.education.courseNameOther
-    }]
-  },
-  rows: [
-    {
-      key: {
-        text: "School, college, university or other organisation"
-      },
-      value: { 
-        text: data.education.schoolNameOther or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "school, college, university or other organisation",
-          href: "./add-certification"
-        }]
-      }
-    },
-    {
-      key: {
-        text: "Qualification or course name"
-      },
-      value: { 
-        text: data.education.courseNameOther or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "qualification or course name",
-          href: "./add-certification"
-        }]
-      }
-    },
-    {
-      key: {
-        text: "Grade"
-      },
-      value: { 
-        text: data.education.gradeOther or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "grade",
-          href: "./add-certification"
-        }]
-      }
-    },
-    {
-      key: {
-        text: "Year qualification was awarded"
-      },
-      value: { 
-        text: data.education.yearAwardedOther or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "year qualification was awarded",
-          href: "./add-certification"
-        }]
-      }
-    }
-  ]
-}) }}
+{# Show this if the user says they have qualificatiosn to enter #}
+{% if data.anyQualifications == "Yes" %}
 
-{# {% set subjectsAndGrades %}
-  {% if data.education.subject1Gcse and data.education.subject1GradeGcse %}
-  <ul class="govuk-list">
-    <li>
-      <span class="govuk-visually-hidden">Subject 1: </span>{{ data.education.subject1Gcse }}
-      (<span class="govuk-visually-hidden">Grade 1: </span>{{ data.education.subject1GradeGcse }}) 
-    <li>
-  </ul>
-  {% else %}
-    Not provided
-  {% endif%}
-{% endset %} #}
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.education.courseNameOther,
+    actions: {
+      items: [{
+        text: "Delete certification",
+        visuallyHiddenText: data.education.courseNameOther,
+        href: "/application/education/delete?delete=" + data.education.courseNameOther
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "School, college, university or other organisation"
+        },
+        value: { 
+          text: data.education.schoolNameOther or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "school, college, university or other organisation",
+            href: "./add-certification"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification or course name"
+        },
+        value: { 
+          text: data.education.courseNameOther or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "qualification or course name",
+            href: "./add-certification"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Grade"
+        },
+        value: { 
+          text: data.education.gradeOther or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "grade",
+            href: "./add-certification"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Year qualification was awarded"
+        },
+        value: { 
+          text: data.education.yearAwardedOther or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "year qualification was awarded",
+            href: "./add-certification"
+          }]
+        }
+      }
+    ]
+  }) }}
 
-{# Pull in the specific summary card depending on qualification #}
-{# {% if data.qualificationType == "GCSEs" %}
-  {% include "_includes/summary-cards/qualifications-gcse.html" %}
-{% elseif data.qualificationType == "A/AS Level or equivalent" %}
-  {% include "_includes/summary-cards/qualifications-a-as-level.html" %}
-{% elseif data.qualificationType == "Undergraduate degree" or data.qualificationType == "Postgraduate degree"  %}
-  {% include "_includes/summary-cards/qualifications-degree.html" %}
-{% elseif data.qualificationType == "Other qualification or course" %}
-  {% include "_includes/summary-cards/qualifications-other.html" %}
-{% endif %} #}
+{% endif %}
+
+{# show this is there are no conflicts of interest #}
+{% if data.anyQualifications == "No" %}
+  {{ xGovukSummaryCard({
+    rows: [
+      {
+        key: {
+          text: "Do you have any qualifications that are relevant to your application??"
+        },
+        value: { 
+          text: data.anyQualifications or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "do you have any qualifications that are relevant to your application?",
+            href: "./../education"
+          }]
+        }
+      }]
+  }) }}
+{% endif %}

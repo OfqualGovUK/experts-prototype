@@ -78,11 +78,11 @@
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
         {% if data.educationDetails == "complete" %}
-          <h2 class="govuk-heading-m">Relevant certifications</h2>
+          <h2 class="govuk-heading-m">Relevant qualifications</h2>
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Certifications",
+            sectionName: "Relevant qualifications",
             sectionHref: "./education",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
