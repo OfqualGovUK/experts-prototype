@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Are you sure you want to delete this conflict of interest?" %}
+{% set pageHeading = "Are you sure you want to delete this reference?" %}
 {% set formAction = "./review" %}
 
 {% block formContent %}
@@ -15,13 +15,11 @@
 
   <div class="govuk-button-group">
     {{ govukButton({
-      text: "Yes, delete this conflict of interest",
+      text: "Yes, delete this reference",
       classes: "govuk-button--warning",
       href: "/application/sorry"
     }) }}
     <a class="govuk-link" href="./review">Cancel</a>
   </div>
   
-  {# <input type="hidden" id="confirmDelete{{ data.delete }}" name="confirmDelete{{ data.delete }}" value="true"> #}
-
 {% endblock %}
