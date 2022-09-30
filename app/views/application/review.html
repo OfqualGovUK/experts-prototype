@@ -82,7 +82,7 @@
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Relevant qualifications",
+            sectionName: "Qualifications",
             sectionHref: "./education",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
@@ -102,7 +102,7 @@
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
         {% if data.experienceDetails == "complete" %}
-          <h2 class="govuk-heading-m">Relevant work history</h2>
+          <h2 class="govuk-heading-m">Work history</h2>
           {% include "_includes/summary-cards/experience.html" %}
         {% else %}
           {{ appInsetText({
