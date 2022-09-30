@@ -2,27 +2,27 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Add a certification or course" %}
+{% set pageHeading = "Add a qualification or course" %}
 
 {% block formContent %}
 
   {# <span class="govuk-caption-l">Education and qualifications</span> #}
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-  <p class="govuk-body">You will be able to add more certifications after you finish telling us about the first one.</p>
+  <p class="govuk-body">You will be able to add more qualifications after you finish telling us about the first one.</p>
 
   {{ govukInput({
     label: {
       text: "School, college, university or other organisation",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.education.schoolNameOther")) }}
+  } | decorateAttributes(data, "data.education.schoolName")) }}
 
   {{ govukInput({
     label: {
-      text: "Qualification or course name",
+      text: "Qualification, course or subject name",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.education.courseNameOther")) }}
+  } | decorateAttributes(data, "data.education.qualName")) }}
 
   {{ govukInput({
     label: {
@@ -30,7 +30,7 @@
       classes: "govuk-label--m"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.education.gradeOther")) }}
+  } | decorateAttributes(data, "data.education.grade")) }}
   
   {{ govukInput({
     label: {
@@ -38,7 +38,7 @@
       classes: "govuk-label--m"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.education.yearAwardedOther")) }}
+  } | decorateAttributes(data, "data.education.yearAwarded")) }}
 
   <input type="hidden" id="jobDetails" name="jobDetails" value="true">
 
