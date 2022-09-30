@@ -3,12 +3,12 @@
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: data.education.courseNameOther,
+    titleText: data.education.schoolName,
     actions: {
       items: [{
-        text: "Delete certification",
-        visuallyHiddenText: data.education.courseNameOther,
-        href: "/application/education/delete?delete=" + data.education.courseNameOther
+        text: "Delete qualification",
+        visuallyHiddenText: data.education.schoolName,
+        href: "/application/education/delete?delete=" + data.education.schoolName
       }]
     },
     rows: [
@@ -17,7 +17,7 @@
           text: "School, college, university or other organisation"
         },
         value: { 
-          text: data.education.schoolNameOther or "Not provided"
+          text: data.education.schoolName or "Not provided"
         },
         actions: {
           items: [{
@@ -29,15 +29,15 @@
       },
       {
         key: {
-          text: "Qualification or course name"
+          text: "Qualification, course or subject name"
         },
         value: { 
-          text: data.education.courseNameOther or "Not provided"
+          text: data.education.qualName or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "qualification or course name",
+            visuallyHiddenText: "qualification, course or subject name",
             href: "./add-certification"
           }]
         }
@@ -47,7 +47,7 @@
           text: "Grade"
         },
         value: { 
-          text: data.education.gradeOther or "Not provided"
+          text: data.education.grade or "Not provided"
         },
         actions: {
           items: [{
@@ -56,13 +56,13 @@
             href: "./add-certification"
           }]
         }
-      },
+      } if data.education.grade,
       {
         key: {
           text: "Year qualification was awarded"
         },
         value: { 
-          text: data.education.yearAwardedOther or "Not provided"
+          text: data.education.yearAwarded or "Not provided"
         },
         actions: {
           items: [{
@@ -83,7 +83,7 @@
     rows: [
       {
         key: {
-          text: "Do you have any qualifications that are relevant to your application??"
+          text: "Do you have any qualifications that are relevant to your application?"
         },
         value: { 
           text: data.anyQualifications or "Not provided"
