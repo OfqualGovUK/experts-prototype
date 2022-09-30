@@ -1,28 +1,28 @@
   {% set judgementHtml %}
     {{ data.judgements }}
     {% if data.judgements == "Yes" %}
-      <p class="govuk-body">{{data.judgementsDetails}}</p> 
+      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.judgementsDetails}}</p> 
     {% endif %}
   {% endset %}
 
   {% set bankruptHtml %}
     {{ data.bankrupt }}
     {% if data.bankrupt == "Yes" %}
-      <p class="govuk-body">{{data.bankruptDetails}}</p> 
+      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.bankruptDetails}}</p> 
     {% endif %}
   {% endset %}
 
   {% set misconductHtml %}
     {{ data.misconduct }}
     {% if data.misconduct == "Yes" %}
-      <p class="govuk-body">{{data.misconductDetails}}</p> 
+      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.misconductDetails}}</p> 
     {% endif %}
   {% endset %}
 
   {% set breachHtml %}
     {{ data.breach }}
     {% if data.breach == "Yes" %}
-      <p class="govuk-body">{{data.breachDetails}}</p> 
+      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.breachDetails}}</p> 
     {% endif %}
   {% endset %}
 
