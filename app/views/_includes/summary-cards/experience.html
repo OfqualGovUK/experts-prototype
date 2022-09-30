@@ -7,18 +7,18 @@
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: data.job.roleName,
+    titleText: data.job.title,
     actions: {
       items: [{
         text: "Delete role",
-        visuallyHiddenText: data.job.roleName,
-        href: "/application/experience-details/delete?delete=" + data.job.roleName
+        visuallyHiddenText: data.job.title,
+        href: "/application/experience-details/delete?delete=" + data.job.title
       }]
     },
     rows: [
       {
         key: {
-          text: "Employer"
+          text: "Name of employer"
         },
         value: { 
           text: data.job.employerName or "Not provided"
@@ -33,10 +33,10 @@
       },
       {
         key: {
-          text: "Role"
+          text: "Job title"
         },
         value: { 
-          text: data.job.roleName or "Not provided"
+          text: data.job.title or "Not provided"
         },
         actions: {
           items: [{
@@ -102,7 +102,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Provide a summary of your responsibilities and activities for this role",
-            href: "./summary-of-activity"
+            href: "./job-details"
           }]
         }
       }
