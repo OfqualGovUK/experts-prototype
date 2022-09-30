@@ -87,7 +87,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %}
-        {% if data.professionalAchievementDetails == "complete" %}
+        {# {% if data.professionalAchievementDetails == "complete" %}
           <h2 class="govuk-heading-m">Professional achievements</h2>
           {% include "_includes/summary-cards/professional-achievements.html" %}
         {% else %}
@@ -96,7 +96,7 @@
             sectionHref: "./professional-achievements",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
-        {% endif %}
+        {% endif %} #}
       </section>
       
       <section class="govuk-!-margin-bottom-8">
