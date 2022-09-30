@@ -1,27 +1,43 @@
 
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Add your relevant certifications that support your application" %}
+{% set formAction = "/qualifications-answer" %}
+{% set pageHeading = "Do you have any qualifications relevant to your area of expertise?" %}
 
-{% block content %}
+{% block formContent %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+  <h1 class="govuk-heading-l">Your relevant qualifications</h1>
 
-      {# <span class="govuk-caption-l">Education and qualifications</span> #}
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">
-        Include all certifications related to the teaching, assessment or industry expertise that you can advise Ofqual on.
-      </p>
+  <p class="govuk-body">
+    Tell us about your qualifications that are related to the teaching, assessment or industry expertise that you can advise Ofqual on.
+  </p>
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Add a certification",
-          href: "./education/add-certification"
-        }) }}
-      </div>
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"      
+      }
+    },
+    hint: {
+      text: "Add examples of qualifications here"
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyQualifications")) }}
 
-    </div>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
   </div>
 
 {% endblock %}

@@ -1,0 +1,27 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Add your relevant certifications that support your application" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {# <span class="govuk-caption-l">Education and qualifications</span> #}
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">
+        Include all certifications related to the teaching, assessment or industry expertise that you can advise Ofqual on.
+      </p>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Add a certification",
+          href: "./education/add-certification"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

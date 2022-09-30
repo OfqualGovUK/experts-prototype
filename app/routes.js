@@ -119,6 +119,19 @@ router.post('/qualification-type-answer', function (req, res) {
 
 })
 
+// Do you have any qualifications that are relevant to your application?
+router.post('/qualifications-answer', function (req, res) {
+
+  let anyQualifications = req.session.data.anyQualifications
+
+    if (anyQualifications === 'Yes') {
+      res.redirect('/application/education/add-certification')
+    } else {
+      res.redirect('/application/education/review') 
+  }
+
+})
+
 // Did you want to add another qualification?
 router.post('/review-qualifications-answer', function (req, res) {
 
