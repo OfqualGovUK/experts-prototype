@@ -1,12 +1,10 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./summary-of-activity" %}
-{# TODO: Get the date arrays working #}
-{% set startDateArray = data.roleStartDate | toDateArray %}
+{% set formAction = "./review" %}
 {% set pageHeading %}
  {# If a job already exists #}
- {% if data.job.roleName %}
+ {% if data.job.title %}
     Add another role
   {% else %}
     Add a role
@@ -31,13 +29,13 @@
 
   {{ govukInput({
     label: {
-      text: "Role",
+      text: "Job title",
       classes: "govuk-label--m"
     },
     _hint: {
       text: "If you have had more than one role, enter your most relevant role"
     }
-  } | decorateAttributes(data, "data.job.roleName")) }}
+  } | decorateAttributes(data, "data.job.title")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">3 2019</time>
@@ -123,7 +121,18 @@
     ]
   } | decorateAttributes(data, "data.roleEnded")) }}
 
-  <input type="hidden" id="jobDetails" name="jobDetails" value="true">
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "10",
+    label: {
+      text: "Provide a summary of your responsibilities and activities for this role",
+      isPageHeading: true,
+      classes: "govuk-label--m"
+    },
+    _hint: {
+      text: "Add suggestions on what we want them to say here..."
+    }
+   } | decorateAttributes(data, "data.job.summaryOfActivity")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
