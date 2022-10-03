@@ -1,22 +1,6 @@
 {# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
 {% set deletedSubject = data.delete %}
 
-{{ deletedSubject | log }}
-{{ data.selectedSubject | log }}
-
-{% set expertiseTypeHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {# loops through and gets al the checked items #}
-    {% for type in data.expertiseType.type %}
-      <li>
-        {{ type }}
-      </li>
-    {% endfor %}
-  </ul>
-
-{% endset %} 
-
 {% set assessmentHtml %}
   {# Build an list of the items selected #}
   <ul class="govuk-list">
@@ -68,22 +52,22 @@
   rows: [
     {
       key: {
-        text: "Type of expertise"
+        text: "Do you have any assessment expertise?"
       },
       value: { 
-        html: expertiseTypeHtml
+        text: data.anyAssessmentExpertise
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "type of expertise",
-          href: "./expertise-type"
+          visuallyHiddenText: "do you have any assessment expertise?",
+          href: "/application/assessment-expertise"
         }]
       }
-    },
+    } if data.anyAssessmentExpertise == "No",
     {
       key: {
-        text: "Assessment expertise"
+        text: "What is the nature of your assessment expertise?"
       },
       value: { 
         html: assessmentHtml
@@ -91,11 +75,32 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "type of expertise",
-          href: "./assessment-expertise"
+          visuallyHiddenText: "what is the nature of your assessment expertise?",
+          href: "./assessment-expertise/assessment-expertise"
         }]
       }
-    } if "Assessment" in data.expertiseType.type,
+    } if data.anyAssessmentExpertise == "Yes",
+    {
+      key: {
+        text: "Provide details your assessment expertise"
+      },
+      value: { 
+        text: data.assessmentExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details your assessment expertise",
+          href: "./assessment-expertise/add-details"
+        }]
+      }
+    } if data.anyAssessmentExpertise == "Yes"
+  ]
+}) }}
+
+{# {{ xGovukSummaryCard({
+  
+  rows: [
     {
       key: {
         text: "Industry or occupational expertise"
@@ -110,7 +115,13 @@
           href: "./industry-expertise"
         }]
       }
-    } if "Industry or occupational" in data.expertiseType.type,
+    }
+  ]
+}) }}
+
+{{ xGovukSummaryCard({
+  
+  rows: [
     {
       key: {
         text: "Teaching, lecturing or training expertise"
@@ -125,7 +136,7 @@
           href: "./teaching-expertise"
         }]
       }
-    } if "Teaching, lecturing or training" in data.expertiseType.type
+    }
     
   ]
-}) }}
+}) }} #}

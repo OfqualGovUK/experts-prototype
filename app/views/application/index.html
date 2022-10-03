@@ -63,9 +63,19 @@
         <h2 class="govuk-heading-m govuk-!-font-size-27">Types of expertise</h2>
          <ul class="app-task-list">
             {{ appTaskListItem({
-              name: 'The nature of your expertise',
-              href: 'application/expertise-type',
-              taskName: data.expertiseTypeDetails
+              name: 'Assessment',
+              href: 'application/assessment-expertise',
+              taskName: data.assessmentExpertiseCompleted
+            })}}
+            {{ appTaskListItem({
+              name: 'Industry or occupational',
+              href: 'application/industry-expertise',
+              taskName: data.industryExpertiseCompleted
+            })}}
+            {{ appTaskListItem({
+              name: 'Teaching, lecturing or training',
+              href: 'application/teaching-type',
+              taskName: data.teachingExpertiseCompleted
             })}}
           </ul>
       </section>

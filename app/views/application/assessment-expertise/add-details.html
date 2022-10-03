@@ -1,0 +1,44 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details your assessment expertise" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Your assessment expertise</h1>
+
+  <p class="govuk-body">
+    Tell us about your assessment expertise. In your reposnse provide evidence of the following:
+  </p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+     Analytical and judgement skills
+    </li>
+    <li>
+      Communication skills 
+    </li>
+  </ul>
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "10",
+    label: {
+      text: "Provide details your assessment expertise",
+      classes: "govuk-label--m",
+      isPageHeading: true
+    },
+    _hint: {
+      text: "Add suggestions on what we want them to say here..."
+    }
+   } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
