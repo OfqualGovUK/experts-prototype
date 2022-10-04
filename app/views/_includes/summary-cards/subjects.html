@@ -1,38 +1,46 @@
 {% set qualTypeHtml %}
-  <ul class="govuk-list">
-    {# loops through and gets al the checked items  #}
-    {% for qualificationType in data.selectedQualification %}
-      <li>
-        {% if qualificationType == "A qualification type that isn't listed" %}
-          {{ data.selectedQualificationOther }}
-        {% else %} 
-          {{ qualificationType }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% if data.resultQualType != "Other qualification type" %}
+    {{ data.resultQualType }}
+  {% else %}
+    <ul class="govuk-list">
+      {# loops through and gets al the checked items  #}
+      {% for qualificationType in data.selectedQualification %}
+        <li>
+          {% if qualificationType == "A qualification type that isn't listed" %}
+            {{ data.selectedQualificationOther }}
+          {% else %} 
+            {{ qualificationType }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endset %}
 
 {% set levelHtml %}
-  <ul class="govuk-list">
-    {# loops through and gets al the checked items  #}
-    {% for level in data.selectedLevel %}
-      <li>
-        {% if level == "A qualification level that isn't listed" %}
-          {{ data.selectedLevelOther }}
-        {% else %} 
-          {{ level }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% if data.resultLevel != "Other qualification level" %}
+    {{ data.resultLevel }}
+  {% else %}
+    <ul class="govuk-list">
+      {# loops through and gets al the checked items  #}
+      {% for level in data.selectedLevel %}
+        <li>
+          {% if level == "A qualification level that isn't listed" %}
+            {{ data.selectedLevelOther }}
+          {% else %} 
+            {{ level }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endset %}
 
 
 {# If it is a subjects, apprenticeships or T Level  #}
 {% if data.selectedSubject %}
   {{ xGovukSummaryCard({
-    titleText: data.resultName,
+    titleText: data.selectedSubject,
     actions: {
       items: [{
         text: "Delete choice",
@@ -61,16 +69,30 @@
           text: "Qualification type"
         },
         value: { 
-          text: data.resultQualType
-        }
+          html: qualTypeHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification type",
+            href: "./select-qualification"
+          }]
+        } if data.resultQualType == "Other qualification type"
       },
       {
         key: {
           text: "Qualification level"
         },
         value: { 
-          text: data.resultLevel
-        }
+          html: levelHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification level",
+            href: "./select-level"
+          }]
+        } if data.resultQualType == "Other qualification type"
       }
     ]
   }) }}

@@ -1,15 +1,10 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/search-type-answer" %}
-{% set pageHeading = "Do you know the specific subjects, apprenticeships or T Levels that you can provide advice on?" %}
+{% set formAction = "/sector-search-answer" %}
+{% set pageHeading = "Do you have a specific sector or industry that you can provide your expertise on?" %}
 
 {% block formContent %}
-
-  {# <h1 class="govuk-heading-l">Tell us what you are confident to advise on</h1> #}
-  {# <p class="govuk-body">
-    More content here?
-  </p> #}
 
   {{ govukRadios({
     fieldset: {
@@ -23,17 +18,17 @@
       {
         text: "Yes",
         _hint: {
-          text: "For example GCSEs, A/AS levels, Apprentiship standards"
+          text: "Bricklayer, Level 2 End-Point Assessment or Accounting GCE AS/A Level, Level 3"
         }
       },
       {
-        text: "No, I'll select my industry or sector instead",
+        text: "No",
         _hint: {
           text: "For example"
         }
       }
     ]
-  } | decorateAttributes(data, "data.searchType")) }}
+  } | decorateAttributes(data, "data.searchBySector")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

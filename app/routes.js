@@ -241,27 +241,53 @@ router.post('/teaching-answer', function (req, res) {
 // })
 
 // Decide where to go form the Industry or occupational expertise page
-router.post('/search-type-answer', function (req, res) {
+router.post('/subject-search-answer', function (req, res) {
   
   let searchType = req.session.data.searchType
   
   if (searchType === "Yes") {
     res.redirect('/application/search/subject-search')
   } else {
-    res.redirect('/application/search/sector-search')
+    res.redirect('/application/search/search-by-sector')
   }
   
 })
 
-// Did you want to add another qualification?
-router.post('/review-subjects-answer', function (req, res) {
+// Do you know the specific GCSEs, A-Levels, apprenticeships, T-Levels or subjects that you can provide expertise on?
+router.post('/subject-search-answer', function (req, res) {
+  
+  let searchBySubject = req.session.data.searchBySubject
+  
+  if (searchBySubject === "Yes") {
+    res.redirect('/application/search/subject-search')
+  } else {
+    res.redirect('/application/search/search-by-sector')
+  }
+  
+})
 
-  let addAnotherqualification = req.session.data.addAnotherSubject
+// Do you have a specific sector/ industry that you can provide your expertise on?
+router.post('/sector-search-answer', function (req, res) {
 
-    if (addAnotherqualification === 'Yes') {
+  let searchBySector = req.session.data.searchBySector
+
+    if (searchBySector === 'Yes') {
+      res.redirect('/application/search/sector-search')
+    } else {
+      res.redirect('/application/search/assessment-specialist') 
+  }
+
+})
+
+// Is your expertise more general in assessment or teaching?
+router.post('/assessment-specialst-answer', function (req, res) {
+
+  let assessmentSpecialst = req.session.data.assessmentSpecialst
+
+    if (assessmentSpecialst === 'Yes') {
       res.redirect('/application/sorry')
     } else {
-      res.redirect('/application/search/section-completed') 
+      res.redirect('/application/sorry') 
   }
 
 })
@@ -280,7 +306,7 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   // TODO for Jesse
   if (isMatch) {
     // if its an "other" qual type they need ot specify qual type and level
-    res.redirect('/application/search/select-qualification')
+    res.redirect('/application/search/select-qualification?referrer=qualificationSearch')
   } else {
     res.redirect('/application/search/review')
   }

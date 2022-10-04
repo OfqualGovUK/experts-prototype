@@ -3,6 +3,17 @@
 
 {% set formAction = "./select-level" %}
 {% set pageHeading = "Select the qualifications types you can advise for this industry or sector" %}
+
+{% set pageHeading %}
+  {# If they are coming from the search page  #}
+  {% if data.referrer == "qualificationSearch" %}
+    Select the qualifications types you can advise for this subject
+  {# Otherwise they must be coming through the sector search flow #}
+  {% else %}
+    Select the qualifications types you can advise for this industry or sector
+  {% endif %}
+{% endset %}
+
 {% set captionHeading %}
   {# if its  a subject result #}
   {% if data.resultName %}
