@@ -1,0 +1,71 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./add-details" %}
+{% set pageHeading = "What is the nature of your assessment expertise?" %}
+
+{% block formContent %}
+
+  {% set natureOtherHtml %}
+    {{ govukTextarea({
+      _classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.expertiseType.assessmentOther")) }}
+  {% endset -%}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Awarding qualifications and/or setting standards"
+      },
+      {
+        text: "Designing and/or setting assessments"
+      },
+      {
+        text: "Evaluation of the effectiveness of assessment approaches"
+      },
+      {
+        text: "Marking assessments"
+      },
+      {
+        text: "Moderation of assessment marking"
+      },
+      {
+        text: "Research and/or work on assessment policy and practices"
+      },
+      {
+        text: "Reviewing performance of assessments"
+      },
+      {
+        text: "Standardisation of assessment marking"
+      },
+      {
+        text: "An option that isn't listed",
+        conditional: {
+          html: natureOtherHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.expertiseType.assessment")) }}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% set teachingHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.expertiseType.teaching %}
+      <li>
+        {% if role == "An option that isn't listed" %}
+          {{ data.expertiseType.teachingOther }}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Do you have any teaching, lecturing or training expertise?"
+      },
+      value: { 
+        text: data.anyTeachingExpertise
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "do you have any teaching, lecturing or training expertise?",
+          href: "/application/teaching-expertise"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "What is the nature of your teaching, lecturing or training expertise?"
+      },
+      value: { 
+        html: teachingHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "what is the nature of your teaching, lecturing or training expertise?",
+          href: "./teaching-expertise"
+        }]
+      }
+    } if data.anyTeachingExpertise == "Yes",
+    {
+      key: {
+        text: "Provide details of your teaching, lecturing or training expertise"
+      },
+      value: { 
+        text: data.teachingExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details your teaching, lecturing or training expertise",
+          href: "./add-details"
+        }]
+      }
+    } if data.anyTeachingExpertise == "Yes"
+  ]
+}) }}

@@ -1,0 +1,68 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./add-details" %}
+{% set pageHeading = "What is the nature of your industry or occupational expertise?" %}
+
+{% block formContent %}
+
+    {% set natureOtherHtml %}
+      {{ govukTextarea({
+        _classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Provide details (optional)",
+          classes: "govuk-label--s"
+        }
+      } | decorateAttributes(data, "data.expertiseType.industryOther")) }}
+    {% endset -%}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: [
+        {
+          text: "Higher level qualification in your field"
+        },
+        {
+          text: "Leadership role within the industry"
+        },
+        {
+          text: "Membership of or role within trade bodies"
+        },
+        {
+          text: "National recognition for innovation in your field"
+        },
+        {
+          text: "Regulatory activity in your field"
+        },
+        {
+          text: "Supporting the learning of others within the workplace"
+        },
+        {
+          text: "Written publication in your field"
+        },
+        {
+          text: "An option that isn't listed",
+          conditional: {
+            html: natureOtherHtml
+          }
+        }
+      ]
+    } | decorateAttributes(data, "data.expertiseType.industry")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% set assessmentHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items #}
+    {% for role in data.expertiseType.assessment %}
+      <li>
+        {% if role == "An option that isn't listed" %}
+          {{ data.expertiseType.assessmentOther }}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Do you have any assessment expertise?"
+      },
+      value: { 
+        text: data.anyAssessmentExpertise
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "do you have any assessment expertise?",
+          href: "/application/assessment-expertise"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "What is the nature of your assessment expertise?"
+      },
+      value: { 
+        html: assessmentHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "what is the nature of your assessment expertise?",
+          href: "./assessment-expertise"
+        }]
+      }
+    } if data.anyAssessmentExpertise == "Yes",
+    {
+      key: {
+        text: "Provide details your assessment expertise"
+      },
+      value: { 
+        text: data.assessmentExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details your assessment expertise",
+          href: "./add-details"
+        }]
+      }
+    } if data.anyAssessmentExpertise == "Yes"
+  ]
+}) }}

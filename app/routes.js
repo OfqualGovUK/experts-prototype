@@ -101,23 +101,23 @@ router.post('/review-references-answer', function (req, res) {
 })
 
 // Add a qualification
-router.post('/qualification-type-answer', function (req, res) {
+// router.post('/qualification-type-answer', function (req, res) {
 
-  let addAQualification = req.session.data.qualificationType
+//   let addAQualification = req.session.data.qualificationType
 
-    if (addAQualification === 'GCSEs') {
-      res.redirect('/application/education/add-gcse')
-    } else if (addAQualification === 'A/AS level or equivalent') {
-      res.redirect('/application/education/add-a-level')
-    } else if ( (addAQualification === 'Undergraduate degree') || (addAQualification === 'Postgraduate degree') ) {
-      res.redirect('/application/education/add-degree')
-    } else if (addAQualification === 'Other qualification or course') {
-      res.redirect('/application/education/add-other')
-    } else {
-      res.redirect('/application/sorry') 
-  }
+//     if (addAQualification === 'GCSEs') {
+//       res.redirect('/application/education/add-gcse')
+//     } else if (addAQualification === 'A/AS level or equivalent') {
+//       res.redirect('/application/education/add-a-level')
+//     } else if ( (addAQualification === 'Undergraduate degree') || (addAQualification === 'Postgraduate degree') ) {
+//       res.redirect('/application/education/add-degree')
+//     } else if (addAQualification === 'Other qualification or course') {
+//       res.redirect('/application/education/add-other')
+//     } else {
+//       res.redirect('/application/sorry') 
+//   }
 
-})
+// })
 
 // Do you have any qualifications that are relevant to your application?
 router.post('/qualifications-answer', function (req, res) {
@@ -158,48 +158,87 @@ router.post('/achievement-answer', function (req, res) {
   
 })
 
-// Which areas do you have expertise in?
-router.post('/expertise-type-answer', function (req, res) {
+// Do you have any assessment expertise?
+router.post('/assessment-answer', function (req, res) {
   
-  let selectedType = req.session.data.expertiseType.type
+  let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
   
-  if (selectedType.includes("Assessment")) {
-    res.redirect('/application/expertise-type/assessment-expertise')
-  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
-    res.redirect('/application/expertise-type/industry-expertise')
+  if (anyAssessmentExpertise === "Yes") {
+    res.redirect('/application/assessment-expertise/assessment-expertise.html')
   } else {
-    res.redirect('/application/expertise-type/teaching-expertise')
+    res.redirect('/application/assessment-expertise/review')
   }
   
 })
+
+// Do you have any industry or occupational expertise?
+router.post('/industry-answer', function (req, res) {
+  
+  let anyIndustryExpertise = req.session.data.anyIndustryExpertise
+  
+  if (anyIndustryExpertise === "Yes") {
+    res.redirect('/application/industry-expertise/industry-expertise.html')
+  } else {
+    res.redirect('/application/industry-expertise/review')
+  }
+  
+})
+
+// Do you have any teaching or occupational expertise?
+router.post('/teaching-answer', function (req, res) {
+  
+  let anyTeachingExpertise = req.session.data.anyTeachingExpertise
+  
+  if (anyTeachingExpertise === "Yes") {
+    res.redirect('/application/teaching-expertise/teaching-expertise.html')
+  } else {
+    res.redirect('/application/teaching-expertise/review')
+  }
+  
+})
+
+// // Which areas do you have expertise in?
+// router.post('/expertise-type-answer', function (req, res) {
+  
+//   let selectedType = req.session.data.expertiseType.type
+  
+//   if (selectedType.includes("Assessment")) {
+//     res.redirect('/application/expertise-type/assessment-expertise')
+//   } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
+//     res.redirect('/application/expertise-type/industry-expertise')
+//   } else {
+//     res.redirect('/application/expertise-type/teaching-expertise')
+//   }
+  
+// })
 
 // Decide where to go form the Assessment expertise page
-router.post('/assessment-expertise-answer', function (req, res) {
+// router.post('/assessment-expertise-answer', function (req, res) {
   
-  let selectedType = req.session.data.expertiseType.type
+//   let selectedType = req.session.data.expertiseType.type
   
-  if (selectedType.includes("Industry or occupational")) {
-    res.redirect('/application/expertise-type/industry-expertise')
-  } else if ( (!selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-    res.redirect('/application/expertise-type/teaching-expertise')
-  } else if ( (!selectedType.includes("Industry or occupational")) && (!selectedType.includes("Teaching, lecturing or training")) ) {
-    res.redirect('/application/expertise-type/review')
-  }
+//   if (selectedType.includes("Industry or occupational")) {
+//     res.redirect('/application/expertise-type/industry-expertise')
+//   } else if ( (!selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
+//     res.redirect('/application/expertise-type/teaching-expertise')
+//   } else if ( (!selectedType.includes("Industry or occupational")) && (!selectedType.includes("Teaching, lecturing or training")) ) {
+//     res.redirect('/application/expertise-type/review')
+//   }
   
-})
+// })
 
 // Decide where to go form the Industry or occupational expertise page
-router.post('/industry-expertise-answer', function (req, res) {
+// router.post('/industry-expertise-answer', function (req, res) {
   
-  let selectedType = req.session.data.expertiseType.type
+//   let selectedType = req.session.data.expertiseType.type
   
-  if (selectedType.includes("Teaching, lecturing or training")) {
-    res.redirect('/application/expertise-type/teaching-expertise')
-  } else if (!selectedType.includes("Teaching, lecturing or training")) {
-    res.redirect('/application/expertise-type/review')
-  }
+//   if (selectedType.includes("Teaching, lecturing or training")) {
+//     res.redirect('/application/expertise-type/teaching-expertise')
+//   } else if (!selectedType.includes("Teaching, lecturing or training")) {
+//     res.redirect('/application/expertise-type/review')
+//   }
   
-})
+// })
 
 // Decide where to go form the Industry or occupational expertise page
 router.post('/search-type-answer', function (req, res) {

@@ -1,0 +1,42 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/teaching-answer" %}
+{% set pageHeading = "Do you have teaching, lecturing or training expertise?" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Teaching, lecturing or training expertise</h1>
+
+  <p class="govuk-body">
+    Content here to help users understand what we are asking from them.
+  </p>
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--m"      
+      }
+    },
+    _hint: {
+      text: "Designing and/or setting assessments, Marking assessments, Standardisation of assessment marking for example."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyTeachingExpertise")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
