@@ -1,0 +1,65 @@
+{% set industryHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.expertiseType.industry %}
+      <li>
+        {% if role == "An option that isn't listed" %}
+          {{ data.expertiseType.industryOther }}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Do you have any industry or occupational expertise?"
+      },
+      value: { 
+        text: data.anyIndustryExpertise
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "do you have any industry or occupational expertise?",
+          href: "/application/industry-expertise"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "What is the nature of your industry or occupational expertise?"
+      },
+      value: { 
+        html: industryHtml
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "what is the nature of your industry or occupational expertise?",
+          href: "./industry-expertise"
+        }]
+      }
+    } if data.anyIndustryExpertise == "Yes",
+    {
+      key: {
+        text: "Provide details of your industry or occupational expertise"
+      },
+      value: { 
+        text: data.industryExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "provide details your industry or occupational expertise",
+          href: "./add-details"
+        }]
+      }
+    } if data.anyIndustryExpertise == "Yes"
+  ]
+}) }}

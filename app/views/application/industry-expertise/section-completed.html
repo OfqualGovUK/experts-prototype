@@ -6,7 +6,7 @@
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Assessment expertise</h1>
+  <h1 class="govuk-heading-l">Industry or occupational expertise</h1>
   
   {{ govukRadios({
     fieldset: {
@@ -25,7 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.assessmentExpertiseCompleted")) }}
+  } | decorateAttributes(data, "data.industryExpertiseCompleted")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

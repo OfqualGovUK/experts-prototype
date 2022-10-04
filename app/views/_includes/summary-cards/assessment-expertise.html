@@ -1,6 +1,3 @@
-{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
-{% set deletedSubject = data.delete %}
-
 {% set assessmentHtml %}
   {# Build an list of the items selected #}
   <ul class="govuk-list">
@@ -16,36 +13,6 @@
     {% endfor %}
   </ul>
 {% endset %} 
-
-{% set industryHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {% for role in data.expertiseType.industry %}
-      <li>
-        {% if role == "An option that isn't listed" %}
-          {{ data.expertiseType.industryOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %} 
-
-{% set teachingHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {% for role in data.expertiseType.teaching %}
-      <li>
-        {% if role == "An option that isn't listed" %}
-          {{ data.expertiseType.teachingOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %}
 
 {{ xGovukSummaryCard({
   
@@ -64,7 +31,7 @@
           href: "/application/assessment-expertise"
         }]
       }
-    } if data.anyAssessmentExpertise == "No",
+    },
     {
       key: {
         text: "What is the nature of your assessment expertise?"
@@ -76,7 +43,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "what is the nature of your assessment expertise?",
-          href: "./assessment-expertise/assessment-expertise"
+          href: "./assessment-expertise"
         }]
       }
     } if data.anyAssessmentExpertise == "Yes",
@@ -91,52 +58,9 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "provide details your assessment expertise",
-          href: "./assessment-expertise/add-details"
+          href: "./add-details"
         }]
       }
     } if data.anyAssessmentExpertise == "Yes"
   ]
 }) }}
-
-{# {{ xGovukSummaryCard({
-  
-  rows: [
-    {
-      key: {
-        text: "Industry or occupational expertise"
-      },
-      value: { 
-        html: industryHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "type of expertise",
-          href: "./industry-expertise"
-        }]
-      }
-    }
-  ]
-}) }}
-
-{{ xGovukSummaryCard({
-  
-  rows: [
-    {
-      key: {
-        text: "Teaching, lecturing or training expertise"
-      },
-      value: { 
-        html: teachingHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "type of expertise",
-          href: "./teaching-expertise"
-        }]
-      }
-    }
-    
-  ]
-}) }} #}

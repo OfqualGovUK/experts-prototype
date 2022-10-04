@@ -171,6 +171,32 @@ router.post('/assessment-answer', function (req, res) {
   
 })
 
+// Do you have any industry or occupational expertise?
+router.post('/industry-answer', function (req, res) {
+  
+  let anyIndustryExpertise = req.session.data.anyIndustryExpertise
+  
+  if (anyIndustryExpertise === "Yes") {
+    res.redirect('/application/industry-expertise/industry-expertise.html')
+  } else {
+    res.redirect('/application/industry-expertise/review')
+  }
+  
+})
+
+// Do you have any teaching or occupational expertise?
+router.post('/teaching-answer', function (req, res) {
+  
+  let anyTeachingExpertise = req.session.data.anyTeachingExpertise
+  
+  if (anyTeachingExpertise === "Yes") {
+    res.redirect('/application/teaching-expertise/teaching-expertise.html')
+  } else {
+    res.redirect('/application/teaching-expertise/review')
+  }
+  
+})
+
 // // Which areas do you have expertise in?
 // router.post('/expertise-type-answer', function (req, res) {
   

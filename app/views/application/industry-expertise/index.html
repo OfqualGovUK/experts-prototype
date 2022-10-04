@@ -1,12 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/assessment-answer" %}
-{% set pageHeading = "Do you have assessment expertise?" %}
+{% set formAction = "/industry-answer" %}
+{% set pageHeading = "Do you have industry or occupational expertise?" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Assessment expertise</h1>
+  <h1 class="govuk-heading-l">Industry or occupational expertise</h1>
 
   <p class="govuk-body">
     Content here to help users understand what we are asking from them.
@@ -30,7 +30,7 @@
         text: "No"
       }
     ]
-  } | decorateAttributes(data, "data.anyAssessmentExpertise")) }}
+  } | decorateAttributes(data, "data.anyIndustryExpertise")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -2,14 +2,14 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your assessment expertise" %}
+{% set pageHeading = "Provide details of your teaching, lecturing or training expertise" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Your assessment expertise</h1>
+  <h1 class="govuk-heading-l">Your teaching, lecturing or training expertise</h1>
 
   <p class="govuk-body">
-    Tell us about your assessment expertise. In your reposnse consider providing evidence of the following:
+    Tell us about your teaching, lecturing or training expertise. In your reposnse consider providing evidence of the following:
   </p>
 
   <ul class="govuk-list govuk-list--bullet">
@@ -29,13 +29,14 @@
     maxwords: 500,
     rows: "10",
     label: {
-      text: pageHeading,
-      classes: "govuk-label--m"
+      text: "Provide details of your teaching, lecturing or training expertise",
+      classes: "govuk-label--m",
+      isPageHeading: true
     },
     _hint: {
       text: "Add suggestions on what we want them to say here..."
     }
-   } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
+   } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
