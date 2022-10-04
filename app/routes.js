@@ -243,9 +243,9 @@ router.post('/teaching-answer', function (req, res) {
 // Decide where to go form the Industry or occupational expertise page
 router.post('/subject-search-answer', function (req, res) {
   
-  let searchType = req.session.data.searchType
+  let searchBySubject = req.session.data.searchBySubject
   
-  if (searchType === "Yes") {
+  if (searchBySubject === "Yes") {
     res.redirect('/application/search/subject-search')
   } else {
     res.redirect('/application/search/search-by-sector')
@@ -308,7 +308,7 @@ router.post('/application/search/subject-search-answer', function (req, res) {
     // if its an "other" qual type they need ot specify qual type and level
     res.redirect('/application/search/select-qualification?referrer=qualificationSearch')
   } else {
-    res.redirect('/application/search/review')
+    res.redirect('/application/search/select-expertise-type')
   }
 })
 

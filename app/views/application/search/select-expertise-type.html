@@ -1,0 +1,64 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/review" %}
+
+{% set captionHeading %}
+  {# if its a subject result #}
+  {% if data.selectedSubject and data.resultQualType != "Other qualification type" %}
+    {{ data.selectedSubject }}
+  {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
+    {{ data.resultName }}
+  {# else it must be a sector of industry #}
+  {% else %}
+    {{ data.selectedIndustry }}
+  {% endif %}
+{% endset %}
+
+{% set pageHeading %}
+  {# If they are coming from the search page  #}
+  {% if data.referrer == "qualificationSearch" %}
+    What best describes your type of expertise for this subject?
+  {# Otherwise they must be coming through the sector search flow #}
+  {% else %}
+    What best describes your type of expertise for this industry or sector?
+  {% endif %}
+{% endset %}
+
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ captionHeading }}</span>
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        text: "Assessment"
+      },
+      {
+        text: "Industry or occupational",
+        hint: {
+          text: "You work in this field in a non-educational context"
+        }
+      },
+      {
+        text: "Teaching, lecturing or training"
+      }
+    ]
+  } | decorateAttributes(data, "data.expertiseType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
