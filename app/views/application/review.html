@@ -171,7 +171,7 @@
         {% endif %} 
       </section>
 
-      <section class="govuk-!-margin-bottom-8">
+      {# <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Personal statement</h2>
         {% if data.analyticalSkillsCompleted == "complete" %}
           <h2 class="govuk-heading-m">Analytical and judgement skills</h2>
@@ -193,16 +193,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {# {% if data.expertiseDetails == "complete" %}
-          {% include "_includes/summary-cards/personal-statement.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Additional information",
-            sectionHref: "#",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}  #}
-      </section>
+      </section> #}
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
