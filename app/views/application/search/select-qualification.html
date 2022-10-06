@@ -5,18 +5,24 @@
 {% set pageHeading = "Select the qualifications types you can advise for this industry or sector" %}
 
 {% set captionHeading %}
-  {# if its a subject result #}
-  {% if data.selectedSubject %}
-    {{ data.resultName }}
-  {# else it must be a sector of industry #}
-  {% else %}
+  {# If they are coming through the Industry/Sector flow #}
+  {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
+  {# Otherwise they must be coming from the subject search #}
+  {% elseif data.referrer == "subjectSearch" %}
+    {# If its not an "other" subject, show the subject and qual type/level #}
+    {% if data.selectedSubject and data.resultQualType != "Other qualification type" %}
+      {{ data.selectedSubject }}
+    {# If it is an "other" subject, so just show the subject #}
+    {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
+      {{ data.resultName }}
+    {% endif %}
   {% endif %}
 {% endset %}
 
 {% set pageHeading %}
   {# If they are coming from the search page  #}
-  {% if data.referrer == "qualificationSearch" %}
+  {% if data.referrer == "subjectSearch" %}
     Select the qualifications types you can advise for this subject
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}

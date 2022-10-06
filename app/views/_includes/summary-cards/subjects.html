@@ -1,7 +1,5 @@
 {% set qualTypeHtml %}
-  {% if data.resultQualType != "Other qualification type" %}
-    {{ data.resultQualType }}
-  {% else %}
+  {% if data.resultQualType == "Other qualification type" or data.referrer == "sectorSearch" %}
     <ul class="govuk-list">
       {# loops through and gets al the checked items  #}
       {% for qualificationType in data.selectedQualification %}
@@ -14,13 +12,13 @@
         </li>
       {% endfor %}
     </ul>
+  {% else %}
+    {{ data.resultQualType }}
   {% endif %}
 {% endset %}
 
 {% set levelHtml %}
-  {% if data.resultLevel != "Other qualification level" %}
-    {{ data.resultLevel }}
-  {% else %}
+  {% if data.resultQualType == "Other qualification level" or data.referrer == "sectorSearch" %}
     <ul class="govuk-list">
       {# loops through and gets al the checked items  #}
       {% for level in data.selectedLevel %}
@@ -33,9 +31,21 @@
         </li>
       {% endfor %}
     </ul>
+  {% else %}
+    {{ data.resultLevel }}
   {% endif %}
 {% endset %}
 
+{% set expertiseTypeHtml %}
+    <ul class="govuk-list">
+      {# loops through and gets al the checked items  #}
+      {% for type in data.expertiseType %}
+        <li>
+          {{ type }}
+        </li>
+      {% endfor %}
+    </ul>
+{% endset %}
 
 {# If it is a subjects, apprenticeships or T Level  #}
 {% if data.selectedSubject %}
@@ -93,13 +103,27 @@
             href: "./select-level"
           }]
         } if data.resultQualType == "Other qualification type"
+      },
+      {
+        key: {
+          text: "What best describes your type of expertise for this subject?"
+        },
+        value: { 
+          html: expertiseTypeHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "what best describes your type of expertise for this subject?",
+            href: "./select-expertise-type"
+          }]
+        }
       }
     ]
   }) }}
-{% endif %}
 
-{# If its a sector or industry  #}
-{% if data.selectedIndustry %}
+{# Must its a sector or industry  #}
+{% else %}
   {{ xGovukSummaryCard({
     titleText: data.selectedIndustry,
     actions: {
@@ -152,6 +176,21 @@
             text: "Change",
             visuallyHiddenText: "Qualification level",
             href: "./select-level"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "What best describes your type of expertise for this subject?"
+        },
+        value: { 
+          html: expertiseTypeHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "what best describes your type of expertise for this subject?",
+            href: "./select-expertise-type"
           }]
         }
       }

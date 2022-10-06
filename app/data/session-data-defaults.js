@@ -77,5 +77,11 @@ module.exports = {
 
   // Setting the sections that aren't able to be started yet
   // This will be enabled through hidden inputs in the dependant sections
-  // "experienceDetails": "canNotStartYet"
+  "areaDetails": "canNotStartYet"
+
+  // set a few things up to test
+  // "anyAssessmentExpertise": "Yes",
+  // "anyIndustryExpertise": "Yes"
+  // "teachingExpertiseCompleted": "complete"
+
 }

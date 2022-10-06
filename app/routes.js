@@ -241,7 +241,7 @@ router.post('/teaching-answer', function (req, res) {
 // })
 
 // Decide where to go form the Industry or occupational expertise page
-router.post('/subject-search-answer', function (req, res) {
+router.post('/specific-subject-search-answer', function (req, res) {
   
   let searchBySubject = req.session.data.searchBySubject
   
@@ -302,15 +302,46 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const qualLevelRegex = new RegExp(/Other qualification level/i)
 
   const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
-
-  // TODO for Jesse
-  if (isMatch) {
-    // if its an "other" qual type they need ot specify qual type and level
-    res.redirect('/application/search/select-qualification?referrer=qualificationSearch')
+  
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  
+  // Has the user has selected at leats 2 types of expertise
+  if ( ( (assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes") ) ||
+  ( (assessmentExpertise == "Yes") && (industryExpertise == "Yes") ) ||
+  ( (assessmentExpertise == "Yes") && (teachingExpertise == "Yes") ) ||
+  ( (industryExpertise == "Yes") && (teachingExpertise == "Yes") ) ) {
+    const hasMultipleExpertiseTypes = true
   } else {
-    res.redirect('/application/search/select-expertise-type')
+    const hasMultipleExpertiseTypes = false
+  }
+  
+  // if its an "other" qual type they need to specify qual type and level
+  if (isMatch) {
+    res.redirect('/application/search/select-qualification?referrer=subjectSearch')
+  // the user has selected at least 2 areas of expertise  
+} else if (hasMultipleExpertiseTypes = true) {
+  res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
+  // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
+  } else {
+    res.redirect('/application/search/review')
   }
 })
+
+// Did you want to add another qualification?
+router.post('/review-subjects-answer', function (req, res) {
+
+  let addAnotherSubject = req.session.data.addAnotherSubject
+
+    if (addAnotherSubject === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/search/section-completed') 
+  }
+
+})
+
 
 // Do you have the right to work in the UK?
 router.post('/right-to-work-answer', function (req, res) {
