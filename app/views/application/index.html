@@ -29,66 +29,67 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Qualifications',
-              href: 'application/education',
-              taskName: data.educationDetails
-            })}}
-            {# {{ appTaskListItem({
-              name: 'Professional achievements',
-              href: 'application/professional-achievements',
-              taskName: data.professionalAchievementDetails
-            })}} #}
-          </ul>
-      </section>
-      
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Work history',
-              href: 'application/experience-details',
-              taskName: data.experienceDetails
-            })}}
-            {{ appTaskListItem({
-              name: 'References',
-              href: 'application/references',
-              taskName: data.referencesCompleted
-            })}}
-          </ul>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Qualifications',
+            href: 'application/education',
+            taskName: data.educationDetails
+          })}}
+          {# {{ appTaskListItem({
+            name: 'Professional achievements',
+            href: 'application/professional-achievements',
+            taskName: data.professionalAchievementDetails
+          })}} #}
+        </ul>
       </section>
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Types of expertise</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Assessment expertise',
-              href: 'application/assessment-expertise',
-              taskName: data.assessmentExpertiseCompleted
-            })}}
-            {{ appTaskListItem({
-              name: 'Industry or occupational expertise',
-              href: 'application/industry-expertise',
-              taskName: data.industryExpertiseCompleted
-            })}}
-            {{ appTaskListItem({
-              name: 'Teaching, lecturing or training expertise',
-              href: 'application/teaching-expertise',
-              taskName: data.teachingExpertiseCompleted
-            })}}
-          </ul>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Assessment expertise',
+            href: 'application/assessment-expertise',
+            taskName: data.assessmentExpertiseCompleted
+          })}}
+          {{ appTaskListItem({
+            name: 'Industry or occupational expertise',
+            href: 'application/industry-expertise',
+            taskName: data.industryExpertiseCompleted
+          })}}
+          {{ appTaskListItem({
+            name: 'Teaching, lecturing or training expertise',
+            href: 'application/teaching-expertise',
+            taskName: data.teachingExpertiseCompleted
+          })}}
+        </ul>
+      </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Work history',
+            href: 'application/experience-details',
+            taskName: data.experienceDetails
+          })}}
+          {{ appTaskListItem({
+            name: 'References',
+            href: 'application/references',
+            taskName: data.referencesCompleted
+          })}}
+        </ul>
       </section>
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Areas that you can advise on</h2>
-         <ul class="app-task-list">
-            {{ appTaskListItem({
-              name: 'Subjects and/or sectors you can advise on',
-              href: 'application/search',
-              taskName: data.areaDetails
-            })}}
-          </ul>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Subjects and/or sectors you can advise on',
+            href: 'application/search',
+            hint: "Complete types of expertise first",
+            taskName: data.areaDetails
+          })}}
+        </ul>
       </section>
       
       {# <section class="govuk-!-margin-bottom-8">

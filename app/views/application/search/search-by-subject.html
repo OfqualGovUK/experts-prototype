@@ -1,0 +1,40 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/specific-subject-search-answer" %}
+{% set pageHeading = "Do you know the specific GCSEs, A-Levels, apprenticeships, T-Levels or subjects that you can provide expertise on?" %}
+
+{% block formContent %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        text: "Yes",
+        _hint: {
+          text: "Bricklayer, Level 2 End-Point Assessment or Accounting GCE AS/A Level, Level 3"
+        }
+      },
+      {
+        text: "No, I'll select my sector or industry instead",
+        _hint: {
+          text: "For example"
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.searchBySubject")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

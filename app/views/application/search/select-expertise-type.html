@@ -1,8 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./select-level" %}
-{% set pageHeading = "Select the qualifications types you can advise for this industry or sector" %}
+{% set formAction = "./review" %}
 
 {% set captionHeading %}
   {# If they are coming through the Industry/Sector flow #}
@@ -23,10 +22,10 @@
 {% set pageHeading %}
   {# If they are coming from the search page  #}
   {% if data.referrer == "subjectSearch" %}
-    Select the qualifications types you can advise for this subject
+    What best describes your type of expertise for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-    Select the qualifications types you can advise for this industry or sector
+    What best describes your type of expertise for this industry or sector?
   {% endif %}
 {% endset %}
 
@@ -35,49 +34,29 @@
 
   <span class="govuk-caption-l">{{ captionHeading }}</span>
 
-  {# set up which data set to pull from #}
-  {% set qualifications = []  %}
-  
-  {% for qualification in data.qualificationData  %}
-    {% set qualifications = qualifications | push ({ 
-      text: qualification
-    }) %}
-  {% endfor %}
-
-  {# {% set qualifications = qualifications | push ({
-    divider: "or"
-  }) %} #}
-
-  {% set otherQualificationHtml %}
-    {{ govukInput({
-      classes: "govuk-!-width-two-thirds",
-      label: {
-        text: "Provide details (optional)",
-        classes: "govuk-label--s"
-      }
-    } | decorateAttributes(data, "data.selectedQualificationOther")) }}
-  {% endset -%}
-
-  {% set qualifications = qualifications | push ({
-    text: "A qualification type that isn't listed",
-    conditional: {
-      html: otherQualificationHtml
-    }
-  }) %}
-
   {{ govukCheckboxes({
     fieldset: {
       legend: {
         text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
-        isPgeHeading: true
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
       }
     },
-    hint: {
-      text: "Select all that apply"
-    },
-    items: qualifications
-  } | decorateAttributes(data, "data.selectedQualification")) }}
+    items: [
+      {
+        text: "Assessment"
+      } if data.anyAssessmentExpertise == "Yes",
+      {
+        text: "Industry or occupational",
+        hint: {
+          text: "You work in this field in a non-educational context"
+        }
+      } if data.anyIndustryExpertise == "Yes",
+      {
+        text: "Teaching, lecturing or training"
+      } if data.anyTeachingExpertise == "Yes"
+    ]
+  } | decorateAttributes(data, "data.expertiseType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

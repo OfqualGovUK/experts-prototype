@@ -241,11 +241,11 @@ router.post('/teaching-answer', function (req, res) {
 // })
 
 // Decide where to go form the Industry or occupational expertise page
-router.post('/search-type-answer', function (req, res) {
+router.post('/specific-subject-search-answer', function (req, res) {
   
-  let searchType = req.session.data.searchType
+  let searchBySubject = req.session.data.searchBySubject
   
-  if (searchType === "Yes") {
+  if (searchBySubject === "Yes") {
     res.redirect('/application/search/subject-search')
   } else {
     res.redirect('/application/search/sector-search')
@@ -253,15 +253,41 @@ router.post('/search-type-answer', function (req, res) {
   
 })
 
-// Did you want to add another qualification?
-router.post('/review-subjects-answer', function (req, res) {
+// Do you know the specific GCSEs, A-Levels, apprenticeships, T-Levels or subjects that you can provide expertise on?
+router.post('/subject-search-answer', function (req, res) {
+  
+  let searchBySubject = req.session.data.searchBySubject
+  
+  if (searchBySubject === "Yes") {
+    res.redirect('/application/search/subject-search')
+  } else {
+    res.redirect('/application/search/search-by-sector')
+  }
+  
+})
 
-  let addAnotherqualification = req.session.data.addAnotherSubject
+// Do you have a specific sector/ industry that you can provide your expertise on?
+router.post('/sector-search-answer', function (req, res) {
 
-    if (addAnotherqualification === 'Yes') {
+  let searchBySector = req.session.data.searchBySector
+
+    if (searchBySector === 'Yes') {
+      res.redirect('/application/search/sector-search')
+    } else {
+      res.redirect('/application/search/assessment-specialist') 
+  }
+
+})
+
+// Is your expertise more general in assessment or teaching?
+router.post('/assessment-specialst-answer', function (req, res) {
+
+  let assessmentSpecialst = req.session.data.assessmentSpecialst
+
+    if (assessmentSpecialst === 'Yes') {
       res.redirect('/application/sorry')
     } else {
-      res.redirect('/application/search/section-completed') 
+      res.redirect('/application/sorry') 
   }
 
 })
@@ -276,15 +302,83 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const qualLevelRegex = new RegExp(/Other qualification level/i)
 
   const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
+  
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  let hasMultipleExpertiseTypes = true
 
-  // TODO for Jesse
+  //#region suggestions
+
+  // suggestion...
+  // const yesRegEx = new RegExp(/Yes/i);
+
+  // const typesOfExpertise = [
+  //   yesRegEx.test(assessmentExpertise),
+  //   yesRegEx.test(industryExpertise),
+  //   yesRegEx.test(teachingExpertise)
+  // ]; // [true, false, true] or [true, false, false] etc...
+
+  // if (typesOfExpertise.filter(x => x).length >= 2) {
+  //   hasMultipleExpertiseTypes = true
+  // } else {
+  //   hasMultipleExpertiseTypes = false
+  // }
+  
+  //#endregion
+
+
+  // Has the user has selected at least 2 types of expertise
+  // if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  // ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
+  // ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  // ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
+  //   hasMultipleExpertiseTypes = true
+  // } else {
+  //   hasMultipleExpertiseTypes = false
+  // }
+
+  // Has the user has selected at least 2 types of expertise
+  const typesOfExpertise2 = [
+    assessmentExpertise,
+    industryExpertise,
+    teachingExpertise
+  ]; // [true, false, true] or [true, false, false] etc...
+
+  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+    // this is just for this function 
+    hasMultipleExpertiseTypes = true
+    // this is to use in the nunjucks view
+    req.session.data.hasMultipleExpertiseTypes = true 
+  } else {
+    hasMultipleExpertiseTypes = false
+  }
+  
+  // if its an "other" qual type they need to specify qual type and level
   if (isMatch) {
-    // if its an "other" qual type they need ot specify qual type and level
-    res.redirect('/application/search/select-qualification')
+    res.redirect('/application/search/select-qualification?referrer=subjectSearch')
+  // the user has selected at least 2 areas of expertise  
+  } else if (hasMultipleExpertiseTypes === true) {
+    res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
+  // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
   } else {
     res.redirect('/application/search/review')
   }
 })
+
+// Did you want to add another qualification?
+router.post('/review-subjects-answer', function (req, res) {
+
+  let addAnotherSubject = req.session.data.addAnotherSubject
+
+    if (addAnotherSubject === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/search/section-completed') 
+  }
+
+})
+
 
 // Do you have the right to work in the UK?
 router.post('/right-to-work-answer', function (req, res) {
