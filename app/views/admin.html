@@ -8,7 +8,7 @@
 
   <h1 class="govuk-heading-l">Admin settings<h1>
   
-  <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
+  {# <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
 
    {{ govukRadios({
     items: [
@@ -25,7 +25,8 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.settings.searchApproach")) }}
+  } | decorateAttributes(data, "data.settings.searchApproach")) }} #}
+  
 
   {{ govukButton({
     text: "Update settings"

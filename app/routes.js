@@ -308,7 +308,6 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const teachingExpertise = req.session.data.anyTeachingExpertise
   let hasMultipleExpertiseTypes = true
 
-
   //#region suggestions
 
   // suggestion...
@@ -325,29 +324,32 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   // } else {
   //   hasMultipleExpertiseTypes = false
   // }
-
-  // suggestion 2...
-  // const typesOfExpertise2 = [
-  //   assessmentExpertise,
-  //   industryExpertise,
-  //   teachingExpertise
-  // ]; // [true, false, true] or [true, false, false] etc...
-
-  // if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
-  //   hasMultipleExpertiseTypes = true
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
   
   //#endregion
 
 
-  // Has the user has selected at leats 2 types of expertise
-  if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
-  ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
+  // Has the user has selected at least 2 types of expertise
+  // if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  // ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
+  // ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  // ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
+  //   hasMultipleExpertiseTypes = true
+  // } else {
+  //   hasMultipleExpertiseTypes = false
+  // }
+
+  // Has the user has selected at least 2 types of expertise
+  const typesOfExpertise2 = [
+    assessmentExpertise,
+    industryExpertise,
+    teachingExpertise
+  ]; // [true, false, true] or [true, false, false] etc...
+
+  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+    // this is just for this function 
     hasMultipleExpertiseTypes = true
+    // this is to use in the nunjucks view
+    req.session.data.hasMultipleExpertiseTypes = true 
   } else {
     hasMultipleExpertiseTypes = false
   }
