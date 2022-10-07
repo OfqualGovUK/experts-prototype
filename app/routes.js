@@ -308,6 +308,40 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const teachingExpertise = req.session.data.anyTeachingExpertise
   let hasMultipleExpertiseTypes = true
 
+
+  //#region suggestions
+
+  // suggestion...
+  // const yesRegEx = new RegExp(/Yes/i);
+
+  // const typesOfExpertise = [
+  //   yesRegEx.test(assessmentExpertise),
+  //   yesRegEx.test(industryExpertise),
+  //   yesRegEx.test(teachingExpertise)
+  // ]; // [true, false, true] or [true, false, false] etc...
+
+  // if (typesOfExpertise.filter(x => x).length >= 2) {
+  //   hasMultipleExpertiseTypes = true
+  // } else {
+  //   hasMultipleExpertiseTypes = false
+  // }
+
+  // suggestion 2...
+  // const typesOfExpertise2 = [
+  //   assessmentExpertise,
+  //   industryExpertise,
+  //   teachingExpertise
+  // ]; // [true, false, true] or [true, false, false] etc...
+
+  // if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+  //   hasMultipleExpertiseTypes = true
+  // } else {
+  //   hasMultipleExpertiseTypes = false
+  // }
+  
+  //#endregion
+
+
   // Has the user has selected at leats 2 types of expertise
   if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
   ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
