@@ -248,7 +248,7 @@ router.post('/specific-subject-search-answer', function (req, res) {
   if (searchBySubject === "Yes") {
     res.redirect('/application/search/subject-search')
   } else {
-    res.redirect('/application/search/search-by-sector')
+    res.redirect('/application/search/sector-search')
   }
   
 })
@@ -306,12 +306,12 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const assessmentExpertise = req.session.data.anyAssessmentExpertise
   const industryExpertise = req.session.data.anyIndustryExpertise
   const teachingExpertise = req.session.data.anyTeachingExpertise
-  
+
   // Has the user has selected at leats 2 types of expertise
-  if ( ( (assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes") ) ||
-  ( (assessmentExpertise == "Yes") && (industryExpertise == "Yes") ) ||
-  ( (assessmentExpertise == "Yes") && (teachingExpertise == "Yes") ) ||
-  ( (industryExpertise == "Yes") && (teachingExpertise == "Yes") ) ) {
+  if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
+  ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+  ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
     const hasMultipleExpertiseTypes = true
   } else {
     const hasMultipleExpertiseTypes = false
@@ -321,8 +321,8 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   if (isMatch) {
     res.redirect('/application/search/select-qualification?referrer=subjectSearch')
   // the user has selected at least 2 areas of expertise  
-} else if (hasMultipleExpertiseTypes = true) {
-  res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
+  } else if (hasMultipleExpertiseTypes = true) {
+    res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
   // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
   } else {
     res.redirect('/application/search/review')
