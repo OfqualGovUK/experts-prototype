@@ -92,22 +92,6 @@
         </ul>
       </section>
       
-      {# <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal statement</h2>
-        <ul class="app-task-list">
-          {{ appTaskListItem({
-            name: 'Analytical and judgement skills',
-            href: 'application/analytical-skills',
-            taskName: data.analyticalSkillsCompleted
-          })}}
-          {{ appTaskListItem({
-            name: 'Communication skills',
-            href: 'application/communication-skills',
-            taskName: data.communicationSkillsCompleted
-          })}}
-        </ul>
-      </section> #}
-      
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
         <ul class="app-task-list">
@@ -120,7 +104,8 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Self declaration and right to work status</h2>
+        {# <h2 class="govuk-heading-m govuk-!-font-size-27">Self declaration and right to work status</h2> #}
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Self declaration',
@@ -132,12 +117,6 @@
             href: 'application/right-to-work',
             taskName: data.rightToWorkDetails
           })}}
-        </ul>
-      </section>
-
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
-        <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Provide proof of identification',
             href: 'application/verify-your-identity',
@@ -145,6 +124,12 @@
           })}}
         </ul>
       </section>
+
+      {# <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
+        <ul class="app-task-list">
+        </ul>
+      </section> #}
      
 
       <h2 class="govuk-heading-m govuk-!-font-size-27">Review and send</h2>
