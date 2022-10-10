@@ -1,0 +1,27 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Submit application" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">
+        Is there anything we want to say here?
+      </p>
+      <p class="govuk-body">
+        By submitting this application, I confirm that the information given is true, complete and accurate.
+      </p>
+
+      {{ govukButton({
+        text: "Submit application",
+        href: "/application/dashboard?applicationStatus=submitted"
+      }) }}
+
+    </div>
+  </div>
+  
+{% endblock %}

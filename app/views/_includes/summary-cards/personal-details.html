@@ -3,6 +3,8 @@
       {{ data.whereDoYouLive }}
     {% elseif data.whereDoYouLive == "Outside the UK"  %}
       {{ data.selectedCountry }}
+    {% else %}
+      Not provided
     {% endif %}
   {% endset %}
   
@@ -13,7 +15,7 @@
         text: "Full name"
       },
       value: {
-        html: data.personalDetails.fullName or "Not provided"
+        html: data.fullName or "Not provided"
       },
       actions: {
         items: [{
@@ -55,19 +57,19 @@
     }, 
     {
       key: {
-        text: "Where do you live?"
+        text: "Country"
       },
       value: {
-        html: livingLocation 
+        text: data.selectedCountry or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "where do you live",
+          visuallyHiddenText: "Country",
           href: "/application/personal-details/where-do-you-live"
         }]
       }
-    }, 
+    } if data.whereDoYouLive == "Outside the UK", 
     {
       key: {
         text: "Address line 1"

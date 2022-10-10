@@ -1,0 +1,50 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Equality and diversity" %}
+{% set formAction = "/equality-question-answer" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  <p class="govuk-body">Before you submit your application, we’d like to ask some equality questions.</p>
+  <p class="govuk-body">Why we ask equality questions...</p>
+
+  {% set hintHtml %}
+    These questions are optional. Your answers will not affect your application.
+  {% endset -%}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Do you want to answer the equality questions?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      html: hintHtml
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes, answer the equality questions (takes 2 minutes)"
+      },
+      {
+        value: "no",
+        text: "No, skip the equality questions"
+      }
+    ]
+  } | decorateAttributes(data, "data.equalityQuestionAnswer")) }}
+
+  {# {{ govukDetails({
+    summaryText: "Why we ask equality questions",
+    text: "[Consider adding an optional longer explanation of what you’re asking the questions and what you’ll do with the information]."
+  }) }} #}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  </div>
+
+{% endblock %}

@@ -8,6 +8,22 @@
 
   <h1 class="govuk-heading-l">Admin settings<h1>
   
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Enable errors on application review screen",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "true",
+        text: "Enable errors"
+      }
+    ]
+  } | decorateAttributes(data, "data.settings.enableErrors")) }}
+  
+
   {# <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
 
    {{ govukRadios({

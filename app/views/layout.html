@@ -54,6 +54,10 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
+{% if pageType == "Dashboard"  %}
+  {% set bodyClasses = "govuk-width-container-wide app-primary-nav__on" %}
+{% endif %}
+
 {% block header %}
   {# Set serviceName in config.js. #}
   {{ govukHeader({
@@ -71,20 +75,65 @@
     } 
   ] if signedOut != "true" and serviceName != "Register your interest to be a subject expert"
   }) }}
+
+    {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    classes: 'govuk-!-margin-top-1 govuk-width-container',
+    html: 'This is a prototype of a new service – your <a href="#" class="govuk-link">feedback</a> will help us improve it'
+  }) }}
+
+  <div class="govuk-width-container ">
+    {% block pageNavigation %}
+    {% endblock %}  
+  </div>
+
+  {# Show primary nav if enabled #}
+  {% if pageType == "Dashboard" %}
+    <div class="moj-primary-navigation">
+      <div class="govuk-width-container">
+        <div class="moj-primary-navigation__container">
+          <div class="moj-primary-navigation__nav">
+            <nav class="moj-primary-navigation" aria-label="Primary navigation">
+              <ul class="moj-primary-navigation__list">
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/populate-dashboard" {{'aria-current="page"' if primaryNavActive == 'Dashboard'}}>My profile</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/application/sorry" {{'aria-current="page"' if primaryNavActive == 'manage settings'}}>Commissions</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/application/sorry" {{'aria-current="page"' if primaryNavActive == 'notifications'}}>Notifications
+                    <span class="app-notification-number">2</span>
+                    </a>
+                  </li>
+                </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
+  {# {{ govukPhaseBanner({
     tag: {
       text: "prototype"
     },
     classes: 'govuk-!-margin-top-1',
     html: 'This is a prototype of a new service – your <a href="#" class="govuk-link">feedback</a> will help us improve it'
-  }) }}
+  }) }} #}
 
-  {% block pageNavigation %}
-  {% endblock %}  
-{% endblock %}
+  {# {% block pageNavigation %}
+  {% endblock %}   #}
+
+
+
+
+  {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 

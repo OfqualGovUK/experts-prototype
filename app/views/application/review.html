@@ -10,8 +10,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       
-      {# Only show the error summary if one or more of the sections is empty on submit  #}
-      {% if data.showErrors == "true" %}
+      {# Only show the error summary if one or more of the sections is empty on submit and errors is enabled in the admin settings #}
+      {% if data.showErrors == "true" and data.settings.enableErrors == "true" %}
         {{ govukErrorSummary({
           titleText: "Your application cannot be submitted because it’s incomplete",
           errorList: [
@@ -22,39 +22,7 @@
             {
               text: "Education and qualifications not marked as complete",
               href: "#"
-            } if data.educationDetails != "complete",
-            {
-              text: "Professional achievements is not marked as complete",
-              href: "#"
-            } if data.professionalAchievementDetails != "complete",
-            {
-              text: "Work history is not marked as complete",
-              href: "#"
-            } if data.experienceDetails != "complete",
-            {
-              text: "References is not marked as complete",
-              href: "#"
-            } if data.referenceDetails != "complete",
-            {
-              text: "Type of expertise is not marked as complete",
-              href: "#"
-            } if data.expertiseTypeDetails != "complete",
-            {
-              text: "Areas you can advise on is not marked as complete",
-              href: "#"
-            } if data.areaDetails != "complete",
-            {
-              text: "Personal statement is not marked as complete",
-              href: "#"
-            } if data.qualificationDetails != "complete",
-            {
-              text: "Conflicts of interest is not marked as complete",
-              href: "#"
-            } if data.conflictDetails != "complete",
-            {
-              text: "Verify your identity is not marked as complete",
-              href: "#"
-            } if data.qualificationDetails != "complete"
+            } if data.educationDetails != "complete"
           ]
         }) }}
 
@@ -217,19 +185,23 @@
         {% endif %} 
       </section>
       
-      <section class="govuk-!-margin-bottom-8">
-      </section>
-      
 
+      {# Only juggle this url if errors are enabled in the admin settings #}
+      {% if data.settings.enableErrors == "true" %}
       {# If there are incomplete sections we want to keep the user on this page and display an error summary  #}
       {# If all sections are complete we send them back to a completed application  #}
-      {% set reviewSubmissionHref %}
-        {% if data.personalDetails != "complete" or data.qualificationDetails != "complete" %}
-          /application/review?showErrors=true
-        {% else %}
-          /application?applicationSubmitted=true
-        {% endif %}
-      {% endset %}
+        {% set reviewSubmissionHref %}
+          {% if data.personalDetails != "complete" or data.qualificationDetails != "complete" %}
+            /application/review?showErrors=true
+          {% else %}
+            /application?applicationSubmitted=true
+          {% endif %}
+        {% endset %}
+      {% else %}
+        {% set reviewSubmissionHref %}
+          /application/equality-and-diversity 
+        {% endset %}
+      {% endif %}
 
       {{ govukButton({
         text: "Continue",
