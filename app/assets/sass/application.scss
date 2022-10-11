@@ -12,6 +12,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "lib/extensions/extensions";
 
 // Overrides
+@import "overrides/layout";
 @import "overrides/moj-nav";
 // @import "overrides/blank";
 
