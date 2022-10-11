@@ -1,0 +1,43 @@
+  {% set applicationSubmittedTimeHtml %}
+    <time datetime="">{{ "" | today |  govukDate }}, 16:13</time>
+  {% endset %}
+
+  {% set applicationStatusHtml %}
+    {{govukTag({
+      text: "Review pending",
+      classes: "govuk-tag--yellow"
+    })}}
+  {% endset %}
+
+  {% set profileUpdatedHtml %}
+    <time datetime="">{{ "" | today |  govukDate }}, 17:55</time>
+  {% endset %}
+
+  {{ xGovukSummaryCard({
+    rows: [
+    {
+      key: {
+        text: "Application status"
+      },
+      value: {
+        html: applicationStatusHtml
+      }
+    },
+    {
+      key: {
+        text: "Application last updated"
+      },
+      value: {
+        html: profileUpdatedHtml
+      }
+    },
+    {
+      key: {
+        text: "Application submitted"
+      },
+      value: {
+        html: applicationSubmittedTimeHtml
+      }
+    }
+    ]
+  }) }}

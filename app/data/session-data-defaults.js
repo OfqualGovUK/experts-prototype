@@ -43,10 +43,14 @@ const trasnsportData = require('./trasnsportData.json')
 const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
-let settings = {
-  // Methods of searching for subjects
-  searchApproach: "Version 2"
+var settings = {
+  enableErrors: "false"  
 }
+
+var applicationData = {
+  "fullName": "Something else",
+  "opitonsChecked": ["Something", "another thing", "a third thing"]
+} 
 
 module.exports = {
 
@@ -73,16 +77,20 @@ module.exports = {
   trasnsportData,
   qualificationData,
   subjectSearch2Data,
+
+  applicationData,
+  
   settings: settings,
+  // personalDetails: personalDetails,
 
   // Setting the sections that aren't able to be started yet
-  // This will be enabled through hidden inputs in the dependant sections
-  "areaDetails": "canNotStartYet",
+  // The section is enabled with a hidden inputs in the dependant sections
+  "areaDetails": "canNotStartYet"
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
   // "anyIndustryExpertise": "Yes",
   // "anyTeachingExpertise": "Yes",
-  // "teachingExpertiseCompleted": "complete"
+  // "teachingExpertiseCompleted": "complete"  
 
 }

@@ -419,6 +419,25 @@ router.post('/review-conflict-of-interest-answer', function (req, res) {
 
 })
 
+// Do you want to answer the equality questions?
+router.post('/equality-question-answer', function (req, res) {
+
+  let equalityQuestionAnswer = req.session.data.equalityQuestionAnswer
+
+    if (equalityQuestionAnswer === 'yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/how-did-you-hear-about-this-service') 
+  }
+
+})
+
+// Sets up the dashboard with a completed application
+router.all( '/populate-dashboard', function (req, res) {
+  req.session.data = Object.assign(req.session.data.applicationData)
+  res.redirect('/application/dashboard');
+})
+
 // ------ Register your interest  ----- //
 
 // Example folder

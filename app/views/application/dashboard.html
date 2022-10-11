@@ -1,0 +1,46 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Subject matter expert dashboard" %}
+{% set backLink = "false" %}
+{% set pageType = "Dashboard" %}
+{% set primaryNavActive = "Dashboard" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    {# <div class="govuk-grid-column-full">
+      {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+          Application successfully submitted
+        </h3>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html,
+        type: 'success'
+      }) }}
+    </div> #}
+    
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {# <h1 class="govuk-heading-l">{{ pageHeading }}</h1> #}
+      <h1 class="govuk-heading-l">My profile</h1>
+      <p class="govuk-body">Your applications has been submitted. You will get an email once it has been reviewed.</p>
+      <p class="govuk-body">You can still make changes to your application though any changes you make will reset and delay the review process.</p>
+    </div>
+
+   <div class="govuk-grid-column-full">   
+    <section class="govuk-!-margin-bottom-8">
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Aplication status</h2>
+      {% include "_includes/summary-cards/application-status.html" %}
+    </section>
+    
+    <section class="govuk-!-margin-bottom-8">
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
+      {% include "_includes/summary-cards/personal-details.html" %}
+    </section>
+
+    <p class="govuk-body">[ The full application will display here ]</p>
+  <div>
+
+{% endblock %}
