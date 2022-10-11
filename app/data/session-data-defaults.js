@@ -44,7 +44,7 @@ const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
 var settings = {
-  enableErrors: "true"  
+  enableErrors: "false"  
 }
 
 var applicationData = {
