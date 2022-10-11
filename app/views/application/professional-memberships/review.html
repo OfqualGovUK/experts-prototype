@@ -1,0 +1,44 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Review your details" %}
+{% set formAction = "/review-memberships-answer" %}
+{% set layoutWidth = "fullWidthLayout" %}
+{% set backText = "Back to application" %}
+{% set backLink = "/application" %}
+
+{% block formContent %}
+
+  {# <span class="govuk-caption-l">Education and qualifications</span> #}
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  
+  {% include "_includes/summary-cards/memberships.html" %}
+
+  {# Show this if the user says they have qualificatiosn to enter #}
+  {% if data.anyMemberships == "Yes" %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: "Did you want to add another membership?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          text: "Yes"
+        },
+        {
+          text: "No, I've finished adding memberships"
+        }
+      ]
+    } | decorateAttributes(data, "data.addAnotherMembership")) }}
+  {% endif %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Add a membership" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  <p class="govuk-body">You will be able to add more memberships, after you have finished telling us about the first membership.</p>
+
+  {{ govukInput({
+    label: {
+      text: "Organisation name",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.membership.organisationName")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Membership type (optional)",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.membership.type")) }}
+  
+  {{ govukInput({
+    label: {
+      text: "Year joined",
+      classes: "govuk-label--m"
+    },
+    classes: "govuk-!-width-one-quarter"
+  } | decorateAttributes(data, "data.membership.yearJoined")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

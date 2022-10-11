@@ -1,0 +1,85 @@
+{# Show this if the user says they have memberships to enter #}
+{% if data.anyMemberships == "Yes" %}
+
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.membership.organisationName,
+    actions: {
+      items: [{
+        text: "Delete membership",
+        visuallyHiddenText: data.membership.organisationName,
+        href: "/application/professional-memberships/delete?delete=" + data.membership.organisationName
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Organisation name"
+        },
+        value: { 
+          text: data.membership.organisationName or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "organisation name",
+            href: "./add-membership"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Membership type"
+        },
+        value: { 
+          text: data.membership.type or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Membership type",
+            href: "./add-membership"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Year joined"
+        },
+        value: { 
+          text: data.membership.yearJoined or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "year joined",
+            href: "./add-membership"
+          }]
+        }
+      }
+    ]
+  }) }}
+
+{% endif %}
+
+{# show this is there are no memberships #}
+{% if data.anyMemberships == "No" %}
+  {{ xGovukSummaryCard({
+    rows: [
+      {
+        key: {
+          text: "Are you currently a member of any professional bodies, associations or institutes?"
+        },
+        value: { 
+          text: data.anyMemberships or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Are you currently a member of any professional bodies, associations or institutes?",
+            href: "./../professional-memberships"
+          }]
+        }
+      }]
+  }) }}
+{% endif %}
