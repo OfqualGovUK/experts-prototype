@@ -66,14 +66,14 @@
     serviceUrl: "/",
     containerClasses: "govuk-width-container",
     navigation: [
-    {
-      text: "name@email.com"
-    },
-    {
-      href: "./home",
-      text: "Sign out"
-    } 
-  ] if signedOut != "true" and serviceName != "Register your interest to be a subject expert"
+      {
+        text: "name@email.com"
+      },
+      {
+        href: "./home",
+        text: "Sign out"
+      } 
+    ] if signedOut != "true"
   }) }}
 
     {{ govukPhaseBanner({

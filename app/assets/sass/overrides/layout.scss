@@ -1,0 +1,7 @@
+// Template for overrirdes 
+
+.start-page {
+    .govuk-header + .govuk-phase-banner {
+        display: none;
+    }
+}

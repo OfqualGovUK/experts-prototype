@@ -6,10 +6,18 @@
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Your relevant qualifications</h1>
+  <h1 class="govuk-heading-l">Your qualifications</h1>
 
   <p class="govuk-body">
-    Tell us about your qualifications that are related to the teaching, assessment or industry expertise that you can advise Ofqual on.
+    Tell us about the qualifications that you have, that are relevant to the area(s) of expertise  you can provide to Ofqual.
+  </p>
+
+  <p class="govuk-body">
+    This may include any occupational qualifications, teaching qualifications, assessor qualifications, degrees, diplomas or awards.
+  </p>
+
+  <p class="govuk-body">
+    We do not need to know about general qualifications you have undertaken before the age of 18, such as any GCSEs or A Levels, unless they are relevant to your area of expertise.
   </p>
 
   {{ govukRadios ({
@@ -20,8 +28,8 @@
         classes: "govuk-fieldset__legend--m"      
       }
     },
-    hint: {
-      text: "Add examples of qualifications here"
+    _hint: {
+      text: "For example - ABC College, Diploma in ABC, Merit, 2017"
     },
     items: [
       {
