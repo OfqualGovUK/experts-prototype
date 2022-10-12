@@ -113,6 +113,16 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
+        {% if data.experienceDetails == "complete" %}
+          <h2 class="govuk-heading-m">professional memberships</h2>
+          {% include "_includes/summary-cards/memberships.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Professional memberships",
+            sectionHref: "./professional-memberships",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
         {% if data.referencesCompleted == "complete" %}
           <h2 class="govuk-heading-m">References</h2>
           {% include "_includes/summary-cards/references.html" %}

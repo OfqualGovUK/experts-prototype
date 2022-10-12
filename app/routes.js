@@ -87,6 +87,32 @@ router.post('/review-jobs-answer', function (req, res) {
 
 })
 
+// Are you currently a member of any professional bodies, associations or institutes?
+router.post('/memberships-answer', function (req, res) {
+
+  let anyMemberships = req.session.data.anyMemberships
+
+    if (anyMemberships === 'Yes') {
+      res.redirect('/application/professional-memberships/add-membership')
+    } else {
+      res.redirect('/application/professional-memberships/review') 
+  }
+
+})
+
+// Did you want to add another membership?
+router.post('/review-memberships-answer', function (req, res) {
+
+  let addAnotherMembership = req.session.data.addAnotherMembership
+
+    if (addAnotherMembership === 'Yes') {
+      res.redirect('/application/sorry')
+    } else {
+      res.redirect('/application/professional-memberships/section-completed') 
+  }
+
+})
+
 // Did you want to add another refernce?
 router.post('/review-references-answer', function (req, res) {
 
