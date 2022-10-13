@@ -3,12 +3,12 @@
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: data.education.schoolName,
+    titleText: data.education.qualName,
     actions: {
       items: [{
         text: "Delete qualification",
-        visuallyHiddenText: data.education.schoolName,
-        href: "/application/education/delete?delete=" + data.education.schoolName
+        visuallyHiddenText: data.education.qualName,
+        href: "/application/education/delete?delete=" + data.education.qualName
       }]
     },
     rows: [
@@ -23,7 +23,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "school, college, university or other organisation",
-            href: "./add-certification"
+            href: "./add-qualifcation"
           }]
         }
       },
@@ -38,7 +38,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "qualification, course or subject name",
-            href: "./add-certification"
+            href: "./add-qualifcation"
           }]
         }
       },
@@ -53,10 +53,10 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "grade",
-            href: "./add-certification"
+            href: "./add-qualifcation"
           }]
         }
-      } if data.education.grade,
+      },
       {
         key: {
           text: "Year qualification was awarded"
@@ -68,10 +68,55 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "year qualification was awarded",
-            href: "./add-certification"
+            href: "./add-qualifcation"
           }]
         }
-      }
+      },
+      {
+        key: {
+          text: "Are you able to provide a copy of this qualification?"
+        },
+        value: { 
+          text: data.education.uploadAvailable or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Are you able to provide a copy of this qualification?",
+            href: "./upload-available"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Provide a reason why your are unable to provide a copy of this qualification"
+        },
+        value: { 
+          text: data.education.noReasonHtml or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Provide a reason why your are unable to provide a copy of this qualification",
+            href: "./upload-available"
+          }]
+        }
+      } if data.education.uploadAvailable == "No",
+      {
+        key: {
+          text: "Uploaded file"
+        },
+        value: { 
+          text: data.education.qualificationUpload or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Uploaded file",
+            href: "./upload-qualification"
+          }]
+        }
+      } if data.education.uploadAvailable == "Yes"
     ]
   }) }}
 

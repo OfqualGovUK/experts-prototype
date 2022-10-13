@@ -1,0 +1,54 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/upload-available-answer" %}
+{% set pageHeading = "Are you able to provide a copy of this qualification?" %}
+
+{% block formContent %}
+
+  {% set noHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide a reason why",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.education.noReasonHtml")) }}
+
+    {{ govukInsetText({
+      text: "You may need to provide copies of your qualifications before being able to accept a commision."
+    }) }}
+  {% endset -%}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    _hint: {
+      text: "Providing copies of your certificates may help your application."
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No",
+        conditional: {
+          html: noHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.education.uploadAvailable")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
