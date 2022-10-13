@@ -48,8 +48,44 @@ var settings = {
 }
 
 var applicationData = {
+  // Personal details
   "fullName": "Something else",
-  "opitonsChecked": ["Something", "another thing", "a third thing"]
+  "personalDetails.email": "Something else",
+  "personalDetails.telephone": "Something else",
+  "selectedCountry": "Something else",
+  "whereDoYouLive": "Something else",
+  "personalDetails.addressLine1": "Something else",
+  "personalDetails.addressLine2": "Something else",
+  "personalDetails.townOrCity": "Something else",
+  "personalDetails.region": "Something else",
+  "personalDetails": "Something else",
+
+  // Education details
+  "education.schoolName": "Something else",
+  "education.qualName": "Something else",
+  "education.grade": "Something else",
+  "education.yearAwarded": "Something else",
+  "education.uploadAvailable": "Something else",
+  "education.noReasonHtml": "Something else",
+  "education.noReasonHtml": "Something else",
+  "education.uploadAvailable": "Something else",
+  "education.qualificationUpload": "Something else",
+  
+  // Types of expertise
+  // Assessment
+  "anyAssessmentExpertise": "Something else",
+  "expertiseType.assessment": ["Something", "another thing"],
+  "assessmentExpertiseDetails": "Something else",
+  // Industry
+  "anyAssessmentExpertise": "Something else",
+  "assessmentExpertiseDetails": "Something else",
+
+
+  
+  
+  
+
+  // "opitonsChecked": ["Something", "another thing", "a third thing"]
 } 
 
 module.exports = {
@@ -85,7 +121,7 @@ module.exports = {
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with a hidden inputs in the dependant sections
-  "areaDetails": "canNotStartYet",
+  "areaDetails": "canNotStartYet"
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
