@@ -58,7 +58,7 @@ var applicationData = {
   "personalDetails.addressLine2": "Something else",
   "personalDetails.townOrCity": "Something else",
   "personalDetails.region": "Something else",
-  "personalDetails": "Something else",
+  "personalDetails": "Yes, I’ve completed this section",
 
   // Education details
   "education.schoolName": "Something else",
@@ -70,15 +70,49 @@ var applicationData = {
   "education.noReasonHtml": "Something else",
   "education.uploadAvailable": "Something else",
   "education.qualificationUpload": "Something else",
+  "educationDetails": "Yes, I’ve completed this section",
   
   // Types of expertise
+  
   // Assessment
   "anyAssessmentExpertise": "Something else",
   "expertiseType.assessment": ["Something", "another thing"],
   "assessmentExpertiseDetails": "Something else",
+  "assessmentExpertiseCompleted": "Yes, I’ve completed this section",
+
   // Industry
-  "anyAssessmentExpertise": "Something else",
-  "assessmentExpertiseDetails": "Something else",
+  "anyIndustryExpertise": "Something else",
+  "expertiseType.industry": ["Something", "another thing"],
+  "industryExpertiseDetails": "Something else",
+  "industryExpertiseCompleted": "Yes, I’ve completed this section",
+  
+  // Teaching
+  "anyTeachingExpertise": "Something else",
+  "expertiseType.teaching": ["Something", "another thing"],
+  "teachingExpertiseDetails": "Something else",
+  "teachingExpertiseCompleted": "Yes, I’ve completed this section",
+  
+  // Work history
+  
+  "job.employerName": "value",
+  "job.title": "value",
+  "job.roleEnded": "Yes",
+  "job.summaryOfActivity": "Yes",
+  "experienceDetails": "Yes, I’ve completed this section",
+  
+  // Professional memberships
+  "membership.organisationName": "value",
+  "membership.type": "value",
+  "membership.type": "value",
+  "membership.yearJoined": "value",
+  "professionalMembershipsCompleted": "Yes, I’ve completed this section",
+
+  // References
+
+
+
+  
+
 
 
   
