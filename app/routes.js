@@ -151,7 +151,20 @@ router.post('/qualifications-answer', function (req, res) {
   let anyQualifications = req.session.data.anyQualifications
 
     if (anyQualifications === 'Yes') {
-      res.redirect('/application/education/add-certification')
+      res.redirect('/application/education/add-qualifcation')
+    } else {
+      res.redirect('/application/education/review') 
+  }
+
+})
+
+// Are you able to provide a copy of this qualification?
+router.post('/upload-available-answer', function (req, res) {
+
+  let uploadAvailable = req.session.data.education.uploadAvailable
+
+    if (uploadAvailable === 'Yes') {
+      res.redirect('/application/education/upload-qualification')
     } else {
       res.redirect('/application/education/review') 
   }
