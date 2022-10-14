@@ -74,7 +74,7 @@
       },
       {
         key: {
-          text: "Are you able to provide a copy of this qualification?"
+          text: "Are you able to upload a copy of a certificate for this qualification?"
         },
         value: { 
           text: data.education.uploadAvailable or "Not provided"
@@ -82,14 +82,14 @@
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "Are you able to provide a copy of this qualification?",
+            visuallyHiddenText: "Are you able to upload a copy of a certificate for this qualification?",
             href: "./upload-available"
           }]
         }
       },
       {
         key: {
-          text: "Provide a reason why your are unable to provide a copy of this qualification"
+          text: "Provide a reason for not being able to upload a copy of a certificate for this qualification"
         },
         value: { 
           text: data.education.noReasonHtml or "Not provided"
@@ -97,7 +97,7 @@
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "Provide a reason why your are unable to provide a copy of this qualification",
+            visuallyHiddenText: "Provide a reason for not being able to upload a copy of a certificate for this qualification",
             href: "./upload-available"
           }]
         }
