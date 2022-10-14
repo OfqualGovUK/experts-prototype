@@ -31,7 +31,22 @@
       },
       {
         key: {
-          text: "Actual or potential areas of conflict"
+          text: "Type of conflict"
+        },
+        value: { 
+          text: data.conflict.type or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Type of conflict",
+            href: "./add-conflict"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Details of conflict"
         },
         value: { 
           text: data.conflict.details or "Not provided"
@@ -39,7 +54,7 @@
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "role",
+            visuallyHiddenText: "Details of conflict",
             href: "./add-conflict"
           }]
         }
@@ -69,7 +84,7 @@
         actions: {
           items: [{
             text: "Change",
-            visuallyHiddenText: "End date",
+            visuallyHiddenText: "Is this a current conflict of interest?",
             href: "./add-conflict"
           }]
         }
