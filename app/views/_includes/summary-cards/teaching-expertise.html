@@ -33,7 +33,7 @@
     },
     {
       key: {
-        text: "What is the nature of your teaching, lecturing or training expertise?"
+        text: "Which activities or responsibilities have you completed?"
       },
       value: { 
         html: teachingHtml
@@ -41,14 +41,14 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "what is the nature of your teaching, lecturing or training expertise?",
+          visuallyHiddenText: "Which activities or responsibilities have you completed?",
           href: "./teaching-expertise"
         }]
       }
     } if data.anyTeachingExpertise == "Yes",
     {
       key: {
-        text: "Provide details of your teaching, lecturing or training expertise"
+        text: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in teaching, lecturing or training expertise"
       },
       value: { 
         text: data.teachingExpertiseDetails
@@ -56,7 +56,7 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "provide details your teaching, lecturing or training expertise",
+          visuallyHiddenText: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in teaching, lecturing or training expertise",
           href: "./add-details"
         }]
       }

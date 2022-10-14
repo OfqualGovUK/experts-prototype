@@ -2,21 +2,22 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/upload-available-answer" %}
-{% set pageHeading = "Are you able to provide a copy of the certificate for this qualification?" %}
+{% set pageHeading = "Are you able to upload a copy of a certificate for this qualification?" %}
 
 {% block formContent %}
 
+  <span class="govuk-caption-l">{{ data.education.qualName }}</span>
   {% set noHtml %}
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
-        text: "Provide a reason why",
+        text: "Provide a reason",
         classes: "govuk-label--s"
       }
     } | decorateAttributes(data, "data.education.noReasonHtml")) }}
 
     {{ govukInsetText({
-      text: "You may need to provide copies of your qualifications before being able to accept a commision."
+      text: "You may be required to provide a copy of your certificate during the application evaluation process"
     }) }}
   {% endset -%}
 
@@ -27,9 +28,6 @@
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"      
       }
-    },
-    _hint: {
-      text: "Providing copies of your certificates may help your application."
     },
     items: [
       {

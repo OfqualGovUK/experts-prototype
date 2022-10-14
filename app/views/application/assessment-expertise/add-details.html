@@ -2,38 +2,43 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your assessment expertise" %}
+{% set pageHeading = "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in assessment" %}
 
 {% block formContent %}
 
   <h1 class="govuk-heading-l">Your assessment expertise</h1>
 
   <p class="govuk-body">
-    Tell us about your assessment expertise. In your reposnse consider providing evidence of the following:
+    You have selected the following activities and responsibilities: 
   </p>
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-     analytical and judgement skills
-    </li>
-    <li>
-      communication skills 
-    </li>
-  </ul>
-  
-  <p class="govuk-body">
-    PS. This part of the application is a test of your written ability! 
-  </p>
+  {% set assessmentHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list govuk-list--bullet">
+      {# loops through and gets al the checked items #}
+      {% for role in data.expertiseType.assessment %}
+        <li>
+          {% if role == "An option that isn't listed" %}
+            {{ data.expertiseType.assessmentOther }}
+          {% else %} 
+            {{ role }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endset %}
+
+  {{ assessmentHtml | safe }} 
 
   {{ govukCharacterCount({
-    maxwords: 500,
-    rows: "10",
+    maxwords: 1000,
+    rows: "14",
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
     },
-    _hint: {
-      text: "Add suggestions on what we want them to say here..."
+    hint: {
+      text: "Include evidence of your communication, analytical and judgemental skills."
     }
    } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
 
