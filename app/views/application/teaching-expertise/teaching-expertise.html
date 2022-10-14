@@ -2,9 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./add-details" %}
-{% set pageHeading = "What is the nature of your teaching, lecturing or training expertise?" %}
+{% set pageHeading = "Which activities or responsibilities have you completed?" %}
 {% block formContent %}
 
+  <span class="govuk-caption-l">Teaching, lecturing or training</span>
+  
   {% set natureOtherHtml %}
     {{ govukTextarea({
       _classes: "govuk-!-width-two-thirds",
@@ -28,16 +30,28 @@
     },
     items: [
       {
+        text: "Developing classroom materials"
+      },
+      {
+        text: "Developing teacher training materials"
+      },
+      {
         text: "Head of department"
       },
       {
-        text: "Senior leadership team"
+        text: "Head of faculty"
       },
       {
-        text: "Teaching and/or lecturing for multiple years"
+        text: "Senior leadership team member"
       },
       {
-        text: "Training staff within the industry"
+        text: "Senior tutor"
+      },
+      {
+        text: "Subject co-ordinator"
+      },
+      {
+        text: "Training other teachers/ lecturers"
       },
       {
         text: "An option that isn't listed",

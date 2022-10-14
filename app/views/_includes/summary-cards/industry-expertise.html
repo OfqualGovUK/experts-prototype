@@ -33,22 +33,7 @@
     },
     {
       key: {
-        text: "What is the nature of your industry or occupational expertise?"
-      },
-      value: { 
-        html: industryHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "what is the nature of your industry or occupational expertise?",
-          href: "./industry-expertise"
-        }]
-      }
-    } if data.anyIndustryExpertise == "Yes",
-    {
-      key: {
-        text: "Provide details of your industry or occupational expertise"
+        text: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in your industry or occupation"
       },
       value: { 
         text: data.industryExpertiseDetails
@@ -56,7 +41,7 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "provide details your industry or occupational expertise",
+          visuallyHiddenText: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in your industry or occupation",
           href: "./add-details"
         }]
       }

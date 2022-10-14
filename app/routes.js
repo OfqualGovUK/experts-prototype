@@ -216,7 +216,7 @@ router.post('/industry-answer', function (req, res) {
   let anyIndustryExpertise = req.session.data.anyIndustryExpertise
   
   if (anyIndustryExpertise === "Yes") {
-    res.redirect('/application/industry-expertise/industry-expertise.html')
+    res.redirect('/application/industry-expertise/add-details.html')
   } else {
     res.redirect('/application/industry-expertise/review')
   }
