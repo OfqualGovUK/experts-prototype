@@ -1,7 +1,7 @@
 
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Add areas you can advise on" %}
+{% set pageHeading = "Add areas that you can provide expertise on" %}
 
 {% block content %}
 
@@ -10,15 +10,28 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
       <p class="govuk-body">
-        Tell us about the
+        Areas where you can provide your expertise to Ofqual can be specific subjects, such as:
       </p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>subjects</li>
-        <li>apprenticeships or T Levels</li>
-        <li>sector or industry</li>
+        <li>GCSEs</li>
+        <li>AS/A Levels</li>
+        <li>Apprenticeships</li>
+        <li>T-Levels</li>
+        <li>Other qualification
+            <ul class="govuk-list govuk-hint">
+              <li>English for speakers of other languages (ESOL)</li>
+              <li>Essential digital skills</li>
+              <li>Functional skills</li>
+              <li>Vocationally related qualification</li>
+              <li>Performing arts graded examination</li>
+            </ul>
+        </li>
       </ul>
       <p class="govuk-body">
-        where you are able to provide advice to Ofqual.
+        If your expertise is not a specific subject, select your industry or sector.
+      </p>
+      <p class="govuk-body">
+        You will be able to add multiple subjects, industries or sectors.
       </p>
 
       <div class="govuk-button-group">

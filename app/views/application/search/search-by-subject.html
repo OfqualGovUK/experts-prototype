@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/specific-subject-search-answer" %}
-{% set pageHeading = "Do you know the specific GCSEs, A-Levels, apprenticeships, T-Levels or subjects that you can provide expertise on?" %}
+{% set pageHeading = "Select an area of expertise" %}
 
 {% block formContent %}
 
@@ -16,16 +16,13 @@
     },
     items: [
       {
-        text: "Yes",
-        _hint: {
-          text: "Bricklayer, Level 2 End-Point Assessment or Accounting GCE AS/A Level, Level 3"
+        text: "Subject",
+        hint: {
+          text: "GCSEs, AS/A Levels, Apprenticeships, T-Levels, other qualification"
         }
       },
       {
-        text: "No, I'll select my sector or industry instead",
-        _hint: {
-          text: "For example"
-        }
+        text: "Industry or sector"
       }
     ]
   } | decorateAttributes(data, "data.searchBySubject")) }}

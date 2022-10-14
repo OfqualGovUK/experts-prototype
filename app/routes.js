@@ -284,7 +284,7 @@ router.post('/specific-subject-search-answer', function (req, res) {
   
   let searchBySubject = req.session.data.searchBySubject
   
-  if (searchBySubject === "Yes") {
+  if (searchBySubject === "Subject") {
     res.redirect('/application/search/subject-search')
   } else {
     res.redirect('/application/search/sector-search')
@@ -297,7 +297,7 @@ router.post('/subject-search-answer', function (req, res) {
   
   let searchBySubject = req.session.data.searchBySubject
   
-  if (searchBySubject === "Yes") {
+  if (searchBySubject === "Subject") {
     res.redirect('/application/search/subject-search')
   } else {
     res.redirect('/application/search/search-by-sector')

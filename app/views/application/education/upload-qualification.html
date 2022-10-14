@@ -2,14 +2,14 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Upload a scan or photograph of the qualification" %}
+{% set pageHeading = "Upload your file" %}
 
 {% block formContent %}
   
   <span class="govuk-caption-l">{{ data.education.qualName }}</span>
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">Supported file types: gif, jpg, jpeg, pdf, png.</p>
+  <p class="govuk-body">A scan or photograph of your certificate can be uploaded.<br>Supported file types: gif, jpg, jpeg, pdf, png.</p>
 
   {{ govukFileUpload({
     label: {
