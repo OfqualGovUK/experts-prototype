@@ -106,8 +106,16 @@ var applicationData = {
   "membership.type": "value",
   "membership.yearJoined": "value",
   "professionalMembershipsCompleted": "Yes, I’ve completed this section",
-
+  
   // References
+  "data.reference.name": "value",
+  "data.reference.email": "value",
+  "data.reference.telephone": "value",
+  "data.reference.organisation": "value",
+  "referencesCompleted": "Yes, I’ve completed this section",
+
+  
+
 
 
 
