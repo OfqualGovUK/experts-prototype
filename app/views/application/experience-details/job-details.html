@@ -118,7 +118,7 @@
     ]
   } | decorateAttributes(data, "data.roleEnded")) }}
 
-  {{ govukCharacterCount({
+  {# {{ govukCharacterCount({
     maxwords: 500,
     rows: "10",
     label: {
@@ -129,7 +129,7 @@
     _hint: {
       text: "Add suggestions on what we want them to say here..."
     }
-   } | decorateAttributes(data, "data.job.summaryOfActivity")) }}
+   } | decorateAttributes(data, "data.job.summaryOfActivity")) }} #}
 
   <div class="govuk-button-group">
     {{ govukButton({
