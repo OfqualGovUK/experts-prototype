@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/application/expertise/select-level" %}
-{% set pageHeading = "Select the qualifications you have expertise in for this subject" %}
+{% set pageHeading = "test Select the qualifications you have expertise in for this subject" %}
 
 {% block formContent %}
 
@@ -52,6 +52,21 @@
     },
     items: qualifications
   } | decorateAttributes(data, "data.selectedQualification")) }}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: qualifications
+  } | decorateAttributes(data, "data.selectedQualificationSector")) }}
+  
 
   <div class="govuk-button-group">
     {{ govukButton({

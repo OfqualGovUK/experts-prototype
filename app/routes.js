@@ -411,7 +411,7 @@ router.post('/review-subjects-answer', function (req, res) {
   let addAnotherSubject = req.session.data.addAnotherSubject
 
     if (addAnotherSubject === 'Yes') {
-      res.redirect('/application/sorry')
+      res.redirect('/application/search/search-by-subject')
     } else {
       res.redirect('/application/search/section-completed') 
   }
