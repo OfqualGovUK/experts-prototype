@@ -55,7 +55,7 @@
       items: [
         {
           value: "Level 1",
-          text: "Level 1",
+          text: "Sector Level 1",
           hint: {
             text: "First certificate or or GCSE - grade 3 or D and below for example"
           }
@@ -111,7 +111,7 @@
           }
         }
       ]
-    } | decorateAttributes(data, "data.selectedLevel")) }}
+    } | decorateAttributes(data, "data.selectedLevelSector")) }}
 
   {# else they must be coming through subejct flow #}
   {% else %}
@@ -130,7 +130,7 @@
       items: [
         {
           value: "Level 1",
-          text: "Level 1",
+          text: "Subject Level 1",
           hint: {
             text: "First certificate or or GCSE - grade 3 or D and below for example"
           }
@@ -186,7 +186,7 @@
           }
         }
       ]
-    } | decorateAttributes(data, "data.selectedLevelSector")) }}
+    } | decorateAttributes(data, "data.selectedLevel")) }}
 
   {% endif %}
 

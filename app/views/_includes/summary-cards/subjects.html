@@ -33,7 +33,7 @@
 {% endset %}
 
 {% set levelHtml %}
-  {% if data.resultQualType == "Other qualification level" %}
+  {% if data.resultQualType == "Other qualification type" %}
     <ul class="govuk-list">
       {# loops through and gets al the checked items  #}
       {% for level in data.selectedLevel %}
@@ -47,6 +47,7 @@
       {% endfor %}
     </ul>
   {% else %}
+    test
     {{ data.resultLevel }}
   {% endif %}
 {% endset %}
@@ -54,7 +55,7 @@
 {% set levelSectorHtml %}
   <ul class="govuk-list">
     {# loops through and gets al the checked items  #}
-    {% for level in data.selectedLevel %}
+    {% for level in data.selectedLevelSector %}
       <li>
         {% if level == "A qualification level that isn't listed" %}
           {{ data.selectedLevelOther }}
@@ -115,7 +116,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "./select-qualification"
+            href: "./select-qualification?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
@@ -130,7 +131,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "./select-level"
+            href: "./select-level?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
