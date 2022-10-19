@@ -1,6 +1,6 @@
   {% set livingLocation %}
     {% if data.whereDoYouLive == "In the UK" %}
-      {{ data.whereDoYouLive }}
+      United Kingdom
     {% elseif data.whereDoYouLive == "Outside the UK"  %}
       {{ data.selectedCountry }}
     {% else %}
@@ -60,7 +60,7 @@
         text: "Country"
       },
       value: {
-        text: data.selectedCountry or "Not provided"
+        html: livingLocation
       },
       actions: {
         items: [{
@@ -69,7 +69,7 @@
           href: "/application/personal-details/where-do-you-live"
         }]
       }
-    } if data.whereDoYouLive == "Outside the UK", 
+    },
     {
       key: {
         text: "Address line 1"

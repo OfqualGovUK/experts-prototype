@@ -444,10 +444,10 @@ router.post('/equality-question-answer', function (req, res) {
 })
 
 // Sets up the dashboard with a completed application
-router.all( '/populate-dashboard', function (req, res) {
-  req.session.data = Object.assign(req.session.data.applicationData)
-  res.redirect('/application/dashboard');
-})
+// router.all( '/populate-dashboard', function (req, res) {
+//   req.session.data = Object.assign(req.session.data.applicationData)
+//   res.redirect('/application/dashboard');
+// })
 
 // ------ Register your interest  ----- //
 

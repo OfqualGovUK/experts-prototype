@@ -69,33 +69,39 @@
 {% set expertiseTypeHtml %}
   
   {# If at least one item has been checked, display the selections #}
-  {% if data.expertiseType | length >= 1 %} 
-    <ul class="govuk-list">
-      {# loops through and gets al the checked items  #}
-      {% for type in data.expertiseType %}
-        <li>
-          {{ type }}
-        </li>
-      {% endfor %}
-    </ul>
+  {% if data.hasMultipleExpertiseTypes %}
+    multiple
+    {# {% if data.expertiseType | length >= 1 %}  #}
+      <ul class="govuk-list">
+        {# loops through and gets al the checked items  #}
+        {% for type in data.expertiseType %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul>
+    {# {% endif %} #}
   {% endif %}
 
-  {% if data.hasMultipleExpertiseTypes %}
+
+  {# {% if data.hasMultipleExpertiseTypes %}
     multiple
   {% endif %}
   
   {% if not data.hasMultipleExpertiseTypes %}
     single
-  {% endif %}
+  {% endif %} #}
 
-  {% if data.hasMultipleExpertiseTypes %}
-    {# multiple #}
-  {% elseif data.anyAssessmentExpertise == "Yes" %}
-    Assessment
-  {% elseif data.anyIndustryExpertise == "Yes" %}
-    Industry or occupational
-  {% elseif data.anyTeachingExpertise == "Yes" %}
-    Teaching, lecturing or training
+  {# If only one type of expertise is selected #}
+  {% if not data.hasMultipleExpertiseTypes %}
+    single
+    {% if data.anyAssessmentExpertise == "Yes" %}
+      Assessment
+    {% elseif data.anyIndustryExpertise == "Yes" %}
+      Industry or occupational
+    {% elseif data.anyTeachingExpertise == "Yes" %}
+      Teaching, lecturing or training
+    {% endif %}
   {% endif %}
 {% endset %}
 
@@ -169,7 +175,7 @@
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
             href: "./select-expertise-type"
           }]
-        }
+        } if data.hasMultipleExpertiseTypes
       }
     ]
   }) }}
