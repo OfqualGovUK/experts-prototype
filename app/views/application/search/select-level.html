@@ -1,8 +1,16 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Select the qualification levels you can advise for this industry or sector" %}
+{# {% set pageHeading = "Select the qualification levels you can advise for this industry or sector" %} #}
 {% set formAction = "./select-expertise-type" %}
+
+{% set pageHeading %}
+  {% if data.referrer == "subjectSearch"%}
+    What qualification levels can you advise on for this subject?
+  {% else %}
+    What qualification levels can you advise on in this industry or sector?
+  {% endif %}
+{% endset %}
 
 {% set captionHeading %}
   {# If they are coming through the Industry/Sector flow #}
@@ -19,6 +27,7 @@
     {% endif %}
   {% endif %}
 {% endset %}
+
 
 {% block formContent %}
 
