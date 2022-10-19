@@ -229,7 +229,7 @@ router.post('/teaching-answer', function (req, res) {
   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
   
   if (anyTeachingExpertise === "Yes") {
-    res.redirect('/application/teaching-expertise/teaching-expertise.html')
+    res.redirect('/application/teaching-expertise/currently-in-role.html')
   } else {
     res.redirect('/application/teaching-expertise/review')
   }
