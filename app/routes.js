@@ -251,34 +251,6 @@ router.post('/teaching-answer', function (req, res) {
   
 // })
 
-// Decide where to go form the Assessment expertise page
-// router.post('/assessment-expertise-answer', function (req, res) {
-  
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Industry or occupational")) {
-//     res.redirect('/application/expertise-type/industry-expertise')
-//   } else if ( (!selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-//     res.redirect('/application/expertise-type/teaching-expertise')
-//   } else if ( (!selectedType.includes("Industry or occupational")) && (!selectedType.includes("Teaching, lecturing or training")) ) {
-//     res.redirect('/application/expertise-type/review')
-//   }
-  
-// })
-
-// Decide where to go form the Industry or occupational expertise page
-// router.post('/industry-expertise-answer', function (req, res) {
-  
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Teaching, lecturing or training")) {
-//     res.redirect('/application/expertise-type/teaching-expertise')
-//   } else if (!selectedType.includes("Teaching, lecturing or training")) {
-//     res.redirect('/application/expertise-type/review')
-//   }
-  
-// })
-
 // Decide where to go form the Industry or occupational expertise page
 router.post('/specific-subject-search-answer', function (req, res) {
   
