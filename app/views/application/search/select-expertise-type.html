@@ -25,7 +25,7 @@
     What best describes your type of expertise for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-    What best describes your type of expertise for this industry or sector?
+  What best describes your type of expertise for this industry or sector?
   {% endif %}
 {% endset %}
 
@@ -34,29 +34,61 @@
 
   <span class="govuk-caption-l">{{ captionHeading }}</span>
 
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    items: [
-      {
-        text: "Assessment"
-      } if data.anyAssessmentExpertise == "Yes",
-      {
-        text: "Industry or occupational",
-        hint: {
-          text: "You work in this field in a non-educational context"
+  {# If they are coming through the select a sector flow #}
+  {% if data.referrer == "sectorSearch" %}
+
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
         }
-      } if data.anyIndustryExpertise == "Yes",
-      {
-        text: "Teaching, lecturing or training"
-      } if data.anyTeachingExpertise == "Yes"
-    ]
-  } | decorateAttributes(data, "data.expertiseType")) }}
+      },
+      items: [
+        {
+          text: "Assessment"
+        } if data.anyAssessmentExpertise == "Yes",
+        {
+          text: "Industry or occupational",
+          hint: {
+            text: "You work in this field in a non-educational context"
+          }
+        } if data.anyIndustryExpertise == "Yes",
+        {
+          text: "Teaching, lecturing or training"
+        } if data.anyTeachingExpertise == "Yes"
+      ]
+    } | decorateAttributes(data, "data.expertiseTypeSector")) }}
+
+  {# else they must be coming through subejct flow #}
+  {% else %}
+
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          text: "Assessment"
+        } if data.anyAssessmentExpertise == "Yes",
+        {
+          text: "Industry or occupational",
+          hint: {
+            text: "You work in this field in a non-educational context"
+          }
+        } if data.anyIndustryExpertise == "Yes",
+        {
+          text: "Teaching, lecturing or training"
+        } if data.anyTeachingExpertise == "Yes"
+      ]
+    } | decorateAttributes(data, "data.expertiseType")) }}
+
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({

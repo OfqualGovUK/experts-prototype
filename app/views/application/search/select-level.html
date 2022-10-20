@@ -1,9 +1,6 @@
 
 {% extends "_templates/form-template.html" %}
 
-{# {% set pageHeading = "Select the qualification levels you can advise for this industry or sector" %} #}
-{% set formAction = "./select-expertise-type" %}
-
 {% set pageHeading %}
   {% if data.referrer == "subjectSearch"%}
     What qualification levels can you advise on for this subject?
@@ -11,6 +8,17 @@
     What qualification levels can you advise on in this industry or sector?
   {% endif %}
 {% endset %}
+
+{# {% set formAction %}
+  {% if data.hasMultipleExpertiseTypes %}
+    ./select-expertise-type
+  {% else %}
+    ./review
+  {% endif %}
+{% endset %} #}
+
+{% set formAction = "/select-level-answer" %}
+
 
 {% set captionHeading %}
   {# If they are coming through the Industry/Sector flow #}
@@ -67,7 +75,7 @@
         },
         {
           value: "Level 1",
-          text: "Sector Level 1",
+          text: "Level 1",
           hint: {
             text: "First certificate or or GCSE - grade 3 or D and below for example"
           }

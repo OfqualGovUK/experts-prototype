@@ -47,11 +47,6 @@ var settings = {
   enableErrors: "false"  
 }
 
-var applicationData = {
-  "fullName": "Something else",
-  "opitonsChecked": ["Something", "another thing", "a third thing"]
-} 
-
 module.exports = {
 
   routeData,
@@ -77,8 +72,6 @@ module.exports = {
   trasnsportData,
   qualificationData,
   subjectSearch2Data,
-
-  applicationData,
   
   settings: settings,
   // personalDetails: personalDetails,
