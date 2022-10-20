@@ -9,8 +9,8 @@
   {% endset %}
   
   {{ xGovukSummaryCard({
-    
-    rows: [{
+    rows: [
+    {
       key: {
         text: "Full name"
       },
@@ -30,7 +30,7 @@
         text: "Email address"
       },
       value: {
-        text: data.personalDetails.email or "Not provided"
+        text: data.email or "Not provided"
       },
       actions: {
         items: [{
@@ -45,7 +45,7 @@
         text: "Telephone number"
       },
       value: {
-        text: data.personalDetails.telephone or "Not provided"
+        text: data.telephone or "Not provided"
       },
       actions: {
         items: [{
@@ -75,7 +75,7 @@
         text: "Address line 1"
       },
       value: {
-        text: data.personalDetails.addressLine1 or "Not provided"
+        text: data.addressLine1 or "Not provided"
       },
       actions: {
         items: [{
@@ -90,7 +90,7 @@
         text: "Address line 2"
       },
       value: {
-        text: data.personalDetails.addressLine2 or "Not provided"
+        text: data.addressLine2 or "Not provided"
       },
       actions: {
         items: [{
@@ -105,7 +105,7 @@
         text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
       },
       value: {
-        text: data.personalDetails.townOrCity or "Not provided"
+        text: data.townOrCity or "Not provided"
       },
       actions: {
         items: [{
@@ -120,7 +120,7 @@
         text: "Region, state or province"
       },
       value: {
-        text: data.personalDetails.region or "Not provided"
+        text: data.region or "Not provided"
       },
       actions: {
         items: [{
@@ -135,7 +135,7 @@
         text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
       },
       value: {
-        text: data.personalDetails.postCode or "Not provided"
+        text: data.postCode or "Not provided"
       },
       actions: {
         items: [{

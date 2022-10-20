@@ -74,7 +74,6 @@ module.exports = {
   subjectSearch2Data,
   
   settings: settings,
-  // personalDetails: personalDetails,
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with a hidden inputs in the dependant sections
