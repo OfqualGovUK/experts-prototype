@@ -82,7 +82,7 @@ module.exports = {
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
-  "anyIndustryExpertise": "Yes",
+  // "anyIndustryExpertise": "Yes",
   "anyTeachingExpertise": "Yes",
   "teachingExpertiseCompleted": "complete"  
 

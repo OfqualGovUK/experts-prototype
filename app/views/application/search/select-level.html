@@ -9,13 +9,15 @@
   {% endif %}
 {% endset %}
 
-{% set formAction %}
+{# {% set formAction %}
   {% if data.hasMultipleExpertiseTypes %}
     ./select-expertise-type
   {% else %}
     ./review
   {% endif %}
-{% endset %}
+{% endset %} #}
+
+{% set formAction = "/select-level-answer" %}
 
 
 {% set captionHeading %}

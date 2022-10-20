@@ -378,6 +378,39 @@ router.post('/application/search/subject-search-answer', function (req, res) {
 })
 
 // Did you want to add another qualification?
+router.post('/select-level-answer', function (req, res) {
+
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  let hasMultipleExpertiseTypes = true
+ 
+  const typesOfExpertise2 = [
+    assessmentExpertise,
+    industryExpertise,
+    teachingExpertise
+  ]; // [true, false, true] or [true, false, false] etc...
+
+  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+    // this is just for this function 
+    hasMultipleExpertiseTypes = true
+    // this is to use in the nunjucks view
+    req.session.data.hasMultipleExpertiseTypes = true 
+  } else {
+    hasMultipleExpertiseTypes = false
+  }
+    
+  // at least 2 expertise types have been selected os we need them to tell us more   
+  if (hasMultipleExpertiseTypes === true) {
+    res.redirect('/application/search/select-expertise-type')
+  // must have selected only one type of expertise  
+  } else {
+    res.redirect('/application/search/review') 
+  }
+
+})
+
+// Did you want to add another qualification?
 router.post('/review-subjects-answer', function (req, res) {
 
   let addAnotherSubject = req.session.data.addAnotherSubject

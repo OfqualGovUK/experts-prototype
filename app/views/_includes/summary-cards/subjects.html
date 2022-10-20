@@ -71,7 +71,7 @@
   {# If at least one item has been checked, display the selections #}
   {% if data.hasMultipleExpertiseTypes %}
     multiple
-    {# {% if data.expertiseType | length >= 1 %}  #}
+    {% if data.referrer == "subjectSearch" %}
       <ul class="govuk-list">
         {# loops through and gets al the checked items  #}
         {% for type in data.expertiseType %}
@@ -80,17 +80,19 @@
           </li>
         {% endfor %}
       </ul>
-    {# {% endif %} #}
+    {% endif %}
+    
+    {% if data.referrer == "sectorSearch" %}
+      <ul class="govuk-list">
+        {# loops through and gets al the checked items  #}
+        {% for type in data.expertiseTypeSector %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   {% endif %}
-
-
-  {# {% if data.hasMultipleExpertiseTypes %}
-    multiple
-  {% endif %}
-  
-  {% if not data.hasMultipleExpertiseTypes %}
-    single
-  {% endif %} #}
 
   {# If only one type of expertise is selected #}
   {% if not data.hasMultipleExpertiseTypes %}
@@ -128,7 +130,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Subjects, apprenticeship or T Level",
-            href: "./subject-search"
+            href: "./subject-search?referrer=subjectSearch"
           }]
         }
       },
@@ -173,10 +175,10 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type"
+            href: "./select-expertise-type?referrer=subjectSearch"
           }]
-        } if data.hasMultipleExpertiseTypes
-      }
+        } 
+      } if data.hasMultipleExpertiseTypes
     ]
   }) }}
 {% endif %}
@@ -204,7 +206,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "type of expertise",
-            href: "./sector-search"
+            href: "./sector-search?referrer=sectorSearch"
           }]
         }
       },
@@ -249,10 +251,10 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type"
+            href: "./select-expertise-type?referrer=sectorSearch"
           }]
         }
-      }
+      } if data.hasMultipleExpertiseTypes
     ]
   }) }}
 {% endif %}
