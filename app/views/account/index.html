@@ -54,4 +54,17 @@
     text: "Continue"
   }) }}
 
+  <p class="govuk-body">If you already have a GOV.UK account you can <a href="./sign-in" class="govuk-link">sign in</a>.</p>
+
+  {% set govukDetailsHtml %}        
+    GOV.UK accounts are new. They are the first step towards creating a single account that you can use to sign in to all government services. <br><br>
+    GOV.UK accounts will eventually replace all other government accounts. We're working on adding more features and services.<br><br>
+    For now, you need to use different accounts to access different government services.
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "Apply for a GOV.UK account",
+    html: govukDetailsHtml
+  }) }}
+
 {% endblock %}
