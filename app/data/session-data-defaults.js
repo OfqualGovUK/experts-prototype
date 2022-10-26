@@ -75,19 +75,19 @@ var applicationData = {
   // Types of expertise
   
   // Assessment
-  "anyAssessmentExpertise": "Something else",
+  "anyAssessmentExpertise": "Yes",
   "expertiseType.assessment": ["Something", "another thing"],
   "assessmentExpertiseDetails": "Something else",
   "assessmentExpertiseCompleted": "Yes, I’ve completed this section",
 
   // Industry
-  "anyIndustryExpertise": "Something else",
+  "anyIndustryExpertise": "Yes",
   "expertiseType.industry": ["Something", "another thing"],
   "industryExpertiseDetails": "Something else",
   "industryExpertiseCompleted": "Yes, I’ve completed this section",
   
   // Teaching
-  "anyTeachingExpertise": "Something else",
+  "anyTeachingExpertise": "Yes",
   "expertiseType.teaching": ["Something", "another thing"],
   "teachingExpertiseDetails": "Something else",
   "teachingExpertiseCompleted": "Yes, I’ve completed this section",
@@ -163,7 +163,7 @@ module.exports = {
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with a hidden inputs in the dependant sections
-  "areaDetails": "canNotStartYet"
+  // "areaDetails": "canNotStartYet"
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
