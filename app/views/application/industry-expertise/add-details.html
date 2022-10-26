@@ -2,38 +2,29 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your industry or occupational expertise" %}
+{% set pageHeading = "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in your industry or occupation." %}
 
 {% block formContent %}
 
   <h1 class="govuk-heading-l">Your industry or occupational expertise</h1>
 
   <p class="govuk-body">
-    Tell us about your industry or occupational expertise. In your reposnse consider providing evidence of the following:
+    Industry experts with the knowledge and skills of specific activities within an industry or occupation are required to support the review of qualifications and assessments.
   </p>
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-     analytical and judgement skills
-    </li>
-    <li>
-      communication skills 
-    </li>
-  </ul>
-  
   <p class="govuk-body">
-    PS. This part of the application is a test of your written ability! 
+    For example, a plumbing expert with in-depth knowledge of pipework diameters and tolerances would be able to inform Ofqual on whether a learner is assessed appropriately.
   </p>
 
   {{ govukCharacterCount({
-    maxwords: 500,
-    rows: "10",
+    maxwords: 1000,
+    rows: "14",
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
     },
-    _hint: {
-      text: "Add suggestions on what we want them to say here..."
+    hint: {
+      text: "Include evidence of your communication, analytical and judgemental skills."
     }
    } | decorateAttributes(data, "data.industryExpertiseDetails")) }}
 

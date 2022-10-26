@@ -15,15 +15,12 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">You will be able to add more roles after you finish telling us about the first one.</p>
+  {# <p class="govuk-body">You will be able to add more roles after you finish telling us about the first role.</p> #}
 
   {{ govukInput({
     label: {
       text: "Name of employer",
       classes: "govuk-label--m"
-    },
-    hint: {
-      text: "If you have worked for yourself, enter 'self-employed'"
     }
   } | decorateAttributes(data, "data.job.employerName")) }}
 
@@ -121,7 +118,7 @@
     ]
   } | decorateAttributes(data, "data.roleEnded")) }}
 
-  {{ govukCharacterCount({
+  {# {{ govukCharacterCount({
     maxwords: 500,
     rows: "10",
     label: {
@@ -132,7 +129,7 @@
     _hint: {
       text: "Add suggestions on what we want them to say here..."
     }
-   } | decorateAttributes(data, "data.job.summaryOfActivity")) }}
+   } | decorateAttributes(data, "data.job.summaryOfActivity")) }} #}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -8,7 +8,7 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">You will be able to add more potential conflicts of interest after you finish telling us about the first one.</p>
+  {# <p class="govuk-body">You will be able to add more potential conflicts of interest after you finish telling us about the first one.</p> #}
 
   {{ govukInput({
     label: {
@@ -17,13 +17,42 @@
     }
   } | decorateAttributes(data, "data.conflict.organisation")) }}
 
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Type of conflict",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "I am an employee of an Awarding Organisation that is regulated by Ofqual"
+      },
+      {
+        text: "I work for an Awarding Organisation as an external consultant or advisor"
+      },
+      {
+        text: "I have previously been employed or contracted by an Awarding Organisation"
+      },
+      {
+        text: "I have an immediate family member who is employed or contracted by an Awarding Organisation"
+      },
+      {
+        text: "I am or have been employed or contracted by an exam board that is not regulated by Ofqual"
+      },
+      {
+        text: "An option that isn't listed"
+      }
+    ]
+  } | decorateAttributes(data, "data.conflict.type")) }}
+
   {{ govukTextarea({
     label: {
-      text: "Areas of conflict",
+      text: "Details of conflict",
       classes: "govuk-label--m"
     },
-    _hint: {
-      text: "If you have had more than one role, enter your most relevant role"
+    hint: {
+      text: "By providing further details, we may be able to manage the conflict and the type of work that you may be contracted to complete"
     }
   } | decorateAttributes(data, "data.conflict.details")) }}
 

@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/application/search/subject-search-answer" %}
-{% set pageHeading = "Search for GCSEs, A-Levels, apprenticeships, T-Levels or subjects" %}
+{% set pageHeading = "Search for a subject" %}
 
 {% block formContent %}
 
@@ -27,7 +27,7 @@
 
     <div class="body-text">
       <label for="autocomplete-placeholder" class="govuk-label govuk-label--l">{{ pageHeading }}</label>
-      <p class="govuk-body">You will be able to add more subjects, apprenticeships or T Levels after you tell us about the first one.</p>
+      {# <p class="govuk-body">You will be able to add more subjects, apprenticeships or T Levels after you tell us about the first one.</p> #}
       <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6"></div>
     </div>
 

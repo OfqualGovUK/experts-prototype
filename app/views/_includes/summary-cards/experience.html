@@ -90,21 +90,6 @@
             href: "./job-details"
           }]
         }
-      } if data.roleEnded == "No",
-      {
-        key: {
-          text: "Provide a summary of your responsibilities, activities and professional achievements for this role"
-        },
-        value: { 
-          text: data.job.summaryOfActivity or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Provide a summary of your responsibilities and activities for this role",
-            href: "./job-details"
-          }]
-        }
-      }
+      } if data.roleEnded == "No"
     ]
   }) }}

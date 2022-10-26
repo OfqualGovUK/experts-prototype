@@ -1,0 +1,52 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/upload-available-answer" %}
+{% set pageHeading = "Are you able to upload a copy of a certificate for this qualification?" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">{{ data.education.qualName }}</span>
+  {% set noHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide a reason",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.education.noReasonHtml")) }}
+
+    {{ govukInsetText({
+      text: "You may be required to provide a copy of your certificate during the application evaluation process"
+    }) }}
+  {% endset -%}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No",
+        conditional: {
+          html: noHtml
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.education.uploadAvailable")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

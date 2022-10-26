@@ -18,7 +18,7 @@
             {
               text: "Personal details not marked as complete",
               href: "./personal-details"
-            } if data.personalDetails != "complete",
+            } if data.personalDetailsCompleted != "complete",
             {
               text: "Education and qualifications not marked as complete",
               href: "#"
@@ -32,7 +32,7 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
-        {% if data.personalDetails == "complete" %}
+        {% if data.personalDetailsCompleted == "complete" %}
           {% include "_includes/summary-cards/personal-details.html" %}
         {% else %}
           {{ appInsetText({
@@ -68,40 +68,6 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Type of expertise</h2>
-        {% if data.assessmentExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Assessment expertise</h2>
-          {% include "_includes/summary-cards/assessment-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Assessment expertise",
-            sectionHref: "./assessment-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-        {% if data.assessmentExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
-          {% include "_includes/summary-cards/industry-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Industry or occupational expertise",
-            sectionHref: "./industry-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-        {% if data.assessmentExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
-          {% include "_includes/summary-cards/teaching-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Teaching, lecturing or training expertise",
-            sectionHref: "./teaching-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-      </section>
-      
-      <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
         {% if data.experienceDetails == "complete" %}
           <h2 class="govuk-heading-m">Work history</h2>
@@ -133,6 +99,40 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Type of expertise</h2>
+        {% if data.assessmentExpertiseCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Assessment expertise</h2>
+          {% include "_includes/summary-cards/assessment-expertise.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Assessment expertise",
+            sectionHref: "./assessment-expertise",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
+        {% if data.assessmentExpertiseCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
+          {% include "_includes/summary-cards/industry-expertise.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Industry or occupational expertise",
+            sectionHref: "./industry-expertise",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
+        {% if data.assessmentExpertiseCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
+          {% include "_includes/summary-cards/teaching-expertise.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Teaching, lecturing or training expertise",
+            sectionHref: "./teaching-expertise",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %}
       </section>
       
       <section class="govuk-!-margin-bottom-8">
@@ -201,7 +201,7 @@
       {# If there are incomplete sections we want to keep the user on this page and display an error summary  #}
       {# If all sections are complete we send them back to a completed application  #}
         {% set reviewSubmissionHref %}
-          {% if data.personalDetails != "complete" or data.qualificationDetails != "complete" %}
+          {% if data.personalDetailsCompleted != "complete" or data.qualificationDetails != "complete" %}
             /application/review?showErrors=true
           {% else %}
             /application?applicationSubmitted=true

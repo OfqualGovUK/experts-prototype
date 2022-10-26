@@ -34,7 +34,7 @@
     },
     {
       key: {
-        text: "What is the nature of your assessment expertise?"
+        text: "Which activities or responsibilities have you completed?"
       },
       value: { 
         html: assessmentHtml
@@ -42,14 +42,14 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "what is the nature of your assessment expertise?",
+          visuallyHiddenText: "Which activities or responsibilities have you completed?",
           href: "./assessment-expertise"
         }]
       }
     } if data.anyAssessmentExpertise == "Yes",
     {
       key: {
-        text: "Provide details your assessment expertise"
+        text: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in assessment"
       },
       value: { 
         text: data.assessmentExpertiseDetails
@@ -57,7 +57,7 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "provide details your assessment expertise",
+          visuallyHiddenText: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in assessment",
           href: "./add-details"
         }]
       }

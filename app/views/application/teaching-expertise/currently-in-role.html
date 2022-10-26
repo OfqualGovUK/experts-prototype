@@ -1,8 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/teaching-answer" %}
-{% set pageHeading = "Do you have teaching, lecturing or training expertise?" %}
+{% set formAction = "./teaching-expertise" %}
+{% set pageHeading = "Are you currently working in a teaching, lecturing or training role?" %}
 
 {% block formContent %}
 
@@ -22,7 +22,7 @@
         text: "No"
       }
     ]
-  } | decorateAttributes(data, "data.anyTeachingExpertise")) }}
+  } | decorateAttributes(data, "data.currentlyInRole")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

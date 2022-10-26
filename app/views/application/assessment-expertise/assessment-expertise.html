@@ -2,9 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./add-details" %}
-{% set pageHeading = "What is the nature of your assessment expertise?" %}
+{% set pageHeading = "Which activities or responsibilities have you completed?" %}
 
 {% block formContent %}
+
+  <span class="govuk-caption-l">Assessment</span>
 
   {% set natureOtherHtml %}
     {{ govukTextarea({
@@ -29,28 +31,43 @@
     },
     items: [
       {
-        text: "Awarding qualifications and/or setting standards"
+        text: "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)"
       },
       {
         text: "Designing and/or setting assessments"
       },
       {
-        text: "Evaluation of the effectiveness of assessment approaches"
+        text: "Designing or writing question papers or assessment tasks"
+      },
+      {
+        text: "Designing the assessment approach for a qualification"
+      },
+      {
+        text: "Determining key grade boundaries for examinations or assessments"
+      },
+      {
+        text: "Evaluating the effectiveness of specific assessment design and approaches"
+      },
+      {
+        text: "Leading a team of markers, examiners or assessors"
       },
       {
         text: "Marking assessments"
       },
       {
-        text: "Moderation of assessment marking"
+        text: "Researching or developing assessment policy and practices"
       },
       {
-        text: "Research and/or work on assessment policy and practices"
+        text: "Reviewing or overseeing qualification standards"
       },
       {
-        text: "Reviewing performance of assessments"
+        text: "Reviewing the performance of assessments (individual questions, assessment tasks, mark schemes)"
       },
       {
-        text: "Standardisation of assessment marking"
+        text: "Reviewing the validity and reliability of the qualification, as part of the qualification lifecycle"
+      },
+      {
+        text: "Setting standards for qualification outcomes"
       },
       {
         text: "An option that isn't listed",
