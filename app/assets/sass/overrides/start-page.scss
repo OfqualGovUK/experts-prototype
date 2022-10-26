@@ -53,6 +53,21 @@
   color: #fff;
 }
 
+// .start-page-banner__link:focus,
+// .start-page-banner__link:active {
+//   color:  $govuk-focus-text-colour;
+//   background-color: $govuk-focus-colour;
+// }
+
+.start-page-banner__link {
+  &:focus,
+  &:active {
+    color:  $govuk-focus-text-colour;
+    background-color: $govuk-focus-colour;
+  }
+
+}
+
 .start-page-banner__actions p {
   margin-bottom: 0;
 }
