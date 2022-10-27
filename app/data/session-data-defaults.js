@@ -49,15 +49,16 @@ var settings = {
 
 var applicationData = {
   // Personal details
-  "fullName": "Something else",
-  "personalDetails.email": "Something else",
-  "personalDetails.telephone": "Something else",
-  "selectedCountry": "Something else",
-  "whereDoYouLive": "Something else",
-  "personalDetails.addressLine1": "Something else",
-  "personalDetails.addressLine2": "Something else",
-  "personalDetails.townOrCity": "Something else",
-  "personalDetails.region": "Something else",
+  "fullName": "Lalita Vikram",
+  "email": "lalita@email.com",
+  "telephone": "07552068159",
+  "whereDoYouLive": "Outside the UK else",
+  "selectedCountry": "Australia",
+  "addressLine1": "43 Watson street",
+  // "addressLine2": "Something else",
+  "townOrCity": "Perth",
+  "region": "Western Australia",
+  "postCode": "Western Australia",
   "personalDetails": "Yes, I’ve completed this section",
 
   // Education details
@@ -66,7 +67,6 @@ var applicationData = {
   "education.grade": "Something else",
   "education.yearAwarded": "Something else",
   "education.uploadAvailable": "Something else",
-  "education.noReasonHtml": "Something else",
   "education.noReasonHtml": "Something else",
   "education.uploadAvailable": "Something else",
   "education.qualificationUpload": "Something else",
@@ -108,24 +108,45 @@ var applicationData = {
   "professionalMembershipsCompleted": "Yes, I’ve completed this section",
   
   // References
-  "data.reference.name": "value",
-  "data.reference.email": "value",
-  "data.reference.telephone": "value",
-  "data.reference.organisation": "value",
+  "reference.name": "value",
+  "reference.email": "value",
+  "reference.telephone": "value",
+  "reference.organisation": "value",
   "referencesCompleted": "Yes, I’ve completed this section",
 
+  // Areas that you can advise on 
+  // Only including a subject for now
+  "selectedSubject": "Value",
+  "resultName": "Value",
+  "selectedQualification": "Value",
+  "selectedLevel": "Value",
+  "data.expertiseType": ["Something", "another thing"],
+  "adviseAreasCompleted": "Yes, I’ve completed this section",
   
-
-
-
-
+  // Conflict of interest
+  "conflict.organisation": "Value",
+  "conflict.type": "Value",
+  "conflict.details": "Value",
+  "conflict.startDate": "May 2011",
+  "conflict.currentConflict": "No",
+  "conflict.endDate": "March 2015",
   
-
-
-
+  // Self declaration
+  "judgements": "Yes",
+  "judgementsDetails": "Test",
+  "bankrupt": "Yes",
+  "bankruptDetails": "Test",
+  "misconduct": "Yes",
+  "misconductDetails": "Test",
+  "breach": "Yes",
+  "breachDetails": "Test",
   
-  
-  
+  // Your right to work status
+  "rightToWork": "Yes",
+  "rightToWorkStatus": "UK citizenship",
+
+  // Provide proof of identification
+  "idUpload": "Yes",
 
   // "opitonsChecked": ["Something", "another thing", "a third thing"]
 } 
@@ -167,8 +188,8 @@ module.exports = {
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
-  // "anyIndustryExpertise": "Yes",
-  // "anyTeachingExpertise": "Yes",
+  "anyIndustryExpertise": "Yes",
+  "anyTeachingExpertise": "Yes"
   // "teachingExpertiseCompleted": "complete"  
 
 }
