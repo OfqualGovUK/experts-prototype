@@ -59,7 +59,7 @@ var settings = {
 //   "townOrCity": "Perth",
 //   "region": "Western Australia",
 //   "postCode": "Western Australia",
-//   "personalDetails": "Yes, I’ve completed this section",
+//   "personalDetails": "Complete",
 
 //   // Education details
 //   "education.schoolName": "Something else",
@@ -70,7 +70,7 @@ var settings = {
 //   "education.noReasonHtml": "Something else",
 //   "education.uploadAvailable": "Something else",
 //   "education.qualificationUpload": "Something else",
-//   "educationDetails": "Yes, I’ve completed this section",
+//   "educationDetails": "Complete",
   
 //   // Types of expertise
   
@@ -78,19 +78,19 @@ var settings = {
 //   "anyAssessmentExpertise": "Yes",
 //   "expertiseType.assessment": ["Something", "another thing"],
 //   "assessmentExpertiseDetails": "Something else",
-//   "assessmentExpertiseCompleted": "Yes, I’ve completed this section",
+//   "assessmentExpertiseCompleted": "Complete",
 
 //   // Industry
 //   "anyIndustryExpertise": "Yes",
 //   "expertiseType.industry": ["Something", "another thing"],
 //   "industryExpertiseDetails": "Something else",
-//   "industryExpertiseCompleted": "Yes, I’ve completed this section",
+//   "industryExpertiseCompleted": "Complete",
   
 //   // Teaching
 //   "anyTeachingExpertise": "Yes",
 //   "expertiseType.teaching": ["Something", "another thing"],
 //   "teachingExpertiseDetails": "Something else",
-//   "teachingExpertiseCompleted": "Yes, I’ve completed this section",
+//   "teachingExpertiseCompleted": "Complete",
   
 //   // Work history
   
@@ -98,21 +98,21 @@ var settings = {
 //   "job.title": "value",
 //   "job.roleEnded": "Yes",
 //   "job.summaryOfActivity": "Yes",
-//   "experienceDetails": "Yes, I’ve completed this section",
+//   "experienceDetails": "Complete",
   
 //   // Professional memberships
 //   "membership.organisationName": "value",
 //   "membership.type": "value",
 //   "membership.type": "value",
 //   "membership.yearJoined": "value",
-//   "professionalMembershipsCompleted": "Yes, I’ve completed this section",
+//   "professionalMembershipsCompleted": "Complete",
   
 //   // References
 //   "reference.name": "value",
 //   "reference.email": "value",
 //   "reference.telephone": "value",
 //   "reference.organisation": "value",
-//   "referencesCompleted": "Yes, I’ve completed this section",
+//   "referencesCompleted": "Complete",
 
 //   // Areas that you can advise on 
 //   // Only including a subject for now
@@ -121,7 +121,7 @@ var settings = {
 //   "selectedQualification": "Value",
 //   "selectedLevel": "Value",
 //   "data.expertiseType": ["Something", "another thing"],
-//   "adviseAreasCompleted": "Yes, I’ve completed this section",
+//   "adviseAreasCompleted": "Complete",
   
 //   // Conflict of interest
 //   "conflict.organisation": "Value",
@@ -177,7 +177,7 @@ module.exports = {
   qualificationData,
   subjectSearch2Data,
 
-  applicationData,
+  // applicationData,
   
   settings: settings,
   // personalDetails: personalDetails,
@@ -196,25 +196,23 @@ module.exports = {
   "fullName": "Lalita Vikram",
   "email": "lalita@email.com",
   "telephone": "07552068159",
-  "whereDoYouLive": "Outside the UK else",
-  "selectedCountry": "Australia",
-  "addressLine1": "43 Watson street",
-  // "addressLine2": "Something else",
-  "townOrCity": "Perth",
-  "region": "Western Australia",
-  "postCode": "Western Australia",
-  "personalDetails": "Yes, I’ve completed this section",
+  "whereDoYouLive": "In the UK",
+  "addressLine1": "43 Watson place",
+  "townOrCity": "Coventry",
+  "postCode": "CV1 1DE",
+  "personalDetailsCompleted": "complete",
 
   // Education details
-  "education.schoolName": "Something else",
-  "education.qualName": "Something else",
-  "education.grade": "Something else",
-  "education.yearAwarded": "Something else",
+  "anyQualifications": "Yes",
+  "education.schoolName": "Hogwarts",
+  "education.qualName": "Wizardry",
+  "education.grade": "B",
+  "education.yearAwarded": "2009",
   "education.uploadAvailable": "Something else",
   "education.noReasonHtml": "Something else",
   "education.uploadAvailable": "Something else",
   "education.qualificationUpload": "Something else",
-  "educationDetails": "Yes, I’ve completed this section",
+  "educationDetails": "complete",
   
   // Types of expertise
   
@@ -222,19 +220,19 @@ module.exports = {
   "anyAssessmentExpertise": "Yes",
   "expertiseType.assessment": ["Something", "another thing"],
   "assessmentExpertiseDetails": "Something else",
-  "assessmentExpertiseCompleted": "Yes, I’ve completed this section",
+  "assessmentExpertiseCompleted": "complete",
 
   // Industry
   "anyIndustryExpertise": "Yes",
   "expertiseType.industry": ["Something", "another thing"],
   "industryExpertiseDetails": "Something else",
-  "industryExpertiseCompleted": "Yes, I’ve completed this section",
+  "industryExpertiseCompleted": "complete",
   
   // Teaching
   "anyTeachingExpertise": "Yes",
   "expertiseType.teaching": ["Something", "another thing"],
   "teachingExpertiseDetails": "Something else",
-  "teachingExpertiseCompleted": "Yes, I’ve completed this section",
+  "teachingExpertiseCompleted": "complete",
   
   // Work history
   
@@ -242,21 +240,22 @@ module.exports = {
   "job.title": "value",
   "job.roleEnded": "Yes",
   "job.summaryOfActivity": "Yes",
-  "experienceDetails": "Yes, I’ve completed this section",
+  "experienceDetails": "complete",
   
   // Professional memberships
+  "anyMemberships": "Yes",
   "membership.organisationName": "value",
   "membership.type": "value",
   "membership.type": "value",
   "membership.yearJoined": "value",
-  "professionalMembershipsCompleted": "Yes, I’ve completed this section",
+  "professionalMembershipsCompleted": "complete",
   
   // References
   "reference.name": "value",
   "reference.email": "value",
   "reference.telephone": "value",
   "reference.organisation": "value",
-  "referencesCompleted": "Yes, I’ve completed this section",
+  "referencesCompleted": "complete",
 
   // Areas that you can advise on 
   // Only including a subject for now
@@ -265,15 +264,17 @@ module.exports = {
   "selectedQualification": "Value",
   "selectedLevel": "Value",
   "data.expertiseType": ["Something", "another thing"],
-  "adviseAreasCompleted": "Yes, I’ve completed this section",
+  "adviseAreasCompleted": "complete",
   
   // Conflict of interest
+  "conflictOfInterest": "Yes",
   "conflict.organisation": "Value",
   "conflict.type": "Value",
   "conflict.details": "Value",
   "conflict.startDate": "May 2011",
   "conflict.currentConflict": "No",
   "conflict.endDate": "March 2015",
+  "conflictOfInterestCompleted": "complete",
   
   // Self declaration
   "judgements": "Yes",
@@ -284,12 +285,15 @@ module.exports = {
   "misconductDetails": "Test",
   "breach": "Yes",
   "breachDetails": "Test",
+  "declarationDetails": "complete",
   
   // Your right to work status
   "rightToWork": "Yes",
   "rightToWorkStatus": "UK citizenship",
+  "rightToWorkDetails": "complete",
 
   // Provide proof of identification
-  "idUpload": "Yes"
+  "idUpload": "Yes",
+  "verifyIdentityCompleted": "complete",
 
 }
