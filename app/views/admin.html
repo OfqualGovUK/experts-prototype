@@ -23,6 +23,67 @@
     ]
   } | decorateAttributes(data, "data.settings.enableErrors")) }}
   
+  <h2 class="govuk-heading-l">Types of expertise<h2>
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Enable assessment expertise",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyAssessmentExpertise")) }}  
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Enable industry or occupational expertise",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyIndustryExpertise")) }}  
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Enable teaching, lecturing or training expertise expertise",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      }
+    ]
+  } | decorateAttributes(data, "data.anyTeachingExpertise")) }}  
+
+  <h2 class="govuk-heading-l">Areas you can advise on<h2>
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Enable areas you can advise on",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      }
+    ]
+  } | decorateAttributes(data, "data.areaDetails")) }}
+
+
 
   {# <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
 
