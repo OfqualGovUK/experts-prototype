@@ -3,7 +3,7 @@
 
 {% set pageHeading = "Do you want to search for a thing?" %}
 {% set backLink = "false" %}
-{% set formAction = "/existing-account-answer" %}
+{% set formAction = "account/request-code" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
@@ -29,9 +29,9 @@
   <p class="govuk-body">If you already have a GOV.UK account you can <a href="./sign-in" class="govuk-link">sign in</a>.</p>
 
   {% set govukDetailsHtml %}        
-    GOV.UK accounts are new. They are the first step towards creating a single account that you can use to sign in to all government services. <br><br>
-    GOV.UK accounts will eventually replace all other government accounts. We're working on adding more features and services.<br><br>
-    For now, you need to use different accounts to access different government services.
+    <p>GOV.UK accounts are new. They are the first step towards creating a single account that you can use to sign in to all government services.</p> 
+    <p>GOV.UK accounts will eventually replace all other government accounts. We're working on adding more features and services.</p> 
+    <p>For now, you need to use different accounts to access different government services.</p> 
   {% endset %}
 
   {{ govukDetails({
