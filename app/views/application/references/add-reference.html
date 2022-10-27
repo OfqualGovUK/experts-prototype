@@ -15,7 +15,7 @@
       text: "Name",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.reference.name")) }}
+  } | decorateAttributes(data, "data.referenceName")) }}
 
   {{ govukInput({
     label: {
@@ -25,7 +25,7 @@
     type: "email",
     autocomplete: "email",
     spellcheck: false
-  } | decorateAttributes(data, "data.reference.email")) }}
+  } | decorateAttributes(data, "data.referenceEmail")) }}
 
   {{ govukInput({
     label: {
@@ -38,14 +38,14 @@
     type: "tel",
     autocomplete: "tel",
     classes: "govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.reference.telephone")) }}
+  } | decorateAttributes(data, "data.referenceTelephone")) }}
 
   {{ govukInput({
     label: {
       text: "Company or organisation name",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.reference.organisation")) }}
+  } | decorateAttributes(data, "data.referenceOrganisation")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

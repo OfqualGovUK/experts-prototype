@@ -17,14 +17,14 @@
       text: "School, college, university or other organisation",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.education.schoolName")) }}
+  } | decorateAttributes(data, "data.schoolName")) }}
 
   {{ govukInput({
     label: {
       text: "Qualification, course, subject or title",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.education.qualName")) }}
+  } | decorateAttributes(data, "data.qualName")) }}
 
   {{ govukInput({
     label: {
@@ -32,7 +32,7 @@
       classes: "govuk-label--m"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.education.grade")) }}
+  } | decorateAttributes(data, "data.grade")) }}
   
   {{ govukInput({
     label: {
@@ -40,7 +40,7 @@
       classes: "govuk-label--m"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.education.yearAwarded")) }}
+  } | decorateAttributes(data, "data.yearQualAwarded")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -62,56 +62,56 @@ var settings = {
 //   "personalDetails": "Complete",
 
 //   // Education details
-//   "education.schoolName": "Something else",
-//   "education.qualName": "Something else",
-//   "education.grade": "Something else",
-//   "education.yearAwarded": "Something else",
-//   "education.uploadAvailable": "Something else",
-//   "education.noReasonHtml": "Something else",
-//   "education.uploadAvailable": "Something else",
-//   "education.qualificationUpload": "Something else",
-//   "educationDetails": "Complete",
+//   "schoolName": "Something else",
+//   "qualName": "Something else",
+//   "grade": "Something else",
+//   "yearQualAwarded": "Something else",
+//   "qualUploadAvailable": "Something else",
+//   "noQualReasonHtml": "Something else",
+//   "qualUploadAvailable": "Something else",
+//   "qualificationUpload": "Something else",
+//   "educationCompleted": "Complete",
   
 //   // Types of expertise
   
 //   // Assessment
 //   "anyAssessmentExpertise": "Yes",
-//   "expertiseType.assessment": ["Something", "another thing"],
+//   "assessmentExpertiseType": ["Something", "another thing"],
 //   "assessmentExpertiseDetails": "Something else",
 //   "assessmentExpertiseCompleted": "Complete",
 
 //   // Industry
 //   "anyIndustryExpertise": "Yes",
-//   "expertiseType.industry": ["Something", "another thing"],
+//   "industryExpertiseType": ["Something", "another thing"],
 //   "industryExpertiseDetails": "Something else",
 //   "industryExpertiseCompleted": "Complete",
   
 //   // Teaching
 //   "anyTeachingExpertise": "Yes",
-//   "expertiseType.teaching": ["Something", "another thing"],
+//   "teachingExpertiseType": ["Something", "another thing"],
 //   "teachingExpertiseDetails": "Something else",
 //   "teachingExpertiseCompleted": "Complete",
   
 //   // Work history
   
-//   "job.employerName": "value",
-//   "job.title": "value",
-//   "job.roleEnded": "Yes",
+//   "employerName": "value",
+//   "jobTitle": "value",
+//   "roleEnded": "Yes",
 //   "job.summaryOfActivity": "Yes",
-//   "experienceDetails": "Complete",
+//   "workHistoryCompleted": "Complete",
   
 //   // Professional memberships
-//   "membership.organisationName": "value",
-//   "membership.type": "value",
-//   "membership.type": "value",
-//   "membership.yearJoined": "value",
+//   "membershipOrganisationName": "value",
+//   "membershipType": "value",
+//   "membershipType": "value",
+//   "membershipYearJoined": "value",
 //   "professionalMembershipsCompleted": "Complete",
   
 //   // References
-//   "reference.name": "value",
-//   "reference.email": "value",
-//   "reference.telephone": "value",
-//   "reference.organisation": "value",
+//   "referenceName": "value",
+//   "referenceEmail": "value",
+//   "referenceTelephone": "value",
+//   "referenceOrganisation": "value",
 //   "referencesCompleted": "Complete",
 
 //   // Areas that you can advise on 
@@ -124,12 +124,12 @@ var settings = {
 //   "adviseAreasCompleted": "Complete",
   
 //   // Conflict of interest
-//   "conflict.organisation": "Value",
-//   "conflict.type": "Value",
-//   "conflict.details": "Value",
-//   "conflict.startDate": "May 2011",
-//   "conflict.currentConflict": "No",
-//   "conflict.endDate": "March 2015",
+//   "conflictOrganisation": "Value",
+//   "conflictType": "Value",
+//   "conflictDetails": "Value",
+//   "conflictStartDate": "May 2011",
+//   "currentConflict": "No",
+//   "conflictEndDate": "March 2015",
   
 //   // Self declaration
 //   "judgements": "Yes",
@@ -188,8 +188,8 @@ module.exports = {
 
   // set a few things up to test
   // "anyAssessmentExpertise": "Yes",
-  "anyIndustryExpertise": "Yes",
-  "anyTeachingExpertise": "Yes",
+  // "anyIndustryExpertise": "Yes",
+  // "anyTeachingExpertise": "Yes",
   // "teachingExpertiseCompleted": "complete"
 
   // Personal details
@@ -204,87 +204,86 @@ module.exports = {
 
   // Education details
   "anyQualifications": "Yes",
-  "education.schoolName": "Hogwarts",
-  "education.qualName": "Wizardry",
-  "education.grade": "B",
-  "education.yearAwarded": "2009",
-  "education.uploadAvailable": "Something else",
-  "education.noReasonHtml": "Something else",
-  "education.uploadAvailable": "Something else",
-  "education.qualificationUpload": "Something else",
-  "educationDetails": "complete",
+  "schoolName": "Hogwarts",
+  "qualName": "Wizardry",
+  "grade": "B",
+  "yearQualAwarded": "2009",
+  "qualUploadAvailable": "Something else",
+  "noQualReasonHtml": "Something else",
+  "qualificationUpload": "Something else",
+  "educationCompleted": "complete",
   
   // Types of expertise
   
   // Assessment
   "anyAssessmentExpertise": "Yes",
-  "expertiseType.assessment": ["Something", "another thing"],
-  "assessmentExpertiseDetails": "Something else",
+  "assessmentExpertiseType": ["Designing and/or setting assessments", "Marking assessments"],
+  "assessmentExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry
   "anyIndustryExpertise": "Yes",
-  "expertiseType.industry": ["Something", "another thing"],
-  "industryExpertiseDetails": "Something else",
+  "industryExpertiseType": ["Something", "another thing"],
+  "industryExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "industryExpertiseCompleted": "complete",
   
   // Teaching
   "anyTeachingExpertise": "Yes",
-  "expertiseType.teaching": ["Something", "another thing"],
-  "teachingExpertiseDetails": "Something else",
+  "currentlyInTeachingRole": "Yes",
+  "teachingExpertiseType": ["Developing classroom materials", "Head of faculty"],
+  "teachingExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "teachingExpertiseCompleted": "complete",
   
   // Work history
   
-  "job.employerName": "value",
-  "job.title": "value",
-  "job.roleEnded": "Yes",
-  "job.summaryOfActivity": "Yes",
-  "experienceDetails": "complete",
+  "employerName": "University College London",
+  "jobTitle": "Lecturer",
+  "roleEnded": "No",
+  "workHistoryCompleted": "complete",
   
   // Professional memberships
   "anyMemberships": "Yes",
-  "membership.organisationName": "value",
-  "membership.type": "value",
-  "membership.type": "value",
-  "membership.yearJoined": "value",
+  "membershipOrganisationName": "University College London",
+  "membershipType": "",
+  "membershipYearJoined": "July 2022",
   "professionalMembershipsCompleted": "complete",
   
   // References
-  "reference.name": "value",
-  "reference.email": "value",
-  "reference.telephone": "value",
-  "reference.organisation": "value",
+  "referenceName": "Theodore Kwame",
+  "referenceEmail": "kwameistheking@gmail.com",
+  "referenceTelephone": "",
+  "referenceOrganisation": "University College London",
   "referencesCompleted": "complete",
 
   // Areas that you can advise on 
   // Only including a subject for now
-  "selectedSubject": "Value",
-  "resultName": "Value",
-  "selectedQualification": "Value",
-  "selectedLevel": "Value",
-  "data.expertiseType": ["Something", "another thing"],
+  "selectedSubject": "Automotive Glazing Technician (End-Point Assessment - Level 3)",
+  "resultName": "Automotive Glazing Technician",
+  "selectedQualification": "End-Point Assessment",
+  "selectedLevel": "Level 3",
+  "hasMultipleExpertiseTypes": "True",
+  "expertiseType": ["Something", "another thing"],
   "adviseAreasCompleted": "complete",
   
   // Conflict of interest
   "conflictOfInterest": "Yes",
-  "conflict.organisation": "Value",
-  "conflict.type": "Value",
-  "conflict.details": "Value",
-  "conflict.startDate": "May 2011",
-  "conflict.currentConflict": "No",
-  "conflict.endDate": "March 2015",
+  "conflictOrganisation": "The University of Manchester",
+  "conflictType": "I have an immediate family member who is employed or contracted by an Awarding Organisation",
+  "conflictDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "conflictStartDate": "May 2011",
+  "currentConflict": "No",
+  "conflictEndDate": "March 2015",
   "conflictOfInterestCompleted": "complete",
   
   // Self declaration
-  "judgements": "Yes",
-  "judgementsDetails": "Test",
-  "bankrupt": "Yes",
-  "bankruptDetails": "Test",
-  "misconduct": "Yes",
-  "misconductDetails": "Test",
+  "judgements": "No",
+  // "judgementsDetails": "Test",
+  "bankrupt": "No",
+  // "bankruptDetails": "Test",
+  "misconduct": "No",
+  // "misconductDetails": "Test",
   "breach": "Yes",
-  "breachDetails": "Test",
+  "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationDetails": "complete",
   
   // Your right to work status
@@ -293,7 +292,7 @@ module.exports = {
   "rightToWorkDetails": "complete",
 
   // Provide proof of identification
-  "idUpload": "Yes",
+  "idUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete",
 
 }

@@ -1,10 +1,10 @@
 {% set teachingHtml %}
   {# Build an list of the items selected #}
   <ul class="govuk-list">
-    {% for role in data.expertiseType.teaching %}
+    {% for role in data.teachingExpertiseType %}
       <li>
         {% if role == "An option that isn't listed" %}
-          {{ data.expertiseType.teachingOther }}
+          {{ data.teachingExpertiseTypeOther }}
         {% else %} 
           {{ role }}
         {% endif %}
@@ -36,7 +36,7 @@
         text: "Are you currently working in a teaching, lecturing or training role?"
       },
       value: { 
-        text: data.currentlyInRole
+        text: data.currentlyInTeachingRole
       },
       actions: {
         items: [{

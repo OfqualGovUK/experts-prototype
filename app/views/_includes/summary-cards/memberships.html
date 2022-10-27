@@ -3,12 +3,12 @@
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: data.membership.organisationName,
+    titleText: data.membershipOrganisationName,
     actions: {
       items: [{
         text: "Delete membership",
-        visuallyHiddenText: data.membership.organisationName,
-        href: "/application/professional-memberships/delete?delete=" + data.membership.organisationName
+        visuallyHiddenText: data.membershipOrganisationName,
+        href: "/application/professional-memberships/delete?delete=" + data.membershipOrganisationName
       }]
     },
     rows: [
@@ -17,7 +17,7 @@
           text: "Organisation name"
         },
         value: { 
-          text: data.membership.organisationName or "Not provided"
+          text: data.membershipOrganisationName or "Not provided"
         },
         actions: {
           items: [{
@@ -32,7 +32,7 @@
           text: "Membership type"
         },
         value: { 
-          text: data.membership.type or "Not provided"
+          text: data.membershipType or "Not provided"
         },
         actions: {
           items: [{
@@ -47,7 +47,7 @@
           text: "Year joined"
         },
         value: { 
-          text: data.membership.yearJoined or "Not provided"
+          text: data.membershipYearJoined or "Not provided"
         },
         actions: {
           items: [{

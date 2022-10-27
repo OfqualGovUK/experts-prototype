@@ -13,7 +13,7 @@
           text: "Provide details (optional)",
           classes: "govuk-label--s"
         }
-      } | decorateAttributes(data, "data.expertiseType.industryOther")) }}
+      } | decorateAttributes(data, "data.industryExpertiseTypeOther")) }}
     {% endset -%}
     
     {{ govukCheckboxes({
@@ -56,7 +56,7 @@
           }
         }
       ]
-    } | decorateAttributes(data, "data.expertiseType.industry")) }}
+    } | decorateAttributes(data, "data.industryExpertiseType")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

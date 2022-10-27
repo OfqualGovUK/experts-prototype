@@ -161,7 +161,7 @@ router.post('/qualifications-answer', function (req, res) {
 // Are you able to provide a copy of this qualification?
 router.post('/upload-available-answer', function (req, res) {
 
-  let uploadAvailable = req.session.data.education.uploadAvailable
+  let uploadAvailable = req.session.data.qualUploadAvailable
 
     if (uploadAvailable === 'Yes') {
       res.redirect('/application/education/upload-qualification')

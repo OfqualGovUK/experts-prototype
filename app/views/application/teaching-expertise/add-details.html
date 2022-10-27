@@ -15,10 +15,10 @@
   {% set teachingHtml %}
     {# Build an list of the items selected #}
     <ul class="govuk-list govuk-list--bullet">
-      {% for role in data.expertiseType.teaching %}
+      {% for role in data.teachingExpertiseType %}
         <li>
           {% if role == "An option that isn't listed" %}
-            {{ data.expertiseType.teachingOther }}
+            {{ data.teachingExpertiseTypeOther }}
           {% else %} 
             {{ role }}
           {% endif %}

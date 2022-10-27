@@ -22,7 +22,7 @@
             {
               text: "Education and qualifications not marked as complete",
               href: "#"
-            } if data.educationDetails != "complete"
+            } if data.educationCompleted != "complete"
           ]
         }) }}
 
@@ -45,7 +45,7 @@
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
-        {% if data.educationDetails == "complete" %}
+        {% if data.educationCompleted == "complete" %}
           <h2 class="govuk-heading-m">Your qualifications</h2>
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
@@ -69,7 +69,7 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
-        {% if data.experienceDetails == "complete" %}
+        {% if data.workHistoryCompleted == "complete" %}
           <h2 class="govuk-heading-m">Work history</h2>
           {% include "_includes/summary-cards/experience.html" %}
         {% else %}
@@ -79,7 +79,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.experienceDetails == "complete" %}
+        {% if data.workHistoryCompleted == "complete" %}
           <h2 class="govuk-heading-m">Professional memberships</h2>
           {% include "_includes/summary-cards/memberships.html" %}
         {% else %}
