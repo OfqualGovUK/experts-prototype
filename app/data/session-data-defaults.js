@@ -47,7 +47,151 @@ var settings = {
   enableErrors: "false"  
 }
 
-var applicationData = {
+// var applicationData = {
+//   // Personal details
+//   "fullName": "Lalita Vikram",
+//   "email": "lalita@email.com",
+//   "telephone": "07552068159",
+//   "whereDoYouLive": "Outside the UK else",
+//   "selectedCountry": "Australia",
+//   "addressLine1": "43 Watson street",
+//   // "addressLine2": "Something else",
+//   "townOrCity": "Perth",
+//   "region": "Western Australia",
+//   "postCode": "Western Australia",
+//   "personalDetails": "Yes, I’ve completed this section",
+
+//   // Education details
+//   "education.schoolName": "Something else",
+//   "education.qualName": "Something else",
+//   "education.grade": "Something else",
+//   "education.yearAwarded": "Something else",
+//   "education.uploadAvailable": "Something else",
+//   "education.noReasonHtml": "Something else",
+//   "education.uploadAvailable": "Something else",
+//   "education.qualificationUpload": "Something else",
+//   "educationDetails": "Yes, I’ve completed this section",
+  
+//   // Types of expertise
+  
+//   // Assessment
+//   "anyAssessmentExpertise": "Yes",
+//   "expertiseType.assessment": ["Something", "another thing"],
+//   "assessmentExpertiseDetails": "Something else",
+//   "assessmentExpertiseCompleted": "Yes, I’ve completed this section",
+
+//   // Industry
+//   "anyIndustryExpertise": "Yes",
+//   "expertiseType.industry": ["Something", "another thing"],
+//   "industryExpertiseDetails": "Something else",
+//   "industryExpertiseCompleted": "Yes, I’ve completed this section",
+  
+//   // Teaching
+//   "anyTeachingExpertise": "Yes",
+//   "expertiseType.teaching": ["Something", "another thing"],
+//   "teachingExpertiseDetails": "Something else",
+//   "teachingExpertiseCompleted": "Yes, I’ve completed this section",
+  
+//   // Work history
+  
+//   "job.employerName": "value",
+//   "job.title": "value",
+//   "job.roleEnded": "Yes",
+//   "job.summaryOfActivity": "Yes",
+//   "experienceDetails": "Yes, I’ve completed this section",
+  
+//   // Professional memberships
+//   "membership.organisationName": "value",
+//   "membership.type": "value",
+//   "membership.type": "value",
+//   "membership.yearJoined": "value",
+//   "professionalMembershipsCompleted": "Yes, I’ve completed this section",
+  
+//   // References
+//   "reference.name": "value",
+//   "reference.email": "value",
+//   "reference.telephone": "value",
+//   "reference.organisation": "value",
+//   "referencesCompleted": "Yes, I’ve completed this section",
+
+//   // Areas that you can advise on 
+//   // Only including a subject for now
+//   "selectedSubject": "Value",
+//   "resultName": "Value",
+//   "selectedQualification": "Value",
+//   "selectedLevel": "Value",
+//   "data.expertiseType": ["Something", "another thing"],
+//   "adviseAreasCompleted": "Yes, I’ve completed this section",
+  
+//   // Conflict of interest
+//   "conflict.organisation": "Value",
+//   "conflict.type": "Value",
+//   "conflict.details": "Value",
+//   "conflict.startDate": "May 2011",
+//   "conflict.currentConflict": "No",
+//   "conflict.endDate": "March 2015",
+  
+//   // Self declaration
+//   "judgements": "Yes",
+//   "judgementsDetails": "Test",
+//   "bankrupt": "Yes",
+//   "bankruptDetails": "Test",
+//   "misconduct": "Yes",
+//   "misconductDetails": "Test",
+//   "breach": "Yes",
+//   "breachDetails": "Test",
+  
+//   // Your right to work status
+//   "rightToWork": "Yes",
+//   "rightToWorkStatus": "UK citizenship",
+
+//   // Provide proof of identification
+//   "idUpload": "Yes",
+
+//   // "opitonsChecked": ["Something", "another thing", "a third thing"]
+// } 
+
+module.exports = {
+
+  routeData,
+  agricultureData,
+  allOccupationData,
+  bussinessData,
+  careData,
+  cateringData,
+  constructionData,
+  countryData,
+  creativeData,
+  digitalData,
+  educationData,
+  engineeringData,
+  hairData,
+  healthData,
+  legalData,
+  protectiveData,
+  salesData,
+  subjectData,
+  subectSearchData,
+  subSectorSubjectAreasData,
+  trasnsportData,
+  qualificationData,
+  subjectSearch2Data,
+
+  applicationData,
+  
+  settings: settings,
+  // personalDetails: personalDetails,
+
+  // Setting the sections that aren't able to be started yet
+  // The section is enabled with a hidden inputs in the dependant sections
+  // "areaDetails": "canNotStartYet"
+
+  // set a few things up to test
+  // "anyAssessmentExpertise": "Yes",
+  "anyIndustryExpertise": "Yes",
+  "anyTeachingExpertise": "Yes",
+  // "teachingExpertiseCompleted": "complete"
+
   // Personal details
   "fullName": "Lalita Vikram",
   "email": "lalita@email.com",
@@ -146,50 +290,6 @@ var applicationData = {
   "rightToWorkStatus": "UK citizenship",
 
   // Provide proof of identification
-  "idUpload": "Yes",
-
-  // "opitonsChecked": ["Something", "another thing", "a third thing"]
-} 
-
-module.exports = {
-
-  routeData,
-  agricultureData,
-  allOccupationData,
-  bussinessData,
-  careData,
-  cateringData,
-  constructionData,
-  countryData,
-  creativeData,
-  digitalData,
-  educationData,
-  engineeringData,
-  hairData,
-  healthData,
-  legalData,
-  protectiveData,
-  salesData,
-  subjectData,
-  subectSearchData,
-  subSectorSubjectAreasData,
-  trasnsportData,
-  qualificationData,
-  subjectSearch2Data,
-
-  applicationData,
-  
-  settings: settings,
-  // personalDetails: personalDetails,
-
-  // Setting the sections that aren't able to be started yet
-  // The section is enabled with a hidden inputs in the dependant sections
-  // "areaDetails": "canNotStartYet"
-
-  // set a few things up to test
-  // "anyAssessmentExpertise": "Yes",
-  "anyIndustryExpertise": "Yes",
-  "anyTeachingExpertise": "Yes"
-  // "teachingExpertiseCompleted": "complete"  
+  "idUpload": "Yes"
 
 }
