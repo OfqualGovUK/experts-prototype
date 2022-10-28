@@ -29,6 +29,21 @@
       },
       {
         key: {
+          text: "Awarding organisation"
+        },
+        value: { 
+          text: data.awardingOrganisation or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "awarding organisation",
+            href: "./add-qualifcation"
+          }]
+        }
+      },
+      {
+        key: {
           text: "Qualification, course or subject name"
         },
         value: { 
