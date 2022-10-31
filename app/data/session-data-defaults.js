@@ -44,7 +44,7 @@ const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
 var settings = {
-  enableErrors: "false"
+  enableErrors: "false"  
 }
 
 // This is all the data needed to populate a completed application
@@ -182,6 +182,11 @@ module.exports = {
 
   completedApplicationData,
   
-  settings: settings
+  settings: settings,
+  // personalDetails: personalDetails,
+
+  // Setting the sections that aren't able to be started yet
+  // The section is enabled with a hidden inputs in the dependant sections
+  "adviseAreasCompleted": "canNotStartYet"
 
 }
