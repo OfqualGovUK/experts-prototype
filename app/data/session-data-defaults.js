@@ -44,7 +44,7 @@ const qualificationData = require('./qualificationData.json')
 
 // Setting the default layout settings
 var settings = {
-  enableErrors: "false"  
+  enableErrors: "false"
 }
 
 // This is all the data needed to populate a completed application
@@ -181,21 +181,7 @@ module.exports = {
   subjectSearch2Data,
 
   completedApplicationData,
-  // applicationCompleted,
-  // applicationDataInReview,
-  // applicationDataAccepted,
   
-  settings: settings,
-  // personalDetails: personalDetails,
-
-  // Setting the sections that aren't able to be started yet
-  // The section is enabled with a hidden inputs in the dependant sections
-  // "areaDetails": "canNotStartYet"
-
-  // set a few things up to test
-  // "anyAssessmentExpertise": "Yes",
-  // "anyIndustryExpertise": "Yes",
-  // "anyTeachingExpertise": "Yes",
-  // "teachingExpertiseCompleted": "complete"
+  settings: settings
 
 }
