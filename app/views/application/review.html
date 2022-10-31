@@ -163,7 +163,7 @@
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
-        {% if data.declarationDetails == "complete" %}
+        {% if data.declarationCompleted == "complete" %}
           <h2 class="govuk-heading-m">Self declaration</h2>
           {% include "_includes/summary-cards/self-declaration.html" %}
         {% else %}
@@ -173,7 +173,7 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.rightToWorkDetails == "complete" %}
+        {% if data.rightToWorkCompleted == "complete" %}
           <h2 class="govuk-heading-m">Your right to work status</h2>
           {% include "_includes/summary-cards/right-to-work.html" %}
         {% else %}

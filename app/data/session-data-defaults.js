@@ -205,11 +205,12 @@ module.exports = {
   // Education details
   "anyQualifications": "Yes",
   "schoolName": "Hogwarts",
+  "awordingOrganisation": "Slytherin",
   "qualName": "Wizardry",
   "grade": "B",
   "yearQualAwarded": "2009",
-  "qualUploadAvailable": "Something else",
-  "noQualReasonHtml": "Something else",
+  "qualUploadAvailable": "No",
+  "noQualReasonHtml": "I have reecenly moved house and all of my documentation has been lost by the movers.",
   "qualificationUpload": "Something else",
   "educationCompleted": "complete",
   
@@ -244,14 +245,14 @@ module.exports = {
   // Professional memberships
   "anyMemberships": "Yes",
   "membershipOrganisationName": "University College London",
-  "membershipType": "",
+  "membershipType": "Standard",
   "membershipYearJoined": "July 2022",
   "professionalMembershipsCompleted": "complete",
   
   // References
   "referenceName": "Theodore Kwame",
   "referenceEmail": "kwameistheking@gmail.com",
-  "referenceTelephone": "",
+  "referenceTelephone": "07552 065153",
   "referenceOrganisation": "University College London",
   "referencesCompleted": "complete",
 
@@ -260,9 +261,10 @@ module.exports = {
   "selectedSubject": "Automotive Glazing Technician (End-Point Assessment - Level 3)",
   "resultName": "Automotive Glazing Technician",
   "selectedQualification": "End-Point Assessment",
-  "selectedLevel": "Level 3",
+  "selectedLevel": ["Level 3"],
+  "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
-  "expertiseType": ["Something", "another thing"],
+  "expertiseType": ["Assessment", "Industry or occupational", "Teaching, lecturing or training"],
   "adviseAreasCompleted": "complete",
   
   // Conflict of interest
@@ -284,12 +286,12 @@ module.exports = {
   // "misconductDetails": "Test",
   "breach": "Yes",
   "breachDetails": "I didn't pay my tax for a REALLY long time.",
-  "declarationDetails": "complete",
+  "declarationCompleted": "complete",
   
   // Your right to work status
   "rightToWork": "Yes",
   "rightToWorkStatus": "UK citizenship",
-  "rightToWorkDetails": "complete",
+  "rightToWorkCompleted": "complete",
 
   // Provide proof of identification
   "idUpload": "passport.pdf",
