@@ -12,7 +12,7 @@
     fieldset: {
       legend: {
         text: "Enable errors on application review screen",
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--s"
       }
     },
     items: [
@@ -22,6 +22,8 @@
       }
     ]
   } | decorateAttributes(data, "data.settings.enableErrors")) }}
+
+  <hr class="govuk-section-break govuk-section-break--visible">
   
   <h2 class="govuk-heading-l">Types of expertise<h2>
   
@@ -29,7 +31,7 @@
     fieldset: {
       legend: {
         text: "Enable assessment expertise",
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--s"
       }
     },
     items: [
@@ -43,7 +45,7 @@
     fieldset: {
       legend: {
         text: "Enable industry or occupational expertise",
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--s"
       }
     },
     items: [
@@ -57,7 +59,7 @@
     fieldset: {
       legend: {
         text: "Enable teaching, lecturing or training expertise",
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--s"
       }
     },
     items: [
@@ -73,7 +75,7 @@
     fieldset: {
       legend: {
         text: "Enable areas you can advise on",
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--s"
       }
     },
     items: [
@@ -83,26 +85,18 @@
     ]
   } | decorateAttributes(data, "data.areaDetails")) }}
 
+  {# <hr class="govuk-section-break govuk-section-break--visible">
 
+  <h2 class="govuk-heading-l">View the application in various states<h2>
+  <h3 class="govuk-heading-s">Before submit<h3>
 
-  {# <h2 class="govuk-heading-m">Searching for subjects/qualifications<h2>
+  <p class="govuk-body"><a href="/populate-application" class="govuk">View a completed application</a></p>
 
-   {{ govukRadios({
-    items: [
-      {
-        text: "Version 1",
-        hint: {
-          text: "Search by acamedic or vocational subjects"
-        }
-      },
-      {
-        text: "Version 2",
-        hint: {
-          text: "Search by qualification or sub-sector subject area"
-        }
-      }
-    ]
-  } | decorateAttributes(data, "data.settings.searchApproach")) }} #}
+  <h3 class="govuk-heading-s">After submit<h3>
+
+  <p class="govuk-body"><a href="/application-submitted-in-review" class="govuk">View a submitted application: "In review"</a></p>
+  <p class="govuk-body"><a href="/application-submitted-accepted" class="govuk">View a submitted application: "Application accepted"</a></p>
+  <p class="govuk-body"><a href="#" class="govuk">View a submitted application: "More information required"</a></p> #}
   
 
   {{ govukButton({

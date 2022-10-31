@@ -476,10 +476,29 @@ router.post('/equality-question-answer', function (req, res) {
 
 })
 
-// Sets up the tasklist with a completed application
+// View the application in different states
+
+// Sets up the tasklist with a completed application when you visit a link
 router.all( '/populate-application', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  req.session.data = Object.assign(req.session.data.completedApplicationData)  
   res.redirect('/application');
+
+})
+
+// Sets up the tasklist with a completed applicationwhen you visit a link
+router.all( '/application-submitted-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  
+  res.redirect('/application/dashboard?applicationStatus=inReview');
+
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/application-submitted-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  
+  res.redirect('/application/dashboard?applicationStatus=applicationAccepted');
+
 })
 
 // ------ Register your interest  ----- //

@@ -154,27 +154,6 @@ var completedApplicationData = {
   "verifyIdentityCompleted": "complete"
 }
 
-// // Sets the application Status
-// // Has a complete set of data
-// var applicationCompleted = {
-//   defaultData
-// } 
-
-// // Sets the application Status
-// // Has a complete set of data
-// var applicationDataInReview = {
-//   "status": "In review",
-//   defaultData
-// } 
-
-// // Application Status
-// // Sets the application Status
-// // Has a complete set of data
-// var applicationDataAccepted = {
-//   "status": "Application accepted",
-//   defaultData
-// } 
-
 module.exports = {
 
   routeData,

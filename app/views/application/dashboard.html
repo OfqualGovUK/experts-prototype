@@ -2,45 +2,57 @@
 
 {% set pageHeading = "Subject matter expert dashboard" %}
 {% set backLink = "false" %}
-{% set pageType = "Dashboard" %}
 {% set primaryNavActive = "Dashboard" %}
+
+{% if data.applicationStatus == "inReview" %}
+  {% set pageHeading = "My application" %}
+{% endif %}
+
+{% if data.applicationStatus == "applicationAccepted" %}
+  {% set pageHeading = "My account" %}
+  {% set pageType = "Dashboard" %}
+{% endif %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      {% set html %}
-        <h3 class="govuk-notification-banner__heading">
-          Application successfully submitted
-        </h3>
-      {% endset %}
+    {# Show the success banner if the application is in review #}
+    {% if data.applicationStatus == "inReview" %}
+      <div class="govuk-grid-column-full">
+        {% set html %}
+          <h3 class="govuk-notification-banner__heading">
+            Application successfully submitted
+          </h3>
+        {% endset %}
 
-      {{ govukNotificationBanner({
-        html: html,
-        type: 'success'
-      }) }}
-    </div>
+        {{ govukNotificationBanner({
+          html: html,
+          type: 'success'
+        }) }}
+      </div>
+    {% endif %}
     
     <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      {# <h1 class="govuk-heading-l">{{ pageHeading }}</h1> #}
-      <h1 class="govuk-heading-l">My application</h1>
-      <p class="govuk-body">Your applications has been submitted. You will get an email once it has been reviewed.</p>
-      <p class="govuk-body">You can make changes to your application until it is assigned to an evaluator.</p>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      {% if data.applicationStatus == "inReview" %}
+        <p class="govuk-body">Your application has been submitted. You will get an email once it has been reviewed.</p>
+        <p class="govuk-body">You can make changes to your application until it is assigned to an evaluator.</p>
+      {% endif %}
+      {% if data.applicationStatus == "applicationAccepted" %}
+        <p class="govuk-body">Your application has been acepted.</p>
+        <p class="govuk-body">You can now bid for work and do other stuff.</p>
+      {% endif %}
     </div>
 
    <div class="govuk-grid-column-full">   
     <section class="govuk-!-margin-bottom-8">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Aplication status</h2>
+      <h2 class="govuk-heading-m govuk-!-font-size-27">Status</h2>
       {% include "_includes/summary-cards/application-status.html" %}
     </section>
     
-    <section class="govuk-!-margin-bottom-8">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
-      {% include "_includes/summary-cards/personal-details.html" %}
-    </section>
+    {# Include all the application settings #}
+    {% include "_includes/shared/application-sections.html" %}
 
-    <p class="govuk-body">[ The full application will display here ]</p>
   <div>
 
 {% endblock %}
