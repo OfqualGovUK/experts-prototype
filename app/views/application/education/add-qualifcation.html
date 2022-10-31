@@ -17,14 +17,22 @@
       text: "School, college, university or other organisation",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.schoolName")) }}
+  } | decorateAttributes(data, "data.education.schoolName")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Awarding organisation (optional)",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.awardingOrganisation")) }}
 
   {{ govukInput({
     label: {
       text: "Qualification, course, subject or title",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.qualName")) }}
+  } | decorateAttributes(data, "data.education.qualName")) }}
+  
 
   {{ govukInput({
     label: {
@@ -32,15 +40,18 @@
       classes: "govuk-label--m"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.grade")) }}
+  } | decorateAttributes(data, "data.education.grade")) }}
   
   {{ govukInput({
     label: {
       text: "Year awarded",
       classes: "govuk-label--m"
     },
+    hint: {
+      text: "For example, 2018"
+    },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.yearQualAwarded")) }}
+  } | decorateAttributes(data, "data.education.yearAwarded")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
