@@ -476,11 +476,11 @@ router.post('/equality-question-answer', function (req, res) {
 
 })
 
-// Sets up the dashboard with a completed application
-// router.all( '/populate-dashboard', function (req, res) {
-//   req.session.data = Object.assign(req.session.data.applicationData)
-//   res.redirect('/application/dashboard');
-// })
+// Sets up the tasklist with a completed application
+router.all( '/populate-application', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  res.redirect('/application');
+})
 
 // ------ Register your interest  ----- //
 

@@ -47,151 +47,8 @@ var settings = {
   enableErrors: "false"  
 }
 
-// var applicationData = {
-//   // Personal details
-//   "fullName": "Lalita Vikram",
-//   "email": "lalita@email.com",
-//   "telephone": "07552068159",
-//   "whereDoYouLive": "Outside the UK else",
-//   "selectedCountry": "Australia",
-//   "addressLine1": "43 Watson street",
-//   // "addressLine2": "Something else",
-//   "townOrCity": "Perth",
-//   "region": "Western Australia",
-//   "postCode": "Western Australia",
-//   "personalDetails": "Complete",
-
-//   // Education details
-//   "schoolName": "Something else",
-//   "qualName": "Something else",
-//   "grade": "Something else",
-//   "yearQualAwarded": "Something else",
-//   "qualUploadAvailable": "Something else",
-//   "noQualReasonHtml": "Something else",
-//   "qualUploadAvailable": "Something else",
-//   "qualificationUpload": "Something else",
-//   "educationCompleted": "Complete",
-  
-//   // Types of expertise
-  
-//   // Assessment
-//   "anyAssessmentExpertise": "Yes",
-//   "assessmentExpertiseType": ["Something", "another thing"],
-//   "assessmentExpertiseDetails": "Something else",
-//   "assessmentExpertiseCompleted": "Complete",
-
-//   // Industry
-//   "anyIndustryExpertise": "Yes",
-//   "industryExpertiseType": ["Something", "another thing"],
-//   "industryExpertiseDetails": "Something else",
-//   "industryExpertiseCompleted": "Complete",
-  
-//   // Teaching
-//   "anyTeachingExpertise": "Yes",
-//   "teachingExpertiseType": ["Something", "another thing"],
-//   "teachingExpertiseDetails": "Something else",
-//   "teachingExpertiseCompleted": "Complete",
-  
-//   // Work history
-  
-//   "employerName": "value",
-//   "jobTitle": "value",
-//   "roleEnded": "Yes",
-//   "job.summaryOfActivity": "Yes",
-//   "workHistoryCompleted": "Complete",
-  
-//   // Professional memberships
-//   "membershipOrganisationName": "value",
-//   "membershipType": "value",
-//   "membershipType": "value",
-//   "membershipYearJoined": "value",
-//   "professionalMembershipsCompleted": "Complete",
-  
-//   // References
-//   "referenceName": "value",
-//   "referenceEmail": "value",
-//   "referenceTelephone": "value",
-//   "referenceOrganisation": "value",
-//   "referencesCompleted": "Complete",
-
-//   // Areas that you can advise on 
-//   // Only including a subject for now
-//   "selectedSubject": "Value",
-//   "resultName": "Value",
-//   "selectedQualification": "Value",
-//   "selectedLevel": "Value",
-//   "data.expertiseType": ["Something", "another thing"],
-//   "adviseAreasCompleted": "Complete",
-  
-//   // Conflict of interest
-//   "conflictOrganisation": "Value",
-//   "conflictType": "Value",
-//   "conflictDetails": "Value",
-//   "conflictStartDate": "May 2011",
-//   "currentConflict": "No",
-//   "conflictEndDate": "March 2015",
-  
-//   // Self declaration
-//   "judgements": "Yes",
-//   "judgementsDetails": "Test",
-//   "bankrupt": "Yes",
-//   "bankruptDetails": "Test",
-//   "misconduct": "Yes",
-//   "misconductDetails": "Test",
-//   "breach": "Yes",
-//   "breachDetails": "Test",
-  
-//   // Your right to work status
-//   "rightToWork": "Yes",
-//   "rightToWorkStatus": "UK citizenship",
-
-//   // Provide proof of identification
-//   "idUpload": "Yes",
-
-//   // "opitonsChecked": ["Something", "another thing", "a third thing"]
-// } 
-
-module.exports = {
-
-  routeData,
-  agricultureData,
-  allOccupationData,
-  bussinessData,
-  careData,
-  cateringData,
-  constructionData,
-  countryData,
-  creativeData,
-  digitalData,
-  educationData,
-  engineeringData,
-  hairData,
-  healthData,
-  legalData,
-  protectiveData,
-  salesData,
-  subjectData,
-  subectSearchData,
-  subSectorSubjectAreasData,
-  trasnsportData,
-  qualificationData,
-  subjectSearch2Data,
-
-  // applicationData,
-  
-  settings: settings,
-  // personalDetails: personalDetails,
-
-  // Setting the sections that aren't able to be started yet
-  // The section is enabled with a hidden inputs in the dependant sections
-  // "areaDetails": "canNotStartYet"
-
-  // set a few things up to test
-  // "anyAssessmentExpertise": "Yes",
-  // "anyIndustryExpertise": "Yes",
-  // "anyTeachingExpertise": "Yes",
-  // "teachingExpertiseCompleted": "complete"
-
+// This is all the data needed to populate a completed application
+var completedApplicationData = {
   // Personal details
   "fullName": "Lalita Vikram",
   "email": "lalita@email.com",
@@ -236,7 +93,6 @@ module.exports = {
   "teachingExpertiseCompleted": "complete",
   
   // Work history
-  
   "employerName": "University College London",
   "jobTitle": "Lecturer",
   "roleEnded": "No",
@@ -295,6 +151,72 @@ module.exports = {
 
   // Provide proof of identification
   "idUpload": "passport.pdf",
-  "verifyIdentityCompleted": "complete",
+  "verifyIdentityCompleted": "complete"
+}
+
+// // Sets the application Status
+// // Has a complete set of data
+// var applicationCompleted = {
+//   defaultData
+// } 
+
+// // Sets the application Status
+// // Has a complete set of data
+// var applicationDataInReview = {
+//   "status": "In review",
+//   defaultData
+// } 
+
+// // Application Status
+// // Sets the application Status
+// // Has a complete set of data
+// var applicationDataAccepted = {
+//   "status": "Application accepted",
+//   defaultData
+// } 
+
+module.exports = {
+
+  routeData,
+  agricultureData,
+  allOccupationData,
+  bussinessData,
+  careData,
+  cateringData,
+  constructionData,
+  countryData,
+  creativeData,
+  digitalData,
+  educationData,
+  engineeringData,
+  hairData,
+  healthData,
+  legalData,
+  protectiveData,
+  salesData,
+  subjectData,
+  subectSearchData,
+  subSectorSubjectAreasData,
+  trasnsportData,
+  qualificationData,
+  subjectSearch2Data,
+
+  completedApplicationData,
+  // applicationCompleted,
+  // applicationDataInReview,
+  // applicationDataAccepted,
+  
+  settings: settings,
+  // personalDetails: personalDetails,
+
+  // Setting the sections that aren't able to be started yet
+  // The section is enabled with a hidden inputs in the dependant sections
+  // "areaDetails": "canNotStartYet"
+
+  // set a few things up to test
+  // "anyAssessmentExpertise": "Yes",
+  // "anyIndustryExpertise": "Yes",
+  // "anyTeachingExpertise": "Yes",
+  // "teachingExpertiseCompleted": "complete"
 
 }
