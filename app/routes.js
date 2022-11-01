@@ -489,7 +489,7 @@ router.all( '/populate-application', function (req, res) {
 router.all( '/application-submitted-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationData)
   
-  res.redirect('/application/dashboard?applicationStatus=inReview');
+  res.redirect('/dashboard?applicationStatus=inReview');
 
 })
 
@@ -497,7 +497,7 @@ router.all( '/application-submitted-in-review', function (req, res) {
 router.all( '/application-submitted-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationData)
   
-  res.redirect('/application/dashboard?applicationStatus=applicationAccepted');
+  res.redirect('/dashboard?applicationStatus=applicationAccepted');
 
 })
 
