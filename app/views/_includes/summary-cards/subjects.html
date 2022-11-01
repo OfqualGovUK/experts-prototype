@@ -131,7 +131,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Subjects, apprenticeship or T Level",
-            href: "./subject-search?referrer=subjectSearch"
+            href: "/application/search/subject-search?referrer=subjectSearch"
           }]
         }
       },
@@ -146,7 +146,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "./select-qualification?referrer=subjectSearch"
+            href: "/application/search/select-qualification?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
@@ -161,7 +161,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "./select-level?referrer=subjectSearch"
+            href: "/application/search/select-level?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
@@ -176,7 +176,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type?referrer=subjectSearch"
+            href: "/application/search/select-expertise-type?referrer=subjectSearch"
           }]
         } 
       } if data.hasMultipleExpertiseTypes
@@ -207,7 +207,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "type of expertise",
-            href: "./sector-search?referrer=sectorSearch"
+            href: "/application/search/sector-search?referrer=sectorSearch"
           }]
         }
       },
@@ -222,7 +222,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "./select-qualification?referrer=sectorSearch"
+            href: "/application/search/select-qualification?referrer=sectorSearch"
           }]
         }
       },
@@ -237,7 +237,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "./select-level?referrer=sectorSearch"
+            href: "/application/search/select-level?referrer=sectorSearch"
           }]
         }
       },
@@ -252,7 +252,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type?referrer=sectorSearch"
+            href: "/application/search/select-expertise-type?referrer=sectorSearch"
           }]
         }
       } if data.hasMultipleExpertiseTypes
