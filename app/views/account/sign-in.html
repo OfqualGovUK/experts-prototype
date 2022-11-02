@@ -2,13 +2,13 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Do you want to search for a thing?" %}
-{# {% set backLink = "false" %} #}
-{% set formAction = "./check-email-account-created" %}
+{% set backLink = "false" %}
+{% set formAction = "/account/check-your-emails" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Enter your email address</h1>
+  <h1 class="govuk-heading-l">Sign in with your GOV.UK account</h1>
 
   {{ govukInput({
     label: { 
