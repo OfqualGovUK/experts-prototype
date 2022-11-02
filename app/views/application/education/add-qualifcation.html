@@ -21,10 +21,18 @@
 
   {{ govukInput({
     label: {
+      text: "Awarding organisation (optional)",
+      classes: "govuk-label--m"
+    }
+  } | decorateAttributes(data, "data.awardingOrganisation")) }}
+
+  {{ govukInput({
+    label: {
       text: "Qualification, course, subject or title",
       classes: "govuk-label--m"
     }
   } | decorateAttributes(data, "data.education.qualName")) }}
+  
 
   {{ govukInput({
     label: {
@@ -38,6 +46,9 @@
     label: {
       text: "Year awarded",
       classes: "govuk-label--m"
+    },
+    hint: {
+      text: "For example, 2018"
     },
     classes: "govuk-!-width-one-quarter"
   } | decorateAttributes(data, "data.education.yearAwarded")) }}

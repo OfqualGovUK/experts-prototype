@@ -52,6 +52,21 @@
     },
     items: qualifications
   } | decorateAttributes(data, "data.selectedQualification")) }}
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: qualifications
+  } | decorateAttributes(data, "data.selectedQualificationSector")) }}
+  
 
   <div class="govuk-button-group">
     {{ govukButton({

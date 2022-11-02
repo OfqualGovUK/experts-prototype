@@ -229,7 +229,7 @@ router.post('/teaching-answer', function (req, res) {
   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
   
   if (anyTeachingExpertise === "Yes") {
-    res.redirect('/application/teaching-expertise/teaching-expertise.html')
+    res.redirect('/application/teaching-expertise/currently-in-role.html')
   } else {
     res.redirect('/application/teaching-expertise/review')
   }
@@ -247,34 +247,6 @@ router.post('/teaching-answer', function (req, res) {
 //     res.redirect('/application/expertise-type/industry-expertise')
 //   } else {
 //     res.redirect('/application/expertise-type/teaching-expertise')
-//   }
-  
-// })
-
-// Decide where to go form the Assessment expertise page
-// router.post('/assessment-expertise-answer', function (req, res) {
-  
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Industry or occupational")) {
-//     res.redirect('/application/expertise-type/industry-expertise')
-//   } else if ( (!selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-//     res.redirect('/application/expertise-type/teaching-expertise')
-//   } else if ( (!selectedType.includes("Industry or occupational")) && (!selectedType.includes("Teaching, lecturing or training")) ) {
-//     res.redirect('/application/expertise-type/review')
-//   }
-  
-// })
-
-// Decide where to go form the Industry or occupational expertise page
-// router.post('/industry-expertise-answer', function (req, res) {
-  
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Teaching, lecturing or training")) {
-//     res.redirect('/application/expertise-type/teaching-expertise')
-//   } else if (!selectedType.includes("Teaching, lecturing or training")) {
-//     res.redirect('/application/expertise-type/review')
 //   }
   
 // })
@@ -406,12 +378,45 @@ router.post('/application/search/subject-search-answer', function (req, res) {
 })
 
 // Did you want to add another qualification?
+router.post('/select-level-answer', function (req, res) {
+
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  let hasMultipleExpertiseTypes = true
+ 
+  const typesOfExpertise2 = [
+    assessmentExpertise,
+    industryExpertise,
+    teachingExpertise
+  ]; // [true, false, true] or [true, false, false] etc...
+
+  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+    // this is just for this function 
+    hasMultipleExpertiseTypes = true
+    // this is to use in the nunjucks view
+    req.session.data.hasMultipleExpertiseTypes = true 
+  } else {
+    hasMultipleExpertiseTypes = false
+  }
+    
+  // at least 2 expertise types have been selected os we need them to tell us more   
+  if (hasMultipleExpertiseTypes === true) {
+    res.redirect('/application/search/select-expertise-type')
+  // must have selected only one type of expertise  
+  } else {
+    res.redirect('/application/search/review') 
+  }
+
+})
+
+// Did you want to add another qualification?
 router.post('/review-subjects-answer', function (req, res) {
 
   let addAnotherSubject = req.session.data.addAnotherSubject
 
     if (addAnotherSubject === 'Yes') {
-      res.redirect('/application/sorry')
+      res.redirect('/application/search/search-by-subject')
     } else {
       res.redirect('/application/search/section-completed') 
   }
@@ -472,10 +477,10 @@ router.post('/equality-question-answer', function (req, res) {
 })
 
 // Sets up the dashboard with a completed application
-router.all( '/populate-dashboard', function (req, res) {
-  req.session.data = Object.assign(req.session.data.applicationData)
-  res.redirect('/application/dashboard');
-})
+// router.all( '/populate-dashboard', function (req, res) {
+//   req.session.data = Object.assign(req.session.data.applicationData)
+//   res.redirect('/application/dashboard');
+// })
 
 // ------ Register your interest  ----- //
 

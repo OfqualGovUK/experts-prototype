@@ -23,10 +23,10 @@
 {% set pageHeading %}
   {# If they are coming from the search page  #}
   {% if data.referrer == "subjectSearch" %}
-    Select the qualifications types you can advise for this subject
+    What qualification types can you advise on for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-    Select the qualifications types you can advise for this industry or sector
+    What qualification types can you advise on in this industry or sector?
   {% endif %}
 {% endset %}
 
@@ -65,19 +65,38 @@
     }
   }) %}
 
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
-        isPgeHeading: true
-      }
-    },
-    hint: {
-      text: "Select all that apply"
-    },
-    items: qualifications
-  } | decorateAttributes(data, "data.selectedQualification")) }}
+  {# If they are coming through the select a sector flow #}
+  {% if data.referrer == "sectorSearch" %}
+  
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPgeHeading: true
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: qualifications
+    } | decorateAttributes(data, "data.selectedQualificationSector")) }}
+  {# else they must be coming through subejct flow #}
+  {% else %}
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPgeHeading: true
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      items: qualifications
+    } | decorateAttributes(data, "data.selectedQualification")) }}
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({

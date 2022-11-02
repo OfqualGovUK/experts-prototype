@@ -47,11 +47,6 @@ var settings = {
   enableErrors: "false"  
 }
 
-var applicationData = {
-  "fullName": "Something else",
-  "opitonsChecked": ["Something", "another thing", "a third thing"]
-} 
-
 module.exports = {
 
   routeData,
@@ -77,11 +72,8 @@ module.exports = {
   trasnsportData,
   qualificationData,
   subjectSearch2Data,
-
-  applicationData,
   
   settings: settings,
-  // personalDetails: personalDetails,
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with a hidden inputs in the dependant sections

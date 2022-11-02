@@ -33,6 +33,21 @@
     },
     {
       key: {
+        text: "Are you currently working in a teaching, lecturing or training role?"
+      },
+      value: { 
+        text: data.currentlyInRole
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "are you currently working in a teaching, lecturing or training role?",
+          href: "./currently-in-role"
+        }]
+      }
+    } if data.anyTeachingExpertise == "Yes",
+    {
+      key: {
         text: "Which activities or responsibilities have you completed?"
       },
       value: { 

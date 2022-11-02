@@ -1,5 +1,5 @@
 {% set qualTypeHtml %}
-  {% if data.resultQualType == "Other qualification type" or data.referrer == "sectorSearch" %}
+  {% if data.resultQualType == "Other qualification type" %}
     <ul class="govuk-list">
       {# loops through and gets al the checked items  #}
       {% for qualificationType in data.selectedQualification %}
@@ -17,8 +17,23 @@
   {% endif %}
 {% endset %}
 
+{% set qualTypeSectorHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for qualificationType in data.selectedQualificationSector %}
+      <li>
+        {% if qualificationType == "A qualification type that isn't listed" %}
+          {{ data.selectedQualificationOther }}
+        {% else %} 
+          {{ qualificationType }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
 {% set levelHtml %}
-  {% if data.resultQualType == "Other qualification level" or data.referrer == "sectorSearch" %}
+  {% if data.resultQualType == "Other qualification type" %}
     <ul class="govuk-list">
       {# loops through and gets al the checked items  #}
       {% for level in data.selectedLevel %}
@@ -36,15 +51,61 @@
   {% endif %}
 {% endset %}
 
+{% set levelSectorHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for level in data.selectedLevelSector %}
+      <li>
+        {% if level == "A qualification level that isn't listed" %}
+          {{ data.selectedLevelOther }}
+        {% else %} 
+          {{ level }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
 {% set expertiseTypeHtml %}
-    <ul class="govuk-list">
-      {# loops through and gets al the checked items  #}
-      {% for type in data.expertiseType %}
-        <li>
-          {{ type }}
-        </li>
-      {% endfor %}
-    </ul>
+  
+  {# If at least one item has been checked, display the selections #}
+  {% if data.hasMultipleExpertiseTypes %}
+    {# multiple #}
+    {% if data.referrer == "subjectSearch" %}
+      <ul class="govuk-list">
+        {# loops through and gets al the checked items  #}
+        {% for type in data.expertiseType %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+    {% if data.referrer == "sectorSearch" %}
+      <ul class="govuk-list">
+        {# loops through and gets al the checked items  #}
+        {% for type in data.expertiseTypeSector %}
+          <li>
+            {{ type }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+
+  {# Todo: not sure if we even need this now #}
+  {# If only one type of expertise is selected #}
+  {% if not data.hasMultipleExpertiseTypes %}
+    {# single #}
+    {% if data.anyAssessmentExpertise == "Yes" %}
+      Assessment
+    {% elseif data.anyIndustryExpertise == "Yes" %}
+      Industry or occupational
+    {% elseif data.anyTeachingExpertise == "Yes" %}
+      Teaching, lecturing or training
+    {% endif %}
+  {% endif %}
 {% endset %}
 
 {# If it is a subjects, apprenticeships or T Level  #}
@@ -70,7 +131,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Subjects, apprenticeship or T Level",
-            href: "./subject-search"
+            href: "./subject-search?referrer=subjectSearch"
           }]
         }
       },
@@ -85,7 +146,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "./select-qualification"
+            href: "./select-qualification?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
@@ -100,7 +161,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "./select-level"
+            href: "./select-level?referrer=subjectSearch"
           }]
         } if data.resultQualType == "Other qualification type"
       },
@@ -115,15 +176,16 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type"
+            href: "./select-expertise-type?referrer=subjectSearch"
           }]
-        }
+        } 
       } if data.hasMultipleExpertiseTypes
     ]
   }) }}
+{% endif %}
 
-{# Must its a sector or industry  #}
-{% else %}
+{# If a sector or industry has been selected  #}
+{% if data.selectedIndustry %}
   {{ xGovukSummaryCard({
     titleText: data.selectedIndustry,
     actions: {
@@ -145,7 +207,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "type of expertise",
-            href: "./sector-search"
+            href: "./sector-search?referrer=sectorSearch"
           }]
         }
       },
@@ -154,13 +216,13 @@
           text: "Qualification type"
         },
         value: { 
-          html: qualTypeHtml
+          html: qualTypeSectorHtml
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "./select-qualification"
+            href: "./select-qualification?referrer=sectorSearch"
           }]
         }
       },
@@ -169,13 +231,13 @@
           text: "Qualification level"
         },
         value: { 
-          html: levelHtml
+          html: levelSectorHtml 
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "./select-level"
+            href: "./select-level?referrer=sectorSearch"
           }]
         }
       },
@@ -190,7 +252,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "./select-expertise-type"
+            href: "./select-expertise-type?referrer=sectorSearch"
           }]
         }
       } if data.hasMultipleExpertiseTypes
