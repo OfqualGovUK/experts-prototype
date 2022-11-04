@@ -3,10 +3,19 @@
   {% endset %}
 
   {% set applicationStatusHtml %}
-    {{govukTag({
-      text: "Review pending",
-      classes: "govuk-tag--yellow"
-    })}}
+    {% if data.applicationStatus == "inReview" %}
+      {{govukTag({
+        text: "Review pending",
+        classes: "govuk-tag--yellow"
+      })}}
+    {% elseif data.applicationStatus == "applicationAccepted" %}
+      {{govukTag({
+        text: "Application accepted",
+        classes: "govuk-tag--green"
+      })}}
+    {% else %}
+      nothing
+    {% endif %}
   {% endset %}
 
   {% set profileUpdatedHtml %}

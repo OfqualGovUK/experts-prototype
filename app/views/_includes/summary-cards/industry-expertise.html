@@ -1,10 +1,10 @@
 {% set industryHtml %}
   {# Build an list of the items selected #}
   <ul class="govuk-list">
-    {% for role in data.expertiseType.industry %}
+    {% for role in data.industryExpertiseType %}
       <li>
         {% if role == "An option that isn't listed" %}
-          {{ data.expertiseType.industryOther }}
+          {{ data.industryExpertiseTypeOther }}
         {% else %} 
           {{ role }}
         {% endif %}
@@ -42,7 +42,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in your industry or occupation",
-          href: "./add-details"
+          href: "/application/industry-expertise/add-details"
         }]
       }
     } if data.anyIndustryExpertise == "Yes"

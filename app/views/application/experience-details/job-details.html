@@ -4,7 +4,7 @@
 {% set formAction = "./review" %}
 {% set pageHeading %}
  {# If a job already exists #}
- {% if data.job.title %}
+ {% if data.jobTitle %}
     Add another role
   {% else %}
     Add a role
@@ -22,7 +22,7 @@
       text: "Name of employer",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.job.employerName")) }}
+  } | decorateAttributes(data, "data.employerName")) }}
 
   {{ govukInput({
     label: {
@@ -32,7 +32,7 @@
     _hint: {
       text: "If you have had more than one role, enter your most relevant role"
     }
-  } | decorateAttributes(data, "data.job.title")) }}
+  } | decorateAttributes(data, "data.jobTitle")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">3 2019</time>

@@ -15,7 +15,7 @@
       text: "Name of organisation",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.conflict.organisation")) }}
+  } | decorateAttributes(data, "data.conflictOrganisation")) }}
 
   {{ govukRadios({
     fieldset: {
@@ -44,7 +44,7 @@
         text: "An option that isn't listed"
       }
     ]
-  } | decorateAttributes(data, "data.conflict.type")) }}
+  } | decorateAttributes(data, "data.conflictType")) }}
 
   {{ govukTextarea({
     label: {
@@ -54,7 +54,7 @@
     hint: {
       text: "By providing further details, we may be able to manage the conflict and the type of work that you may be contracted to complete"
     }
-  } | decorateAttributes(data, "data.conflict.details")) }}
+  } | decorateAttributes(data, "data.conflictDetails")) }}
 
   {% set startDateHintHtml %}
     For example, <time datetime="">3 2019</time>
@@ -138,7 +138,7 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.conflict.currentConflict")) }}
+  } | decorateAttributes(data, "data.currentConflict")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

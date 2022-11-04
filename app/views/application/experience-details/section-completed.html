@@ -27,10 +27,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.experienceDetails")) }}
-
-  {# Enable the next section to be active by resetting the value originally set in session-data-defaults.js #}
-  <input type="hidden" id="referenceDetails" name="referenceDetails" value="">
+  } | decorateAttributes(data, "data.workHistoryCompleted")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

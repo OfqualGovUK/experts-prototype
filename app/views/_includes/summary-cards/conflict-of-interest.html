@@ -5,12 +5,12 @@
 {% if data.conflictOfInterest == "Yes" %}
 
   {{ xGovukSummaryCard({
-    titleText: data.conflict.organisation,
+    titleText: data.conflictOrganisation,
     actions: {
       items: [{
         text: "Delete conflict  of interest",
-        visuallyHiddenText: data.conflict.organisation,
-        href: "/application/conflict-of-interest/delete?delete=" + data.conflict.organisation
+        visuallyHiddenText: data.conflictOrganisation,
+        href: "/application/conflict-of-interest/delete?delete=" + data.conflictOrganisation
       }]
     },
     rows: [
@@ -19,13 +19,13 @@
           text: "Name of organisation"
         },
         value: { 
-          text: data.conflict.organisation or "Not provided"
+          text: data.conflictOrganisation or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "name of organisation",
-            href: "./add-conflict"
+            href: "/application/conflict-of-interest/add-conflict"
           }]
         }
       },
@@ -34,13 +34,13 @@
           text: "Type of conflict"
         },
         value: { 
-          text: data.conflict.type or "Not provided"
+          text: data.conflictType or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Type of conflict",
-            href: "./add-conflict"
+            href: "/application/conflict-of-interest/add-conflict"
           }]
         }
       },
@@ -49,13 +49,13 @@
           text: "Details of conflict"
         },
         value: { 
-          text: data.conflict.details or "Not provided"
+          text: data.conflictDetails or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Details of conflict",
-            href: "./add-conflict"
+            href: "/application/conflict-of-interest/add-conflict"
           }]
         }
       },
@@ -70,7 +70,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Start date",
-            href: "./job-details"
+            href: "/application/conflict-of-interest/add-conflict"
           }]
         }
       },
@@ -79,13 +79,13 @@
           text: "Is this a current conflict of interest?"
         },
         value: { 
-          text: data.conflict.currentConflict or "Not provided"
+          text: data.currentConflict or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Is this a current conflict of interest?",
-            href: "./add-conflict"
+            href: "/application/conflict-of-interest/add-conflict"
           }]
         }
       },
@@ -103,7 +103,7 @@
             href: "./add-conflict"
           }]
         }
-      } if data.conflict.currentConflict == "No"
+      } if data.currentConflict == "No"
     ]
   }) }}
 

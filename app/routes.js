@@ -161,7 +161,7 @@ router.post('/qualifications-answer', function (req, res) {
 // Are you able to provide a copy of this qualification?
 router.post('/upload-available-answer', function (req, res) {
 
-  let uploadAvailable = req.session.data.education.uploadAvailable
+  let uploadAvailable = req.session.data.qualUploadAvailable
 
     if (uploadAvailable === 'Yes') {
       res.redirect('/application/education/upload-qualification')
@@ -476,11 +476,30 @@ router.post('/equality-question-answer', function (req, res) {
 
 })
 
-// Sets up the dashboard with a completed application
-// router.all( '/populate-dashboard', function (req, res) {
-//   req.session.data = Object.assign(req.session.data.applicationData)
-//   res.redirect('/application/dashboard');
-// })
+// View the application in different states
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/populate-application', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)  
+  res.redirect('/application');
+
+})
+
+// Sets up the tasklist with a completed applicationwhen you visit a link
+router.all( '/application-submitted-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  
+  res.redirect('/dashboard?applicationStatus=inReview');
+
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/application-submitted-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationData)
+  
+  res.redirect('/dashboard?applicationStatus=applicationAccepted');
+
+})
 
 // ------ Register your interest  ----- //
 

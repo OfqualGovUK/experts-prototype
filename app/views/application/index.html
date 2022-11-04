@@ -33,7 +33,7 @@
           {{ appTaskListItem({
             name: 'Your qualifications',
             href: 'application/education',
-            taskName: data.educationDetails
+            taskName: data.educationCompleted
           })}}
           {# {{ appTaskListItem({
             name: 'Professional achievements',
@@ -49,7 +49,7 @@
           {{ appTaskListItem({
             name: 'Work history',
             href: 'application/experience-details',
-            taskName: data.experienceDetails
+            taskName: data.workHistoryCompleted
           })}}
           {{ appTaskListItem({
             name: 'Professional memberships',
@@ -93,7 +93,7 @@
             name: 'Add areas',
             href: 'application/search',
             hint: "Complete types of expertise first",
-            taskName: data.areaDetails
+            taskName: data.adviseAreasCompleted
           })}}
         </ul>
       </section>
@@ -116,12 +116,12 @@
           {{ appTaskListItem({
             name: 'Self declaration',
             href: 'application/self-declaration',
-            taskName: data.declarationDetails
+            taskName: data.declarationCompleted
           })}}
           {{ appTaskListItem({
             name: 'Your right to work status',
             href: 'application/right-to-work',
-            taskName: data.rightToWorkDetails
+            taskName: data.rightToWorkCompleted
           })}}
           {{ appTaskListItem({
             name: 'Provide proof of identification',
