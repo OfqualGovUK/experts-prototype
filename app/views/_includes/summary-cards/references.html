@@ -3,12 +3,12 @@
 
 
 {{ xGovukSummaryCard({
-  titleText: data.reference.name,
+  titleText: data.referenceName,
   actions: {
     items: [{
       text: "Delete reference",
-      visuallyHiddenText: data.reference.name,
-      href: "/application/references/delete?delete=" + data.reference.name
+      visuallyHiddenText: data.referenceName,
+      href: "/application/references/delete?delete=" + data.referenceName
     }]
   },
   rows: [
@@ -17,13 +17,13 @@
         text: "Name"
       },
       value: { 
-        text: data.reference.name or "Not provided"
+        text: data.referenceName or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "name",
-          href: "./add-reference"
+          href: "/application/references/add-reference"
         }]
       }
     },
@@ -32,13 +32,13 @@
         text: "Email address"
       },
       value: { 
-        text: data.reference.email or "Not provided"
+        text: data.referenceEmail or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "email address",
-          href: "./add-reference"
+          href: "/application/references/add-reference"
         }]
       }
     },
@@ -47,13 +47,13 @@
         text: "Telephone number"
       },
       value: { 
-        text: data.reference.telephone or "Not provided"
+        text: data.referenceTelephone or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "telephone number",
-          href: "./add-reference"
+          href: "/application/references/add-reference"
         }]
       }
     },
@@ -62,13 +62,13 @@
         text: "Company or organisation name"
       },
       value: { 
-        text: data.reference.organisation or "Not provided"
+        text: data.referenceOrganisation or "Not provided"
       },
       actions: {
         items: [{
           text: "Change",
           visuallyHiddenText: "company or organisation name",
-          href: "./add-reference"
+          href: "/application/references/add-reference"
         }]
       }
     }

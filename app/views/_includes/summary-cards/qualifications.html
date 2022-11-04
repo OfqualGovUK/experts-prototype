@@ -3,12 +3,12 @@
 
   {{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
-    titleText: data.education.qualName,
+    titleText: data.qualName,
     actions: {
       items: [{
         text: "Delete qualification",
-        visuallyHiddenText: data.education.qualName,
-        href: "/application/education/delete?delete=" + data.education.qualName
+        visuallyHiddenText: data.qualName,
+        href: "/application/education/delete?delete=" + data.qualName
       }]
     },
     rows: [
@@ -17,7 +17,7 @@
           text: "School, college, university or other organisation"
         },
         value: { 
-          text: data.education.schoolName or "Not provided"
+          text: data.schoolName or "Not provided"
         },
         actions: {
           items: [{
@@ -47,7 +47,7 @@
           text: "Qualification, course or subject name"
         },
         value: { 
-          text: data.education.qualName or "Not provided"
+          text: data.qualName or "Not provided"
         },
         actions: {
           items: [{
@@ -62,7 +62,7 @@
           text: "Grade"
         },
         value: { 
-          text: data.education.grade or "Not provided"
+          text: data.grade or "Not provided"
         },
         actions: {
           items: [{
@@ -77,7 +77,7 @@
           text: "Year qualification was awarded"
         },
         value: { 
-          text: data.education.yearAwarded or "Not provided"
+          text: data.yearQualAwarded or "Not provided"
         },
         actions: {
           items: [{
@@ -92,13 +92,13 @@
           text: "Are you able to upload a copy of a certificate for this qualification?"
         },
         value: { 
-          text: data.education.uploadAvailable or "Not provided"
+          text: data.qualUploadAvailable or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Are you able to upload a copy of a certificate for this qualification?",
-            href: "./upload-available"
+            href: "/application/education/upload-available"
           }]
         }
       },
@@ -107,22 +107,22 @@
           text: "Provide a reason for not being able to upload a copy of a certificate for this qualification"
         },
         value: { 
-          text: data.education.noReasonHtml or "Not provided"
+          text: data.noQualReasonHtml or "Not provided"
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Provide a reason for not being able to upload a copy of a certificate for this qualification",
-            href: "./upload-available"
+            href: "/application/education/upload-available"
           }]
         }
-      } if data.education.uploadAvailable == "No",
+      } if data.qualUploadAvailable == "No",
       {
         key: {
           text: "Uploaded file"
         },
         value: { 
-          text: data.education.qualificationUpload or "Not provided"
+          text: data.qualificationUpload or "Not provided"
         },
         actions: {
           items: [{
@@ -131,7 +131,7 @@
             href: "./upload-qualification"
           }]
         }
-      } if data.education.uploadAvailable == "Yes"
+      } if data.qualUploadAvailable == "Yes"
     ]
   }) }}
 

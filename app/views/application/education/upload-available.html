@@ -6,7 +6,7 @@
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ data.education.qualName }}</span>
+  <span class="govuk-caption-l">{{ data.qualName }}</span>
   {% set noHtml %}
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
@@ -14,7 +14,7 @@
         text: "Provide a reason",
         classes: "govuk-label--s"
       }
-    } | decorateAttributes(data, "data.education.noReasonHtml")) }}
+    } | decorateAttributes(data, "data.noQualReasonHtml")) }}
 
     {{ govukInsetText({
       text: "You may be required to provide a copy of your certificate during the application evaluation process"
@@ -40,7 +40,7 @@
         }
       }
     ]
-  } | decorateAttributes(data, "data.education.uploadAvailable")) }}
+  } | decorateAttributes(data, "data.qualUploadAvailable")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

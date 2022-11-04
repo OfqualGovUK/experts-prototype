@@ -14,14 +14,14 @@
       text: "Organisation name",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.membership.organisationName")) }}
+  } | decorateAttributes(data, "data.membershipOrganisationName")) }}
 
   {{ govukInput({
     label: {
       text: "Membership type (optional)",
       classes: "govuk-label--m"
     }
-  } | decorateAttributes(data, "data.membership.type")) }}
+  } | decorateAttributes(data, "data.membershipType")) }}
   
   {{ govukInput({
     label: {
@@ -32,7 +32,7 @@
       text: "For example, 2018"
     },
     classes: "govuk-!-width-one-quarter"
-  } | decorateAttributes(data, "data.membership.yearJoined")) }}
+  } | decorateAttributes(data, "data.membershipYearJoined")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
