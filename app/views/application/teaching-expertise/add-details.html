@@ -2,14 +2,14 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your teaching, lecturing or training expertise" %}
+{% set pageHeading = "Provide your teaching, lecturing or training expertise" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Your teaching, lecturing or training expertise</h1>
+  <h1 class="govuk-heading-l">Teaching, lecturing or training expertise</h1>
 
   <p class="govuk-body">
-   You have selected the following activities and responsibilities: 
+   Tell us about your expertise in teaching, lecturing or training by describing your experience, skills and achievements, and the activities and responsibilities you have selected. 
   </p>
 
   {% set teachingHtml %}
@@ -18,7 +18,7 @@
       {% for role in data.teachingExpertiseType %}
         <li>
           {% if role == "An option that isn't listed" %}
-            {{ data.teachingExpertiseTypeOther }}
+            Other: {{ data.teachingExpertiseTypeOther }}
           {% else %} 
             {{ role }}
           {% endif %}
@@ -29,17 +29,31 @@
 
   {{ teachingHtml | safe }}
   
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your expertise and the. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>understanding of qualifications and specifications</li>
+      <li>teaching experience, qualifications and cohorts</li>
+      <li>curriculum development</li>
+      <li>research and project work</li>
+      <li>commercial training experience</li>
+      <li>development of training materials (classroom, online)</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
 
   {{ govukCharacterCount({
     maxwords: 1000,
     rows: "14",
     label: {
-      text: "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in teaching, lecturing or training expertise",
-      classes: "govuk-label--m",
-      isPageHeading: true
-    },
-    hint: {
-      text: "Include evidence of your communication, analytical and judgemental skills."
+      text: pageHeading,
+      classes: "govuk-label--m"
     }
    } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
 
