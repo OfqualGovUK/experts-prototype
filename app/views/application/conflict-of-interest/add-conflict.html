@@ -20,9 +20,12 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Select one per conflict",
+        text: "Type of conflict",
         classes: "govuk-fieldset__legend--m"
       }
+    },
+    hint: {
+      text: "Select one per conflict"
     },
     items: [
       {
