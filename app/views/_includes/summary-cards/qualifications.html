@@ -1,4 +1,4 @@
-{# Show this if the user says they have qualificatiosn to enter #}
+{# Show this if the user says they have qualification to enter #}
 {% if data.anyQualifications == "Yes" %}
 
   {{ xGovukSummaryCard({
@@ -14,7 +14,7 @@
     rows: [
       {
         key: {
-          text: "School, college, university or other organisation"
+          text: "College, school, training provider, university or other organisation"
         },
         value: { 
           text: data.schoolName or "Not provided"
