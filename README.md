@@ -22,23 +22,23 @@ Go to [http://localhost:3000]() in your browser.
 
 ### Latest designs
 
-URL: https://apply-to-provide-expertise.herokuapp.com/
+URL: https://experts-prototype.herokuapp.com/
 
 This version will deploy automatically from merges to main and is the 'latest' version for UR and UX iteration.
 
 ### View the application in various states
 
 **Before submit**
-[View a completed application](https://apply-to-provide-expertise.herokuapp.com/populate-application)
+[View a completed application](https://experts-prototype.herokuapp.com/populate-application)
 
 **After submit**
-[View a submitted application: "In review"](https://apply-to-provide-expertise.herokuapp.com/application-submitted-accepted)
+[View a submitted application: "In review"](https://experts-prototype.herokuapp.com/application-submitted-accepted)
 
-[View a submitted application: "Application accepted"](https://apply-to-provide-expertise.herokuapp.com/application-submitted-accepted)
+[View a submitted application: "Application accepted"](https://experts-prototype.herokuapp.com/application-submitted-accepted)
 
 ### Admin settings
 
-URL: https://apply-to-provide-expertise.herokuapp.com/admin
+URL: https://experts-prototype.herokuapp.com/admin
 
 The <code>Admin</code> section allows us to set up the prototype in different states.
 
