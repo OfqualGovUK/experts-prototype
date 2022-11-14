@@ -22,10 +22,10 @@
 {% set pageHeading %}
   {# If they are coming from the search page  #}
   {% if data.referrer == "subjectSearch" %}
-    What best describes your type of expertise for this subject?
+    What type of expertise do you have for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-  What best describes your type of expertise for this industry or sector?
+    What type of expertise do you have for this industry or sector?
   {% endif %}
 {% endset %}
 
@@ -44,6 +44,9 @@
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
+      },
+      hint: {
+        text: "Your expertise can be current or previous experience"
       },
       items: [
         {
@@ -71,6 +74,9 @@
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
+      },
+      hint: {
+        text: "Your expertise can be current or previous experience"
       },
       items: [
         {

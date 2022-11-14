@@ -2,19 +2,44 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in your industry or occupation." %}
+{% set pageHeading = "Provide details of your industry or occupational expertise" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Your industry or occupational expertise</h1>
+  <h1 class="govuk-heading-l">Industry or occupational expertise</h1>
 
   <p class="govuk-body">
     Industry experts with the knowledge and skills of specific activities within an industry or occupation are required to support the review of qualifications and assessments.
   </p>
 
   <p class="govuk-body">
-    For example, a plumbing expert with in-depth knowledge of pipework diameters and tolerances would be able to inform Ofqual on whether a learner is assessed appropriately.
+    Tell us about your industry expertise by describing your experience, skills, achievements, activities and responsibilities.
   </p>
+  
+  <p class="govuk-body">
+    For example, a plumbing expert with in-depth knowledge of pipework diameters and tolerances would be able to inform Ofqual on whether a student or apprentice is assessed appropriately.
+  </p>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your expertise and the. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your experience, skills and current industry practices</li>
+      <li>specific industry practices to evidence your expertise</li>
+      <li>contribution to industry standards</li>
+      <li>experience leading or managing a team (mentoring or training)</li>
+      <li>understanding of your industry standards for your sector</li>
+      <li>understanding of your industry technologies and procedures</li>
+      <li>ability to provide clear and concise feedback</li>
+      <li>Your skills and continuous learning and training</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
 
   {{ govukCharacterCount({
     maxwords: 1000,
@@ -22,9 +47,6 @@
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
-    },
-    hint: {
-      text: "Include evidence of your communication, analytical and judgemental skills."
     }
    } | decorateAttributes(data, "data.industryExpertiseDetails")) }}
 

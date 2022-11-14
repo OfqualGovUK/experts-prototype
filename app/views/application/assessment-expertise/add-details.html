@@ -2,14 +2,14 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Describe your experience, qualifications, skills and professional achievements to evidence your expertise in assessment" %}
+{% set pageHeading = "Provide details of your assessment expertise" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Your assessment expertise</h1>
+  <h1 class="govuk-heading-l">Assessment expertise</h1>
 
   <p class="govuk-body">
-    You have selected the following activities and responsibilities: 
+    Tell us about your expertise in assessment by describing your experience, qualifications, skills and achievements, and the activities and responsibilities you have selected.
   </p>
 
   {% set assessmentHtml %}
@@ -19,7 +19,7 @@
       {% for role in data.assessmentExpertiseType %}
         <li>
           {% if role == "An option that isn't listed" %}
-            {{ data.assessmentExpertiseTypeOther }}
+            Other: {{ data.assessmentExpertiseTypeOther }}
           {% else %} 
             {{ role }}
           {% endif %}
@@ -28,7 +28,29 @@
     </ul>
   {% endset %}
 
-  {{ assessmentHtml | safe }} 
+  {{ assessmentHtml | safe }}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your understanding of key assessment concepts such as validity and reliability</li>
+      <li>your awareness of the strengths and limitations of different assessment methods</li>
+      <li>presentation delivery</li>
+      <li>providing analytical feedback to others</li>
+      <li>qualifications you have reviewed</li>
+      <li>knowlege and understanding of assessment principles and practices</li>
+      <li>experience of criteria for evaluation and standards setting and maintenance</li>
+      <li>achievements in your roles such as, key note speaker, research or consultancy achievements</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+      <li>ability to work with others</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
 
   {{ govukCharacterCount({
     maxwords: 1000,
@@ -36,9 +58,6 @@
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
-    },
-    hint: {
-      text: "Include evidence of your communication, analytical and judgemental skills."
     }
    } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
 
