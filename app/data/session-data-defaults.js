@@ -54,80 +54,112 @@ var completedApplicationData = {
   "email": "lalita@email.com",
   "telephone": "07552068159",
   "whereDoYouLive": "In the UK",
-  "addressLine1": "43 Watson place",
+  "addressLine1": "43 Watson Place",
   "townOrCity": "Coventry",
   "postCode": "CV1 1DE",
   "personalDetailsCompleted": "complete",
 
   // Education details
   "anyQualifications": "Yes",
-  "schoolName": "Hogwarts",
-  "awordingOrganisation": "Slytherin",
-  "qualName": "Wizardry",
-  "grade": "B",
-  "yearQualAwarded": "2009",
+  "schoolName": "British Occupational Hygiene Society",
+  "awordingOrganisation": "British Occupational Hygiene Society",
+  "qualName": "Certificate of Compentence in Asbestos",
+  "grade": "Pass",
+  "yearQualAwarded": "1995",
   "qualUploadAvailable": "No",
-  "noQualReasonHtml": "I have reecenly moved house and all of my documentation has been lost by the movers.",
-  "qualificationUpload": "Something else",
+  "noQualReasonHtml": "I have lost it temporarily but I have an email from the Awarding Organisation confirming I have the qualification while I am awaiting my replacement certificate",
+  "qualificationUpload": "Not provided",
   "educationCompleted": "complete",
-  
-  // Types of expertise
-  
-  // Assessment
-  "anyAssessmentExpertise": "Yes",
-  "assessmentExpertiseType": ["Designing and/or setting assessments", "Marking assessments"],
-  "assessmentExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "assessmentExpertiseCompleted": "complete",
 
-  // Industry
-  "anyIndustryExpertise": "Yes",
-  "industryExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "industryExpertiseCompleted": "complete",
-  
-  // Teaching
-  "anyTeachingExpertise": "Yes",
-  "currentlyInTeachingRole": "Yes",
-  "teachingExpertiseType": ["Developing classroom materials", "Head of faculty"],
-  "teachingExpertiseDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "teachingExpertiseCompleted": "complete",
-  
   // Work history
-  "employerName": "University College London",
-  "jobTitle": "Lecturer",
+  "employerName": "DAC",
+  "jobTitle": "Director",
   "roleEnded": "No",
   "workHistoryCompleted": "complete",
   
   // Professional memberships
   "anyMemberships": "Yes",
-  "membershipOrganisationName": "University College London",
-  "membershipType": "Standard",
-  "membershipYearJoined": "July 2022",
+  "membershipOrganisationName": "BOHS",
+  "membershipType": "Member",
+  "membershipYearJoined": "2000",
   "professionalMembershipsCompleted": "complete",
-  
+    
   // References
-  "referenceName": "Theodore Kwame",
-  "referenceEmail": "kwameistheking@gmail.com",
-  "referenceTelephone": "07552 065153",
-  "referenceOrganisation": "University College London",
+  "referenceName": "Paul Hograft",
+  "referenceEmail": "PH@email.com",
+  "referenceTelephone": "Not provided",
+  "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
+  
+  // Types of expertise
+  
+  // Assessment
+  "anyAssessmentExpertise": "Yes",
+  "assessmentExpertiseType": [
+    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)", 
+    "Designing and/or setting assessments",
+    "Designing or writing question papers or assessment tasks",
+    "Designing the assessment approach for a qualification",
+    "Determining key grade boundaries for examinations or assessments",
+    "Evaluating the effectiveness of specific assessment design and approaches",
+    "Leading a team of markers, examiners or assessors",
+    "Marking assessments",
+    "Reviewing or overseeing qualification standards",
+    "Reviewing the performance of assessments (individual questions, assessment tasks, mark schemes)",
+    "Reviewing the validity and reliability of the qualification, as part of the qualification lifecycle",
+    "Setting standards for qualification outcomes",
+    "Specification review Specification design",
+  ],
+  "assessmentExpertiseDetails": "I'd enter the qualifications I've been involved in the work designing the assessments, reviewing assessments and standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it. I'd detail my involvement and what we did in terms of designing the assessments. I'd detail the process of reviewing the qualifications and assessments and then detail the work on standardising.",
+  "assessmentExpertiseCompleted": "complete",
+
+  // Industry
+  "anyIndustryExpertise": "Yes",
+  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseCompleted": "complete",
+  
+  // Teaching
+  "anyTeachingExpertise": "Yes",
+  "currentlyInTeachingRole": "Yes",
+  "teachingExpertiseType": [
+    "Developing classroom materials",
+    "Developing teacher training materials",
+    "Training other teachers/ lecturers",
+    "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
+
+  ],
+  "teachingExpertiseDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
+  "teachingExpertiseCompleted": "complete",
 
   // Areas that you can advise on 
-  // Only including a subject for now
-  "selectedSubject": "Automotive Glazing Technician (End-Point Assessment - Level 3)",
-  "resultName": "Automotive Glazing Technician",
-  "selectedQualification": "End-Point Assessment",
+  // Subject
+  "selectedSubject": "Asbestos Analyst and Surveyor (End-Point Assessment - Level 3)",
+  "resultName": "Asbestos Analyst and Surveyor",
+  "selectedQualification": ["End-Point Assessment"],
   "selectedLevel": ["Level 3"],
   "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
-  "expertiseType": ["Assessment", "Industry or occupational", "Teaching, lecturing or training"],
+  "expertiseType": [
+    "Assessment", 
+    "Industry or occupational", 
+    "Teaching, lecturing or training"
+  ],
+  // Sector
+  "selectedIndustry": "Building and construction",
+  "selectedQualificationSector": [
+    "End-Point Assessment", 
+    "Technical Qualification", 
+    "Vocationally-Related Qualification"
+  ],
+  "selectedLevelSector": ["Level 4"],
   "adviseAreasCompleted": "complete",
   
   // Conflict of interest
   "conflictOfInterest": "Yes",
-  "conflictOrganisation": "The University of Manchester",
-  "conflictType": "I have an immediate family member who is employed or contracted by an Awarding Organisation",
-  "conflictDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  "conflictStartDate": "May 2011",
+  "conflictOrganisation": "RS Public Health",
+  "conflictType": "I work for an Awarding Organisation as an external consultant or advisor",
+  "conflictDetails": "I work for an awarding organisation, but I am not employed. I am contracted externally. I am training, assessor, and examiner for the qualification they award. I would put the detail of the years I was an assessor for them and if I am no longer doing any work for them I'd make it clear I haven't and don't do any work for them etc.",
+  "conflictStartDate": "June 2005",
   "currentConflict": "No",
   "conflictEndDate": "March 2015",
   "conflictOfInterestCompleted": "complete",
@@ -139,8 +171,8 @@ var completedApplicationData = {
   // "bankruptDetails": "Test",
   "misconduct": "No",
   // "misconductDetails": "Test",
-  "breach": "Yes",
-  "breachDetails": "I didn't pay my tax for a REALLY long time.",
+  "breach": "No",
+  // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
   
   // Your right to work status
