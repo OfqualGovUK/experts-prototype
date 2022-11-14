@@ -8,13 +8,12 @@
 
   {# <span class="govuk-caption-l">Education and qualifications</span> #}
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-  {# <p class="govuk-body">You will be able to add more qualifications, after you have finished telling us about the first qualification.</p> #}
-  <p class="govuk-body">For example - ABC College, Diploma in ABC, Merit, 2017</p>
-  <p class="govuk-body">Ofqual has the right to request copies of your certificates after the application stage, and failure to provide these may result in your application being rejected.</p>
+  <p class="govuk-body">You will be able to add more qualifications, after you have finished telling us about the first qualification.</p>
+  <p class="govuk-body">For example - ABC College, DEG Awarding Organisation, Diploma in ABC, Merit, 2017</p>
 
   {{ govukInput({
     label: {
-      text: "School, college, university or other organisation",
+      text: "College, school, training provider, university or other organisation",
       classes: "govuk-label--m"
     }
   } | decorateAttributes(data, "data.schoolName")) }}
