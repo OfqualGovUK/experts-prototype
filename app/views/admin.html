@@ -85,31 +85,6 @@
     ]
   } | decorateAttributes(data, "data.adviseAreasCompleted")) }}
 
-  {# <hr class="govuk-section-break govuk-section-break--visible">
-
-  <h2 class="govuk-heading-l">View an application in different statuses<h2>
-
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Application status",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        text: "In review"      
-      },
-      {
-        text: "Changes requested"
-      },
-      {
-        text: "Application accepted"
-      }
-    ]
-  } | decorateAttributes(data, "data.settings.applicationStatus")) }}   #}
-  
-
   {{ govukButton({
     text: "Update settings"
   }) }}
