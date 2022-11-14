@@ -135,8 +135,8 @@ var completedApplicationData = {
   // Subject
   "selectedSubject": "Asbestos Analyst and Surveyor (End-Point Assessment - Level 3)",
   "resultName": "Asbestos Analyst and Surveyor",
-  "selectedQualification": ["End-Point Assessment"],
-  "selectedLevel": ["Level 3"],
+  "resultQualType": "End-Point Assessment",
+  "resultLevel": "Level 3",
   "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
@@ -214,7 +214,6 @@ module.exports = {
   completedApplicationData,
   
   settings: settings,
-  // personalDetails: personalDetails,
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with a hidden inputs in the dependant sections
