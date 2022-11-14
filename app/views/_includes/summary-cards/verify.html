@@ -1,10 +1,18 @@
+  {% set uploadHtml %}
+    {% if data.idUpload %}
+      <a href="#">{{data.idUpload}}</a>
+    {% else %}
+      Not provided
+    {% endif %}
+  {% endset %}
+  
   {{ xGovukSummaryCard({
     rows: [{
       key: {
         text: "Uploaded file"
       },
       value: {
-        text: data.idUpload or "Not provided"
+        html: uploadHtml
       },
       actions: {
         items: [{
