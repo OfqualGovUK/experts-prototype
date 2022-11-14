@@ -477,28 +477,48 @@ router.post('/equality-question-answer', function (req, res) {
 })
 
 // View the application in different states
+// VTQ Application
 
 // Sets up the tasklist with a completed application when you visit a link
-router.all( '/populate-application', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)  
+router.all( '/populate-application-vtq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)  
   res.redirect('/application');
-
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
-router.all( '/application-submitted-in-review', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)
+router.all( '/application-submitted-vtq-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=inReview');
-
+  res.redirect('/dashboard?applicationStatus=In review');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
-router.all( '/application-submitted-accepted', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)
+router.all( '/application-submitted-vtq-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=applicationAccepted');
+  res.redirect('/dashboard?applicationStatus=Application accepted');
+})
 
+// GQ Application
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/populate-application-gq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)  
+  res.redirect('/application');
+})
+
+// Sets up the tasklist with a completed applicationwhen you visit a link
+router.all( '/application-submitted-gq-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  
+  res.redirect('/dashboard?applicationStatus=In review');
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/application-submitted-gq-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  
+  res.redirect('/dashboard?applicationStatus=Application accepted');
 })
 
 // ------ Register your interest  ----- //

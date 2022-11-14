@@ -3,12 +3,12 @@
   {% endset %}
 
   {% set applicationStatusHtml %}
-    {% if data.applicationStatus == "inReview" %}
+    {% if data.applicationStatus == "In review" %}
       {{govukTag({
         text: "Review pending",
         classes: "govuk-tag--yellow"
       })}}
-    {% elseif data.applicationStatus == "applicationAccepted" %}
+    {% elseif data.applicationStatus == "Application accepted" %}
       {{govukTag({
         text: "Application accepted",
         classes: "govuk-tag--green"

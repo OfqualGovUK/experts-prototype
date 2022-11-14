@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Admin settings" %}
-{% set formAction = "/application" %}
+{% set formAction = "/index" %}
 
 {% block formContent %}
 
@@ -87,16 +87,27 @@
 
   {# <hr class="govuk-section-break govuk-section-break--visible">
 
-  <h2 class="govuk-heading-l">View the application in various states<h2>
-  <h3 class="govuk-heading-s">Before submit<h3>
+  <h2 class="govuk-heading-l">View an application in different statuses<h2>
 
-  <p class="govuk-body"><a href="/populate-application" class="govuk">View a completed application</a></p>
-
-  <h3 class="govuk-heading-s">After submit<h3>
-
-  <p class="govuk-body"><a href="/application-submitted-in-review" class="govuk">View a submitted application: "In review"</a></p>
-  <p class="govuk-body"><a href="/application-submitted-accepted" class="govuk">View a submitted application: "Application accepted"</a></p>
-  <p class="govuk-body"><a href="#" class="govuk">View a submitted application: "More information required"</a></p> #}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Application status",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        text: "In review"      
+      },
+      {
+        text: "Changes requested"
+      },
+      {
+        text: "Application accepted"
+      }
+    ]
+  } | decorateAttributes(data, "data.settings.applicationStatus")) }}   #}
   
 
   {{ govukButton({

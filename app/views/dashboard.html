@@ -4,11 +4,11 @@
 {% set backLink = "false" %}
 {% set primaryNavActive = "Dashboard" %}
 
-{% if data.applicationStatus == "inReview" %}
+{% if data.applicationStatus == "In review" %}
   {% set pageHeading = "My application" %}
 {% endif %}
 
-{% if data.applicationStatus == "applicationAccepted" %}
+{% if data.applicationStatus == "Application accepted" %}
   {% set pageHeading = "My account" %}
   {% set pageType = "Dashboard" %}
 {% endif %}
@@ -17,7 +17,7 @@
 
   <div class="govuk-grid-row">
     {# Show the success banner if the application is in review #}
-    {% if data.applicationStatus == "inReview" %}
+    {% if data.applicationStatus == "In review" %}
       <div class="govuk-grid-column-full">
         {% set html %}
           <h3 class="govuk-notification-banner__heading">
@@ -34,11 +34,11 @@
     
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      {% if data.applicationStatus == "inReview" %}
+      {% if data.applicationStatus == "In review" %}
         <p class="govuk-body">Your application has been submitted. You will get an email once it has been reviewed.</p>
         <p class="govuk-body">You can make changes to your application until it is assigned to an evaluator.</p>
       {% endif %}
-      {% if data.applicationStatus == "applicationAccepted" %}
+      {% if data.applicationStatus == "Application accepted" %}
         <p class="govuk-body">Your application has been acepted.</p>
         <p class="govuk-body">You can now bid for work and do other stuff.</p>
       {% endif %}
