@@ -84,7 +84,19 @@
     html: 'This is a prototype of a new service – your <a href="#" class="govuk-link">feedback</a> will help us improve it'
   }) }}
 
+
   <div class="govuk-width-container ">
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        This prototype is no longer being maintained. Visit the new prototype instead!<br>
+        <a class="govuk-notification-banner__link" href="https://experts-prototype.herokuapp.com/">experts-prototype.herokuapp.com</a>.
+      </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
     {% block pageNavigation %}
     {% endblock %}  
   </div>
