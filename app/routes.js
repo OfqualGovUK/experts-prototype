@@ -377,7 +377,9 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
 })
 
-// Did you want to add another qualification?
+// What type of expertise do you have for this industry or sector?
+// Joe helped me write this one too
+
 router.post('/select-level-answer', function (req, res) {
 
   const assessmentExpertise = req.session.data.anyAssessmentExpertise
@@ -400,7 +402,7 @@ router.post('/select-level-answer', function (req, res) {
     hasMultipleExpertiseTypes = false
   }
     
-  // at least 2 expertise types have been selected os we need them to tell us more   
+  // at least 2 expertise types have been selected so we need them to tell us more   
   if (hasMultipleExpertiseTypes === true) {
     res.redirect('/application/search/select-expertise-type')
   // must have selected only one type of expertise  
@@ -486,6 +488,7 @@ router.all( '/populate-application-vtq', function (req, res) {
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-vtq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
@@ -493,6 +496,7 @@ router.all( '/application-submitted-vtq-in-review', function (req, res) {
 })
 
 // Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-vtq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
@@ -508,6 +512,7 @@ router.all( '/populate-application-gq', function (req, res) {
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-gq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
@@ -515,6 +520,7 @@ router.all( '/application-submitted-gq-in-review', function (req, res) {
 })
 
 // Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-gq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
