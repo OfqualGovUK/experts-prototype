@@ -77,27 +77,27 @@ var completedApplicationDataVTQ = {
   "jobTitle": "Director",
   "roleEnded": "No",
   "workHistoryCompleted": "complete",
-  
+
   // Professional memberships
   "anyMemberships": "Yes",
   "membershipOrganisationName": "BOHS",
   "membershipType": "Member",
   "membershipYearJoined": "2000",
   "professionalMembershipsCompleted": "complete",
-    
+
   // References
   "referenceName": "Paul Hograft",
   "referenceEmail": "PH@email.com",
   "referenceTelephone": "Not provided",
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
-  
+
   // Types of expertise
-  
+
   // Assessment
   "anyAssessmentExpertise": "Yes",
   "assessmentExpertiseType": [
-    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)", 
+    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)",
     "Designing and/or setting assessments",
     "Designing or writing question papers or assessment tasks",
     "Designing the assessment approach for a qualification",
@@ -118,7 +118,7 @@ var completedApplicationDataVTQ = {
   "anyIndustryExpertise": "Yes",
   "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
   "industryExpertiseCompleted": "complete",
-  
+
   // Teaching
   "anyTeachingExpertise": "Yes",
   "currentlyInTeachingRole": "Yes",
@@ -132,7 +132,7 @@ var completedApplicationDataVTQ = {
   "teachingExpertiseDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
   "teachingExpertiseCompleted": "complete",
 
-  // Areas that you can advise on 
+  // Areas that you can advise on
   // Subject
   "selectedSubject": "Asbestos Analyst and Surveyor (End-Point Assessment - Level 3)",
   "resultName": "Asbestos Analyst and Surveyor",
@@ -141,20 +141,20 @@ var completedApplicationDataVTQ = {
   "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
-    "Assessment", 
-    "Industry or occupational", 
+    "Assessment",
+    "Industry or occupational",
     "Teaching, lecturing or training"
   ],
   // Sector
   "selectedIndustry": "Building and construction",
   "selectedQualificationSector": [
-    "End-Point Assessment", 
-    "Technical Qualification", 
+    "End-Point Assessment",
+    "Technical Qualification",
     "Vocationally-Related Qualification"
   ],
   "selectedLevelSector": ["Level 4"],
   "adviseAreasCompleted": "complete",
-  
+
   // Conflict of interest
   "conflictOfInterest": "Yes",
   "conflictOrganisation": "RS Public Health",
@@ -164,7 +164,7 @@ var completedApplicationDataVTQ = {
   "currentConflict": "No",
   "conflictEndDate": "March 2015",
   "conflictOfInterestCompleted": "complete",
-  
+
   // Self declaration
   "judgements": "No",
   // "judgementsDetails": "Test",
@@ -175,7 +175,7 @@ var completedApplicationDataVTQ = {
   "breach": "No",
   // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
-  
+
   // Your right to work status
   "rightToWork": "Yes",
   "rightToWorkStatus": "UK citizenship",
@@ -201,42 +201,42 @@ var completedApplicationDataGQ = {
 
   // Education details
   "anyQualifications": "Yes",
-  "schoolName": "British Occupational Hygiene Society",
-  "awordingOrganisation": "British Occupational Hygiene Society",
-  "qualName": "Certificate of Compentence in Asbestos",
-  "grade": "Pass",
-  "yearQualAwarded": "1995",
-  "qualUploadAvailable": "No",
-  "noQualReasonHtml": "I have lost it temporarily but I have an email from the Awarding Organisation confirming I have the qualification while I am awaiting my replacement certificate",
-  "qualificationUpload": "Not provided",
+  "schoolName": "University of Central Lancashire",
+  "awordingOrganisation": "",
+  "qualName": "Performing arts degree / Certificate & Masters in Education",
+  "grade": "",
+  "yearQualAwarded": "1982",
+  "qualUploadAvailable": "Yes",
+  "noQualReasonHtml": " ",
+  "qualificationUpload": "Allcerts.jpg",
   "educationCompleted": "complete",
 
   // Work history
-  "employerName": "DAC",
-  "jobTitle": "Director",
-  "roleEnded": "No",
+  "employerName": "Brenton College",
+  "jobTitle": "Head of Performing Arts",
+  "roleEnded": "Yes",
   "workHistoryCompleted": "complete",
-  
+
   // Professional memberships
   "anyMemberships": "Yes",
-  "membershipOrganisationName": "BOHS",
-  "membershipType": "Member",
-  "membershipYearJoined": "2000",
+  "membershipOrganisationName": "Union and Drama teachers network",
+  "membershipType": "",
+  "membershipYearJoined": "1983",
   "professionalMembershipsCompleted": "complete",
-    
+
   // References
-  "referenceName": "Paul Hograft",
-  "referenceEmail": "PH@email.com",
+  "referenceName": "A N Headteacher",
+  "referenceEmail": "headteacher@school.com",
   "referenceTelephone": "Not provided",
-  "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
+  "referenceOrganisation": "A N Head",
   "referencesCompleted": "complete",
-  
+
   // Types of expertise
-  
+
   // Assessment
   "anyAssessmentExpertise": "Yes",
   "assessmentExpertiseType": [
-    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)", 
+    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)",
     "Designing and/or setting assessments",
     "Designing or writing question papers or assessment tasks",
     "Designing the assessment approach for a qualification",
@@ -250,14 +250,14 @@ var completedApplicationDataGQ = {
     "Setting standards for qualification outcomes",
     "Specification review Specification design",
   ],
-  "assessmentExpertiseDetails": "I'd enter the qualifications I've been involved in the work designing the assessments, reviewing assessments and standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it. I'd detail my involvement and what we did in terms of designing the assessments. I'd detail the process of reviewing the qualifications and assessments and then detail the work on standardising.",
+  "assessmentExpertiseDetails": "I've done a lot of training for exam boards.  I've run quite a few standards meetings.  I've been a standards verifier for BTEC performing arts.  Examiner for GCSE Performing Arts for AQA.  Examiner for GCC drama and set the standards Btech Performing Arts.  I would descsribe my involvement, activities and responsibilities to link with the information selected.  For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry
-  "anyIndustryExpertise": "Yes",
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "anyIndustryExpertise": "No",
+  "industryExpertiseDetails": "",
   "industryExpertiseCompleted": "complete",
-  
+
   // Teaching
   "anyTeachingExpertise": "Yes",
   "currentlyInTeachingRole": "Yes",
@@ -268,42 +268,42 @@ var completedApplicationDataGQ = {
     "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
 
   ],
-  "teachingExpertiseDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
+  "teachingExpertiseDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
   "teachingExpertiseCompleted": "complete",
 
-  // Areas that you can advise on 
+  // Areas that you can advise on
   // Subject
-  "selectedSubject": "Asbestos Analyst and Surveyor (End-Point Assessment - Level 3)",
-  "resultName": "Asbestos Analyst and Surveyor",
-  "resultQualType": "End-Point Assessment",
+  "selectedSubject": "Performing arts (GCE AS/A Level - Level 3)",
+  "resultName": "Performing arts",
+  "resultQualType": "GCE AS/A Level",
   "resultLevel": "Level 3",
   "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
-    "Assessment", 
-    "Industry or occupational", 
+    "Assessment",
+    "",
     "Teaching, lecturing or training"
   ],
   // Sector
-  "selectedIndustry": "Building and construction",
+  "selectedIndustry": "Performing arts",
   "selectedQualificationSector": [
-    "End-Point Assessment", 
-    "Technical Qualification", 
-    "Vocationally-Related Qualification"
+    "End-Point Assessment",
+    "GCE A Level",
+    "GCE AS Level"
   ],
   "selectedLevelSector": ["Level 4"],
   "adviseAreasCompleted": "complete",
-  
+
   // Conflict of interest
   "conflictOfInterest": "Yes",
-  "conflictOrganisation": "RS Public Health",
+  "conflictOrganisation": "Supply work / External consultant",
   "conflictType": "I work for an Awarding Organisation as an external consultant or advisor",
-  "conflictDetails": "I work for an awarding organisation, but I am not employed. I am contracted externally. I am training, assessor, and examiner for the qualification they award. I would put the detail of the years I was an assessor for them and if I am no longer doing any work for them I'd make it clear I haven't and don't do any work for them etc.",
+  "conflictDetails": "I'd want to select more options, I have been employed by an AO, I've worked on the subject as a supply teacher and I do work as an advisor.",
   "conflictStartDate": "June 2005",
-  "currentConflict": "No",
-  "conflictEndDate": "March 2015",
+  "currentConflict": "Yes",
+  "conflictEndDate": "",
   "conflictOfInterestCompleted": "complete",
-  
+
   // Self declaration
   "judgements": "No",
   // "judgementsDetails": "Test",
@@ -314,7 +314,7 @@ var completedApplicationDataGQ = {
   "breach": "No",
   // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
-  
+
   // Your right to work status
   "rightToWork": "Yes",
   "rightToWorkStatus": "UK citizenship",
@@ -354,7 +354,7 @@ module.exports = {
 
   completedApplicationDataGQ,
   completedApplicationDataVTQ,
-  
+
   settings: settings,
 
   // Setting the sections that aren't able to be started yet
