@@ -15,6 +15,11 @@
     }) %}
   {% endfor %}
 
+  {# Note for future designers #}
+  {# Joe Ingledew helped me build this feature and I apologise in advance for it being held together with sticky tape and bubble gum! #}
+
+  {# This section is populated by data found here: /data/subjectSearchData2.json #}
+
   {% set sub = []  %}
   
   {% for s in data.subjectSearch2Data  %}
@@ -41,11 +46,11 @@
 
     <script type="text/javascript">
 
-    let rawResults = [
-      {% for s in data.subjectSearch2Data %}
-        { "name": "{{s.name}}", "qualType": "{{s.qualType}}", "level": "{{s.level}}" },
-      {% endfor %}
-    ]
+      let rawResults = [
+        {% for s in data.subjectSearch2Data %}
+          { "name": "{{s.name}}", "qualType": "{{s.qualType}}", "level": "{{s.level}}" },
+        {% endfor %}
+      ]
 
       const results = rawResults.map((x, ix) => ({ id: ix, ...x }))
 
