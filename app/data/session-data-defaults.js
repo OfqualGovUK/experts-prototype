@@ -186,7 +186,7 @@ var completedApplicationDataVTQ = {
   "verifyIdentityCompleted": "complete"
 }
 
-// This is all the data needed to populate a VTQ completed application
+// This is all the data needed to populate a GQ completed application
 var completedApplicationDataGQ = {
 
   // Personal details
@@ -327,6 +327,7 @@ var completedApplicationDataGQ = {
 
 module.exports = {
 
+  // This section pulls in various data sources
   routeData,
   agricultureData,
   allOccupationData,
@@ -357,7 +358,7 @@ module.exports = {
   settings: settings,
 
   // Setting the sections that aren't able to be started yet
-  // The section is enabled with a hidden inputs in the dependant sections
+  // The section is enabled with hidden inputs in the dependant section
   "adviseAreasCompleted": "canNotStartYet"
 
 }
