@@ -58,7 +58,7 @@ var completedApplicationDataVTQ = {
   "addressLine1": "43 Watson Place",
   "townOrCity": "Coventry",
   "postCode": "CV1 1DE",
-  "personalDetailsCompleted": "complete",
+  // "personalDetailsCompleted": "complete",
 
   // Education details
   "anyQualifications": "Yes",
@@ -359,6 +359,9 @@ module.exports = {
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with hidden inputs in the dependant section
-  "adviseAreasCompleted": "canNotStartYet"
+  "adviseAreasCompleted": "canNotStartYet",
+
+  // Set a default status for the application   
+  "applicationStatus": "In progress"
 
 }

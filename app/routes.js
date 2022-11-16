@@ -488,19 +488,21 @@ router.all( '/populate-application-vtq', function (req, res) {
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
-// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+// The applicationStatus tells the prototype which status the aplication is in
 router.all( '/application-submitted-vtq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
-  
-  res.redirect('/dashboard?applicationStatus=In review');
+  req.session.data.applicationStatus = "In review"
+
+  res.redirect('/dashboard');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
-// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+// The applicationStatus tells the prototype which status the aplication is in
 router.all( '/application-submitted-vtq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
+  req.session.data.applicationStatus = "Application accepted"
   
-  res.redirect('/dashboard?applicationStatus=Application accepted');
+  res.redirect('/dashboard');
 })
 
 // GQ Application
@@ -512,19 +514,31 @@ router.all( '/populate-application-gq', function (req, res) {
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
-// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+// The applicationStatus tells the prototype which status the aplication is in
 router.all( '/application-submitted-gq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  req.session.data.applicationStatus = "In review"
   
-  res.redirect('/dashboard?applicationStatus=In review');
+  res.redirect('/dashboard');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
-// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+// The applicationStatus tells the prototype which status the aplication is in
 router.all( '/application-submitted-gq-accepted', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
-  
-  res.redirect('/dashboard?applicationStatus=Application accepted');
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)  
+  req.session.data.applicationStatus = "Application accepted"
+
+  res.redirect('/dashboard');
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+// The applicationStatus tells the prototype which status the aplication is in
+router.all( '/application-submitted-gq-action-required', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)  
+  req.session.data.applicationStatus = "Action required"
+  req.session.data.personalDetailsCompleted = "Action required"
+
+  res.redirect('/dashboard');
 })
 
 // ------ Register your interest  ----- //

@@ -19,15 +19,22 @@
     <span class="govuk-visually-hidden">Status</span>
     <strong class="govuk-tag govuk-tag--grey">Cannot start yet</strong>
   {% endset %}
+  
+  {% set canNotStartTagHTML %}
+    <span class="govuk-visually-hidden">Status</span>
+    <strong class="govuk-tag govuk-tag--red">Action required</strong>
+  {% endset %}
 
-	{% if taskName == 'canNotStartYet' %}
-		{{ canNotStartTagHTML | safe }}
+  {% if taskName == 'canNotStartYet' %}
+    {{ canNotStartTagHTML | safe }}
   {% elseif taskName == 'complete' %}
-		{{ completeTagHTML | safe }}
-	{% elseif taskName == 'inProgress' %}
-		{{ inProgressTagHTML | safe }}
-	{% else %}
-		{{ notStartedTagHTML | safe }}
-	{% endif %}
+    {{ completeTagHTML | safe }}
+  {% elseif taskName == 'inProgress' %}
+    {{ inProgressTagHTML | safe }}
+  {% elseif taskName == 'actionRequired' %}
+    {{ actionRequiredTagHTML | safe }}
+  {% else %}
+    {{ notStartedTagHTML | safe }}
+  {% endif %}
 
 {% endmacro %}

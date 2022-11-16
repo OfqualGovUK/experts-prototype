@@ -1,0 +1,122 @@
+
+
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Personal information and contact address',
+			href: 'application/personal-details',
+			taskName: data.personalDetailsCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Your qualifications',
+			href: 'application/education',
+			taskName: data.educationCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Work history',
+			href: 'application/experience-details',
+			taskName: data.workHistoryCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'Professional memberships',
+			href: 'application/professional-memberships',
+			taskName: data.professionalMembershipsCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'References',
+			href: 'application/references',
+			taskName: data.referencesCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Types of expertise</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Assessment expertise',
+			href: 'application/assessment-expertise',
+			taskName: data.assessmentExpertiseCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'Industry or occupational expertise',
+			href: 'application/industry-expertise',
+			taskName: data.industryExpertiseCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'Teaching, lecturing or training expertise',
+			href: 'application/teaching-expertise',
+			taskName: data.teachingExpertiseCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+	
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Areas that you can provide expertise on</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Add areas',
+			href: 'application/search',
+			hint: "Complete types of expertise first",
+			taskName: data.adviseAreasCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+	
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Conflict of interest',
+			href: 'application/conflict-of-interest',
+			taskName: data.conflictOfInterestCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>
+
+<section class="govuk-!-margin-bottom-8">
+	<h2 class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
+	<ul class="app-task-list">
+		{{ appTaskListItem({
+			name: 'Self declaration',
+			href: 'application/self-declaration',
+			taskName: data.declarationCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'Your right to work status',
+			href: 'application/right-to-work',
+			taskName: data.rightToWorkCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+		{{ appTaskListItem({
+			name: 'Provide proof of identification',
+			href: 'application/verify-your-identity',
+			taskName: data.verifyIdentityCompleted,
+			applicationStatus: data.applicationStatus
+		})}}
+	</ul>
+</section>

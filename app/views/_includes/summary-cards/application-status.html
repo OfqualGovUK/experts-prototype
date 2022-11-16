@@ -6,15 +6,23 @@
     {% if data.applicationStatus == "In review" %}
       {{govukTag({
         text: "Review pending",
-        classes: "govuk-tag--yellow"
+        classes: "govuk-tag--yellow govuk-!-margin-bottom-2"
       })}}
+      <p class="govuk-body">Your application has been submitted. You will get an email once it has been reviewed.</p>
+      <p class="govuk-body">Changes can be made to your application until it is assigned to an evaluator.</p>
     {% elseif data.applicationStatus == "Application accepted" %}
       {{govukTag({
         text: "Application accepted",
-        classes: "govuk-tag--green"
+        classes: "govuk-tag--green govuk-!-margin-bottom-2"
       })}}
-    {% else %}
-      nothing
+      <p class="govuk-body">Your application has been accepted. You can now bid for work and do other stuff.</p>
+    {% elseif data.applicationStatus == "Action required" %}
+      {{govukTag({
+        text: "Action required",
+        classes: "govuk-tag--red govuk-!-margin-bottom-2"
+      })}}
+      <p class="govuk-body">We need more information from you!</p>
+      {# show nothing #}
     {% endif %}
   {% endset %}
 

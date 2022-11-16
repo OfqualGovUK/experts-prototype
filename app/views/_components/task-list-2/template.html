@@ -21,5 +21,11 @@
       </a>
     {% endif %}
   </span>
-  {{ appTaskTag(params.taskName) }}
+
+  {% if params.applicationStatus == "In progress" %}
+    {{ appTaskTag(params.taskName) }}
+  {% elseif params.applicationStatus == "In review" or params.applicationStatus == "Application accepted" %}
+    {# test #}
+  {% endif %}
+
 </li>

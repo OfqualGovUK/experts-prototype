@@ -1,10 +1,9 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Subject matter expert dashboard" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Dashboard" %}
 
-{% if data.applicationStatus == "In review" %}
+{% if data.applicationStatus == "In review" or data.applicationStatus == "Action required" %}
   {% set pageHeading = "My application" %}
 {% endif %}
 
@@ -33,26 +32,33 @@
     {% endif %}
     
     <div class="govuk-grid-column-two-thirds-from-desktop">
+
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      {% if data.applicationStatus == "In review" %}
-        <p class="govuk-body">Your application has been submitted. You will get an email once it has been reviewed.</p>
-        <p class="govuk-body">You can make changes to your application until it is assigned to an evaluator.</p>
-      {% endif %}
-      {% if data.applicationStatus == "Application accepted" %}
-        <p class="govuk-body">Your application has been acepted.</p>
-        <p class="govuk-body">You can now bid for work and do other stuff.</p>
-      {% endif %}
-    </div>
 
-   <div class="govuk-grid-column-full">   
-    <section class="govuk-!-margin-bottom-8">
-      <h2 class="govuk-heading-m govuk-!-font-size-27">Status</h2>
-      {% include "_includes/summary-cards/application-status.html" %}
-    </section>
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Status</h2>
+        {% include "_includes/summary-cards/application-status.html" %}
+      </section>
     
-    {# Include all the application sections #}
-    {% include "_includes/shared/application-sections.html" %}
+      {# Include the task list #}
+      {% include "_includes/shared/application-tasklist.html" %}
+    
+      {# Include all the application sections #}
+      {# {% include "_includes/shared/application-sections.html" %} #}
 
-  <div>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <aside class="app-related" role="complementary">
+          <h2 class="govuk-heading-s govuk-!-margin-bottom-2" id="support-title">Get help</h2>
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>Call 0800 389 2500 or email <a class="govuk-link" href="websupport@ofqual.gov.uk">websupport@ofqual.gov.uk</a></li>
+            <li>Monday to Friday, 8:30am to 5:30pm (except public&nbsp;holidays)</li>
+            <li>Free of charge</li>
+          </ul>
+        </aside>
+      </div>
+
+  </div>
 
 {% endblock %}
