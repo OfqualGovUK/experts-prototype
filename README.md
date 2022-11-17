@@ -18,6 +18,44 @@ This prototype is based on the [GOV.UK prototype kit](https://github.com/alphago
 
 Go to [http://localhost:3000]() in your browser.
 
+## Some differences you might notice
+
+The prototype uses a function called `decorateAttributes`. This is a helper that means we can write less code in nunjuck form macros. For example...
+
+In the design system:
+
+```
+{{ govukInput({
+  label: {
+    text: "What is the name of the event?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "event-name",
+  name: "event-name"
+}) }}
+```
+The Prototyping kit tutorial suggests you display the data for this input like this:
+
+`{{ data['event-name'] }}`
+
+In this project:
+
+```
+{{ govukInput({
+  label: {
+    text: "What is the name of the event?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  } | decorateAttributes(data, "data.eventName")) }}
+```
+In this project we display the data like this:
+
+`{{ data.eventName }}`
+
+This is the rule to follow for all form inputs.
+
 ## Deployed versions
 
 ### Latest designs
@@ -25,16 +63,6 @@ Go to [http://localhost:3000]() in your browser.
 URL: https://experts-prototype.herokuapp.com/
 
 This version will deploy automatically from merges to main and is the 'latest' version for UR and UX iteration.
-
-### View the application in various states
-
-**Before submit**
-[View a completed application](https://experts-prototype.herokuapp.com/populate-application)
-
-**After submit**
-[View a submitted application: "In review"](https://experts-prototype.herokuapp.com/application-submitted-accepted)
-
-[View a submitted application: "Application accepted"](https://experts-prototype.herokuapp.com/application-submitted-accepted)
 
 ### Admin settings
 
