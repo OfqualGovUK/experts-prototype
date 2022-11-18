@@ -20,7 +20,7 @@ Go to [http://localhost:3000]() in your browser.
 
 ## Some differences you might notice
 
-The prototype uses a function called `decorateAttributes`. This is a helper that means we can write less code in nunjuck form macros. For example...
+The prototype uses a function called `decorateAttributes`. This is a helper that means we can write less code in nunjucks form macros. For example...
 
 In the design system:
 
@@ -54,7 +54,7 @@ In this project we display the data like this:
 
 `{{ data.eventName }}`
 
-This is the rule to follow for all form inputs.
+This is the pattern to follow for all form inputs.
 
 ## Deployed versions
 
