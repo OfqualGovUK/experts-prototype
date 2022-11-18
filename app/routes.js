@@ -377,7 +377,9 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
 })
 
-// Did you want to add another qualification?
+// What type of expertise do you have for this industry or sector?
+// Joe helped me write this one too
+
 router.post('/select-level-answer', function (req, res) {
 
   const assessmentExpertise = req.session.data.anyAssessmentExpertise
@@ -400,7 +402,7 @@ router.post('/select-level-answer', function (req, res) {
     hasMultipleExpertiseTypes = false
   }
     
-  // at least 2 expertise types have been selected os we need them to tell us more   
+  // at least 2 expertise types have been selected so we need them to tell us more   
   if (hasMultipleExpertiseTypes === true) {
     res.redirect('/application/search/select-expertise-type')
   // must have selected only one type of expertise  
@@ -477,28 +479,52 @@ router.post('/equality-question-answer', function (req, res) {
 })
 
 // View the application in different states
+// VTQ Application
 
 // Sets up the tasklist with a completed application when you visit a link
-router.all( '/populate-application', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)  
+router.all( '/populate-application-vtq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)  
   res.redirect('/application');
-
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
-router.all( '/application-submitted-in-review', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-vtq-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=inReview');
-
+  res.redirect('/dashboard?applicationStatus=In review');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
-router.all( '/application-submitted-accepted', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationData)
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-vtq-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=applicationAccepted');
+  res.redirect('/dashboard?applicationStatus=Application accepted');
+})
 
+// GQ Application
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/populate-application-gq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)  
+  res.redirect('/application');
+})
+
+// Sets up the tasklist with a completed applicationwhen you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-gq-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  
+  res.redirect('/dashboard?applicationStatus=In review');
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-gq-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  
+  res.redirect('/dashboard?applicationStatus=Application accepted');
 })
 
 // ------ Register your interest  ----- //
