@@ -39,7 +39,7 @@ The Prototyping kit tutorial suggests you display the data for this input like t
 
 `{{ data['event-name'] }}`
 
-In this project:
+In this project we do it this way:
 
 ```
 {{ govukInput({
@@ -48,9 +48,9 @@ In this project:
     classes: "govuk-label--l",
     isPageHeading: true
   },
-  } | decorateAttributes(data, "data.eventName")) }}
+} | decorateAttributes(data, "data.eventName")) }}
 ```
-In this project we display the data like this:
+Data is dispayed like this:
 
 `{{ data.eventName }}`
 
