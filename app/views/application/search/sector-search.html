@@ -17,11 +17,19 @@
     }) %}
   {% endfor %}
 
-  {% include "_includes/components/option-select/index.html" %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Sectors",
+        classes: "govuk-visually-hidden"
+      }
+    },
+  items: sectors
+  } | decorateAttributes(data, "data.selectedIndustry")) }}
   
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you still can't see your industry or sector then select the closest match. 
+      If you can't see your industry or sector then select the closest match. 
     </p>
   {% endset %}
 
