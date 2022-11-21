@@ -536,7 +536,6 @@ router.all( '/application-submitted-gq-accepted', function (req, res) {
 router.all( '/application-submitted-gq-action-required', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)  
   req.session.data.applicationStatus = "Action required"
-  req.session.data.personalDetailsCompleted = "Action required"
 
   res.redirect('/dashboard');
 })
