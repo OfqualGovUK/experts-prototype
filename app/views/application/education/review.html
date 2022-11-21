@@ -34,6 +34,25 @@
     } | decorateAttributes(data, "data.addAnotherqualification")) }}
   {% endif %}
 
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Have you completed this section?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "complete",
+        text: "Yes, I’ve completed this section"
+      },
+      {
+        value: "inProgress",
+        html: "No, I’ll come back to it later"
+      }
+    ]
+  } | decorateAttributes(data, "data.educationCompleted")) }}
+
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Save and continue"
