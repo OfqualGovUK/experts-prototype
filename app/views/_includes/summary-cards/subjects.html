@@ -1,35 +1,21 @@
 {% set qualTypeHtml %}
   {% if data.resultQualType == "Other qualification type" %}
-    <ul class="govuk-list">
-      {# loops through and gets al the checked items  #}
-      {% for qualificationType in data.selectedQualification %}
-        <li>
-          {% if qualificationType == "A qualification type that isn't listed" %}
-            {{ data.selectedQualificationOther }}
-          {% else %} 
-            {{ qualificationType }}
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
+    {% if data.selectedQualification == "A qualification type that isn't listed" %}
+      {{ data.selectedQualificationOther }}
+    {% else %} 
+      {{ data.selectedQualification }}
+    {% endif %}
   {% else %}
     {{ data.resultQualType }}
   {% endif %}
 {% endset %}
 
 {% set qualTypeSectorHtml %}
-  <ul class="govuk-list">
-    {# loops through and gets al the checked items  #}
-    {% for qualificationType in data.selectedQualificationSector %}
-      <li>
-        {% if qualificationType == "A qualification type that isn't listed" %}
-          {{ data.selectedQualificationOther }}
-        {% else %} 
-          {{ qualificationType }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
+    {{ data.selectedQualificationOther }}
+  {% else %} 
+    {{ data.selectedQualificationSector }}
+  {% endif %}
 {% endset %}
 
 {% set levelHtml %}

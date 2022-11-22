@@ -23,10 +23,10 @@
 {% set pageHeading %}
   {# If they are coming from the search page  #}
   {% if data.referrer == "subjectSearch" %}
-    What qualification types can you advise on for this subject?
+    What qualification type can you advise on for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-    What qualification types can you advise on in this industry or sector?
+    What qualification type can you advise on in this industry or sector?
   {% endif %}
 {% endset %}
 
@@ -44,9 +44,9 @@
     }) %}
   {% endfor %}
 
-  {# {% set qualifications = qualifications | push ({
+  {% set qualifications = qualifications | push ({
     divider: "or"
-  }) %} #}
+  }) %}
 
   {% set otherQualificationHtml %}
     {{ govukInput({
@@ -68,31 +68,25 @@
   {# If they are coming through the select a sector flow #}
   {% if data.referrer == "sectorSearch" %}
   
-    {{ govukCheckboxes({
+    {{ govukRadios({
       fieldset: {
         legend: {
           text: pageHeading,
           classes: "govuk-fieldset__legend--l",
           isPgeHeading: true
         }
-      },
-      hint: {
-        text: "Select all that apply"
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualificationSector")) }}
   {# else they must be coming through subejct flow #}
   {% else %}
-    {{ govukCheckboxes({
+    {{ govukRadios({
       fieldset: {
         legend: {
           text: pageHeading,
           classes: "govuk-fieldset__legend--l",
           isPgeHeading: true
         }
-      },
-      hint: {
-        text: "Select all that apply"
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualification")) }}
