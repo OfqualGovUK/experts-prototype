@@ -8,7 +8,7 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  {# set up which data set to pull from depednng on which route was chosen #}
+  {# set up which data set to pull from depending on which route was chosen #}
   {% set sectors = []  %}
   
   {% for sector in data.subSectorSubjectAreasData  %}
@@ -17,11 +17,19 @@
     }) %}
   {% endfor %}
 
-  {% include "_includes/components/option-select/index.html" %}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Sectors",
+        classes: "govuk-visually-hidden"
+      }
+    },
+  items: sectors
+  } | decorateAttributes(data, "data.selectedIndustry")) }}
   
   {% set detailsHtml %}
     <p class="govuk-body">
-      If you still can't see your industry or sector then select the closest match. 
+      If you can't see your industry or sector then select the closest match. 
     </p>
   {% endset %}
 
