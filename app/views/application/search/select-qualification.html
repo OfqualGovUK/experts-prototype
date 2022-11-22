@@ -76,6 +76,9 @@
           isPgeHeading: true
         }
       },
+      hint: {
+        text: "You will be able to add more qualification types after you have finished telling us about the first one."
+      },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualificationSector")) }}
   {# else they must be coming through subejct flow #}
@@ -87,6 +90,9 @@
           classes: "govuk-fieldset__legend--l",
           isPgeHeading: true
         }
+      },
+      hint: {
+        text: "You will be able to add more qualification types after you have finished telling us about the first one."
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualification")) }}
