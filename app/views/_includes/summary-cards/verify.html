@@ -15,11 +15,20 @@
         html: uploadHtml
       },
       actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "uploaded file",
-          href: "/application/verify-your-identity"
-        }]
-      }
+        items: [
+          {
+            html: "Change",
+            visuallyHiddenText: "uploaded file",
+            href: "/application/verify-your-identity"
+          },
+          {
+            html: "Delete",
+            visuallyHiddenText: "uploaded file",
+            href: "/application/verify-your-identity/delete-document"
+          }
+        ]
+      }      
     }]
+     
+
   }) }}
