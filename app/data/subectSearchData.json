@@ -1,7 +1,0 @@
-[
-  { "name": "Abattoir Worker", "qualType": "End-point assessment", "level": "Level 2", "id": "a0" },
-  { "name": "Academic Professional", "qualType": "End-point assessment", "level": "Level 7", "id": "a1" },
-  { "name": "Accident repair technician", "qualType": "End-point assessment", "level": "Level 3", "id": "a2" },
-  { "name": "Accountancy or taxation professional", "qualType": "End-point assessment", "level": "Level 7", "id": "a3" },
-  { "name": "Accounting", "qualType": "A Level", "level": "Level 3", "id": "a4" }
-]
