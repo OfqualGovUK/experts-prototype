@@ -56,6 +56,12 @@ Data is dispayed like this:
 
 This is the pattern to follow for all form inputs.
 
+## Updating the data in the subjects search
+
+`subjectSearchData2.json` contains the data which populates the subject search in the Areas that you can provide expertise on. The data is stored in an Excel spreadsheet but the autocomplete component needs it in json format. 
+
+To convert the data, @JoeIngledew has built us a handy tool: https://github.com/JoeIngledew/csv-to-json
+
 ## Deployed versions
 
 ### Latest designs
