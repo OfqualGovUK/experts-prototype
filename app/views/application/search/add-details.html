@@ -1,0 +1,105 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+
+{% set captionHeading %}
+  {# If they are coming through the Industry/Sector flow #}
+  {% if data.referrer == "sectorSearch" %}
+    {{ data.selectedIndustry }}
+  {# Otherwise they must be coming from the subject search #}
+  {% elseif data.referrer == "subjectSearch" %}
+    {# If its not an "other" subject, show the subject and qual type/level #}
+    {% if data.selectedSubject and data.resultQualType != "Other qualification type" %}
+      {{ data.selectedSubject }}
+    {# If it is an "other" subject, so just show the subject #}
+    {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
+      {{ data.resultName }}
+    {% endif %}
+  {% endif %}
+{% endset %}
+
+{% set pageDescription %}
+  {# If they are coming through the Industry/Sector flow #}
+  {% if data.referrer == "sectorSearch" %}
+    Tell us about your expertise in this sector by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected: 
+  {# Otherwise they must be coming from the subject search #}
+  {% elseif data.referrer == "subjectSearch" %}
+    Tell us about your expertise in this subject by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected:
+  {% endif %}
+{% endset %}
+
+{% set pageHeading = "Provide details of your expertise" %}
+
+{% block formContent %}
+  <span class="govuk-caption-l">{{ captionHeading }}</span>
+  
+  <h1 class="govuk-heading-l">Your expertise</h1>
+
+  <p class="govuk-body">
+    {{ pageDescription }}
+  </p>
+
+  {% set teachingHtml %}
+    {# Build an list of the items selected #}
+    {% if data.referrer == "sectorSearch" %}
+      <ul class="govuk-list govuk-list--bullet">
+        {% for role in data.expertiseTypeSector %}
+          <li>
+            {{ role }}
+          </li>
+        {% endfor %}
+      </ul>        
+      {# Otherwise they must be coming from the subject search #}
+      {% elseif data.referrer == "subjectSearch" %}
+        <ul class="govuk-list govuk-list--bullet">
+          {% for role in data.expertiseType %}
+            <li>
+              {{ role }}
+            </li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+  {% endset %} 
+
+  {{ teachingHtml | safe }}
+  
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your expertise. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>understanding of qualifications and specifications</li>
+      <li>teaching experience, qualifications and cohorts</li>
+      <li>curriculum development</li>
+      <li>research and project work</li>
+      <li>commercial training experience</li>
+      <li>development of training materials (classroom, online)</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 250,
+    rows: "10",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    },
+    hint: {
+      text: "You don't need to repeat any details you've already provided."
+    }
+   } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
