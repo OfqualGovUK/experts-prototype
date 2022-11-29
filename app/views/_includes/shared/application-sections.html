@@ -14,7 +14,7 @@
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
         {% if data.educationCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Your qualifications</h2>
+          <h2 class="govuk-heading-m">Qualifications</h2>
           {% include "_includes/summary-cards/qualifications.html" %}
         {% else %}
           {{ appInsetText({
@@ -142,7 +142,7 @@
           })}}
         {% endif %} 
         {% if data.rightToWorkCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Your right to work status</h2>
+          <h2 class="govuk-heading-m">Right to work status</h2>
           {% include "_includes/summary-cards/right-to-work.html" %}
         {% else %}
           {{ appInsetText({
