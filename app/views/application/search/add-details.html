@@ -7,6 +7,11 @@
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
+    {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
+      ({{ data.selectedQualificationOther }} – {{ data.selectedLevelSector }})
+      {% else %} 
+        ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+    {% endif %}
   {# Otherwise they must be coming from the subject search #}
   {% elseif data.referrer == "subjectSearch" %}
     {# If its not an "other" subject, show the subject and qual type/level #}
@@ -15,7 +20,12 @@
     {# If it is an "other" subject, so just show the subject #}
     {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
       {{ data.resultName }}
-    {% endif %}
+      {% if data.selectedQualification == "A qualification type that isn't listed" %}
+        ({{ data.selectedQualificationOther }} – {{ data.selectedLevel }})
+        {% else %} 
+          ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+        {% endif %}
+      {% endif %}
   {% endif %}
 {% endset %}
 
@@ -24,7 +34,7 @@
   {% if data.referrer == "sectorSearch" %}
     Tell us about your expertise in this sector by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected: 
   {# Otherwise they must be coming from the subject search #}
-  {% elseif data.referrer == "subjectSearch" %}
+  {% else %}
     Tell us about your expertise in this subject by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected:
   {% endif %}
 {% endset %}
@@ -40,7 +50,7 @@
     {{ pageDescription }}
   </p>
 
-  {% set teachingHtml %}
+  {% set expertiseAreasHtml %}
     {# Build an list of the items selected #}
     {% if data.referrer == "sectorSearch" %}
       <ul class="govuk-list govuk-list--bullet">
@@ -62,7 +72,7 @@
     {% endif %}
   {% endset %} 
 
-  {{ teachingHtml | safe }}
+  {{ expertiseAreasHtml | safe }}
   
   {% set detailsHtml %}
     <p class="govuk-body">This is your opportunity to provide information about your expertise. You can use this section to tell us about:</p>
@@ -83,17 +93,37 @@
     html: detailsHtml
   }) }}
 
-  {{ govukCharacterCount({
-    maxwords: 250,
-    rows: "10",
-    label: {
-      text: pageHeading,
-      classes: "govuk-label--m"
-    },
-    hint: {
-      text: "You don't need to repeat any details you've already provided."
-    }
-   } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
+  {# If they are coming through the select a sector flow #}
+  {% if data.referrer == "sectorSearch" %}
+
+    {{ govukCharacterCount({
+      maxwords: 250,
+      rows: "10",
+      label: {
+        text: pageHeading,
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "You don't need to repeat any details you've already provided."
+      }
+    } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
+  
+  {# else they must be coming through subejct flow #}
+  {% else %}
+
+    {{ govukCharacterCount({
+      maxwords: 250,
+      rows: "10",
+      label: {
+        text: pageHeading,
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "You don't need to repeat any details you've already provided."
+      }
+    } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
+
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({
