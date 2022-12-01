@@ -1,12 +1,17 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./review" %}
+{% set formAction = "./add-details" %}
 
 {% set captionHeading %}
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
+    {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
+      ({{ data.selectedQualificationOther }} – {{ data.selectedLevelSector }})
+      {% else %} 
+        ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+    {% endif %}
   {# Otherwise they must be coming from the subject search #}
   {% elseif data.referrer == "subjectSearch" %}
     {# If its not an "other" subject, show the subject and qual type/level #}
@@ -15,7 +20,12 @@
     {# If it is an "other" subject, so just show the subject #}
     {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
       {{ data.resultName }}
-    {% endif %}
+      {% if data.selectedQualification == "A qualification type that isn't listed" %}
+        ({{ data.selectedQualificationOther }} – {{ data.selectedLevel }})
+        {% else %} 
+          ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+        {% endif %}
+      {% endif %}
   {% endif %}
 {% endset %}
 

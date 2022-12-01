@@ -53,7 +53,6 @@
 {% endset %}
 
 {% set expertiseTypeHtml %}
-  
   {# If at least one item has been checked, display the selections #}
   {% if data.hasMultipleExpertiseTypes %}
     {# multiple #}
@@ -165,7 +164,22 @@
             href: "/application/search/select-expertise-type?referrer=subjectSearch"
           }]
         } 
-      } if data.hasMultipleExpertiseTypes
+      } if data.hasMultipleExpertiseTypes,
+      {
+      key: {
+        text: "Provide details of your expertise"
+      },
+      value: { 
+        text: data.subjectExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your expertise",
+          href: "/application/search/add-details?referrer=subjectSearch"
+        }]
+      }
+    }
     ]
   }) }}
 {% endif %}
@@ -241,7 +255,22 @@
             href: "/application/search/select-expertise-type?referrer=sectorSearch"
           }]
         }
-      } if data.hasMultipleExpertiseTypes
+      } if data.hasMultipleExpertiseTypes,
+      {
+      key: {
+        text: "Provide details of your expertise"
+      },
+      value: { 
+        text: data.sectorExpertiseDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your expertise",
+          href: "/application/search/add-details?referrer=sectorSearch"
+        }]
+      }
+    }
     ]
   }) }}
 {% endif %}
