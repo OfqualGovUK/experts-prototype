@@ -1,0 +1,34 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/assessment-subject-answer" %}
+{% set pageHeading = "Does your assessment expertise relate to a subject or sector?" %}
+
+{% block formContent %}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.assessmentSubject")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

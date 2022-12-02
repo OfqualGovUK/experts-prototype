@@ -251,6 +251,51 @@ router.post('/teaching-answer', function (req, res) {
   
 // })
 
+// Redirect for users who only select Assessment as type of expertise
+router.post('/assessment-only', function (req, res) {
+  
+  let selectedType = req.session.data.expertiseType.type
+  
+  if (selectedType.includes("Assessment")) {
+    res.redirect('/application/search/assessmemt-subject')
+  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
+    res.redirect('/application/search')
+  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Teaching, lecturing or training")) ) {
+    res.redirect('/application/search')
+  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
+    res.redirect('/application/search')
+  } else {
+    res.redirect('/application/search')
+  }
+  
+})
+
+// Does your assessment expertise relate to a subject or sector?
+router.post('/assessment-subject-answer', function (req, res) {
+  
+  let assessmentSubject = req.session.data.assessmentSubject
+  
+  if (assessmentSubject === "Yes") {
+    res.redirect('/application/search')
+  } else {
+    res.redirect('/application/search/assessment-qualifications')
+  }
+  
+})
+
+// Does your assessment expertise relate to specific qualifications?
+router.post('/assessment-qual-answer', function (req, res) {
+  
+  let assessmentQual = req.session.data.assessmentQual
+  
+  if (assessmentQual === "Yes") {
+    res.redirect('/application/search/select-qualification?referrer=assessmentExpertise')
+  } else {
+    res.redirect('/application/search/review')
+  }
+  
+})
+
 // Decide where to go form the Industry or occupational expertise page
 router.post('/specific-subject-search-answer', function (req, res) {
   
