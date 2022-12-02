@@ -7,10 +7,17 @@
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
-    {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
-      ({{ data.selectedQualificationOther }} – {{ data.selectedLevelSector }})
+    {% if data.selectedQualificationSector == "I don't know the qualification type" %}
+      {% if data.selectedLevelSector == "I don't know the level" %}
+        {% else %} 
+        ({{ data.selectedLevelSector }})
+      {% endif %}
       {% else %} 
-        ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+        {% if data.selectedLevelSector == "I don't know the level" %}
+          ({{ data.selectedQualificationSector }})
+          {% else %} 
+          ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+        {% endif %}
     {% endif %}
   {# Otherwise they must be coming from the subject search #}
   {% elseif data.referrer == "subjectSearch" %}
@@ -20,12 +27,19 @@
     {# If it is an "other" subject, so just show the subject #}
     {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
       {{ data.resultName }}
-      {% if data.selectedQualification == "A qualification type that isn't listed" %}
-        ({{ data.selectedQualificationOther }} – {{ data.selectedLevel }})
-        {% else %} 
-          ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+      {% if data.selectedQualification == "I don't know the qualification type" %}
+        {% if data.selectedLevel == "I don't know the level" %}
+          {% else %} 
+          ({{ data.selectedLevel }})
         {% endif %}
-      {% endif %}
+        {% else %} 
+          {% if data.selectedLevel == "I don't know the level" %}
+            ({{ data.selectedQualification }})
+            {% else %} 
+            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+          {% endif %}
+        {% endif %}
+    {% endif %}
   {% endif %}
 {% endset %}
 

@@ -30,7 +30,7 @@
   {{ teachingHtml | safe }}
   
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information about your expertise and the. You can use this section to tell us about:</p>
+    <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>understanding of qualifications and specifications</li>
       <li>teaching experience, qualifications and cohorts</li>
@@ -41,6 +41,7 @@
       <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
       <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
     </ul>
+    <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
   {% endset %}
 
   {{ govukDetails({
@@ -54,9 +55,6 @@
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
-    },
-    hint: {
-      text: "You don't need to include details of your subject expertise, this will be covered in a later question."
     }
    } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
 
