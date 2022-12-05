@@ -373,7 +373,7 @@ router.post('/application/search/subject-search-answer', function (req, res) {
     res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
   // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
   } else {
-    res.redirect('/application/search/review')
+    res.redirect('/application/search/add-details')
   }
 })
 
@@ -407,7 +407,7 @@ router.post('/select-level-answer', function (req, res) {
     res.redirect('/application/search/select-expertise-type')
   // must have selected only one type of expertise  
   } else {
-    res.redirect('/application/search/review') 
+    res.redirect('/application/search/add-details') 
   }
 
 })
