@@ -252,23 +252,33 @@ router.post('/teaching-answer', function (req, res) {
 // })
 
 // Redirect for users who only select Assessment as type of expertise
-router.post('/assessment-only', function (req, res) {
+router.get('/assessment-only', function (req, res) {
+
+  let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
+  let anyIndustryExpertise = req.session.data.anyIndustryExpertise
+  let anyTeachingExpertise = req.session.data.anyTeachingExpertise
   
-  let selectedType = req.session.data.expertiseType.type
-  
-  if (selectedType.includes("Assessment")) {
-    res.redirect('/application/search/assessmemt-subject')
-  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
-    res.redirect('/application/search')
-  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-    res.redirect('/application/search')
-  } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-    res.redirect('/application/search')
+  if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
+    res.redirect('/application/search/assessment-subject')
   } else {
     res.redirect('/application/search')
   }
+
+  
+  // if (selectedType.includes("Assessment")) {
+  //   res.redirect('/application/search/assessmemt-subject')
+  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
+  //   res.redirect('/application/search')
+  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Teaching, lecturing or training")) ) {
+  //   res.redirect('/application/search')
+  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
+  //   res.redirect('/application/search')
+  // } else {
+  //   res.redirect('/application/search')
+  // }
   
 })
+
 
 // Does your assessment expertise relate to a subject or sector?
 router.post('/assessment-subject-answer', function (req, res) {
