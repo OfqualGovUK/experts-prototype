@@ -236,21 +236,6 @@ router.post('/teaching-answer', function (req, res) {
   
 })
 
-// // Which areas do you have expertise in?
-// router.post('/expertise-type-answer', function (req, res) {
-  
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Assessment")) {
-//     res.redirect('/application/expertise-type/assessment-expertise')
-//   } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
-//     res.redirect('/application/expertise-type/industry-expertise')
-//   } else {
-//     res.redirect('/application/expertise-type/teaching-expertise')
-//   }
-  
-// })
-
 // Redirect for users who only select Assessment as type of expertise
 router.get('/assessment-only', function (req, res) {
 
@@ -263,19 +248,6 @@ router.get('/assessment-only', function (req, res) {
   } else {
     res.redirect('/application/search')
   }
-
-  
-  // if (selectedType.includes("Assessment")) {
-  //   res.redirect('/application/search/assessmemt-subject')
-  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
-  //   res.redirect('/application/search')
-  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-  //   res.redirect('/application/search')
-  // } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) && (selectedType.includes("Teaching, lecturing or training")) ) {
-  //   res.redirect('/application/search')
-  // } else {
-  //   res.redirect('/application/search')
-  // }
   
 })
 
