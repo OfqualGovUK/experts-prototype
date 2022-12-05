@@ -53,16 +53,6 @@
   {% endif %}
 {% endset %}
 
-{% set pageDescription2 %}
-  {# If they are coming through the Industry/Sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-    If you have selected a qualification type and level, detail your expertise in your sector at the qualification type and level(s). 
-  {# Otherwise they must be coming from the subject search #}
-  {% else %}
-    If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s). 
-  {% endif %}
-{% endset %}
-
 {% set expertiseAreasHtml %}
     {# Build an list of the items selected #}
     {% if data.referrer == "sectorSearch" %}
@@ -98,10 +88,6 @@
 
   {{ expertiseAreasHtml | safe }}
 
-  <p class="govuk-body">
-    {{ pageDescription2 }}
-  </p>
-
   {# If they are coming through the select a sector flow #}
   {% if data.referrer == "sectorSearch" %}
 
@@ -111,7 +97,10 @@
       label: {
         text: pageHeading,
         classes: "govuk-label--m"
-      }
+      },
+      hint: {
+        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
     } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
   
   {# else they must be coming through subejct flow #}
@@ -123,7 +112,10 @@
       label: {
         text: pageHeading,
         classes: "govuk-label--m"
-      }
+      },
+      hint: {
+        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
     } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
 
   {% endif %}
