@@ -5,14 +5,14 @@
   {% if data.referrer == "subjectSearch"%}
     What qualification levels can you advise on for this subject?
   {% else %}
-    What qualification levels can you advise on in this industry or sector?
+    What qualification levels can you advise on in this sector?
   {% endif %}
 {% endset %}
 
 {% set formAction = "/select-level-answer" %}
 
 {% set captionHeading %}
-  {# If they are coming through the Industry/Sector flow #}
+  {# If they are coming through the sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
     {% if data.selectedQualificationSector == "I don't know the qualification type" %}
