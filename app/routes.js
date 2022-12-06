@@ -236,21 +236,58 @@ router.post('/teaching-answer', function (req, res) {
   
 })
 
-// Redirect for users who only select Assessment as type of expertise
+// // Redirect for users who only select Assessment as type of expertise
+// router.get('/assessment-only', function (req, res) {
+
+//   let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
+//   let anyIndustryExpertise = req.session.data.anyIndustryExpertise
+//   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
+  
+//   if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
+//     res.redirect('/application/search/assessment-subject')
+//   } else {
+//     res.redirect('/application/search')
+//   }
+// })
+
 router.get('/assessment-only', function (req, res) {
 
-  let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
-  let anyIndustryExpertise = req.session.data.anyIndustryExpertise
-  let anyTeachingExpertise = req.session.data.anyTeachingExpertise
-  
-  if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
-    res.redirect('/application/search/assessment-subject')
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  let assessmentOnlyExpertise = true
+
+  if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
+    // this is just for this function 
+    assessmentOnlyExpertise = true
+    // this is to use in the nunjucks view
+    req.session.data.assessmentOnlyExpertise = true 
   } else {
-    res.redirect('/application/search')
+    assessmentOnlyExpertise = false
+  }
+    
+  // only assessment expertise is selected 
+  if (assessmentOnlyExpertise === true) {
+    res.redirect('/application/search/assessment-subject')
+  // must have selected multiple types of expertise  
+  } else {
+    res.redirect('/application/search') 
+  }
+
+})
+
+// If areas of expertise is complete 
+router.get('/assessment-only/review', function (req, res) {
+  
+  let adviseAreasCompleted = req.session.data.adviseAreasCompleted
+  
+  if (adviseAreasCompleted === "complete") {
+    res.redirect('/application/search/review')
+  } else {
+    res.redirect('/application/search/')
   }
   
 })
-
 
 // Does your assessment expertise relate to a subject or sector?
 router.post('/assessment-subject-answer', function (req, res) {
@@ -443,13 +480,21 @@ router.post('/select-level-answer', function (req, res) {
 router.post('/review-subjects-answer', function (req, res) {
 
   let addAnotherSubject = req.session.data.addAnotherSubject
+  let assessmentQual = req.session.data.assessmentQual
 
+  if (assessmentQual === 'Yes') {
+    if (addAnotherSubject === 'Yes') {
+      res.redirect('/application/search/select-qualification?referrer=assessmentQualOnly')
+    } else {
+      res.redirect('/application/search/section-completed') 
+    }
+  } else {
     if (addAnotherSubject === 'Yes') {
       res.redirect('/application/search/search-by-subject')
     } else {
       res.redirect('/application/search/section-completed') 
+    }
   }
-
 })
 
 

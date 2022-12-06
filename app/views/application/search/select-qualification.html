@@ -25,8 +25,10 @@
   {% if data.referrer == "subjectSearch" %}
     What qualification type can you advise on for this subject?
   {# Otherwise they must be coming through the sector search flow #}
-  {% else %}
+  {% elseif data.referrer == "sectorSearch"%}
     What qualification type can you advise on in this industry or sector?
+  {% else %}
+    What qualification type can you advise on?
   {% endif %}
 {% endset %}
 
@@ -68,8 +70,8 @@
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualificationSector")) }}
-  {# else they must be coming through subejct flow #}
-  {% else %}
+  {# Coming through subject flow #}
+  {% elseif data.referrer == "subjectSearch"%}
     {{ govukRadios({
       fieldset: {
         legend: {
@@ -83,6 +85,22 @@
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualification")) }}
+
+  {# Coming through assessment only, qual only flow #}
+  {% else %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPgeHeading: true
+        }
+      },
+      hint: {
+        text: "You will be able to add more qualification types after you have finished telling us about the first one."
+      },
+      items: qualifications
+    } | decorateAttributes(data, "data.selectedQualificationAssessmntOnly")) }}
   {% endif %}
 
   <div class="govuk-button-group">
