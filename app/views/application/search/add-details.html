@@ -7,10 +7,17 @@
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
-    {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
-      ({{ data.selectedQualificationOther }} – {{ data.selectedLevelSector }})
+    {% if data.selectedQualificationSector == "I don't know the qualification type" %}
+      {% if data.selectedLevelSector == "I don't know the level" %}
+        {% else %} 
+        ({{ data.selectedLevelSector }})
+      {% endif %}
       {% else %} 
-        ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+        {% if data.selectedLevelSector == "I don't know the level" %}
+          ({{ data.selectedQualificationSector }})
+          {% else %} 
+          ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
+        {% endif %}
     {% endif %}
   {# Otherwise they must be coming from the subject search #}
   {% elseif data.referrer == "subjectSearch" %}
@@ -20,37 +27,33 @@
     {# If it is an "other" subject, so just show the subject #}
     {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
       {{ data.resultName }}
-      {% if data.selectedQualification == "A qualification type that isn't listed" %}
-        ({{ data.selectedQualificationOther }} – {{ data.selectedLevel }})
-        {% else %} 
-          ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+      {% if data.selectedQualification == "I don't know the qualification type" %}
+        {% if data.selectedLevel == "I don't know the level" %}
+          {% else %} 
+          ({{ data.selectedLevel }})
         {% endif %}
-      {% endif %}
+        {% else %} 
+          {% if data.selectedLevel == "I don't know the level" %}
+            ({{ data.selectedQualification }})
+            {% else %} 
+            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+          {% endif %}
+        {% endif %}
+    {% endif %}
   {% endif %}
 {% endset %}
 
 {% set pageDescription %}
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
-    Tell us about your expertise in this sector by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected: 
+    Tell us about the expertise you have in this sector, and why this applies to the type(s) of expertise you have selected: 
   {# Otherwise they must be coming from the subject search #}
   {% else %}
-    Tell us about your expertise in this subject by describing your experience, skills and achievements, and the activities and responsibilities for the qualification type and level and type of expertise you have selected:
+    Tell us about the expertise you have in this subject, and why this applies to the type(s) of expertise you have selected:
   {% endif %}
 {% endset %}
 
-{% set pageHeading = "Provide details of your expertise" %}
-
-{% block formContent %}
-  <span class="govuk-caption-l">{{ captionHeading }}</span>
-  
-  <h1 class="govuk-heading-l">Your expertise</h1>
-
-  <p class="govuk-body">
-    {{ pageDescription }}
-  </p>
-
-  {% set expertiseAreasHtml %}
+{% set expertiseAreasHtml %}
     {# Build an list of the items selected #}
     {% if data.referrer == "sectorSearch" %}
       <ul class="govuk-list govuk-list--bullet">
@@ -70,28 +73,20 @@
           {% endfor %}
         </ul>
     {% endif %}
-  {% endset %} 
-
-  {{ expertiseAreasHtml | safe }}
-  
-  {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information about your expertise. You can use this section to tell us about:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>understanding of qualifications and specifications</li>
-      <li>teaching experience, qualifications and cohorts</li>
-      <li>curriculum development</li>
-      <li>research and project work</li>
-      <li>commercial training experience</li>
-      <li>development of training materials (classroom, online)</li>
-      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
-      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
-    </ul>
   {% endset %}
 
-  {{ govukDetails({
-    summaryText: "What should I include?",
-    html: detailsHtml
-  }) }}
+{% set pageHeading = "Provide details of your expertise" %}
+
+{% block formContent %}
+  <span class="govuk-caption-l">{{ captionHeading }}</span>
+  
+  <h1 class="govuk-heading-l">Your expertise</h1>
+
+  <p class="govuk-body">
+    {{ pageDescription }}
+  </p>
+
+  {{ expertiseAreasHtml | safe }}
 
   {# If they are coming through the select a sector flow #}
   {% if data.referrer == "sectorSearch" %}
@@ -104,8 +99,8 @@
         classes: "govuk-label--m"
       },
       hint: {
-        text: "You don't need to repeat any details you've already provided."
-      }
+        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
     } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
   
   {# else they must be coming through subejct flow #}
@@ -119,8 +114,8 @@
         classes: "govuk-label--m"
       },
       hint: {
-        text: "You don't need to repeat any details you've already provided."
-      }
+        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
     } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
 
   {% endif %}

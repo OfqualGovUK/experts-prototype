@@ -48,21 +48,8 @@
     divider: "or"
   }) %}
 
-  {% set otherQualificationHtml %}
-    {{ govukInput({
-      classes: "govuk-!-width-two-thirds",
-      label: {
-        text: "Provide details (optional)",
-        classes: "govuk-label--s"
-      }
-    } | decorateAttributes(data, "data.selectedQualificationOther")) }}
-  {% endset -%}
-
   {% set qualifications = qualifications | push ({
-    text: "A qualification type that isn't listed",
-    conditional: {
-      html: otherQualificationHtml
-    }
+    text: "I don't know the qualification type"
   }) %}
 
   {# If they are coming through the select a sector flow #}

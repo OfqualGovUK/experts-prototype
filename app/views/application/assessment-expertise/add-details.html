@@ -35,7 +35,6 @@
     <ul class="govuk-list govuk-list--bullet">
       <li>your understanding of key assessment concepts such as validity and reliability</li>
       <li>your awareness of the strengths and limitations of different assessment methods</li>
-      <li>presentation delivery</li>
       <li>providing analytical feedback to others</li>
       <li>qualifications you have reviewed</li>
       <li>knowlege and understanding of assessment principles and practices</li>
@@ -45,6 +44,7 @@
       <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
       <li>ability to work with others</li>
     </ul>
+    <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
   {% endset %}
 
   {{ govukDetails({
@@ -58,9 +58,6 @@
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
-    },
-    hint: {
-      text: "You don't need to include details of your subject expertise, this will be covered in a later question."
     }
    } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
 

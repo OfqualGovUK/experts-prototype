@@ -11,13 +11,11 @@
 
 {% set formAction = "/select-level-answer" %}
 
-
 {% set captionHeading %}
   {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
-    {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
-      ({{ data.selectedQualificationOther }})
+    {% if data.selectedQualificationSector == "I don't know the qualification type" %}
       {% else %} 
         ({{ data.selectedQualificationSector }})
     {% endif %}
@@ -29,8 +27,7 @@
     {# If it is an "other" subject, so just show the subject #}
     {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
       {{ data.resultName }}
-      {% if data.selectedQualification == "A qualification type that isn't listed" %}
-        ({{ data.selectedQualificationOther }})
+      {% if data.selectedQualification == "I don't know the qualification type" %}
         {% else %} 
           ({{ data.selectedQualification }})
         {% endif %}
@@ -136,8 +133,8 @@
           divider: "or"
         },
         {
-          value: "I don't know my level",
-          text: "I don't know my level",
+          value: "I don't know the level",
+          text: "I don't know the level",
           behaviour: "exclusive"
         }
       ]
@@ -223,8 +220,8 @@
           divider: "or"
         },
         {
-          value: "I don't know my level",
-          text: "I don't know my level",
+          value: "I don't know the level",
+          text: "I don't know the level",
           behaviour: "exclusive"
         }
       ]
