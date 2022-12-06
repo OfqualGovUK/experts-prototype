@@ -4,7 +4,7 @@
 {% set formAction = "./review" %}
 
 {% set captionHeading %}
-  {# If they are coming through the Industry/Sector flow #}
+  {# If they are coming through the Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
     {% if data.selectedQualificationSector == "I don't know the qualification type" %}
@@ -58,7 +58,7 @@
 {% endset %}
 
 {% set pageDescription %}
-  {# If they are coming through the Industry/Sector flow #}
+  {# If they are coming through the sector flow #}
   {% if data.referrer == "sectorSearch" %}
     Tell us about the expertise you have in this sector, and why this applies to the type(s) of expertise you have selected: 
   {# Coming from the subject search #}
@@ -115,7 +115,7 @@
         classes: "govuk-label--m"
       },
       hint: {
-        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+        text: "If you have selected a qualification type and level, detail your expertise for your sector at the qualification type and level(s)."
       } 
     } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
   

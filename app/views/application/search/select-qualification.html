@@ -2,10 +2,10 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./select-level" %}
-{% set pageHeading = "Select the qualifications types you can advise for this industry or sector" %}
+{% set pageHeading = "Select the qualifications types you can advise for this sector" %}
 
 {% set captionHeading %}
-  {# If they are coming through the Industry/Sector flow #}
+  {# If they are coming through the sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
   {# Otherwise they must be coming from the subject search #}

@@ -14,7 +14,7 @@
 {% set formAction = "/select-level-answer" %}
 
 {% set captionHeading %}
-  {# If they are coming through the sector flow #}
+  {# If they are coming through the Industry/Sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
     {% if data.selectedQualificationSector == "I don't know the qualification type" %}
