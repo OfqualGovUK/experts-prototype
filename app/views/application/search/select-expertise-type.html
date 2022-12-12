@@ -4,7 +4,7 @@
 {% set formAction = "./add-details" %}
 
 {% set captionHeading %}
-  {# If they are coming through the Industry/Sector flow #}
+  {# If they are coming through the sector flow #}
   {% if data.referrer == "sectorSearch" %}
     {{ data.selectedIndustry }}
     {% if data.selectedQualificationSector == "I don't know the qualification type" %}
@@ -49,7 +49,7 @@
     What type of expertise do you have for this subject?
   {# Otherwise they must be coming through the sector search flow #}
   {% else %}
-    What type of expertise do you have for this industry or sector?
+    What type of expertise do you have for this sector?
   {% endif %}
 {% endset %}
 
@@ -88,7 +88,7 @@
       ]
     } | decorateAttributes(data, "data.expertiseTypeSector")) }}
 
-  {# else they must be coming through subejct flow #}
+  {# else they must be coming through subject flow #}
   {% else %}
 
     {{ govukCheckboxes({
