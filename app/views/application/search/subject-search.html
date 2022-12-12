@@ -108,12 +108,12 @@
   
   {% set detailsHtml %}
     <p class="govuk-body govuk-!-margin-bottom-0">
-      Try <a href="./sector-search">searching by sector</a> instead.
+      Add expertise as an <a href="/application/sorry">assessment specialist</a> instead.
     </p>
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "I can't find what I'm looking for",
+    summaryText: "I do not have a subject specialism",
     text: detailsHtml | safe
   }) }}
 

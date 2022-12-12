@@ -309,8 +309,8 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   const qualLevel = req.session.data.resultLevel
   
   // case-insensitive string match
-  const qualTypeRegex = new RegExp(/Other qualification type/i)
-  const qualLevelRegex = new RegExp(/Other qualification level/i)
+  const qualTypeRegex = new RegExp(/End-point assessment/i)
+  const qualLevelRegex = new RegExp(/T Level/i)
 
   const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
   
@@ -366,7 +366,7 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
   
   // if its an "other" qual type they need to specify qual type and level
-  if (isMatch) {
+  if (isMatch == false) {
     res.redirect('/application/search/select-qualification?referrer=subjectSearch')
   // the user has selected at least 2 areas of expertise  
   } else if (hasMultipleExpertiseTypes === true) {
