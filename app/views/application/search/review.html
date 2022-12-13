@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your subjects you can advise on" %}
+{% set pageHeading = "Review the subjects that you can provide expertise on" %}
 {% set formAction = "/review-subjects-answer" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
@@ -27,7 +27,7 @@
           text: "Yes"
         },
         {
-          text: "No, I've finished adding subjects I can advise on",
+          text: "No, I've finished adding subjects that I can provide expertise on",
           checked: true if "No" in data.assessmentQual
         }
       ]
@@ -46,7 +46,7 @@
           text: "Yes"
         },
         {
-          text: "No, I've finished adding subjects I can advise on"
+          text: "No, I've finished adding subjects that I can provide expertise on"
         }
       ]
     } | decorateAttributes(data, "data.addAnotherSubject")) }}
