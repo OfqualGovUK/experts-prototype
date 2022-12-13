@@ -236,20 +236,84 @@ router.post('/teaching-answer', function (req, res) {
   
 })
 
-// // Which areas do you have expertise in?
-// router.post('/expertise-type-answer', function (req, res) {
+// // Redirect for users who only select Assessment as type of expertise
+// router.get('/assessment-only', function (req, res) {
+
+//   let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
+//   let anyIndustryExpertise = req.session.data.anyIndustryExpertise
+//   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
   
-//   let selectedType = req.session.data.expertiseType.type
-  
-//   if (selectedType.includes("Assessment")) {
-//     res.redirect('/application/expertise-type/assessment-expertise')
-//   } else if ( (!selectedType.includes("Assessment")) && (selectedType.includes("Industry or occupational")) ) {
-//     res.redirect('/application/expertise-type/industry-expertise')
+//   if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
+//     res.redirect('/application/search/assessment-subject')
 //   } else {
-//     res.redirect('/application/expertise-type/teaching-expertise')
+//     res.redirect('/application/search')
 //   }
-  
 // })
+
+router.get('/assessment-only', function (req, res) {
+
+  const assessmentExpertise = req.session.data.anyAssessmentExpertise
+  const industryExpertise = req.session.data.anyIndustryExpertise
+  const teachingExpertise = req.session.data.anyTeachingExpertise
+  let assessmentOnlyExpertise = true
+
+  if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
+    // this is just for this function 
+    assessmentOnlyExpertise = true
+    // this is to use in the nunjucks view
+    req.session.data.assessmentOnlyExpertise = true 
+  } else {
+    assessmentOnlyExpertise = false
+  }
+    
+  // only assessment expertise is selected 
+  if (assessmentOnlyExpertise === true) {
+    res.redirect('/application/search/assessment-subject')
+  // must have selected multiple types of expertise  
+  } else {
+    res.redirect('/application/search') 
+  }
+
+})
+
+// If areas of expertise is complete 
+router.get('/assessment-only/review', function (req, res) {
+  
+  let adviseAreasCompleted = req.session.data.adviseAreasCompleted
+  
+  if (adviseAreasCompleted === "complete") {
+    res.redirect('/application/search/review')
+  } else {
+    res.redirect('/application/search/')
+  }
+  
+})
+
+// Does your assessment expertise relate to a subject or sector?
+router.post('/assessment-subject-answer', function (req, res) {
+  
+  let assessmentSubject = req.session.data.assessmentSubject
+  
+  if (assessmentSubject === "Yes") {
+    res.redirect('/application/search')
+  } else {
+    res.redirect('/application/search/assessment-qualifications')
+  }
+  
+})
+
+// Does your assessment expertise relate to specific qualifications?
+router.post('/assessment-qual-answer', function (req, res) {
+  
+  let assessmentQual = req.session.data.assessmentQual
+  
+  if (assessmentQual === "Yes") {
+    res.redirect('/application/search/select-qualification?referrer=assessmentExpertise')
+  } else {
+    res.redirect('/application/search/review')
+  }
+  
+})
 
 // Decide where to go form the Industry or occupational expertise page
 router.post('/specific-subject-search-answer', function (req, res) {
@@ -416,13 +480,21 @@ router.post('/select-level-answer', function (req, res) {
 router.post('/review-subjects-answer', function (req, res) {
 
   let addAnotherSubject = req.session.data.addAnotherSubject
+  let assessmentQual = req.session.data.assessmentQual
 
+  if (assessmentQual === 'Yes') {
+    if (addAnotherSubject === 'Yes') {
+      res.redirect('/application/search/select-qualification?referrer=assessmentQualOnly')
+    } else {
+      res.redirect('/application/search/section-completed') 
+    }
+  } else {
     if (addAnotherSubject === 'Yes') {
       res.redirect('/application/search/search-by-subject')
     } else {
       res.redirect('/application/search/section-completed') 
+    }
   }
-
 })
 
 

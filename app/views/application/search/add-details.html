@@ -40,6 +40,20 @@
           {% endif %}
         {% endif %}
     {% endif %}
+    {# Coming from the assessment only, qual only route #}
+    {% else %}
+      {% if data.selectedQualification == "I don't know the qualification type" %}
+        {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
+          {% else %} 
+          ({{ data.selectedLevelAssessmntOnly }})
+        {% endif %}
+        {% else %} 
+          {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
+            ({{ data.selectedQualificationAssessmntOnly }})
+            {% else %} 
+            ({{ data.selectedQualificationAssessmntOnly }} – {{ data.selectedLevelAssessmntOnly }})
+          {% endif %}
+    {% endif %}
   {% endif %}
 {% endset %}
 
@@ -47,9 +61,11 @@
   {# If they are coming through the sector flow #}
   {% if data.referrer == "sectorSearch" %}
     Tell us about the expertise you have in this sector, and why this applies to the type(s) of expertise you have selected: 
-  {# Otherwise they must be coming from the subject search #}
-  {% else %}
+  {# Coming from the subject search #}
+  {% elseif data.referrer == "subjectSearch" %}
     Tell us about the expertise you have in this subject, and why this applies to the type(s) of expertise you have selected:
+  {# Coming from the assessment only, qual only route #}
+  {% else %}
   {% endif %}
 {% endset %}
 
@@ -63,7 +79,7 @@
           </li>
         {% endfor %}
       </ul>        
-      {# Otherwise they must be coming from the subject search #}
+      {# Coming from the subject search #}
       {% elseif data.referrer == "subjectSearch" %}
         <ul class="govuk-list govuk-list--bullet">
           {% for role in data.expertiseType %}
@@ -103,8 +119,8 @@
       } 
     } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
   
-  {# else they must be coming through subejct flow #}
-  {% else %}
+  {# Coming through subject flow #}
+  {% elseif data.referrer == "subjectSearch" %}
 
     {{ govukCharacterCount({
       maxwords: 250,
@@ -115,6 +131,21 @@
       },
       hint: {
         text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
+    } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
+
+  {# Coming from the assessment only, qual only route #}
+  {% else %}
+
+    {{ govukCharacterCount({
+      maxwords: 250,
+      rows: "10",
+      label: {
+        text: pageHeading,
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "Detail your assessment expertise for the qualification type and level(s) you've selected."
       } 
     } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
 
