@@ -13,22 +13,44 @@
   
   {% include "_includes/summary-cards/subjects.html" %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Did you want to add another area?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
+  {% if data.assessmentQual == "No" %}
+    {{ govukRadios({
+      fieldset: {
+        classes: "display-none",
+        legend: {
+          text: "Did you want to add another area?",
+          classes: "govuk-fieldset__legend--m"
+        }
       },
-      {
-        text: "No, I've finished adding areas I can advise on"
-      }
-    ]
-  } | decorateAttributes(data, "data.addAnotherSubject")) }}
+      items: [
+        {
+          text: "Yes"
+        },
+        {
+          text: "No, I've finished adding areas I can advise on",
+          checked: true if "No" in data.assessmentQual
+        }
+      ]
+    } | decorateAttributes(data, "data.addAnotherSubject")) }}
+      
+  {% else %} 
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: "Did you want to add another area?",
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          text: "Yes"
+        },
+        {
+          text: "No, I've finished adding areas I can advise on"
+        }
+      ]
+    } | decorateAttributes(data, "data.addAnotherSubject")) }}
+  {% endif %}
 
   <div class="govuk-button-group">
     {{ govukButton({
