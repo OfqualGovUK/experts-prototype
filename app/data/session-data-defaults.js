@@ -119,7 +119,6 @@ var completedApplicationDataVTQ = {
   "resultName": "Asbestos Analyst and Surveyor",
   "resultQualType": "End-Point Assessment",
   "resultLevel": "Level 3",
-  "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
     "Assessment",
@@ -258,7 +257,6 @@ var completedApplicationDataGQ = {
   "resultName": "Performing arts",
   "resultQualType": "GCE AS/A Level",
   "resultLevel": "Level 3",
-  "referrer": "subjectSearch",
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
     "Assessment",

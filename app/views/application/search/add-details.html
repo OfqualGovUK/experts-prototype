@@ -4,83 +4,65 @@
 {% set formAction = "./review" %}
 
 {% set captionHeading %}
-  {# If they are coming through the Sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-    {{ data.selectedIndustry }}
-    {% if data.selectedQualificationSector == "I don't know the qualification type" %}
-      {% if data.selectedLevelSector == "I don't know the level" %}
+  {# Coming from the assessment only, qual only route #}
+  {% if data.referrer == "assessmentExpertise" %}
+    {% if data.selectedQualification == "I don't know the qualification type" %}
+      {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
         {% else %} 
-        ({{ data.selectedLevelSector }})
+        ({{ data.selectedLevelAssessmntOnly }})
       {% endif %}
+    {% else %} 
+    {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
+      ({{ data.selectedQualificationAssessmntOnly }})
       {% else %} 
-        {% if data.selectedLevelSector == "I don't know the level" %}
-          ({{ data.selectedQualificationSector }})
-          {% else %} 
-          ({{ data.selectedQualificationSector }} – {{ data.selectedLevelSector }})
-        {% endif %}
+      ({{ data.selectedQualificationAssessmntOnly }} – {{ data.selectedLevelAssessmntOnly }})
     {% endif %}
-  {# Otherwise they must be coming from the subject search #}
-  {% elseif data.referrer == "subjectSearch" %}
-    {# If its not an "other" subject, show the subject and qual type/level #}
-    {% if data.selectedSubject and data.resultQualType != "Other qualification type" %}
-      {{ data.selectedSubject }}
-    {# If it is an "other" subject, so just show the subject #}
-    {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
-      {{ data.resultName }}
-      {% if data.selectedQualification == "I don't know the qualification type" %}
-        {% if data.selectedLevel == "I don't know the level" %}
-          {% else %} 
-          ({{ data.selectedLevel }})
-        {% endif %}
-        {% else %} 
-          {% if data.selectedLevel == "I don't know the level" %}
-            ({{ data.selectedQualification }})
-            {% else %} 
-            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
-          {% endif %}
-        {% endif %}
-    {% endif %}
-    {# Coming from the assessment only, qual only route #}
+  {% endif %}
+    {# Otherwise they must be coming from the subject search #}
     {% else %}
-      {% if data.selectedQualification == "I don't know the qualification type" %}
-        {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
-          {% else %} 
-          ({{ data.selectedLevelAssessmntOnly }})
-        {% endif %}
-        {% else %} 
-          {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
-            ({{ data.selectedQualificationAssessmntOnly }})
+      {# If its not an "other" subject, show the subject and qual type/level #}
+      {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+        {{ data.selectedSubject }}
+      {# If it is an "other" subject, so just show the subject #}
+      {% else %}
+        {{ data.resultName }}
+        {% if data.selectedQualification == "I don't know the qualification type" %}
+          {% if data.selectedLevel == "I don't know the level" %}
             {% else %} 
-            ({{ data.selectedQualificationAssessmntOnly }} – {{ data.selectedLevelAssessmntOnly }})
+            ({{ data.selectedLevel }})
           {% endif %}
-    {% endif %}
+          {% else %} 
+            {% if data.selectedLevel == "I don't know the level" %}
+              ({{ data.selectedQualification }})
+              {% else %} 
+              ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+            {% endif %}
+          {% endif %}
+      {% endif %}
   {% endif %}
 {% endset %}
 
 {% set pageDescription %}
-  {# If they are coming through the sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-    Tell us about the expertise you have in this sector, and why this applies to the type(s) of expertise you have selected: 
-  {# Coming from the subject search #}
-  {% elseif data.referrer == "subjectSearch" %}
-    Tell us about the expertise you have in this subject, and why this applies to the type(s) of expertise you have selected:
   {# Coming from the assessment only, qual only route #}
+  {% if data.referrer == "assessmentExpertise" %}
+    Tell us about the expertise you have in this qualification, and why this applies to the type(s) of expertise you have selected: 
+  {# Coming from the subject search #}
   {% else %}
+    Tell us about the expertise you have in this subject, and why this applies to the type(s) of expertise you have selected:
   {% endif %}
 {% endset %}
 
 {% set expertiseAreasHtml %}
     {# Build an list of the items selected #}
-    {% if data.referrer == "sectorSearch" %}
+    {# Coming from the assessment only route #}
+    {% if data.assessmentOnlyExpertise %}
       <ul class="govuk-list govuk-list--bullet">
-        {% for role in data.expertiseTypeSector %}
           <li>
-            {{ role }}
+            Assessment
           </li>
-        {% endfor %}
       </ul>        
       {# Coming from the subject search #}
-      {% elseif data.referrer == "subjectSearch" %}
+      {% else %}
         <ul class="govuk-list govuk-list--bullet">
           {% for role in data.expertiseType %}
             <li>
@@ -104,39 +86,8 @@
 
   {{ expertiseAreasHtml | safe }}
 
-  {# If they are coming through the select a sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-
-    {{ govukCharacterCount({
-      maxwords: 250,
-      rows: "10",
-      label: {
-        text: pageHeading,
-        classes: "govuk-label--m"
-      },
-      hint: {
-        text: "If you have selected a qualification type and level, detail your expertise for your sector at the qualification type and level(s)."
-      } 
-    } | decorateAttributes(data, "data.sectorExpertiseDetails")) }} 
-  
-  {# Coming through subject flow #}
-  {% elseif data.referrer == "subjectSearch" %}
-
-    {{ govukCharacterCount({
-      maxwords: 250,
-      rows: "10",
-      label: {
-        text: pageHeading,
-        classes: "govuk-label--m"
-      },
-      hint: {
-        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
-      } 
-    } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
-
   {# Coming from the assessment only, qual only route #}
-  {% else %}
-
+  {% if data.referrer == "assessmentExpertise" %}
     {{ govukCharacterCount({
       maxwords: 250,
       rows: "10",
@@ -148,7 +99,20 @@
         text: "Detail your assessment expertise for the qualification type and level(s) you've selected."
       } 
     } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
-
+  
+  {# Coming through subject flow #}
+  {% else %}
+    {{ govukCharacterCount({
+      maxwords: 250,
+      rows: "10",
+      label: {
+        text: pageHeading,
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "If you have selected a qualification type and level, detail your expertise for your subject at the qualification type and level(s)."
+      } 
+    } | decorateAttributes(data, "data.subjectExpertiseDetails")) }} 
   {% endif %}
 
   <div class="govuk-button-group">

@@ -126,25 +126,6 @@ router.post('/review-references-answer', function (req, res) {
 
 })
 
-// Add a qualification
-// router.post('/qualification-type-answer', function (req, res) {
-
-//   let addAQualification = req.session.data.qualificationType
-
-//     if (addAQualification === 'GCSEs') {
-//       res.redirect('/application/education/add-gcse')
-//     } else if (addAQualification === 'A/AS level or equivalent') {
-//       res.redirect('/application/education/add-a-level')
-//     } else if ( (addAQualification === 'Undergraduate degree') || (addAQualification === 'Postgraduate degree') ) {
-//       res.redirect('/application/education/add-degree')
-//     } else if (addAQualification === 'Other qualification or course') {
-//       res.redirect('/application/education/add-other')
-//     } else {
-//       res.redirect('/application/sorry') 
-//   }
-
-// })
-
 // Do you have any qualifications that are relevant to your application?
 router.post('/qualifications-answer', function (req, res) {
 
@@ -431,10 +412,10 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   
   // if its an "other" qual type they need to specify qual type and level
   if (isMatch == false) {
-    res.redirect('/application/search/select-qualification?referrer=subjectSearch')
+    res.redirect('/application/search/select-qualification')
   // the user has selected at least 2 areas of expertise  
   } else if (hasMultipleExpertiseTypes === true) {
-    res.redirect('/application/search/select-expertise-type?referrer=subjectSearch')
+    res.redirect('/application/search/select-expertise-type')
   // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
   } else {
     res.redirect('/application/search/add-details')
