@@ -84,44 +84,14 @@
 {% endset %}
 
 {% set expertiseTypeHtml %}
-  {# If at least one item has been checked, display the selections #}
-  {% if data.hasMultipleExpertiseTypes %}
-    {# multiple #}
-    {% if data.referrer == "subjectSearch" %}
-      <ul class="govuk-list">
-        {# loops through and gets al the checked items  #}
-        {% for type in data.expertiseType %}
-          <li>
-            {{ type }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    
-    {% if data.referrer == "sectorSearch" %}
-      <ul class="govuk-list">
-        {# loops through and gets al the checked items  #}
-        {% for type in data.expertiseTypeSector %}
-          <li>
-            {{ type }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endif %}
-
-  {# Todo: not sure if we even need this now #}
-  {# If only one type of expertise is selected #}
-  {% if not data.hasMultipleExpertiseTypes %}
-    {# single #}
-    {% if data.anyAssessmentExpertise == "Yes" %}
-      Assessment
-    {% elseif data.anyIndustryExpertise == "Yes" %}
-      Industry or occupational
-    {% elseif data.anyTeachingExpertise == "Yes" %}
-      Teaching, lecturing or training
-    {% endif %}
-  {% endif %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for type in data.expertiseType %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
 {% endset %}
 
 {# If assessment only expertise  #}
@@ -268,97 +238,6 @@
           text: "Change",
           visuallyHiddenText: "Provide details of your expertise",
           href: "/application/search/add-details?referrer=subjectSearch"
-        }]
-      }
-    }
-    ]
-  }) }}
-{% endif %}
-
-{# If a sector or industry has been selected  #}
-{% if data.selectedIndustry %}
-  {{ xGovukSummaryCard({
-    titleText: data.selectedIndustry,
-    actions: {
-      items: [{
-        text: "Delete choice",
-        visuallyHiddenText: data.selectedIndustry,
-        href: "/application/search/delete?delete=" + data.selectedIndustry
-      }]
-    },
-    rows: [
-      {
-        key: {
-          text: "Sector"
-        },
-        value: { 
-          html: data.selectedIndustry
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "type of expertise",
-            href: "/application/search/sector-search?referrer=sectorSearch"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "Qualification type"
-        },
-        value: { 
-          html: qualTypeSectorHtml
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Qualification type",
-            href: "/application/search/select-qualification?referrer=sectorSearch"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "Qualification level"
-        },
-        value: { 
-          html: levelSectorHtml 
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Qualification level",
-            href: "/application/search/select-level?referrer=sectorSearch"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "What best describes your type of expertise for this subject?"
-        },
-        value: { 
-          html: expertiseTypeHtml
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "/application/search/select-expertise-type?referrer=sectorSearch"
-          }]
-        }
-      } if data.hasMultipleExpertiseTypes,
-      {
-      key: {
-        text: "Provide details of your expertise"
-      },
-      value: { 
-        text: data.sectorExpertiseDetails
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Provide details of your expertise",
-          href: "/application/search/add-details?referrer=sectorSearch"
         }]
       }
     }

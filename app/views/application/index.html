@@ -75,7 +75,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise new</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
         <ul class="app-task-list">
           {# If the Subjects of expertise is NOT complete #}
           {% if data.evidenceExpertiseCompleted == "canNotStartYet" %}
@@ -87,21 +87,21 @@
             })}}
           {# Otherwise Subjects of expertise IS complete #}
           {% else %}
-            {% if data.expertiseType === "Assessment" %}
+            {% if (data.expertiseType === "Assessment") %}
               {{ appTaskListItem ({
                 name: 'Assessment expertise',
                 href: '/assessment-answer',
                 taskName: data.assessmentExpertiseCompleted
               })}}
             {% endif %}
-            {% if data.expertiseType === "Industry or occupational" %}
+            {% if (data.expertiseType === "Industry or occupational") %}
               {{ appTaskListItem ({
                 name: 'Industry or occupational expertise',
                 href: '/industry-expertise/add-details',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
-            {% if data.expertiseType === "Teaching, lecturing or training" %}
+            {% if (data.expertiseType === "Teaching, lecturing or training") %}
               {{ appTaskListItem ({
                 name: 'Teaching, lecturing or training expertise',
                 href: '/teaching-answer',
