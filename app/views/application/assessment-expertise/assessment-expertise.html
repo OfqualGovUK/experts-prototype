@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./add-details" %}
-{% set pageHeading = "Which activities or responsibilities have you completed?" %}
+{% set pageHeading = "Which assessment activities or responsibilities have you completed in this subject?" %}
 
 {% block formContent %}
 
@@ -31,49 +31,16 @@
     },
     items: [
       {
-        text: "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)"
-      },
-      {
-        text: "Designing or writing mark schemes or assessment criteria"
-      },
-      {
-        text: "Designing or writing question papers or assessment tasks"
-      },
-      {
-        text: "Designing the assessment approach for a qualification"
-      },
-      {
-        text: "Determining key grade boundaries for examinations or assessments"
-      },
-      {
-        text: "Evaluating the effectiveness of specific assessment design and approaches"
-      },
-      {
-        text: "Leading a team of markers, examiners or assessors"
-      },
-      {
         text: "Marking assessments"
       },
       {
-        text: "Researching or developing assessment policy and practices"
+        text: "Moderating assessments"
       },
       {
-        text: "Reviewing or overseeing qualification standards"
+        text: "Designing and setting assessments"
       },
       {
-        text: "Reviewing the performance of assessments (individual questions, assessment tasks, mark schemes)"
-      },
-      {
-        text: "Reviewing the validity and reliability of the qualification, as part of the qualification lifecycle"
-      },
-      {
-        text: "Setting standards for qualification outcomes"
-      },
-      {
-        text: "An option that isn't listed",
-        conditional: {
-          html: natureOtherHtml
-        }
+        text: "Reviewing assessment performance"
       }
     ]
   } | decorateAttributes(data, "data.assessmentExpertiseType")) }}
