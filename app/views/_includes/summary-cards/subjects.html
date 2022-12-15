@@ -1,6 +1,6 @@
 {% set qualTypeHtml %}
-  {% if data.resultQualType == "Other qualification type" %}
-    {% if data.selectedQualification == "A qualification type that isn't listed" %}
+  {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+    {% if data.selectedQualification == "I don't know the qualification type" %}
       {{ data.selectedQualificationOther }}
     {% else %} 
       {{ data.selectedQualification }}
@@ -10,29 +10,21 @@
   {% endif %}
 {% endset %}
 
-{% set qualTypeSectorHtml %}
-  {% if data.selectedQualificationSector == "A qualification type that isn't listed" %}
+{% set qualTypeAssessmentOnlyHtml %}
+  {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
     {{ data.selectedQualificationOther }}
   {% else %} 
-    {{ data.selectedQualificationSector }}
-  {% endif %}
-{% endset %}
-
-{% set qualTypeAssessmntOnlyHtml %}
-  {% if data.selectedQualificationAssessmntOnly == "A qualification type that isn't listed" %}
-    {{ data.selectedQualificationOther }}
-  {% else %} 
-    {{ data.selectedQualificationAssessmntOnly }}
+    {{ data.selectedQualificationAssessmentOnly }}
   {% endif %}
 {% endset %}
 
 {% set levelHtml %}
-  {% if data.resultQualType == "Other qualification type" %}
+  {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
     <ul class="govuk-list">
       {# loops through and gets all the checked items  #}
       {% for level in data.selectedLevel %}
         <li>
-          {% if level == "A qualification level that isn't listed" %}
+          {% if level == "I don't know the qualification type" %}
             {{ data.selectedLevelOther }}
           {% else %} 
             {{ level }}
@@ -45,27 +37,12 @@
   {% endif %}
 {% endset %}
 
-{% set levelSectorHtml %}
-  <ul class="govuk-list">
-    {# loops through and gets all the checked items  #}
-    {% for level in data.selectedLevelSector %}
-      <li>
-        {% if level == "A qualification level that isn't listed" %}
-          {{ data.selectedLevelOther }}
-        {% else %} 
-          {{ level }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %}
-
 {% set levelAssessmentOnlyHtml %}
   <ul class="govuk-list">
     {# loops through and gets all the checked items  #}
-    {% for level in data.selectedLevelAssessmntOnly %}
+    {% for level in data.selectedLevelAssessmentOnly %}
       <li>
-        {% if level == "A qualification level that isn't listed" %}
+        {% if level == "I don't know the qualification type" %}
           {{ data.selectedLevelOther }}
         {% else %} 
           {{ level }}
@@ -101,7 +78,7 @@
         rows: [
           {
             key: {
-              text: "Does your assessment expertise relate to a subject or sector?"
+              text: "Does your assessment expertise relate to a subject?"
             },
             value: { 
               html: assessmentSubjectHtml
@@ -109,7 +86,7 @@
             actions: {
               items: [{
                 text: "Change",
-                visuallyHiddenText: "Does your assessment expertise relate to a subject or sector?",
+                visuallyHiddenText: "Does your assessment expertise relate to a subject?",
                 href: "/application/search/assessment-subject"
               }]
             }
@@ -121,7 +98,7 @@
         rows: [
           {
             key: {
-              text: "Does your assessment expertise relate to a subject or sector?"
+              text: "Does your assessment expertise relate to a subject?"
             },
             value: { 
               html: assessmentSubjectHtml
@@ -129,7 +106,7 @@
             actions: {
               items: [{
                 text: "Change",
-                visuallyHiddenText: "Does your assessment expertise relate to a subject or sector?",
+                visuallyHiddenText: "Does your assessment expertise relate to a subject?",
                 href: "/application/search/assessment-subject"
               }]
             }
@@ -154,7 +131,7 @@
     {% endif %}
   {% endif %}
 
-{# If it is a subjects, apprenticeships or T Level  #}
+{# If it is a subject  #}
 {% if data.selectedSubject %}
   {{ xGovukSummaryCard({
     titleText: data.selectedSubject,
@@ -168,7 +145,7 @@
     rows: [
       {
         key: {
-          text: "Subjects, apprenticeship or T Level"
+          text: "Subject"
         },
         value: { 
           html: data.resultName
@@ -177,7 +154,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Subjects, apprenticeship or T Level",
-            href: "/application/search/subject-search?referrer=subjectSearch"
+            href: "/application/search/subject-search"
           }]
         }
       },
@@ -192,9 +169,9 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification type",
-            href: "/application/search/select-qualification?referrer=subjectSearch"
+            href: "/application/search/select-qualification"
           }]
-        } if data.resultQualType == "Other qualification type"
+        } if (data.resultQualType != "End-point assessment" or "T Level")
       },
       {
         key: {
@@ -207,9 +184,9 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "Qualification level",
-            href: "/application/search/select-level?referrer=subjectSearch"
+            href: "/application/search/select-level"
           }]
-        } if data.resultQualType == "Other qualification type"
+        } if (data.resultQualType != "End-point assessment" or "T Level")
       },
       {
         key: {
@@ -222,7 +199,7 @@
           items: [{
             text: "Change",
             visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "/application/search/select-expertise-type?referrer=subjectSearch"
+            href: "/application/search/select-expertise-type"
           }]
         } 
       } if data.hasMultipleExpertiseTypes,
@@ -237,7 +214,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "Provide details of your expertise",
-          href: "/application/search/add-details?referrer=subjectSearch"
+          href: "/application/search/add-details"
         }]
       }
     }
@@ -248,7 +225,7 @@
 {# If assessment only  #}
 {% if (data.assessmentOnlyExpertise) %}
   {% if data.assessmentSubject == "No" %}
-    {# If assessment only, subject/sector route - covered in the subject and sector if statements above #}
+    {# If assessment only, subject route - covered in the subject if statements above #}
 
     {# If assessment only, qual only route  #}
     {% if data.assessmentQual == "Yes" %}
@@ -266,7 +243,7 @@
               text: "Qualification type"
             },
             value: { 
-              html: qualTypeAssessmntOnlyHtml
+              html: qualTypeAssessmentOnlyHtml
             },
             actions: {
               items: [{
