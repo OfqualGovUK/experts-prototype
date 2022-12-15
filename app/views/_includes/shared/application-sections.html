@@ -84,44 +84,50 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
-        {% for type in data.expertiseType %}
-          {% if type == "Assessment" %}
-            {% if data.assessmentExpertiseCompleted == "complete" %}
-              <h2 class="govuk-heading-m">Assessment expertise</h2>
-              {% include "_includes/summary-cards/assessment-expertise.html" %}
-              {% else %}
-              {{ appTaskListItem ({
-                sectionName: 'Assessment expertise',
-                sectionHref: '/assessment-answer',
-                classes: "app-inset-text--error" if data.showErrors == "true"
-              })}}
+        {# If the Subjects of expertise is NOT complete #}
+        {% if data.adviseAreasCompleted != "complete" %}
+          <p class="govuk-body">You must complete subjects that you can provide expertise on first.</p>
+        {# Otherwise Subjects of expertise IS complete #}
+        {% else %}
+          {% for type in data.expertiseType %}
+            {% if type == "Assessment" %}
+              {% if data.assessmentExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Assessment expertise</h2>
+                {% include "_includes/summary-cards/assessment-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: 'Assessment expertise',
+                  sectionHref: '/assessment-type-answer',
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
             {% endif %}
-          {% endif %}
-          {% if type == "Industry or occupational" %}
-            {% if data.assessmentExpertiseCompleted == "complete" %}
-              <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
-              {% include "_includes/summary-cards/industry-expertise.html" %}
-              {% else %}
-              {{ appTaskListItem ({
-                sectionName: "Industry or occupational expertise",
-                sectionHref: "./industry-expertise",
-                classes: "app-inset-text--error" if data.showErrors == "true"
-              })}}
+            {% if type == "Industry or occupational" %}
+              {% if data.industryExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
+                {% include "_includes/summary-cards/industry-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: "Industry or occupational expertise",
+                  sectionHref: "./industry-expertise",
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
             {% endif %}
-          {% endif %}
-          {% if type == "Teaching, lecturing or training" %}
-            {% if data.teachingExpertiseCompleted == "complete" %}
-              <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
-              {% include "_includes/summary-cards/teaching-expertise.html" %}
-              {% else %}
-              {{ appTaskListItem ({
-                sectionName: "Teaching, lecturing or training expertise",
-                sectionHref: "./teaching-expertise",
-                classes: "app-inset-text--error" if data.showErrors == "true"
-              })}}
+            {% if type == "Teaching, lecturing or training" %}
+              {% if data.teachingExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
+                {% include "_includes/summary-cards/teaching-type-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: "Teaching, lecturing or training expertise",
+                  sectionHref: "/teaching-answer",
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
             {% endif %}
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        {% endif %}
       </section>
       
       <section class="govuk-!-margin-bottom-8">

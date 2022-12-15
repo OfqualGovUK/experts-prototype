@@ -245,7 +245,7 @@ router.post('/teaching-answer', function (req, res) {
 // })
 
 // Route for assessment expertise from task list
-router.get('/assessment-answer', function (req, res) {
+router.get('/assessment-type-answer', function (req, res) {
   
   let assessmentExpertise = req.session.data.expertiseType
   let assessmentMarking = req.session.data.assessmentMarking
@@ -268,7 +268,7 @@ router.get('/assessment-answer', function (req, res) {
 })
 
 // Route for teaching expertise from task list
-router.get('/teaching-answer', function (req, res) {
+router.get('/teaching-type-answer', function (req, res) {
   
   let teachingExpertise = req.session.data.expertiseType
   let teachingDeveloping = req.session.data.teachingDeveloping
