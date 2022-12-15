@@ -2,13 +2,13 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./add-details" %}
-{% set pageHeading = "Which activities or responsibilities have you completed?" %}
+{% set pageHeading = "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?" %}
 
 {% block formContent %}
 
   <span class="govuk-caption-l">Teaching, lecturing or training</span>
   
-  {% set natureOtherHtml %}
+  {# {% set natureOtherHtml %}
     {{ govukTextarea({
       _classes: "govuk-!-width-two-thirds",
       label: {
@@ -16,7 +16,7 @@
         classes: "govuk-label--s"
       }
     } | decorateAttributes(data, "data.teachingExpertiseTypeOther")) }}
-  {% endset -%}
+  {% endset -%} #}
 
   {{ govukCheckboxes({
     fieldset: {
@@ -31,37 +31,13 @@
     },
     items: [
       {
-        text: "Developing classroom materials"
+        text: "Developing learning materials"
       },
       {
-        text: "Developing online teaching materials"
+        text: "Working in a senior role"
       },
       {
-        text: "Developing teacher training materials"
-      },
-      {
-        text: "Head of department"
-      },
-      {
-        text: "Head of faculty"
-      },
-      {
-        text: "Senior leadership team member"
-      },
-      {
-        text: "Senior tutor"
-      },
-      {
-        text: "Subject co-ordinator"
-      },
-      {
-        text: "Training teachers, lecturers or trainers"
-      },
-      {
-        text: "An option that isn't listed",
-        conditional: {
-          html: natureOtherHtml
-        }
+        text: "Training other staff"
       }
     ]
   } | decorateAttributes(data, "data.teachingExpertiseType")) }}
