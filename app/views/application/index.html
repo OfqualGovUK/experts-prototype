@@ -87,21 +87,27 @@
             })}}
           {# Otherwise Subjects of expertise IS complete #}
           {% else %}
-            {{ appTaskListItem ({
-              name: 'Assessment expertise',
-              href: '/assessment-answer',
-              taskName: data.assessmentExpertiseCompleted
-            })}}
-            {{ appTaskListItem ({
-              name: 'Industry or occupational expertise',
-              href: '/industry-expertise/add-details',
-              taskName: data.industryExpertiseCompleted
-            })}}
-            {{ appTaskListItem ({
-              name: 'Teaching, lecturing or training expertise',
-              href: '/teaching-answer',
-              taskName: data.teachingExpertiseCompleted
-            })}}
+            {% if data.expertiseType === "Assessment" %}
+              {{ appTaskListItem ({
+                name: 'Assessment expertise',
+                href: '/assessment-answer',
+                taskName: data.assessmentExpertiseCompleted
+              })}}
+            {% endif %}
+            {% if data.expertiseType === "Industry or occupational" %}
+              {{ appTaskListItem ({
+                name: 'Industry or occupational expertise',
+                href: '/industry-expertise/add-details',
+                taskName: data.industryExpertiseCompleted
+              })}}
+            {% endif %}
+            {% if data.expertiseType === "Teaching, lecturing or training" %}
+              {{ appTaskListItem ({
+                name: 'Teaching, lecturing or training expertise',
+                href: '/teaching-answer',
+                taskName: data.teachingExpertiseCompleted
+              })}}
+            {% endif %}
           {% endif %}
         </ul>
       </section>
@@ -118,7 +124,6 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        {# <h2 class="govuk-heading-m govuk-!-font-size-27">Self declaration and right to work status</h2> #}
         <h2 class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
@@ -137,14 +142,7 @@
             taskName: data.verifyIdentityCompleted
           })}}
         </ul>
-      </section>
-
-      {# <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Verify your identity</h2>
-        <ul class="app-task-list">
-        </ul>
-      </section> #}
-     
+      </section>     
 
       <h2 class="govuk-heading-m govuk-!-font-size-27">Review and send</h2>
 

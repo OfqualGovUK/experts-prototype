@@ -75,16 +75,16 @@
       items: [
         {
           text: "Assessment"
-        } if data.anyAssessmentExpertise == "Yes",
+        },
         {
           text: "Industry or occupational",
           hint: {
             text: "You work in this field in a non-educational context"
           }
-        } if data.anyIndustryExpertise == "Yes",
+        },
         {
           text: "Teaching, lecturing or training"
-        } if data.anyTeachingExpertise == "Yes"
+        }
       ]
     } | decorateAttributes(data, "data.expertiseTypeSector")) }}
 
@@ -105,16 +105,16 @@
       items: [
         {
           text: "Assessment"
-        } if data.anyAssessmentExpertise == "Yes",
+        },
         {
           text: "Industry or occupational",
           hint: {
             text: "You work in this field in a non-educational context"
           }
-        } if data.anyIndustryExpertise == "Yes",
+        },
         {
           text: "Teaching, lecturing or training"
-        } if data.anyTeachingExpertise == "Yes"
+        }
       ]
     } | decorateAttributes(data, "data.expertiseType")) }}
 

@@ -471,40 +471,40 @@ router.post('/application/search/subject-search-answer', function (req, res) {
   }
 })
 
-// What type of expertise do you have for this industry or sector?
-// Joe helped me write this one too
+// // What type of expertise do you have for this industry or sector?
+// // Joe helped me write this one too
 
-router.post('/select-level-answer', function (req, res) {
+// router.post('/select-level-answer', function (req, res) {
 
-  const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  const industryExpertise = req.session.data.anyIndustryExpertise
-  const teachingExpertise = req.session.data.anyTeachingExpertise
-  let hasMultipleExpertiseTypes = true
+//   const assessmentExpertise = req.session.data.anyAssessmentExpertise
+//   const industryExpertise = req.session.data.anyIndustryExpertise
+//   const teachingExpertise = req.session.data.anyTeachingExpertise
+//   let hasMultipleExpertiseTypes = true
  
-  const typesOfExpertise2 = [
-    assessmentExpertise,
-    industryExpertise,
-    teachingExpertise
-  ]; // [true, false, true] or [true, false, false] etc...
+//   const typesOfExpertise2 = [
+//     assessmentExpertise,
+//     industryExpertise,
+//     teachingExpertise
+//   ]; // [true, false, true] or [true, false, false] etc...
 
-  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
-    // this is just for this function 
-    hasMultipleExpertiseTypes = true
-    // this is to use in the nunjucks view
-    req.session.data.hasMultipleExpertiseTypes = true 
-  } else {
-    hasMultipleExpertiseTypes = false
-  }
+//   if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+//     // this is just for this function 
+//     hasMultipleExpertiseTypes = true
+//     // this is to use in the nunjucks view
+//     req.session.data.hasMultipleExpertiseTypes = true 
+//   } else {
+//     hasMultipleExpertiseTypes = false
+//   }
     
-  // at least 2 expertise types have been selected so we need them to tell us more   
-  if (hasMultipleExpertiseTypes === true) {
-    res.redirect('/application/search/select-expertise-type')
-  // must have selected only one type of expertise  
-  } else {
-    res.redirect('/application/search/add-details') 
-  }
+//   // at least 2 expertise types have been selected so we need them to tell us more   
+//   if (hasMultipleExpertiseTypes === true) {
+//     res.redirect('/application/search/select-expertise-type')
+//   // must have selected only one type of expertise  
+//   } else {
+//     res.redirect('/application/search/add-details') 
+//   }
 
-})
+// })
 
 // Did you want to add another qualification?
 router.post('/review-subjects-answer', function (req, res) {
