@@ -1,0 +1,68 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details of your experience in developing learning materials in this subject" %}
+
+{% block formContent %}
+<span class="govuk-caption-l">Teaching, lecturing and training experience - </span>
+  <h1 class="govuk-heading-l">Do you have experience in developing learning materials in this subject?</h1>
+
+  <p class="govuk-body">
+        Make sure you cover how this applies to the qualification type(s) and level(s) you've selected:
+  </p>
+
+  {% set teachingHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list govuk-list--bullet">
+      {% for role in data.teachingExpertiseType %}
+        <li>
+          {% if role == "An option that isn't listed" %}
+            Other: {{ data.teachingExpertiseTypeOther }}
+          {% else %} 
+            {{ role }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endset %} 
+
+  {{ teachingHtml | safe }}
+  
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>understanding of qualifications and specifications</li>
+      <li>teaching experience, qualifications and cohorts</li>
+      <li>curriculum development</li>
+      <li>research and project work</li>
+      <li>commercial training experience</li>
+      <li>development of training materials (classroom, online)</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+    </ul>
+    <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
