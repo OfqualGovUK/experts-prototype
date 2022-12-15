@@ -87,27 +87,30 @@
             })}}
           {# Otherwise Subjects of expertise IS complete #}
           {% else %}
-            {% if (data.expertiseType === "Assessment") %}
+          {# loops through and gets all the checked type of expertise #}
+          {% for type in data.expertiseType %}   
+            {% if type == "Assessment" %}
               {{ appTaskListItem ({
                 name: 'Assessment expertise',
                 href: '/assessment-answer',
                 taskName: data.assessmentExpertiseCompleted
               })}}
             {% endif %}
-            {% if (data.expertiseType === "Industry or occupational") %}
+            {% if type == "Industry or occupational" %}
               {{ appTaskListItem ({
                 name: 'Industry or occupational expertise',
                 href: '/industry-expertise/add-details',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
-            {% if (data.expertiseType === "Teaching, lecturing or training") %}
+            {% if type == "Teaching, lecturing or training" %}
               {{ appTaskListItem ({
                 name: 'Teaching, lecturing or training expertise',
                 href: '/teaching-answer',
                 taskName: data.teachingExpertiseCompleted
               })}}
             {% endif %}
+          {% endfor %}
           {% endif %}
         </ul>
       </section>
