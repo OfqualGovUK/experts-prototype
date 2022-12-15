@@ -236,44 +236,74 @@ router.post('/teaching-answer', function (req, res) {
   
 })
 
-// // Redirect for users who only select Assessment as type of expertise
+// // route for assessment specialist from task list (pre subject/evidence swap)
 // router.get('/assessment-only', function (req, res) {
 
-//   let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
-//   let anyIndustryExpertise = req.session.data.anyIndustryExpertise
-//   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
-  
-//   if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
-//     res.redirect('/application/search/assessment-subject')
+//   const assessmentExpertise = req.session.data.anyAssessmentExpertise
+//   const industryExpertise = req.session.data.anyIndustryExpertise
+//   const teachingExpertise = req.session.data.anyTeachingExpertise
+//   let assessmentOnlyExpertise = true
+
+//   if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
+//     // this is just for this function 
+//     assessmentOnlyExpertise = true
+//     // this is to use in the nunjucks view
+//     req.session.data.assessmentOnlyExpertise = true 
 //   } else {
-//     res.redirect('/application/search')
+//     assessmentOnlyExpertise = false
 //   }
+    
+//   // only assessment expertise is selected 
+//   if (assessmentOnlyExpertise === true) {
+//     res.redirect('/application/search/assessment-subject')
+//   // must have selected multiple types of expertise  
+//   } else {
+//     res.redirect('/application/search') 
+//   }
+
 // })
 
-router.get('/assessment-only', function (req, res) {
-
-  const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  const industryExpertise = req.session.data.anyIndustryExpertise
-  const teachingExpertise = req.session.data.anyTeachingExpertise
-  let assessmentOnlyExpertise = true
-
-  if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
-    // this is just for this function 
-    assessmentOnlyExpertise = true
-    // this is to use in the nunjucks view
-    req.session.data.assessmentOnlyExpertise = true 
-  } else {
-    assessmentOnlyExpertise = false
+// Route for assessment expertise from task list
+router.get('/assessment-answer', function (req, res) {
+  
+  let assessmentExpertise = req.session.data.expertiseType
+  let assessmentMarking = req.session.data.assessmentMarking
+  let assessmentModerating = req.session.data.assessmentModerating
+  let assessmentDesigning = req.session.data.assessmentDesigning
+  let assessmentReviewing = req.session.data.assessmentReviewing
+  
+  if (assessmentExpertise === "Assessment") {
+    if (assessmentMarking === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-marking')
+    } else if (assessmentModerating === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-moderating')
+    } else if (assessmentDesigning === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-designing')
+    } else if (assessmentReviewing === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-reviewing')
+    }
   }
-    
-  // only assessment expertise is selected 
-  if (assessmentOnlyExpertise === true) {
-    res.redirect('/application/search/assessment-subject')
-  // must have selected multiple types of expertise  
-  } else {
-    res.redirect('/application/search') 
-  }
+  
+})
 
+// Route for teaching expertise from task list
+router.get('/teaching-answer', function (req, res) {
+  
+  let teachingExpertise = req.session.data.expertiseType
+  let teachingDeveloping = req.session.data.teachingDeveloping
+  let teachingSenior = req.session.data.teachingSenior
+  let teachingTraining = req.session.data.teachingTraining
+  
+  if (teachingExpertise === "Teaching, lecturing or training") {
+    if (teachingDeveloping === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-developing')
+    } else if (teachingSenior === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-senior-role')
+    } else if (teachingTraining === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-training-staff')
+    }
+  } 
+  
 })
 
 // If areas of expertise is complete 

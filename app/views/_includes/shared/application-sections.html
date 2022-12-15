@@ -68,9 +68,22 @@
           })}}
         {% endif %} 
       </section>
+      
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Subjects that you can provide expertise on</h2>
+        {% if data.adviseAreasCompleted == "complete" %}
+          {% include "_includes/summary-cards/subjects.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Subjects that you can provide expertise on",
+            sectionHref: "./search",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+      </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Type of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
         {% if data.assessmentExpertiseCompleted == "complete" %}
           <h2 class="govuk-heading-m">Assessment expertise</h2>
           {% include "_includes/summary-cards/assessment-expertise.html" %}
@@ -101,19 +114,6 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %}
-      </section>
-      
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Areas you can advise on</h2>
-        {% if data.adviseAreasCompleted == "complete" %}
-          {% include "_includes/summary-cards/subjects.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Subjects and/or sectors you can advise on",
-            sectionHref: "./search",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %} 
       </section>
       
       <section class="govuk-!-margin-bottom-8">
