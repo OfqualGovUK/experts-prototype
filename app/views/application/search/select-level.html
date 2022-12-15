@@ -14,9 +14,9 @@
 {% set captionHeading %}
   {# Coming from the assessment only, qual only route #}
   {% if data.referrer == "assessmentExpertise" %}
-    {% if data.selectedQualificationAssessmntOnly == "I don't know the qualification type" %}
+    {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
       {% else %} 
-        ({{ data.selectedQualificationAssessmntOnly }})
+        ({{ data.selectedQualificationAssessmentOnly }})
     {% endif %}
     {# Coming from the subject search #}
     {% else %}
@@ -79,7 +79,7 @@
         {
           value: "Level 2",
           text: "Level 2",
-          checked: true if "GCSE (9 to 1)" in data.selectedQualificationAssessmntOnly or "GCSE (A* to G)" in data.selectedQualificationAssessmntOnly, 
+          checked: true if "GCSE (9 to 1)" in data.selectedQualificationAssessmentOnly or "GCSE (A* to G)" in data.selectedQualificationAssessmentOnly, 
           hint: {
             text: "Intermediate apprenticeship or GCSE - grade 4 or C and above"
           }
@@ -87,7 +87,7 @@
         {
           value: "Level 3",
           text: "Level 3",
-          checked: true if "GCE A Level" in data.selectedQualificationAssessmntOnly or "GCE AS Level" in data.selectedQualificationAssessmntOnly,
+          checked: true if "GCE A Level" in data.selectedQualificationAssessmentOnly or "GCE AS Level" in data.selectedQualificationAssessmentOnly,
           hint: {
             text: "A/AS level or advanced apprenticeship"
           }
@@ -136,7 +136,7 @@
           behaviour: "exclusive"
         }
       ]
-    } | decorateAttributes(data, "data.selectedLevelAssessmntOnly")) }}
+    } | decorateAttributes(data, "data.selectedLevelAssessmentOnly")) }}
 
     {# Coming through subject flow #}
     {% else %}

@@ -10,11 +10,11 @@
   {% endif %}
 {% endset %}
 
-{% set qualTypeAssessmntOnlyHtml %}
-  {% if data.selectedQualificationAssessmntOnly == "I don't know the qualification type" %}
+{% set qualTypeAssessmentOnlyHtml %}
+  {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
     {{ data.selectedQualificationOther }}
   {% else %} 
-    {{ data.selectedQualificationAssessmntOnly }}
+    {{ data.selectedQualificationAssessmentOnly }}
   {% endif %}
 {% endset %}
 
@@ -40,7 +40,7 @@
 {% set levelAssessmentOnlyHtml %}
   <ul class="govuk-list">
     {# loops through and gets all the checked items  #}
-    {% for level in data.selectedLevelAssessmntOnly %}
+    {% for level in data.selectedLevelAssessmentOnly %}
       <li>
         {% if level == "I don't know the qualification type" %}
           {{ data.selectedLevelOther }}
@@ -260,7 +260,7 @@
               text: "Qualification type"
             },
             value: { 
-              html: qualTypeAssessmntOnlyHtml
+              html: qualTypeAssessmentOnlyHtml
             },
             actions: {
               items: [{

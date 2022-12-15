@@ -7,15 +7,15 @@
   {# Coming from the assessment only, qual only route #}
   {% if data.referrer == "assessmentExpertise" %}
     {% if data.selectedQualification == "I don't know the qualification type" %}
-      {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
+      {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
         {% else %} 
-        ({{ data.selectedLevelAssessmntOnly }})
+        ({{ data.selectedLevelAssessmentOnly }})
       {% endif %}
     {% else %} 
-    {% if data.selectedLevelAssessmntOnly == "I don't know the level" %}
-      ({{ data.selectedQualificationAssessmntOnly }})
+    {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+      ({{ data.selectedQualificationAssessmentOnly }})
       {% else %} 
-      ({{ data.selectedQualificationAssessmntOnly }} – {{ data.selectedLevelAssessmntOnly }})
+      ({{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }})
     {% endif %}
   {% endif %}
     {# Otherwise they must be coming from the subject search #}
