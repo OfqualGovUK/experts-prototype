@@ -13,7 +13,7 @@
     Make sure you cover how this applies to the qualification type(s) and level(s) you've selected:
   </p>
 
-  {% set assessmentHtml %}
+  <!-- {% set assessmentHtml %}
     {# Build an list of the items selected #}
     <ul class="govuk-list govuk-list--bullet">
       {# loops through and gets al the checked items #}
@@ -27,7 +27,7 @@
         </li>
       {% endfor %}
     </ul>
-  {% endset %}
+  {% endset %} -->
 
   {{ assessmentHtml | safe }}
 
@@ -60,7 +60,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
+   } | decorateAttributes(data, "data.assessmentReviewingDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
