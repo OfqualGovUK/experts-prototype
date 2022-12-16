@@ -110,124 +110,57 @@
   </ul>
 {% endset %}
 
-
-
 {# If assessment only expertise, display the answers to additional questions #}
 {% if data.assessmentOnlyExpertise %}
-{# If assessment only, WITH subject expertise. 
-Just show the answer to the assessment subject question. #}
-  {% if data.assessmentSubject == "Yes" %}
-    {{ xGovukSummaryCard({
-        rows: [
-          {
-            key: {
-              text: "Does your assessment expertise relate to a subject?"
-            },
-            value: { 
-              html: assessmentSubjectHtml
-            },
-            actions: {
-              items: [{
-                text: "Change",
-                visuallyHiddenText: "Does your assessment expertise relate to a subject?",
-                href: "/application/search/assessment-subject"
-              }]
-            }
-          }
-        ]
-      }) }}
-      {# If assessment only, WITHOUT subject but WITH qual type expertise. 
-      Show the answer to the assessment subject and qual questions. #}
-      {% else %}
-      {% if data.assessmentQual == "Yes" %}
-        {{ xGovukSummaryCard({
-          rows: [
-            {
-              key: {
-                text: "Does your assessment expertise relate to a subject?"
-              },
-              value: { 
-                html: assessmentSubjectHtml
-              },
-              actions: {
-                items: [{
-                  text: "Change",
-                  visuallyHiddenText: "Does your assessment expertise relate to a subject?",
-                  href: "/application/search/assessment-subject"
-                }]
-              }
-            },
-            {
-              key: {
-                text: "Does your assessment expertise relate to specific qualifications?"
-              },
-              value: { 
-                html: assessmentQualHtml 
-              },
-              actions: {
-                items: [{
-                  text: "Change",
-                  visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
-                  href: "/application/search/assessment-qualifications"
-                }]
-              }
-            }
-          ]
-        }) }}
-        {# If assessment only, WITHOUT subject or qual type expertise. 
-        Show the answer to the assessment subject and qual questions and the assessment expertise type checkboxes. #}
-        {% else %}
-        {{ xGovukSummaryCard({
-          rows: [
-            {
-              key: {
-                text: "Does your assessment expertise relate to a subject?"
-              },
-              value: { 
-                html: assessmentSubjectHtml
-              },
-              actions: {
-                items: [{
-                  text: "Change",
-                  visuallyHiddenText: "Does your assessment expertise relate to a subject?",
-                  href: "/application/search/assessment-subject"
-                }]
-              }
-            },
-            {
-              key: {
-                text: "Does your assessment expertise relate to specific qualifications?"
-              },
-              value: { 
-                html: assessmentQualHtml 
-              },
-              actions: {
-                items: [{
-                  text: "Change",
-                  visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
-                  href: "/application/search/assessment-qualifications"
-                }]
-              }
-            },
-            {
-              key: {
-                text: "Which assessment activities or responsibilities have you completed in this subject?"
-              },
-              value: { 
-                text: data.assessmentExpertiseHtml
-              },
-              actions: {
-                items: [{
-                  text: "Change",
-                  visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
-                  href: "/application/search/assessment-expertise"
-                }]
-              }
-            }
-          ]
-        }) }}
-      {% endif %}
-    {% endif %}
+  {{ xGovukSummaryCard({
+    rows: [
+      {
+        key: {
+          text: "Does your assessment expertise relate to a subject?"
+        },
+        value: { 
+          html: assessmentSubjectHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Does your assessment expertise relate to a subject?",
+            href: "/application/search/assessment-subject"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Does your assessment expertise relate to specific qualifications?"
+        },
+        value: { 
+          html: assessmentQualHtml 
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
+            href: "/application/search/assessment-qualifications"
+          }]
+        }
+      } if data.assessmentQual == "Yes",
+      {
+        key: {
+          text: "Which assessment activities or responsibilities have you completed in this subject?"
+        },
+        value: { 
+          text: data.assessmentExpertiseHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+            href: "/application/search/assessment-expertise"
+          }]
+        }
+      } if ((data.assessmentSubject == "No") && (data.assessmentQual == "No")),
+    ]
+  }) }}
 {% endif %}
 
 {# If it is a subject  #}
@@ -301,7 +234,7 @@ Just show the answer to the assessment subject question. #}
             href: "/application/search/select-expertise-type"
           }]
         } 
-      } if data.hasMultipleExpertiseTypes,
+      },
       {
         key: {
           text: "Which assessment activities or responsibilities have you completed in this subject?"
@@ -316,7 +249,7 @@ Just show the answer to the assessment subject question. #}
             href: "/application/search/assessment-expertise"
           }]
         }
-      },
+      } if data.expertiseType === "Assessment",
       {
         key: {
           text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
@@ -331,7 +264,7 @@ Just show the answer to the assessment subject question. #}
             href: "/application/search/assessment-expertise"
           }]
         }
-      }
+      } if data.expertiseType === "Teaching, lecturing or training"
     ]
   }) }}
 {% endif %}
