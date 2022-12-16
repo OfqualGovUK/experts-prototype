@@ -88,8 +88,34 @@
   {% endif %}
 {% endset %}
 
-{# If assessment only expertise  #}
+{% set assessmentExpertiseHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets all the checked items  #}
+    {% for type in data.assessmentExpertiseType %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+{% set teachingExpertiseHtml %}
+  <ul class="govuk-list">
+    {# loops through and gets all the checked items  #}
+    {% for type in data.teachingExpertiseType %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+
+
+{# If assessment only expertise, display the answers to additional questions #}
 {% if data.assessmentOnlyExpertise %}
+{# If assessment only, WITH subject expertise. 
+Just show the answer to the assessment subject question. #}
   {% if data.assessmentSubject == "Yes" %}
     {{ xGovukSummaryCard({
         rows: [
@@ -110,43 +136,99 @@
           }
         ]
       }) }}
+      {# If assessment only, WITHOUT subject but WITH qual type expertise. 
+      Show the answer to the assessment subject and qual questions. #}
       {% else %}
-      {{ xGovukSummaryCard({
-        rows: [
-          {
-            key: {
-              text: "Does your assessment expertise relate to a subject?"
+      {% if data.assessmentQual == "Yes" %}
+        {{ xGovukSummaryCard({
+          rows: [
+            {
+              key: {
+                text: "Does your assessment expertise relate to a subject?"
+              },
+              value: { 
+                html: assessmentSubjectHtml
+              },
+              actions: {
+                items: [{
+                  text: "Change",
+                  visuallyHiddenText: "Does your assessment expertise relate to a subject?",
+                  href: "/application/search/assessment-subject"
+                }]
+              }
             },
-            value: { 
-              html: assessmentSubjectHtml
-            },
-            actions: {
-              items: [{
-                text: "Change",
-                visuallyHiddenText: "Does your assessment expertise relate to a subject?",
-                href: "/application/search/assessment-subject"
-              }]
+            {
+              key: {
+                text: "Does your assessment expertise relate to specific qualifications?"
+              },
+              value: { 
+                html: assessmentQualHtml 
+              },
+              actions: {
+                items: [{
+                  text: "Change",
+                  visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
+                  href: "/application/search/assessment-qualifications"
+                }]
+              }
             }
-          },
-          {
-            key: {
-              text: "Does your assessment expertise relate to specific qualifications?"
+          ]
+        }) }}
+        {# If assessment only, WITHOUT subject or qual type expertise. 
+        Show the answer to the assessment subject and qual questions and the assessment expertise type checkboxes. #}
+        {% else %}
+        {{ xGovukSummaryCard({
+          rows: [
+            {
+              key: {
+                text: "Does your assessment expertise relate to a subject?"
+              },
+              value: { 
+                html: assessmentSubjectHtml
+              },
+              actions: {
+                items: [{
+                  text: "Change",
+                  visuallyHiddenText: "Does your assessment expertise relate to a subject?",
+                  href: "/application/search/assessment-subject"
+                }]
+              }
             },
-            value: { 
-              html: assessmentQualHtml 
+            {
+              key: {
+                text: "Does your assessment expertise relate to specific qualifications?"
+              },
+              value: { 
+                html: assessmentQualHtml 
+              },
+              actions: {
+                items: [{
+                  text: "Change",
+                  visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
+                  href: "/application/search/assessment-qualifications"
+                }]
+              }
             },
-            actions: {
-              items: [{
-                text: "Change",
-                visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
-                href: "/application/search/assessment-qualifications"
-              }]
+            {
+              key: {
+                text: "Which assessment activities or responsibilities have you completed in this subject?"
+              },
+              value: { 
+                text: data.assessmentExpertiseHtml
+              },
+              actions: {
+                items: [{
+                  text: "Change",
+                  visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+                  href: "/application/search/assessment-expertise"
+                }]
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+      {% endif %}
     {% endif %}
-  {% endif %}
+{% endif %}
 
 {# If it is a subject  #}
 {% if data.selectedSubject %}
@@ -221,87 +303,96 @@
         } 
       } if data.hasMultipleExpertiseTypes,
       {
-      key: {
-        text: "Provide details of your expertise"
+        key: {
+          text: "Which assessment activities or responsibilities have you completed in this subject?"
+        },
+        value: { 
+          text: data.assessmentExpertiseHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+            href: "/application/search/assessment-expertise"
+          }]
+        }
       },
-      value: { 
-        text: data.subjectExpertiseDetails
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Provide details of your expertise",
-          href: "/application/search/add-details"
-        }]
+      {
+        key: {
+          text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
+        },
+        value: { 
+          text: data.teachingExpertiseHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
+            href: "/application/search/assessment-expertise"
+          }]
+        }
       }
-    }
     ]
   }) }}
 {% endif %}
 
-{# If assessment only  #}
+{# If assessment only, qual only route. Show the qual types. #}
 {% if (data.assessmentOnlyExpertise) %}
-  {% if data.assessmentSubject == "No" %}
-    {# If assessment only, subject route - covered in the subject if statements above #}
-
-    {# If assessment only, qual only route  #}
-    {% if data.assessmentQual == "Yes" %}
-      
-      {{ xGovukSummaryCard({
-        actions: {
-          items: [{
-            text: "Delete choice",
-            href: "/application/search/delete?delete=" + data.selectedSubject
-          }]
-        },
-        rows: [
-          {
-            key: {
-              text: "Qualification type"
-            },
-            value: { 
-              html: qualTypeAssessmentOnlyHtml
-            },
-            actions: {
-              items: [{
-                text: "Change",
-                visuallyHiddenText: "Qualification type",
-                href: "/application/search/select-qualification?referrer=assessmentQualOnly"
-              }]
-            }
-          },
-          {
-            key: {
-              text: "Qualification level"
-            },
-            value: { 
-              html: levelAssessmentOnlyHtml 
-            },
-            actions: {
-              items: [{
-                text: "Change",
-                visuallyHiddenText: "Qualification level",
-                href: "/application/search/select-level?referrer=assessmentQualOnly"
-              }]
-            }
-          },
-          {
+  {% if data.assessmentQual == "Yes" %}
+    {{ xGovukSummaryCard({
+      actions: {
+        items: [{
+          text: "Delete choice",
+          href: "/application/search/delete?delete=" + data.selectedSubject
+        }]
+      },
+      rows: [
+        {
           key: {
-            text: "Provide details of your expertise"
+            text: "Qualification type"
           },
           value: { 
-            text: data.subjectExpertiseDetails
+            html: qualTypeAssessmentOnlyHtml
           },
           actions: {
             items: [{
               text: "Change",
-              visuallyHiddenText: "Provide details of your expertise",
-              href: "/application/search/add-details?referrer=assessmentQualOnly"
+              visuallyHiddenText: "Qualification type",
+              href: "/application/search/select-qualification?referrer=assessmentQualOnly"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Qualification level"
+          },
+          value: { 
+            html: levelAssessmentOnlyHtml 
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Qualification level",
+              href: "/application/search/select-level?referrer=assessmentQualOnly"
+            }]
+          }
+        },
+        {
+          key: {
+            text: "Which assessment activities or responsibilities have you completed in this subject?"
+          },
+          value: { 
+            text: data.assessmentExpertiseHtml
+          },
+          actions: {
+            items: [{
+              text: "Change",
+              visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+              href: "/application/search/assessment-expertise"
             }]
           }
         }
-        ]
-      }) }}
-    {% endif %}
+      ]
+    }) }}
   {% endif %}
 {% endif %}
