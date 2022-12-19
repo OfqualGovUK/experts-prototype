@@ -12,11 +12,26 @@
 {% set formAction = "/application/search/select-expertise-type" %}
 
 {% set captionHeading %}
-  {# Coming from the assessment only, qual only route #}
+  {# Coming from the assessment only route #}
   {% if data.referrer == "assessmentExpertise" %}
-    {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-      {% else %} 
-        ({{ data.selectedQualificationAssessmentOnly }})
+    {# Coming from the assessment only, qual only route #}
+    {% if data.assessmentQual == "Yes" %}
+      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+        {% else %} 
+          {{ data.selectedQualificationAssessmentOnly }}
+      {% endif %}
+      {# Coming from the assessment only, subject route #}
+      {% else %}
+      {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+        {{ data.selectedSubject }}
+        {# If it is an "other" subject, so just show the subject #}
+        {% else %}
+        {{ data.resultName }}
+        {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+          {% else %} 
+            ({{ data.selectedQualificationAssessmentOnly }})
+        {% endif %}
+      {% endif %}
     {% endif %}
     {# Coming from the subject search #}
     {% else %}

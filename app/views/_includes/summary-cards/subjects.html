@@ -11,10 +11,22 @@
 {% endset %}
 
 {% set qualTypeAssessmentOnlyHtml %}
-  {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-    {{ data.selectedQualificationOther }}
-  {% else %} 
-    {{ data.selectedQualificationAssessmentOnly }}
+  {% if data.assessmentQual == "Yes" %}
+    {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+      {{ data.selectedQualificationOther }}
+    {% else %} 
+      {{ data.selectedQualificationAssessmentOnly }}
+    {% endif %}
+    {% else %}
+    {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+        {{ data.selectedQualificationOther }}
+      {% else %} 
+        {{ data.selectedQualificationAssessmentOnly }}
+      {% endif %}
+    {% else %}
+      {{ data.resultQualType }}
+    {% endif %}
   {% endif %}
 {% endset %}
 
@@ -38,18 +50,37 @@
 {% endset %}
 
 {% set levelAssessmentOnlyHtml %}
-  <ul class="govuk-list">
-    {# loops through and gets all the checked items  #}
-    {% for level in data.selectedLevelAssessmentOnly %}
-      <li>
-        {% if level == "I don't know the qualification type" %}
-          {{ data.selectedLevelOther }}
-        {% else %} 
-          {{ level }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% if data.assessmentQual == "Yes" %}
+    <ul class="govuk-list">
+      {# loops through and gets all the checked items  #}
+      {% for level in data.selectedLevelAssessmentOnly %}
+        <li>
+          {% if level == "I don't know the qualification type" %}
+            {{ data.selectedLevelOther }}
+          {% else %} 
+            {{ level }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+      <ul class="govuk-list">
+        {# loops through and gets all the checked items  #}
+        {% for level in data.selectedLevelAssessmentOnly %}
+          <li>
+            {% if level == "I don't know the qualification type" %}
+              {{ data.selectedLevelOther }}
+            {% else %} 
+              {{ level }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      {{ data.resultLevel }}
+    {% endif %}
+  {% endif %}
 {% endset %}
 
 {% set assessmentSubjectHtml %}
@@ -94,7 +125,7 @@
 {% endset %}
 
 {# If assessment only expertise, display the answers to additional questions #}
-{% if data.assessmentOnlyExpertise %}
+{% if data.referrer == "assessmentExpertise" %}
   {{ xGovukSummaryCard({
     rows: [
       {
@@ -126,13 +157,13 @@
             href: "/application/search/assessment-qualifications"
           }]
         }
-      } if data.assessmentQual == "Yes",
+      } if data.assessmentSubject == "No",
       {
         key: {
           text: "Which assessment activities or responsibilities have you completed in this subject?"
         },
         value: { 
-          text: data.assessmentExpertiseHtml
+          html: assessmentExpertiseHtml
         },
         actions: {
           items: [{
@@ -147,7 +178,7 @@
 {% endif %}
 
 {# If it is a subject  #}
-{% if data.selectedSubject %}
+{% if (data.selectedSubject and (data.referrer != "assessmentExpertise")) %}
   {{ xGovukSummaryCard({
     titleText: data.selectedSubject,
     actions: {
@@ -163,7 +194,7 @@
           text: "Subject"
         },
         value: { 
-          html: data.resultName
+          text: data.resultName
         },
         actions: {
           items: [{
@@ -253,62 +284,79 @@
 {% endif %}
 
 {# If assessment only, qual only route. Show the qual types. #}
-{% if (data.assessmentOnlyExpertise) %}
-  {% if data.assessmentQual == "Yes" %}
-    {{ xGovukSummaryCard({
-      actions: {
-        items: [{
-          text: "Delete choice",
-          href: "/application/search/delete?delete=" + data.selectedSubject
-        }]
-      },
-      rows: [
-        {
-          key: {
-            text: "Qualification type"
-          },
-          value: { 
-            html: qualTypeAssessmentOnlyHtml
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Qualification type",
-              href: "/application/search/select-qualification?referrer=assessmentQualOnly"
-            }]
-          }
+{% if data.referrer == "assessmentExpertise" %}
+{% if (data.assessmentSubject == "Yes" or data.assessmentQual == "Yes") %}
+  {{ xGovukSummaryCard({
+    titleText: data.selectedSubject,
+    actions: {
+      items: [{
+        text: "Delete choice",
+        visuallyHiddenText: data.selectedSubject,
+        href: "/application/search/delete?delete=" + data.selectedSubject
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Subject"
         },
-        {
-          key: {
-            text: "Qualification level"
-          },
-          value: { 
-            html: levelAssessmentOnlyHtml 
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Qualification level",
-              href: "/application/search/select-level?referrer=assessmentQualOnly"
-            }]
-          }
+        value: { 
+          text: data.resultName
         },
-        {
-          key: {
-            text: "Which assessment activities or responsibilities have you completed in this subject?"
-          },
-          value: { 
-            html: assessmentExpertiseHtml
-          },
-          actions: {
-            items: [{
-              text: "Change",
-              visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
-              href: "/application/search/assessment-expertise"
-            }]
-          }
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Subjects, apprenticeship or T Level",
+            href: "/application/search/subject-search"
+          }]
         }
-      ]
-    }) }}
-  {% endif %}
+      } if data.assessmentSubject == "Yes",
+      {
+        key: {
+          text: "Qualification type"
+        },
+        value: { 
+          html: qualTypeAssessmentOnlyHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification type",
+            href: "/application/search/select-qualification?referrer=assessmentQualOnly"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Qualification level"
+        },
+        value: { 
+          html: levelAssessmentOnlyHtml 
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Qualification level",
+            href: "/application/search/select-level?referrer=assessmentQualOnly"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Which assessment activities or responsibilities have you completed in this subject?"
+        },
+        value: { 
+          html: assessmentExpertiseHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+            href: "/application/search/assessment-expertise"
+          }]
+        }
+      }
+    ]
+  }) }}
+{% endif %}
 {% endif %}
