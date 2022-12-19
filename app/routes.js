@@ -205,6 +205,19 @@ router.get('/assessment-type-answer', function (req, res) {
   
 })
 
+// Route for assessment expertise from task list, once in progress or completed
+router.get('/assessment-type-answer/review', function (req, res) {
+
+  let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
+
+  if (assessmentExpertiseCompleted === "complete") {
+    res.redirect('/application/assessment-expertise/review')
+  } else if (assessmentExpertiseCompleted === "inProgress") {
+    res.redirect('/application/assessment-expertise/review')
+  } 
+  
+})
+
 // Route for assessment add details, from Marking 
 router.get('/assessment-marking', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
@@ -286,6 +299,19 @@ router.get('/teaching-type-answer', function (req, res) {
   } else {
     res.redirect('/application/teaching-expertise/add-details-training-staff')
   }
+  
+})
+
+// Route for teaching expertise from task list, once in progress or completed
+router.get('/teaching-type-answer/review', function (req, res) {
+
+  let teachingExpertiseCompleted = req.session.data.teachingExpertiseCompleted
+
+  if (teachingExpertiseCompleted === "complete") {
+    res.redirect('/application/assessment-expertise/review')
+  } else if (teachingExpertiseCompleted === "inProgress") {
+    res.redirect('/application/assessment-expertise/review')
+  } 
   
 })
 
