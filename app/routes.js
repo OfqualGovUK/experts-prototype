@@ -154,6 +154,7 @@ router.post('/achievement-answer', function (req, res) {
 })
 
 // // route for assessment specialist from task list (pre subject/evidence swap)
+// // Redirect for users who only select Assessment as type of expertise
 // router.get('/assessment-only', function (req, res) {
 
 //   const assessmentExpertise = req.session.data.anyAssessmentExpertise
@@ -391,7 +392,8 @@ router.post('/assessment-qual-answer', function (req, res) {
   }
   
 })
-// // This route has been contributed to by Joe Ingledew  
+
+// This route has been contributed to by Joe Ingledew  
 router.post('/subject-search-answer', function (req, res) {
   const qualType = req.session.data.resultQualType
   const qualLevel = req.session.data.resultLevel
