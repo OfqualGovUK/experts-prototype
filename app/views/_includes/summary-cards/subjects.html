@@ -141,7 +141,7 @@
             href: "/application/search/assessment-expertise"
           }]
         }
-      } if ((data.assessmentSubject == "No") && (data.assessmentQual == "No")),
+      } if data.assessmentQual == "No"
     ]
   }) }}
 {% endif %}
@@ -223,7 +223,7 @@
           text: "Which assessment activities or responsibilities have you completed in this subject?"
         },
         value: { 
-          text: data.assessmentExpertiseHtml
+          html: assessmentExpertiseHtml
         },
         actions: {
           items: [{
@@ -232,22 +232,22 @@
             href: "/application/search/assessment-expertise"
           }]
         }
-      } if data.expertiseType === "Assessment",
+      } if data.isAssessment,
       {
         key: {
           text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
         },
         value: { 
-          text: data.teachingExpertiseHtml
+          html: teachingExpertiseHtml
         },
         actions: {
           items: [{
             text: "Change",
             visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
-            href: "/application/search/assessment-expertise"
+            href: "/application/search/teaching-expertise"
           }]
         }
-      } if data.expertiseType === "Teaching, lecturing or training"
+      } if data.isTeaching
     ]
   }) }}
 {% endif %}
@@ -298,7 +298,7 @@
             text: "Which assessment activities or responsibilities have you completed in this subject?"
           },
           value: { 
-            text: data.assessmentExpertiseHtml
+            html: assessmentExpertiseHtml
           },
           actions: {
             items: [{
