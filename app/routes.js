@@ -152,44 +152,74 @@ router.post('/achievement-answer', function (req, res) {
   
 })
 
-// // Redirect for users who only select Assessment as type of expertise
+// // route for assessment specialist from task list (pre subject/evidence swap)
 // router.get('/assessment-only', function (req, res) {
 
-//   let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
-//   let anyIndustryExpertise = req.session.data.anyIndustryExpertise
-//   let anyTeachingExpertise = req.session.data.anyTeachingExpertise
-  
-//   if ((anyAssessmentExpertise === 'Yes') && (anyIndustryExpertise === 'No') && (anyTeachingExpertise === 'No')) {
-//     res.redirect('/application/search/assessment-subject')
+//   const assessmentExpertise = req.session.data.anyAssessmentExpertise
+//   const industryExpertise = req.session.data.anyIndustryExpertise
+//   const teachingExpertise = req.session.data.anyTeachingExpertise
+//   let assessmentOnlyExpertise = true
+
+//   if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
+//     // this is just for this function 
+//     assessmentOnlyExpertise = true
+//     // this is to use in the nunjucks view
+//     req.session.data.assessmentOnlyExpertise = true 
 //   } else {
-//     res.redirect('/application/search')
+//     assessmentOnlyExpertise = false
 //   }
+    
+//   // only assessment expertise is selected 
+//   if (assessmentOnlyExpertise === true) {
+//     res.redirect('/application/search/assessment-subject')
+//   // must have selected multiple types of expertise  
+//   } else {
+//     res.redirect('/application/search') 
+//   }
+
 // })
 
-router.get('/assessment-only', function (req, res) {
-
-  const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  const industryExpertise = req.session.data.anyIndustryExpertise
-  const teachingExpertise = req.session.data.anyTeachingExpertise
-  let assessmentOnlyExpertise = true
-
-  if ((assessmentExpertise === 'Yes') && (industryExpertise === 'No') && (teachingExpertise === 'No')) {
-    // this is just for this function 
-    assessmentOnlyExpertise = true
-    // this is to use in the nunjucks view
-    req.session.data.assessmentOnlyExpertise = true 
-  } else {
-    assessmentOnlyExpertise = false
+// Route for assessment expertise from task list
+router.get('/assessment-type-answer', function (req, res) {
+  
+  let assessmentExpertise = req.session.data.expertiseType
+  let assessmentMarking = req.session.data.assessmentMarking
+  let assessmentModerating = req.session.data.assessmentModerating
+  let assessmentDesigning = req.session.data.assessmentDesigning
+  let assessmentReviewing = req.session.data.assessmentReviewing
+  
+  if (assessmentExpertise === "Assessment") {
+    if (assessmentMarking === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-marking')
+    } else if (assessmentModerating === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-moderating')
+    } else if (assessmentDesigning === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-designing')
+    } else if (assessmentReviewing === "Yes") {
+      res.redirect('/application/subject1/add-details--assessment-reviewing')
+    }
   }
-    
-  // only assessment expertise is selected 
-  if (assessmentOnlyExpertise === true) {
-    res.redirect('/application/search/assessment-subject')
-  // must have selected multiple types of expertise  
-  } else {
-    res.redirect('/application/search') 
-  }
+  
+})
 
+// Route for teaching expertise from task list
+router.get('/teaching-type-answer', function (req, res) {
+  
+  let teachingExpertise = req.session.data.expertiseType
+  let teachingDeveloping = req.session.data.teachingDeveloping
+  let teachingSenior = req.session.data.teachingSenior
+  let teachingTraining = req.session.data.teachingTraining
+  
+  if (teachingExpertise === "Teaching, lecturing or training") {
+    if (teachingDeveloping === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-developing')
+    } else if (teachingSenior === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-senior-role')
+    } else if (teachingTraining === "Yes") {
+      res.redirect('/application/subject1/teaching--add-details-training-staff')
+    }
+  } 
+  
 })
 
 // If areas of expertise is complete 
@@ -230,147 +260,118 @@ router.post('/assessment-qual-answer', function (req, res) {
   }
   
 })
+// // This route has been contributed to by Joe Ingledew  
+// router.post('/application/search/subject-search-answer', function (req, res) {
+//   const qualType = req.session.data.resultQualType
+//   const qualLevel = req.session.data.resultLevel
 
-// This route has been contributed to by Joe Ingledew
-router.post('/application/search/subject-search-answer', function (req, res) {
-  const qualType = req.session.data.resultQualType
-  const qualLevel = req.session.data.resultLevel
-  
-  // case-insensitive string match
-  const qualTypeRegex = new RegExp(/End-point assessment/i)
-  const qualLevelRegex = new RegExp(/T Level/i)
+//   // case-insensitive string match
+//   const qualTypeRegex = new RegExp(/End-point assessment/i)
+//   const qualLevelRegex = new RegExp(/T Level/i)
 
-  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
-  
-  const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  const industryExpertise = req.session.data.anyIndustryExpertise
-  const teachingExpertise = req.session.data.anyTeachingExpertise
-  let hasMultipleExpertiseTypes = true
+//   const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
 
-  //#region suggestions
+//   const assessmentExpertise = req.session.data.anyAssessmentExpertise
+//   const industryExpertise = req.session.data.anyIndustryExpertise
+//   const teachingExpertise = req.session.data.anyTeachingExpertise
+//   let hasMultipleExpertiseTypes = true
 
-  // suggestion...
-  // const yesRegEx = new RegExp(/Yes/i);
+//   //#region suggestions
 
-  // const typesOfExpertise = [
-  //   yesRegEx.test(assessmentExpertise),
-  //   yesRegEx.test(industryExpertise),
-  //   yesRegEx.test(teachingExpertise)
-  // ]; // [true, false, true] or [true, false, false] etc...
+//   // suggestion...
+//   // const yesRegEx = new RegExp(/Yes/i);
 
-  // if (typesOfExpertise.filter(x => x).length >= 2) {
-  //   hasMultipleExpertiseTypes = true
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
-  
-  //#endregion
+//   // const typesOfExpertise = [
+//   //   yesRegEx.test(assessmentExpertise),
+//   //   yesRegEx.test(industryExpertise),
+//   //   yesRegEx.test(teachingExpertise)
+//   // ]; // [true, false, true] or [true, false, false] etc...
+
+//   // if (typesOfExpertise.filter(x => x).length >= 2) {
+//   //   hasMultipleExpertiseTypes = true
+//   // } else {
+//   //   hasMultipleExpertiseTypes = false
+//   // }
+
+//   //#endregion
 
 
-  // Has the user has selected at least 2 types of expertise
-  // if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  // ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
-  // ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  // ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
-  //   hasMultipleExpertiseTypes = true
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
+//   // Has the user has selected at least 2 types of expertise
+//   // if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+//   // ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
+//   // ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
+//   // ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
+//   //   hasMultipleExpertiseTypes = true
+//   // } else {
+//   //   hasMultipleExpertiseTypes = false
+//   // }
 
-  // Has the user has selected at least 2 types of expertise
-  const typesOfExpertise2 = [
-    assessmentExpertise,
-    industryExpertise,
-    teachingExpertise
-  ]; // [true, false, true] or [true, false, false] etc...
+//   // Has the user has selected at least 2 types of expertise 
+//   const typesOfExpertise2 = [
+//     assessmentExpertise,
+//     industryExpertise,
+//     teachingExpertise
+//   ]; // [true, false, true] or [true, false, false] etc...
 
-  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
-    // this is just for this function 
-    hasMultipleExpertiseTypes = true
-    // this is to use in the nunjucks view
-    req.session.data.hasMultipleExpertiseTypes = true 
-  } else {
-    hasMultipleExpertiseTypes = false
-  }
-  
-  // if its an "other" qual type they need to specify qual type and level
-  if (isMatch == false) {
-    res.redirect('/application/search/select-qualification')
-  // the user has selected at least 2 areas of expertise  
-  } else if (hasMultipleExpertiseTypes === true) {
-    res.redirect('/application/search/select-expertise-type')
-  // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
-  } else {
-    res.redirect('/application/search/add-details')
-  }
-})
+//   if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+//     // this is just for this function 
+//     hasMultipleExpertiseTypes = true
+//     // this is to use in the nunjucks view
+//     req.session.data.hasMultipleExpertiseTypes = true 
+//   } else {
+//     hasMultipleExpertiseTypes = false
+//   }
 
-// What type of expertise do you have for this industry or sector?
-// Joe helped me write this one too
+//   // if its an "other" qual type they need to specify qual type and level
+//   if (isMatch == false) {
+//     res.redirect('/application/search/select-qualification')
+//   // the user has selected at least 2 areas of expertise  
+//   } else if (hasMultipleExpertiseTypes === true) {
+//     res.redirect('/application/search/select-expertise-type')
+//   // the user has selected less than 2 areas of expertise so we skip that screen in the flow and go straight to the review page  
+//   } else {
+//     res.redirect('/application/search/add-details')
+//   }
+// })
 
-router.post('/select-level-answer', function (req, res) {
+// // What type of expertise do you have for this industry or sector?
+// // Joe helped me write this one too
 
-  const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  const industryExpertise = req.session.data.anyIndustryExpertise
-  const teachingExpertise = req.session.data.anyTeachingExpertise
-  let hasMultipleExpertiseTypes = true
+
+// router.post('/select-level-answer', function (req, res) {  
+
+//   const assessmentExpertise = req.session.data.anyAssessmentExpertise
+//   const industryExpertise = req.session.data.anyIndustryExpertise
+//   const teachingExpertise = req.session.data.anyTeachingExpertise
+//   let hasMultipleExpertiseTypes = true
  
-  const typesOfExpertise2 = [
-    assessmentExpertise,
-    industryExpertise,
-    teachingExpertise
-  ]; // [true, false, true] or [true, false, false] etc...
+//   const typesOfExpertise2 = [
+//     assessmentExpertise,
+//     industryExpertise,
+//     teachingExpertise
+//   ]; // [true, false, true] or [true, false, false] etc...
 
-  if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
-    // this is just for this function 
-    hasMultipleExpertiseTypes = true
-    // this is to use in the nunjucks view
-    req.session.data.hasMultipleExpertiseTypes = true 
-  } else {
-    hasMultipleExpertiseTypes = false
-  }
+//   if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
+//     // this is just for this function 
+//     hasMultipleExpertiseTypes = true
+//     // this is to use in the nunjucks view
+//     req.session.data.hasMultipleExpertiseTypes = true 
+//   } else {
+//     hasMultipleExpertiseTypes = false
+//   }
     
-  // at least 2 expertise types have been selected so we need them to tell us more   
+  // at least 2 expertise types have been selected so we need them to tell us more    
   if (hasMultipleExpertiseTypes === true) {
     res.redirect('/application/search/select-expertise-type')
   // must have selected only one type of expertise  
   } else {
-    res.redirect('/application/search/add-details') 
+      res.redirect('/application/search/review') 
   }
 
-})
-
-// After selecting subject type of expertise, go to the granular checkboxes for those selected
-router.get('/expertise-granular', function (req, res) {
-
-  let expertiseType = req.session.data.expertiseType
-
-  if (expertiseType === "Assessment") {
-    res.redirect('/application/search/assessment-expertise')
-  } else {
-    if (expertiseType === "Teaching, lecturing or training") {
-      res.redirect('/application/search/teaching-expertise') 
-    }
-    else {
-      res.redirect('/application/search/review')
-    }
-  }
-})
-
-// After completing granular assessment, go to the granular teaching or review screen?
-router.get('/expertise-teaching-granular', function (req, res) {
-
-  let expertiseType = req.session.data.expertiseType
-
-  if (expertiseType === "Teaching, lecturing or training") {
-    res.redirect('/application/search/teaching-expertise')
-  } else {
-      res.redirect('/application/search/review')
-  }
-})
+// })
 
 // For assessment only, qual only route - Do you want to add another qualification?
-router.post('/review-subjects-answer', function (req, res) {
+router.post('/review-subjects-answer', function (req, res) {  
 
   let addAnotherSubject = req.session.data.addAnotherSubject
   let assessmentQual = req.session.data.assessmentQual

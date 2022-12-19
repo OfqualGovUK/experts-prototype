@@ -28,6 +28,9 @@
     ]
   } | decorateAttributes(data, "data.adviseAreasCompleted")) }}
 
+  {# This resets the "Cannot start yet" status on the task list for the "Evidence of expertise" section #}
+  <input type="hidden" name="evidenceExpertiseCompleted" value="">
+
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Continue"
