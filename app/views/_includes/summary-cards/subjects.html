@@ -61,31 +61,14 @@
 {% endset %}
 
 {% set expertiseTypeHtml %}
-  {# If at least one item has been checked, display the selections #}
-  {% if data.hasMultipleExpertiseTypes %}
-    {# multiple #}
-      <ul class="govuk-list">
-        {# loops through and gets al the checked items  #}
-        {% for type in data.expertiseType %}
-          <li>
-            {{ type }}
-          </li>
-        {% endfor %}
-      </ul>
-  {% endif %}
-
-  {# Todo: not sure if we even need this now #}
-  {# If only one type of expertise is selected #}
-  {% if not data.hasMultipleExpertiseTypes %}
-    {# single #}
-    {% if data.anyAssessmentExpertise == "Yes" %}
-      Assessment
-    {% elseif data.anyIndustryExpertise == "Yes" %}
-      Industry or occupational
-    {% elseif data.anyTeachingExpertise == "Yes" %}
-      Teaching, lecturing or training
-    {% endif %}
-  {% endif %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for type in data.expertiseType %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
 {% endset %}
 
 {% set assessmentExpertiseHtml %}
