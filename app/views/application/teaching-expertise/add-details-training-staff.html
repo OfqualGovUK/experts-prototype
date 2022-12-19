@@ -2,32 +2,45 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your experience in training other staff in this subject" %}
+{% set pageHeading = "Provide details of your experience in training other staff" %}
 
 {% block formContent %}
-<span class="govuk-caption-l">Teaching, lecturing and training experience - </span>
-  <h1 class="govuk-heading-l">Do you have experience of working in training other staff in this subject?</h1>
+<span class="govuk-caption-l">Teaching, lecturing and training experience </span>
+  <h1 class="govuk-heading-l">Training other staff</h1>
 
   <p class="govuk-body">
-        Make sure you cover how this applies to the qualification type(s) and level(s) you've selected:
+    Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
   </p>
 
-  {% set teachingHtml %}
+  {% set subjectsHtml %}
     {# Build an list of the items selected #}
     <ul class="govuk-list govuk-list--bullet">
-      {% for role in data.teachingExpertiseType %}
+      {# loops through and gets all the checked items #}
         <li>
-          {% if role == "An option that isn't listed" %}
-            Other: {{ data.teachingExpertiseTypeOther }}
-          {% else %} 
-            {{ role }}
+          {# If its not an "other" subject, show the subject and qual type/level #}
+          {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+            {{ data.selectedSubject }}
+          {# If it is an "other" subject, so just show the subject #}
+          {% else %}
+            {{ data.resultName }}
+            {% if data.selectedQualification == "I don't know the qualification type" %}
+              {% if data.selectedLevel == "I don't know the level" %}
+                {% else %} 
+                ({{ data.selectedLevel }})
+              {% endif %}
+            {% else %} 
+              {% if data.selectedLevel == "I don't know the level" %}
+                ({{ data.selectedQualification }})
+                {% else %} 
+                ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+              {% endif %}
+            {% endif %}
           {% endif %}
         </li>
-      {% endfor %}
     </ul>
-  {% endset %} 
+  {% endset %}
 
-  {{ teachingHtml | safe }}
+  {{ subjectsHtml | safe }}
   
   {% set detailsHtml %}
     <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
