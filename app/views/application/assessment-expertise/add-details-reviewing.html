@@ -2,44 +2,48 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your teaching, lecturing or training expertise" %}
+{% set pageHeading = "Provide details of your experience in reviewing assessment performance in this subject" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Teaching, lecturing or training expertise</h1>
+  <span class="govuk-caption-l">Assessment expertise -</span>
+  <h1 class="govuk-heading-l">Your experience in reviewing assessment performance in this subject</h1>
 
   <p class="govuk-body">
-   Tell us about your expertise in teaching, lecturing or training by describing your experience, skills and achievements, and the activities and responsibilities you have selected. 
+    Make sure you cover how this applies to the qualification type(s) and level(s) you've selected:
   </p>
 
-  {% set teachingHtml %}
+  <!-- {% set assessmentHtml %}
     {# Build an list of the items selected #}
     <ul class="govuk-list govuk-list--bullet">
-      {% for role in data.teachingExpertiseType %}
+      {# loops through and gets al the checked items #}
+      {% for role in data.assessmentExpertiseType %}
         <li>
           {% if role == "An option that isn't listed" %}
-            Other: {{ data.teachingExpertiseTypeOther }}
+            Other: {{ data.assessmentExpertiseTypeOther }}
           {% else %} 
             {{ role }}
           {% endif %}
         </li>
       {% endfor %}
     </ul>
-  {% endset %} 
+  {% endset %} -->
 
-  {{ teachingHtml | safe }}
-  
+  {{ assessmentHtml | safe }}
+
   {% set detailsHtml %}
     <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>understanding of qualifications and specifications</li>
-      <li>teaching experience, qualifications and cohorts</li>
-      <li>curriculum development</li>
-      <li>research and project work</li>
-      <li>commercial training experience</li>
-      <li>development of training materials (classroom, online)</li>
+      <li>your understanding of key assessment concepts such as validity and reliability</li>
+      <li>your awareness of the strengths and limitations of different assessment methods</li>
+      <li>providing analytical feedback to others</li>
+      <li>qualifications you have reviewed</li>
+      <li>knowlege and understanding of assessment principles and practices</li>
+      <li>experience of criteria for evaluation and standards setting and maintenance</li>
+      <li>achievements in your roles such as, key note speaker, research or consultancy achievements</li>
       <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
       <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+      <li>ability to work with others</li>
     </ul>
     <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
   {% endset %}
@@ -50,13 +54,13 @@
   }) }}
 
   {{ govukCharacterCount({
-    maxwords: 1000,
+    maxwords: 500,
     rows: "14",
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.teachingExpertiseDetails")) }}
+   } | decorateAttributes(data, "data.assessmentReviewingDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

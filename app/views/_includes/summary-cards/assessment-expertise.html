@@ -19,48 +19,63 @@
   rows: [
     {
       key: {
-        text: "Do you have any assessment expertise?"
+        text: "Provide details of your assessment marking experience"
       },
       value: { 
-        text: data.anyAssessmentExpertise
+        text: data.assessmentMarkingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "do you have any assessment expertise?",
-          href: "/application/assessment-expertise"
+          visuallyHiddenText: "Provide details of your assessment marking experience",
+          href: "/application/assessment-expertise/add-details-marking"
         }]
       }
     },
     {
       key: {
-        text: "Which activities or responsibilities have you completed?"
+        text: "Provide details of your experience moderating assessments"
       },
       value: { 
-        html: assessmentHtml
+        text: data.assessmentModeratingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Which activities or responsibilities have you completed?",
-          href: "/application/assessment-expertise/assessment-expertise"
+          visuallyHiddenText: "Provide details of your experience moderating assessments",
+          href: "/application/assessment-expertise/add-details-moderating"
         }]
       }
     } if data.anyAssessmentExpertise == "Yes",
     {
       key: {
-        text: "Provide details of your assessment expertise"
+        text: "Provide details of your experience designing and setting assignments"
       },
       value: { 
-        text: data.assessmentExpertiseDetails
+        text: data.assessmentDesigningDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your assessment expertise",
-          href: "/application/assessment-expertise/add-details"
+          visuallyHiddenText: "Provide details of your experience designing and setting assignments",
+          href: "/application/assessment-expertise/add-details-designing"
         }]
       }
-    } if data.anyAssessmentExpertise == "Yes"
+    } if data.anyAssessmentExpertise == "Yes",
+      {
+      key: {
+        text: "Provide details of your experience in reviewing assessment performance"
+      },
+      value: { 
+        text: data.assessmentReviewingDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your experience in reviewing assessment performance",
+          href: "/application/assessment-expertise/add-details-reviewing"
+        }]
+      }
+    }
   ]
 }) }}

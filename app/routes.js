@@ -35,32 +35,6 @@ router.post('/existing-account-answer', function (req, res) {
 
 })
 
-// Select the area
-router.post('/application/select-area-answer', function (req, res) {
-
-  let selectedArea = req.session.data.selectedArea
-
-  if (selectedArea === "Academic subjects") {
-      res.redirect('/application/expertise/select-subject')
-    } else if (selectedArea === "Vocational, sector or industry") {
-      res.redirect('/application/expertise/select-sector')
-    }
-
-})
-
-// Select the sector
-router.post('/application/select-sector-answer', function (req, res) {
-
-  let selectedRoute = req.session.data.selectedRoute
-
-  if (selectedRoute === "I can't find my sector") {
-      res.redirect('/application/no-sector')
-    } else {
-      res.redirect('/application/expertise/select-occupation')
-  }
-
-})
-
 // Do you want to add more expertise? 
 router.post('/review-answer', function (req, res) {
 
@@ -178,46 +152,8 @@ router.post('/achievement-answer', function (req, res) {
   
 })
 
-// Do you have any assessment expertise?
-router.post('/assessment-answer', function (req, res) {
-  
-  let anyAssessmentExpertise = req.session.data.anyAssessmentExpertise
-  
-  if (anyAssessmentExpertise === "Yes") {
-    res.redirect('/application/assessment-expertise/assessment-expertise.html')
-  } else {
-    res.redirect('/application/assessment-expertise/review')
-  }
-  
-})
-
-// Do you have any industry or occupational expertise?
-router.post('/industry-answer', function (req, res) {
-  
-  let anyIndustryExpertise = req.session.data.anyIndustryExpertise
-  
-  if (anyIndustryExpertise === "Yes") {
-    res.redirect('/application/industry-expertise/add-details.html')
-  } else {
-    res.redirect('/application/industry-expertise/review')
-  }
-  
-})
-
-// Do you have any teaching or occupational expertise?
-router.post('/teaching-answer', function (req, res) {
-  
-  let anyTeachingExpertise = req.session.data.anyTeachingExpertise
-  
-  if (anyTeachingExpertise === "Yes") {
-    res.redirect('/application/teaching-expertise/currently-in-role.html')
-  } else {
-    res.redirect('/application/teaching-expertise/review')
-  }
-  
-})
-
 // // route for assessment specialist from task list (pre subject/evidence swap)
+// // Redirect for users who only select Assessment as type of expertise
 // router.get('/assessment-only', function (req, res) {
 
 //   const assessmentExpertise = req.session.data.anyAssessmentExpertise
@@ -326,62 +262,10 @@ router.post('/assessment-qual-answer', function (req, res) {
   
 })
 
-// Decide where to go form the Industry or occupational expertise page
-router.post('/specific-subject-search-answer', function (req, res) {
-  
-  let searchBySubject = req.session.data.searchBySubject
-  
-  if (searchBySubject === "Subject") {
-    res.redirect('/application/search/subject-search')
-  } else {
-    res.redirect('/application/search/sector-search')
-  }
-  
-})
-
-// Do you know the specific GCSEs, A-Levels, apprenticeships, T-Levels or subjects that you can provide expertise on?
-router.post('/subject-search-answer', function (req, res) {
-  
-  let searchBySubject = req.session.data.searchBySubject
-  
-  if (searchBySubject === "Subject") {
-    res.redirect('/application/search/subject-search')
-  } else {
-    res.redirect('/application/search/search-by-sector')
-  }
-  
-})
-
-// Do you have a specific sector/ industry that you can provide your expertise on?
-router.post('/sector-search-answer', function (req, res) {
-
-  let searchBySector = req.session.data.searchBySector
-
-    if (searchBySector === 'Yes') {
-      res.redirect('/application/search/sector-search')
-    } else {
-      res.redirect('/application/search/assessment-specialist') 
-  }
-
-})
-
-// Is your expertise more general in assessment or teaching?
-router.post('/assessment-specialst-answer', function (req, res) {
-
-  let assessmentSpecialst = req.session.data.assessmentSpecialst
-
-    if (assessmentSpecialst === 'Yes') {
-      res.redirect('/application/sorry')
-    } else {
-      res.redirect('/application/sorry') 
-  }
-
-})
-
-// // This route has been contributed to by Joe Ingledew
-// router.post('/application/search/subject-search-answer', function (req, res) {
-//   const qualType = req.session.data.resultQualType
-//   const qualLevel = req.session.data.resultLevel
+// This route has been contributed to by Joe Ingledew
+router.post('/application/search/subject-search-answer', function (req, res) {
+  const qualType = req.session.data.resultQualType
+  const qualLevel = req.session.data.resultLevel
   
 //   // case-insensitive string match
 //   const qualTypeRegex = new RegExp(/End-point assessment/i)
@@ -489,7 +373,36 @@ router.post('/assessment-specialst-answer', function (req, res) {
 
 // })
 
-// Did you want to add another qualification?
+// After selecting subject type of expertise, go to the granular checkboxes for those selected
+router.get('/expertise-granular', function (req, res) {
+
+  let expertiseType = req.session.data.expertiseType
+
+  if (expertiseType === "Assessment") {
+    res.redirect('/application/search/assessment-expertise')
+  } else {
+    if (expertiseType === "Teaching, lecturing or training") {
+      res.redirect('/application/search/teaching-expertise') 
+    }
+    else {
+      res.redirect('/application/search/review')
+    }
+  }
+})
+
+// After completing granular assessment, go to the granular teaching or review screen?
+router.get('/expertise-teaching-granular', function (req, res) {
+
+  let expertiseType = req.session.data.expertiseType
+
+  if (expertiseType === "Teaching, lecturing or training") {
+    res.redirect('/application/search/teaching-expertise')
+  } else {
+      res.redirect('/application/search/review')
+  }
+})
+
+// For assessment only, qual only route - Do you want to add another qualification?
 router.post('/review-subjects-answer', function (req, res) {
 
   let addAnotherSubject = req.session.data.addAnotherSubject

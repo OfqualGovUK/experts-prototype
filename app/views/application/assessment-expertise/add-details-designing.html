@@ -2,17 +2,18 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your assessment expertise" %}
+{% set pageHeading = "Provide details of your experience in designing and setting assessments in this subject" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Assessment expertise</h1>
+  <span class="govuk-caption-l">Assessment expertise -</span>
+  <h1 class="govuk-heading-l">Your experience in designing and setting assessments in this subject</h1>
 
   <p class="govuk-body">
-    Tell us about your expertise in assessment by describing your experience, qualifications, skills and achievements, and the activities and responsibilities you have selected.
+    Make sure you cover how this applies to the qualification type(s) and level(s) you've selected:
   </p>
 
-  {% set assessmentHtml %}
+  <!-- {% set assessmentHtml %}
     {# Build an list of the items selected #}
     <ul class="govuk-list govuk-list--bullet">
       {# loops through and gets al the checked items #}
@@ -26,7 +27,7 @@
         </li>
       {% endfor %}
     </ul>
-  {% endset %}
+  {% endset %} -->
 
   {{ assessmentHtml | safe }}
 
@@ -53,13 +54,13 @@
   }) }}
 
   {{ govukCharacterCount({
-    maxwords: 1000,
+    maxwords: 500,
     rows: "14",
     label: {
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.assessmentExpertiseDetails")) }}
+   } | decorateAttributes(data, "data.assessmentDesigningDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
