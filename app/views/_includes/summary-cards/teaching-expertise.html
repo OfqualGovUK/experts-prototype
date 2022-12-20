@@ -63,6 +63,21 @@
     } if data.anyTeachingExpertise == "Yes",
     {
       key: {
+        text: "Provide details of your experience in educational management"
+      },
+      value: { 
+        text: data.teachingEducationalManagementDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your experience in educational management",
+          href: "/application/teaching-expertise/add-details-educational-management"
+        }]
+      }
+    } if data.anyTeachingExpertise,
+    {
+      key: {
         text: "Provide details of your teaching, lecturing or training expertise"
       },
       value: { 

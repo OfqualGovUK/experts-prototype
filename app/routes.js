@@ -292,18 +292,29 @@ router.get('/teaching-type-answer', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
-  let teachingDevelopingRegex = new RegExp(/Developing learning materials/i)
-  let teachingSeniorRegex = new RegExp(/Working in a senior role/i)
+  let teachingLecturingRegex = new RegExp(/Teaching or lecturing/i)
+  let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
+  let teachingTrainingRegex = new RegExp(/Training/i)
 
-  let isDeveloping = teachingDevelopingRegex.test(teachingExpertise)
-  let isSenior = teachingSeniorRegex.test(teachingExpertise)
+  let isLecturing = teachingLecturingRegex.test(teachingExpertise)
+  let isEducationalManagement = teachingEducationalManagementRegex.test(teachingExpertise)
+  let isTraining = teachingTrainingRegex.test(teachingExpertise)
 
-  if (isDeveloping == true) {
-    res.redirect('/application/teaching-expertise/add-details-developing')
-  } else if (isSenior == true) {
-    res.redirect('/application/teaching-expertise/add-details-senior-role')
+  if (isLecturing == true) {
+    res.redirect('/application/teaching-expertise/add-details-teaching-lecturing')
+  } else if (isTraining == true) {
+    res.redirect('/application/teaching-expertise/add-details-training')
+  } else if (isEducationalManagement == true) {
+    res.redirect('/application/teaching-expertise/add-details-educational-management')
   } else {
-    res.redirect('/application/teaching-expertise/add-details-training-staff')
+    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+  }
+
+  if (isEducationalManagement == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isEducationalManagement = true 
+  } else {
+    isEducationalManagement = false
   }
   
 })
@@ -321,38 +332,63 @@ router.get('/teaching-type-answer/review', function (req, res) {
   
 })
 
-// Route for teaching add details, from developing
-router.get('/teaching-developing', function (req, res) {
+// Route for teaching add details, from lecturing
+router.get('/teaching-lecturing', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
-  let teachingSeniorRegex = new RegExp(/Working in a senior role/i)
-  let teachingTrainingRegex = new RegExp(/Training other staff/i)
+  let teachingTrainingRegex = new RegExp(/Training/i)
+  let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
+  let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
 
-  let isSenior = teachingSeniorRegex.test(teachingExpertise)
   let isTraining = teachingTrainingRegex.test(teachingExpertise)
+  let isEducationalManagement = teachingEducationalManagementRegex.test(teachingExpertise)
+  let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
 
-  if (isSenior == true) {
-    res.redirect('/application/teaching-expertise/add-details-senior-role')
-  } else if (isTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-training-staff')
+  if (isTraining == true) {
+    res.redirect('/application/teaching-expertise/add-details-training')
+  } else if (isEducationalManagement == true) {
+    res.redirect('/application/teaching-expertise/add-details-educational-management')
+  } else if (isTeacherTraining == true) {
+    res.redirect('/application/teaching-expertise/add-details-teacher-training')
   } else {
     res.redirect('/application/teaching-expertise/review')
   }
   
 })
 
-// Route for teaching add details, from senior
-router.get('/teaching-senior', function (req, res) {
+// Route for teaching add details, from training
+router.get('/teaching-training', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
-  let teachingTrainingRegex = new RegExp(/Training other staff/i)
+  let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
+  let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
 
-  let isTraining = teachingTrainingRegex.test(teachingExpertise)
+  let isEducationalManagement = teachingEducationalManagementRegex.test(teachingExpertise)
+  let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
 
-  if (isTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-training-staff')
+  if (isEducationalManagement == true) {
+    res.redirect('/application/teaching-expertise/add-details-educational-management')
+  } else if (isTeacherTraining == true) {
+    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+  } else {
+    res.redirect('/application/teaching-expertise/review')
+  }
+  
+})
+
+// Route for teaching add details, from educational management
+router.get('/teaching-educational', function (req, res) {
+  let teachingExpertise = req.session.data.teachingExpertiseType
+
+  // case-insensitive string match
+  let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
+
+  let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
+
+  if (isTeacherTraining == true) {
+    res.redirect('/application/teaching-expertise/add-details-teacher-training')
   } else {
     res.redirect('/application/teaching-expertise/review')
   }
