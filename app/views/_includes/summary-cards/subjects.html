@@ -1,10 +1,6 @@
 {% set qualTypeHtml %}
   {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
-    {% if data.selectedQualification == "I don't know the qualification type" %}
-      {{ data.selectedQualificationOther }}
-    {% else %} 
-      {{ data.selectedQualification }}
-    {% endif %}
+    {{ data.selectedQualification }}
   {% else %}
     {{ data.resultQualType }}
   {% endif %}
@@ -12,18 +8,10 @@
 
 {% set qualTypeAssessmentOnlyHtml %}
   {% if data.assessmentQual == "Yes" %}
-    {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-      {{ data.selectedQualificationOther }}
-    {% else %} 
-      {{ data.selectedQualificationAssessmentOnly }}
-    {% endif %}
+    {{ data.selectedQualificationAssessmentOnly }}
     {% else %}
     {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
-      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-        {{ data.selectedQualificationOther }}
-      {% else %} 
-        {{ data.selectedQualificationAssessmentOnly }}
-      {% endif %}
+      {{ data.selectedQualificationAssessmentOnly }}
     {% else %}
       {{ data.resultQualType }}
     {% endif %}
@@ -36,11 +24,7 @@
       {# loops through and gets all the checked items  #}
       {% for level in data.selectedLevel %}
         <li>
-          {% if level == "I don't know the qualification type" %}
-            {{ data.selectedLevelOther }}
-          {% else %} 
-            {{ level }}
-          {% endif %}
+          {{ level }}
         </li>
       {% endfor %}
     </ul>
@@ -55,11 +39,7 @@
       {# loops through and gets all the checked items  #}
       {% for level in data.selectedLevelAssessmentOnly %}
         <li>
-          {% if level == "I don't know the qualification type" %}
-            {{ data.selectedLevelOther }}
-          {% else %} 
-            {{ level }}
-          {% endif %}
+          {{ level }}
         </li>
       {% endfor %}
     </ul>
@@ -69,11 +49,7 @@
         {# loops through and gets all the checked items  #}
         {% for level in data.selectedLevelAssessmentOnly %}
           <li>
-            {% if level == "I don't know the qualification type" %}
-              {{ data.selectedLevelOther }}
-            {% else %} 
-              {{ level }}
-            {% endif %}
+            {{ level }}
           </li>
         {% endfor %}
       </ul>
@@ -283,7 +259,7 @@
   }) }}
 {% endif %}
 
-{# If assessment only, qual only route. Show the qual types. #}
+{# If assessment only #}
 {% if data.referrer == "assessmentExpertise" %}
 {% if (data.assessmentSubject == "Yes" or data.assessmentQual == "Yes") %}
   {{ xGovukSummaryCard({
@@ -355,7 +331,22 @@
             href: "/application/search/assessment-expertise"
           }]
         }
-      }
+      } if data.isAssessment,
+      {
+        key: {
+          text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
+        },
+        value: { 
+          html: teachingExpertiseHtml
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
+            href: "/application/search/teaching-expertise"
+          }]
+        }
+      } if data.isTeaching
     ]
   }) }}
 {% endif %}
