@@ -1,18 +1,3 @@
-{% set teachingHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {% for role in data.teachingExpertiseType %}
-      <li>
-        {% if role == "Developing learning materials" %}
-          {{ data.teachingExpertiseTypeOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %} 
-
 {{ xGovukSummaryCard({
   
   rows: [
@@ -60,6 +45,6 @@
           href: "/application/teaching-expertise/add-details-training-staff"
         }]
       }
-    }
+    } 
   ]
 }) }}

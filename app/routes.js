@@ -189,11 +189,12 @@ router.get('/assessment-type-answer', function (req, res) {
   let assessmentMarkingRegex = new RegExp(/Marking assessments/i)
   let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
   let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-  let assessmentSeniorRegex = new RegExp(/Designing and setting assessments/i)
-
+  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  
   let isMarking = assessmentMarkingRegex.test(assessmentExpertise)
   let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
+  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
 
   if (isMarking == true) {
     // this is to use in the nunjucks view
@@ -214,6 +215,13 @@ router.get('/assessment-type-answer', function (req, res) {
     req.session.data.isDesigning = true 
   } else {
     isDesigning = false
+  }
+
+  if (isReviewing == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isReviewing = true 
+  } else {
+    isReviewing = false
   }
 
   if (isMarking == true) {
