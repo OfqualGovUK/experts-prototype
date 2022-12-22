@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details of your communication, judgement and analytical skills" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Communication, analytical and judgement skills</h1>
+
+  <p class="govuk-body">
+    Industry experts with the knowledge and skills of specific activities within an industry or occupation are required to support the review of qualifications and assessments.
+  </p>
+  <p class="govuk-body">
+    *content to be updated*
+  </p>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your skills.</p>
+    <p class="govuk-body">Have you worked for a regulator before?</p>
+    <p class="govuk-body">Do you have experience in equality and diversity in your subjects?</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 1000,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.competenciesDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

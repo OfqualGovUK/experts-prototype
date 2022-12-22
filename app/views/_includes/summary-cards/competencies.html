@@ -1,0 +1,50 @@
+{% set industryHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.industryExpertiseType %}
+      <li>
+        {% if role == "An option that isn't listed" %}
+          {{ data.industryExpertiseTypeOther }}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Provide details of your communication, judgement and analytical skills"
+      },
+      value: { 
+        text: data.competenciesDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your communication, judgement and analytical skills",
+          href: "/application/competencies/add-communication-details"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Provide details of your professional achievements"
+      },
+      value: { 
+        text: data.competenciesDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your professional achievements",
+          href: "/application/competencies/add-achievement-details"
+        }]
+      }
+    }
+  ]
+}) }}

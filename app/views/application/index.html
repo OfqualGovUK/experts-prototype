@@ -114,6 +114,22 @@
           {% endif %}
         </ul>
       </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Competencies/Soft skills</h2>
+        <ul class="app-task-list">
+          {{ appTaskListItem({
+            name: 'Communication, analytical and judgement skills',
+            href: 'application/competencies/add-communication-details',
+            taskName: data.conflictOfInterestCompleted
+          })}}
+          {{ appTaskListItem({
+            name: 'Professional achievements',
+            href: 'application/competencies/add-achievement-details',
+            taskName: data.conflictOfInterestCompleted
+          })}}
+        </ul>
+      </section>
       
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>

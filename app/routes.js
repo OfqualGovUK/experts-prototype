@@ -619,6 +619,74 @@ router.post('/right-to-work-answer', function (req, res) {
 
 })
 
+
+
+// Competencies - route for competencies from task list
+// router.get('/assessment-type-answer', function (req, res) {
+//   let communicationSkills = req.session.data.communicationSkillsType
+//   let professionalAchievement = req.session.data.professionalAchievementType
+
+  // case-insensitive string match
+  // let communicationSkillsRegex = new RegExp(/Communication skills/i)
+  // let achievementRegex = new RegExp(/Professional achievements/i)
+
+  // let isCommunication = communicationSkillsRegex.test(communicationSkills)
+  // let isAchievement = achievementRegex.test(professionalAchievementType)
+
+//   if (isCommunication == true) {
+//     res.redirect('/application/competencies/add-communication-details')
+//   } else (isAchievement == true) {
+//     res.redirect('/application/competencies/add-achievement-details')
+//   } 
+// })
+
+// Competencies - communication route once in progress or deleted
+// router.get('/assessment-type-answer/review', function (req, res) {
+
+//   let communicationSkillsCompleted = req.session.data.communicationSkillsCompleted
+
+//   if (communicationSkillsCompleted === "complete") {
+//     res.redirect('/application/competencies/add-communication-details/review')
+//   } else if (communicationSkillsCompleted === "inProgress") {
+//     res.redirect('/application/competencies/add-communication-details/review')
+//   } 
+  
+// })
+
+
+// Competencies - achievements
+// router.get('/assessment-type-answer/review', function (req, res) {
+
+//   let communicationSkillsCompleted = req.session.data.communicationSkillsCompleted
+
+//   if (communicationSkillsCompleted === "complete") {
+//     res.redirect('/application/competencies/add-achievement-details/review')
+//   } else if (communicationSkillsCompleted === "inProgress") {
+//     res.redirect('/application/competencies/add-achievement-details/review')
+//   } 
+  
+// })
+
+// Route for achievements add details, from communication skills
+// router.get('/assessment-marking', function (req, res) {
+//   let assessmentExpertise = req.session.data.assessmentExpertiseType
+
+  // case-insensitive string match
+//// let communicationSkillsRegex = new RegExp(/Communication skills/i)
+  // let achievementRegex = new RegExp(/Professional achievements/i)
+
+  // let isCommunication = communicationSkillsRegex.test(communicationSkills)
+  // let isAchievement = achievementRegex.test(professionalAchievementType)
+
+//   if (isCommunication == true) {
+//     res.redirect('/application/competencies/add-achievement-details')
+//   } else (isAchievement == true) {
+//     res.redirect('/application/competencies/review')
+//   }
+  
+// })
+
+
 // Do you have any potential conflicts of interests?
 router.post('/conflict-of-interest-answer', function (req, res) {
 
