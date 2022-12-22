@@ -1,66 +1,36 @@
-{% set teachingHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {% for role in data.teachingExpertiseType %}
-      <li>
-        {% if role == "An option that isn't listed" %}
-          {{ data.teachingExpertiseTypeOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %} 
-
 {{ xGovukSummaryCard({
   
   rows: [
     {
       key: {
-        text: "Do you have any teaching, lecturing or training expertise?"
+        text: "Provide details of your experience in teaching or lecturing"
       },
       value: { 
-        text: data.anyTeachingExpertise
+        text: data.teachingLecturingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "do you have any teaching, lecturing or training expertise?",
-          href: "/application/teaching-expertise"
+          visuallyHiddenText: "Provide details of your experience in teaching or lecturing",
+          href: "/application/teaching-expertise/add-details-teaching-lecturing"
         }]
       }
-    },
+    } if data.isDeveloping,
     {
       key: {
-        text: "Are you currently working in a teaching, lecturing or training role?"
+        text: "Provide details of your experience working in training"
       },
       value: { 
-        text: data.currentlyInTeachingRole
+        text: data.teachingTrainingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "are you currently working in a teaching, lecturing or training role?",
-          href: "/application/teaching-expertise/currently-in-role"
+          visuallyHiddenText: "Provide details of your experience working in training",
+          href: "/application/teaching-expertise/add-details-training"
         }]
       }
-    } if data.anyTeachingExpertise == "Yes",
-    {
-      key: {
-        text: "Which activities or responsibilities have you completed?"
-      },
-      value: { 
-        html: teachingHtml
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Which activities or responsibilities have you completed?",
-          href: "/application/teaching-expertise/teaching-expertise"
-        }]
-      }
-    } if data.anyTeachingExpertise == "Yes",
+    } if data.isSenior,
     {
       key: {
         text: "Provide details of your experience in educational management"
@@ -75,21 +45,21 @@
           href: "/application/teaching-expertise/add-details-educational-management"
         }]
       }
-    } if data.anyTeachingExpertise,
+    } if data.isEducationalManagement,
     {
       key: {
-        text: "Provide details of your teaching, lecturing or training expertise"
+        text: "Provide details of your experience in teacher training"
       },
       value: { 
-        text: data.teachingExpertiseDetails
+        text: data.teachingTeacherTrainingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your teaching, lecturing or training expertise",
-          href: "/application/teaching-expertise/add-details"
+          visuallyHiddenText: "Provide details of your experience in teacher training",
+          href: "/application/teaching-expertise/add-details-teacher-training"
         }]
       }
-    } if data.anyTeachingExpertise == "Yes"
+    } if data.isTeacherTraining
   ]
 }) }}

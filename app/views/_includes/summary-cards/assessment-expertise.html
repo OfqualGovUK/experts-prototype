@@ -15,7 +15,7 @@
           href: "/application/assessment-expertise/add-details-marking"
         }]
       }
-    },
+    } if data.isMarking,
     {
       key: {
         text: "Provide details of your experience moderating assessments"
@@ -30,7 +30,7 @@
           href: "/application/assessment-expertise/add-details-moderating"
         }]
       }
-    },
+    } if data.isModerating,
     {
       key: {
         text: "Provide details of your experience designing and setting assignments"
@@ -45,7 +45,7 @@
           href: "/application/assessment-expertise/add-details-designing"
         }]
       }
-    },
+    } if data.isDesigning,
       {
       key: {
         text: "Provide details of your experience in reviewing assessment performance"
