@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./review" %}
+{% set formAction = "/application/competencies/add-achievement-details" %}
 {% set pageHeading = "Provide details of your professional achievements" %}
 
 {% block formContent %}
@@ -49,7 +49,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.competenciesDetails")) }}
+   } | decorateAttributes(data, "data.achievementDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./review" %}
+{% set formAction = "/application/competencies/add-communication-details" %}
 {% set pageHeading = "Provide details of your communication, judgement and analytical skills" %}
 
 {% block formContent %}
@@ -33,7 +33,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.competenciesDetails")) }}
+   } | decorateAttributes(data, "data.communicationDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
