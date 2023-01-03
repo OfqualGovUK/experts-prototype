@@ -1,80 +1,50 @@
-{% set teachingHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {% for role in data.teachingExpertiseType %}
-      <li>
-        {% if role == "An option that isn't listed" %}
-          {{ data.teachingExpertiseTypeOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %} 
-
 {{ xGovukSummaryCard({
   
   rows: [
     {
       key: {
-        text: "Do you have any teaching, lecturing or training expertise?"
+        text: "Provide details of your experience in developing learning materials"
       },
       value: { 
-        text: data.anyTeachingExpertise
+        text: data.teachingDevelopingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "do you have any teaching, lecturing or training expertise?",
-          href: "/application/teaching-expertise"
+          visuallyHiddenText: "Provide details of your experience in developing learning materials",
+          href: "/application/teaching-expertise/add-details-developing"
         }]
       }
-    },
+    } if data.isDeveloping,
     {
       key: {
-        text: "Are you currently working in a teaching, lecturing or training role?"
+        text: "Provide details of your experience working in a senior role"
       },
       value: { 
-        text: data.currentlyInTeachingRole
+        text: data.teachingSeniorDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "are you currently working in a teaching, lecturing or training role?",
-          href: "/application/teaching-expertise/currently-in-role"
+          visuallyHiddenText: "Provide details of your experience working in a senior role",
+          href: "/application/teaching-expertise/add-details-senior-role"
         }]
       }
-    } if data.anyTeachingExpertise == "Yes",
+    } if data.isSenior,
     {
       key: {
-        text: "Which activities or responsibilities have you completed?"
+        text: "Provide details of your experience training other staff"
       },
       value: { 
-        html: teachingHtml
+        text: data.teachingTrainingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Which activities or responsibilities have you completed?",
-          href: "/application/teaching-expertise/teaching-expertise"
+          visuallyHiddenText: "Provide details of your experience training other staff",
+          href: "/application/teaching-expertise/add-details-training-staff"
         }]
       }
-    } if data.anyTeachingExpertise == "Yes",
-    {
-      key: {
-        text: "Provide details of your teaching, lecturing or training expertise"
-      },
-      value: { 
-        text: data.teachingExpertiseDetails
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Provide details of your teaching, lecturing or training expertise",
-          href: "/application/teaching-expertise/add-details"
-        }]
-      }
-    } if data.anyTeachingExpertise == "Yes"
+    } 
   ]
 }) }}

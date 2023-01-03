@@ -194,10 +194,40 @@ router.get('/assessment-type-answer', function (req, res) {
   let assessmentMarkingRegex = new RegExp(/Marking assessments/i)
   let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
   let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-
+  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  
   let isMarking = assessmentMarkingRegex.test(assessmentExpertise)
   let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
+  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+
+  if (isMarking == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isMarking = true 
+  } else {
+    isMarking = false
+  }
+
+  if (isModerating == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isModerating = true 
+  } else {
+    isModerating = false
+  }
+
+  if (isDesigning == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isDesigning = true 
+  } else {
+    isDesigning = false
+  }
+
+  if (isReviewing == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isReviewing = true 
+  } else {
+    isReviewing = false
+  }
 
   if (isMarking == true) {
     res.redirect('/application/assessment-expertise/add-details-marking')
@@ -294,9 +324,33 @@ router.get('/teaching-type-answer', function (req, res) {
   // case-insensitive string match
   let teachingDevelopingRegex = new RegExp(/Developing learning materials/i)
   let teachingSeniorRegex = new RegExp(/Working in a senior role/i)
+  let teachingTrainingRegex = new RegExp(/Training staff/i)
 
   let isDeveloping = teachingDevelopingRegex.test(teachingExpertise)
   let isSenior = teachingSeniorRegex.test(teachingExpertise)
+  let isTraining = teachingTrainingRegex.test(teachingExpertise)
+
+  if (isDeveloping == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isDeveloping = true 
+  } else {
+    isDeveloping = false
+  }
+  
+  if (isSenior == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isSenior = true 
+  } else {
+    isSenior = false
+  }
+
+  if (isTraining == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isTraining = true 
+  } else {
+    isTraining = false
+  }
+
 
   if (isDeveloping == true) {
     res.redirect('/application/teaching-expertise/add-details-developing')
@@ -314,9 +368,9 @@ router.get('/teaching-type-answer/review', function (req, res) {
   let teachingExpertiseCompleted = req.session.data.teachingExpertiseCompleted
 
   if (teachingExpertiseCompleted === "complete") {
-    res.redirect('/application/assessment-expertise/review')
+    res.redirect('/application/teaching-expertise/review')
   } else if (teachingExpertiseCompleted === "inProgress") {
-    res.redirect('/application/assessment-expertise/review')
+    res.redirect('/application/teaching-expertise/review')
   } 
   
 })
@@ -326,9 +380,11 @@ router.get('/teaching-developing', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
+  let teachingDevelopingRegex = new RegExp(/Developing learning materials/i)
   let teachingSeniorRegex = new RegExp(/Working in a senior role/i)
   let teachingTrainingRegex = new RegExp(/Training other staff/i)
 
+  let isDeveloping = teachingDevelopingRegex.test(teachingExpertise)
   let isSenior = teachingSeniorRegex.test(teachingExpertise)
   let isTraining = teachingTrainingRegex.test(teachingExpertise)
 
