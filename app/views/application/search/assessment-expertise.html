@@ -23,7 +23,7 @@
       {% endif %}
       {# Coming from the assessment only, subject route #}
       {% else %}
-      {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+      {% if data.selectedSubject and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
         {{ data.selectedSubject }}
         {# If it is an "other" subject, so just show the subject #}
         {% else %}
@@ -45,7 +45,7 @@
     {# Otherwise they must be coming from the subject search #}
     {% else %}
       {# If its not an "other" subject, show the subject and qual type/level #}
-      {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+      {% if data.selectedSubject and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
         {{ data.selectedSubject }}
       {# If it is an "other" subject, so just show the subject #}
       {% else %}

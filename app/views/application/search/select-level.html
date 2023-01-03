@@ -22,7 +22,7 @@
       {% endif %}
       {# Coming from the assessment only, subject route #}
       {% else %}
-      {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+      {% if data.selectedSubject and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
         {{ data.selectedSubject }}
         {# If it is an "other" subject, so just show the subject #}
         {% else %}
@@ -36,7 +36,7 @@
     {# Coming from the subject search #}
     {% else %}
     {# If its not an "other" subject, show the subject and qual type/level #}
-    {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+    {% if data.selectedSubject and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
       {{ data.selectedSubject }}
       {# If it is an "other" subject, so just show the subject #}
       {% else %}
@@ -94,7 +94,7 @@
         {
           value: "Level 2",
           text: "Level 2",
-          checked: true if "GCSE (9 to 1)" in data.selectedQualificationAssessmentOnly or "GCSE (A* to G)" in data.selectedQualificationAssessmentOnly, 
+          checked: true if data.selectedQualificationAssessmentOnly == "GCSE (9 to 1)" or data.selectedQualificationAssessmentOnly == "GCSE (A* to G)", 
           hint: {
             text: "Intermediate apprenticeship or GCSE - grade 4 or C and above"
           }
@@ -102,7 +102,7 @@
         {
           value: "Level 3",
           text: "Level 3",
-          checked: true if "GCE A Level" in data.selectedQualificationAssessmentOnly or "GCE AS Level" in data.selectedQualificationAssessmentOnly,
+          checked: true if data.selectedQualificationAssessmentOnly == "GCE A/AS level",
           hint: {
             text: "A/AS level or advanced apprenticeship"
           }
@@ -180,7 +180,7 @@
           {
             value: "Level 2",
             text: "Level 2",
-            checked: true if "GCSE (9 to 1)" in data.selectedQualification or "GCSE (A* to G)" in data.selectedQualification, 
+            checked: true if data.selectedQualification == "GCSE (9 to 1)" or data.selectedQualification == "GCSE (A* to G)",
             hint: {
               text: "Intermediate apprenticeship or GCSE - grade 4 or C and above"
             }
@@ -188,7 +188,7 @@
           {
             value: "Level 3",
             text: "Level 3",
-            checked: true if "GCE A Level" in data.selectedQualification or "GCE AS Level" in data.selectedQualification,
+            checked: true if data.selectedQualification == "GCE A/AS level",
             hint: {
               text: "A/AS level or advanced apprenticeship"
             }
