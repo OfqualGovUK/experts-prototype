@@ -1,5 +1,5 @@
 {% set qualTypeHtml %}
-  {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+  {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
     {{ data.selectedQualification }}
   {% else %}
     {{ data.resultQualType }}
@@ -10,7 +10,7 @@
   {% if data.assessmentQual == "Yes" %}
     {{ data.selectedQualificationAssessmentOnly }}
     {% else %}
-    {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+    {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       {{ data.selectedQualificationAssessmentOnly }}
     {% else %}
       {{ data.resultQualType }}
@@ -19,7 +19,7 @@
 {% endset %}
 
 {% set levelHtml %}
-  {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+  {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
     <ul class="govuk-list">
       {# loops through and gets all the checked items  #}
       {% for level in data.selectedLevel %}
@@ -44,7 +44,7 @@
       {% endfor %}
     </ul>
     {% else %}
-    {% if data.selectedSubject and data.resultQualType != ("End-point assessment" or "T Level") %}
+    {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       <ul class="govuk-list">
         {# loops through and gets all the checked items  #}
         {% for level in data.selectedLevelAssessmentOnly %}
@@ -193,7 +193,7 @@
             visuallyHiddenText: "Qualification type",
             href: "/application/search/select-qualification"
           }]
-        } if (data.resultQualType != "End-point assessment" or "T Level")
+        } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
       },
       {
         key: {
@@ -208,7 +208,7 @@
             visuallyHiddenText: "Qualification level",
             href: "/application/search/select-level"
           }]
-        } if (data.resultQualType != "End-point assessment" or "T Level")
+        } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
       },
       {
         key: {

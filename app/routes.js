@@ -187,7 +187,7 @@ router.post('/achievement-answer', function (req, res) {
 // })
 
 // Route for assessment expertise from task list
-router.get('/assessment-type-answer', function (req, res) {
+router.all('/assessment-type-answer', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
@@ -242,7 +242,48 @@ router.get('/assessment-type-answer', function (req, res) {
 })
 
 // Route for assessment expertise from task list, once in progress or completed
-router.get('/assessment-type-answer/review', function (req, res) {
+router.all('/assessment-type-answer/review', function (req, res) {
+
+  let assessmentExpertise = req.session.data.assessmentExpertiseType
+
+  // case-insensitive string match
+  let assessmentMarkingRegex = new RegExp(/Marking assessments/i)
+  let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
+  let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
+  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  
+  let isMarking = assessmentMarkingRegex.test(assessmentExpertise)
+  let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
+  let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
+  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+
+  if (isMarking == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isMarking = true 
+  } else {
+    isMarking = false
+  }
+
+  if (isModerating == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isModerating = true 
+  } else {
+    isModerating = false
+  }
+
+  if (isDesigning == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isDesigning = true 
+  } else {
+    isDesigning = false
+  }
+
+  if (isReviewing == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isReviewing = true 
+  } else {
+    isReviewing = false
+  }
 
   let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
 
@@ -318,7 +359,7 @@ router.get('/assessment-designing', function (req, res) {
 })
 
 // Route for teaching expertise from task list
-router.get('/teaching-type-answer', function (req, res) {
+router.all('/teaching-type-answer', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
@@ -490,13 +531,12 @@ router.post('/assessment-qual-answer', function (req, res) {
 // This route has been contributed to by Joe Ingledew  
 router.post('/subject-search-answer', function (req, res) {
   const qualType = req.session.data.resultQualType
-  const qualLevel = req.session.data.resultLevel
 
   // case-insensitive string match
   const qualTypeRegex = new RegExp(/End-point assessment/i)
   const qualLevelRegex = new RegExp(/T Level/i)
 
-  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualLevel)
+  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualType)
 
   // const assessmentExpertise = req.session.data.anyAssessmentExpertise
   // const industryExpertise = req.session.data.anyIndustryExpertise
