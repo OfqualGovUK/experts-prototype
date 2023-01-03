@@ -191,28 +191,28 @@ router.all('/assessment-type-answer', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
-  let assessmentMarkingRegex = new RegExp(/Marking assessments/i)
-  let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
-  let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  let assessmentJudgementRegex = new RegExp(/Making assessment judgements/i)
+  let assessmentStandardSettingRegex = new RegExp(/Standard setting and awarding qualifications/i)
+  let assessmentDesigningRegex = new RegExp(/Designing and developing assessments/i)
+  let assessmentEvaluatingRegex = new RegExp(/Evaluating assessments or assessment approaches/i)
   
-  let isMarking = assessmentMarkingRegex.test(assessmentExpertise)
-  let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
+  let isJudgement = assessmentJudgementRegex.test(assessmentExpertise)
+  let isStandardSetting = assessmentStandardSettingRegex.test(assessmentExpertise)
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
-  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+  let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
-  if (isMarking == true) {
+  if (isJudgement == true) {
     // this is to use in the nunjucks view
-    req.session.data.isMarking = true 
+    req.session.data.isJudgement = true 
   } else {
-    isMarking = false
+    isJudgement = false
   }
 
-  if (isModerating == true) {
+  if (isStandardSetting == true) {
     // this is to use in the nunjucks view
-    req.session.data.isModerating = true 
+    req.session.data.isStandardSetting = true 
   } else {
-    isModerating = false
+    isStandardSetting = false
   }
 
   if (isDesigning == true) {
@@ -222,21 +222,21 @@ router.all('/assessment-type-answer', function (req, res) {
     isDesigning = false
   }
 
-  if (isReviewing == true) {
+  if (isEvaluating == true) {
     // this is to use in the nunjucks view
-    req.session.data.isReviewing = true 
+    req.session.data.isEvaluating = true 
   } else {
-    isReviewing = false
+    isEvaluating = false
   }
 
-  if (isMarking == true) {
-    res.redirect('/application/assessment-expertise/add-details-marking')
-  } else if (isModerating == true) {
-    res.redirect('/application/assessment-expertise/add-details-moderating')
+  if (isJudgement == true) {
+    res.redirect('/application/assessment-expertise/add-details-judgements')
+  } else if (isStandardSetting == true) {
+    res.redirect('/application/assessment-expertise/add-details-standard-setting')
   } else if (isDesigning == true) {
     res.redirect('/application/assessment-expertise/add-details-designing')
   } else {
-    res.redirect('/application/assessment-expertise/add-details-reviewing')
+    res.redirect('/application/assessment-expertise/add-details-evaluating')
   }
   
 })
@@ -247,28 +247,28 @@ router.all('/assessment-type-answer/review', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
-  let assessmentMarkingRegex = new RegExp(/Marking assessments/i)
-  let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
-  let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  let assessmentJudgementRegex = new RegExp(/Making assessment judgements/i)
+  let assessmentStandardSettingRegex = new RegExp(/Standard setting and awarding qualifications/i)
+  let assessmentDesigningRegex = new RegExp(/Designing and developing assessments/i)
+  let assessmentEvaluatingRegex = new RegExp(/Evaluating assessments or assessment approaches/i)
   
-  let isMarking = assessmentMarkingRegex.test(assessmentExpertise)
-  let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
+  let isJudgement = assessmentJudgementRegex.test(assessmentExpertise)
+  let isStandardSetting = assessmentStandardSettingRegex.test(assessmentExpertise)
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
-  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+  let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
-  if (isMarking == true) {
+  if (isJudgement == true) {
     // this is to use in the nunjucks view
-    req.session.data.isMarking = true 
+    req.session.data.isJudgement = true 
   } else {
-    isMarking = false
+    isJudgement = false
   }
 
-  if (isModerating == true) {
+  if (isStandardSetting == true) {
     // this is to use in the nunjucks view
-    req.session.data.isModerating = true 
+    req.session.data.isStandardSetting = true 
   } else {
-    isModerating = false
+    isStandardSetting = false
   }
 
   if (isDesigning == true) {
@@ -278,11 +278,11 @@ router.all('/assessment-type-answer/review', function (req, res) {
     isDesigning = false
   }
 
-  if (isReviewing == true) {
+  if (isEvaluating == true) {
     // this is to use in the nunjucks view
-    req.session.data.isReviewing = true 
+    req.session.data.isEvaluating = true 
   } else {
-    isReviewing = false
+    isEvaluating = false
   }
 
   let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
@@ -295,46 +295,46 @@ router.all('/assessment-type-answer/review', function (req, res) {
   
 })
 
-// Route for assessment add details, from Marking 
-router.get('/assessment-marking', function (req, res) {
+// Route for assessment add details, from judgement 
+router.get('/assessment-judgement', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
-  let assessmentModeratingRegex = new RegExp(/Moderating assessments/i)
-  let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  let assessmentStandardSettingRegex = new RegExp(/Standard setting and awarding qualifications/i)
+  let assessmentDesigningRegex = new RegExp(/Designing and developing assessments/i)
+  let assessmentEvaluatingRegex = new RegExp(/Evaluating assessments or assessment approaches/i)
 
-  let isModerating = assessmentModeratingRegex.test(assessmentExpertise)
+  let isStandardSetting = assessmentStandardSettingRegex.test(assessmentExpertise)
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
-  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+  let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
-  if (isModerating == true) {
-    res.redirect('/application/assessment-expertise/add-details-moderating')
+  if (isStandardSetting == true) {
+    res.redirect('/application/assessment-expertise/add-details-standard-setting')
   } else if (isDesigning == true) {
     res.redirect('/application/assessment-expertise/add-details-designing')
-  } else if (isReviewing == true) {
-    res.redirect('/application/assessment-expertise/add-details-reviewing')
+  } else if (isEvaluating == true) {
+    res.redirect('/application/assessment-expertise/add-details-evaluating')
   } else {
     res.redirect('/application/assessment-expertise/review')
   }
   
 })
 
-// Route for assessment add details, from Moderating 
-router.get('/assessment-moderating', function (req, res) {
+// Route for assessment add details, from standard setting 
+router.get('/assessment-standard-setting', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
-  let assessmentDesigningRegex = new RegExp(/Designing and setting assessments/i)
-  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  let assessmentDesigningRegex = new RegExp(/Designing and developing assessments/i)
+  let assessmentEvaluatingRegex = new RegExp(/Evaluating assessments or assessment approaches/i)
 
   let isDesigning = assessmentDesigningRegex.test(assessmentExpertise)
-  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+  let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
   if (isDesigning == true) {
     res.redirect('/application/assessment-expertise/add-details-designing')
-  } else if (isReviewing == true) {
-    res.redirect('/application/assessment-expertise/add-details-reviewing')
+  } else if (isEvaluating == true) {
+    res.redirect('/application/assessment-expertise/add-details-evaluating')
   } else {
     res.redirect('/application/assessment-expertise/review')
   }
@@ -346,12 +346,12 @@ router.get('/assessment-designing', function (req, res) {
   let assessmentExpertise = req.session.data.assessmentExpertiseType
 
   // case-insensitive string match
-  let assessmentReviewingRegex = new RegExp(/Reviewing assessment performance/i)
+  let assessmentEvaluatingRegex = new RegExp(/Evaluating assessments or assessment approaches/i)
 
-  let isReviewing = assessmentReviewingRegex.test(assessmentExpertise)
+  let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
-  if (isReviewing == true) {
-    res.redirect('/application/assessment-expertise/add-details-reviewing')
+  if (isEvaluating == true) {
+    res.redirect('/application/assessment-expertise/add-details-evaluating')
   } else {
     res.redirect('/application/assessment-expertise/review')
   }
