@@ -2,12 +2,12 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Provide details of your experience in reviewing assessment performance" %}
+{% set pageHeading = "Provide details of your experience in evaluating assessments or assessment approaches" %}
 
 {% block formContent %}
 
   <span class="govuk-caption-l">Assessment expertise </span>
-  <h1 class="govuk-heading-l">Reviewing assessment performance</h1>
+  <h1 class="govuk-heading-l">Evaluating assessments or assessment approaches</h1>
 
   <p class="govuk-body">
     Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
@@ -112,7 +112,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.assessmentReviewingDetails")) }}
+   } | decorateAttributes(data, "data.assessmentEvaluatingDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

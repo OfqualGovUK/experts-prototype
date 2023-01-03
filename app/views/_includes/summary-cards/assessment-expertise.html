@@ -3,37 +3,37 @@
   rows: [
     {
       key: {
-        text: "Provide details of your assessment marking experience"
+        text: "Provide details of your experience in making assessment judgements"
       },
       value: { 
-        text: data.assessmentMarkingDetails
+        text: data.assessmentJudgementDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your assessment marking experience",
-          href: "/application/assessment-expertise/add-details-marking"
+          visuallyHiddenText: "Provide details of your experience in making assessment judgements",
+          href: "/application/assessment-expertise/add-details-judgements"
         }]
       }
-    },
+    } if data.isJudgement,
     {
       key: {
-        text: "Provide details of your experience moderating assessments"
+        text: "Provide details of your experience in standard setting and awarding qualifications"
       },
       value: { 
-        text: data.assessmentModeratingDetails
+        text: data.assessmentStandardSettingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your experience moderating assessments",
-          href: "/application/assessment-expertise/add-details-moderating"
+          visuallyHiddenText: "Provide details of your experience in standard setting and awarding qualifications",
+          href: "/application/assessment-expertise/add-details-standard-setting"
         }]
       }
-    },
+    } if data.isStandardSetting,
     {
       key: {
-        text: "Provide details of your experience designing and setting assignments"
+        text: "Provide details of your experience in designing and developing assignments"
       },
       value: { 
         text: data.assessmentDesigningDetails
@@ -41,25 +41,25 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your experience designing and setting assignments",
+          visuallyHiddenText: "Provide details of your experience in designing and developing assignments",
           href: "/application/assessment-expertise/add-details-designing"
         }]
       }
-    },
+    } if data.isDesigning,
       {
       key: {
-        text: "Provide details of your experience in reviewing assessment performance"
+        text: "Provide details of your experience in evaluating assessments or assessment approaches"
       },
       value: { 
-        text: data.assessmentReviewingDetails
+        text: data.assessmentEvaluatingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your experience in reviewing assessment performance",
-          href: "/application/assessment-expertise/add-details-reviewing"
+          visuallyHiddenText: "Provide details of your experience in evaluating assessments or assessment approaches",
+          href: "/application/assessment-expertise/add-details-evaluating"
         }]
       }
-    }
+    } if data.isEvaluating
   ]
 }) }}
