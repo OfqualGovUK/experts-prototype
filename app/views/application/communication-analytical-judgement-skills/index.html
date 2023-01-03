@@ -1,13 +1,16 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/professional-achievements/review" %}
-{% set pageHeading = "Provide details of your professional achievements" %}
+{% set formAction = "/application//communication-analytical-judgement-skills/review" %}
+{% set pageHeading = "Provide details of your communication, judgement and analytical skills" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Professional achievements</h1>
+  <h1 class="govuk-heading-l">Communication, analytical and judgement skills</h1>
 
+  <p class="govuk-body">
+    Industry experts with the knowledge and skills of specific activities within an industry or occupation are required to support the review of qualifications and assessments.
+  </p>
   <p class="govuk-body">
     *content to be updated*
   </p>
@@ -25,13 +28,12 @@
 
   {{ govukCharacterCount({
     maxwords: 500,
-    rows: "10",
+    rows: "14",
     label: {
       text: pageHeading,
-      classes: "govuk-label--m",
-      isPageHeading: true
+      classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.professionalAchievementSummary")) }}
+   } | decorateAttributes(data, "data.communicationDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

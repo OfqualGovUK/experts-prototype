@@ -99,7 +99,7 @@
             {% if type == "Industry or occupational" %}
               {{ appTaskListItem ({
                 name: 'Industry or occupational expertise',
-                href: '/application/industry-expertise/add-details',
+                href: '/application/industry-expertise',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
@@ -110,7 +110,17 @@
                 taskName: data.teachingExpertiseCompleted
               })}}
             {% endif %}
-          {% endfor %}
+            {% endfor %}
+            {{ appTaskListItem({
+              name: 'Communication, analytical and judgement skills',
+              href: 'application/communication-analytical-judgement-skills',
+              taskName: data.communicationCompleted
+            })}}
+            {{ appTaskListItem({
+              name: 'Professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
+            })}}
           {% endif %}
         </ul>
       </section>
