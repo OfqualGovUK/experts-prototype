@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/competencies/add-communication-details" %}
+{% set formAction = "/application//communication-analytical-judgement-skills/review" %}
 {% set pageHeading = "Provide details of your communication, judgement and analytical skills" %}
 
 {% block formContent %}
@@ -27,7 +27,7 @@
   }) }}
 
   {{ govukCharacterCount({
-    maxwords: 1000,
+    maxwords: 500,
     rows: "14",
     label: {
       text: pageHeading,

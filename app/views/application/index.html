@@ -99,7 +99,7 @@
             {% if type == "Industry or occupational" %}
               {{ appTaskListItem ({
                 name: 'Industry or occupational expertise',
-                href: '/application/industry-expertise/add-details',
+                href: '/application/industry-expertise',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
@@ -110,24 +110,18 @@
                 taskName: data.teachingExpertiseCompleted
               })}}
             {% endif %}
-          {% endfor %}
+            {% endfor %}
+            {{ appTaskListItem({
+              name: 'Communication, analytical and judgement skills',
+              href: 'application/communication-analytical-judgement-skills',
+              taskName: data.communicationCompleted
+            })}}
+            {{ appTaskListItem({
+              name: 'Professional achievements',
+              href: 'application/professional-achievements',
+              taskName: data.professionalAchievementDetails
+            })}}
           {% endif %}
-        </ul>
-      </section>
-
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Competencies/Soft skills</h2>
-        <ul class="app-task-list">
-          {{ appTaskListItem({
-            name: 'Communication, analytical and judgement skills',
-            href: 'application/competencies/add-communication-details',
-            taskName: data.communicationCompleted
-          })}}
-          {{ appTaskListItem({
-            name: 'Professional achievements',
-            href: 'application/competencies/add-achievement-details',
-            taskName: data.achievementCompleted
-          })}}
         </ul>
       </section>
       

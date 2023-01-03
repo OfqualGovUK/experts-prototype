@@ -1,31 +1,37 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/achievement-answer" %}
-{% set pageHeading = "Do you have any professional achievements?" %}
+{% set formAction = "/application/professional-achievements/review" %}
+{% set pageHeading = "Provide details of your professional achievements" %}
 
 {% block formContent %}
 
-  {{ govukRadios ({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"      
-      }
-    },
-    hint: {
-      text: "Professional publications, significant contributions to research or industry awards."
-    },
-    items: [
-      {
-        text: "Yes"
-      },
-      {
-        text: "No"
-      }
-    ]
-  } | decorateAttributes(data, "data.anyAchievement")) }}
+  <h1 class="govuk-heading-l">Professional achievements</h1>
+
+  <p class="govuk-body">
+    *content to be updated*
+  </p>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your skills.</p>
+    <p class="govuk-body">Have you worked for a regulator before?</p>
+    <p class="govuk-body">Do you have experience in equality and diversity in your subjects?</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "10",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m",
+      isPageHeading: true
+    }
+   } | decorateAttributes(data, "data.professionalAchievementSummary")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
