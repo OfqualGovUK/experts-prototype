@@ -3,37 +3,22 @@
   rows: [
     {
       key: {
-        text: "Provide details of your experience in developing learning materials"
+        text: "Provide details of your experience in teaching or lecturing"
       },
       value: { 
-        text: data.teachingDevelopingDetails
+        text: data.teachingLecturingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your experience in developing learning materials",
-          href: "/application/teaching-expertise/add-details-developing"
+          visuallyHiddenText: "Provide details of your experience in teaching or lecturing",
+          href: "/application/teaching-expertise/add-details-teaching-lecturing"
         }]
       }
-    } if data.isDeveloping,
+    } if data.isLecturing,
     {
       key: {
-        text: "Provide details of your experience working in a senior role"
-      },
-      value: { 
-        text: data.teachingSeniorDetails
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "Provide details of your experience working in a senior role",
-          href: "/application/teaching-expertise/add-details-senior-role"
-        }]
-      }
-    } if data.isSenior,
-    {
-      key: {
-        text: "Provide details of your experience training other staff"
+        text: "Provide details of your experience working in training"
       },
       value: { 
         text: data.teachingTrainingDetails
@@ -41,10 +26,40 @@
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your experience training other staff",
-          href: "/application/teaching-expertise/add-details-training-staff"
+          visuallyHiddenText: "Provide details of your experience working in training",
+          href: "/application/teaching-expertise/add-details-training"
         }]
       }
-    } 
+    } if data.isTraining,
+    {
+      key: {
+        text: "Provide details of your experience in educational management"
+      },
+      value: { 
+        text: data.teachingEducationalManagementDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your experience in educational management",
+          href: "/application/teaching-expertise/add-details-educational-management"
+        }]
+      }
+    } if data.isEducationalManagement,
+    {
+      key: {
+        text: "Provide details of your experience in teacher training"
+      },
+      value: { 
+        text: data.teachingTeacherTrainingDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your experience in teacher training",
+          href: "/application/teaching-expertise/add-details-teacher-training"
+        }]
+      }
+    } if data.isTeacherTraining
   ]
 }) }}

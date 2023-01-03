@@ -1,12 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/teaching-developing" %}
-{% set pageHeading = "Provide details of your experience in developing learning materials" %}
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details of your experience in teacher training" %}
 
 {% block formContent %}
 <span class="govuk-caption-l">Teaching, lecturing and training experience </span>
-  <h1 class="govuk-heading-l">Developing learning materials</h1>
+  <h1 class="govuk-heading-l">Teacher training</h1>
 
   <p class="govuk-body">
     Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
@@ -109,7 +109,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.teachingDevelopingDetails")) }}
+   } | decorateAttributes(data, "data.teachingTeacherTrainingDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

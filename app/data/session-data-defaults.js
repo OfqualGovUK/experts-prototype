@@ -110,7 +110,7 @@ var completedApplicationDataVTQ = {
     "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
 
   ],
-  "teachingExpertiseDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
+  "teachingTeacherTrainingDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
   "teachingExpertiseCompleted": "complete",
 
   // Areas that you can advise on
@@ -248,7 +248,7 @@ var completedApplicationDataGQ = {
     "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
 
   ],
-  "teachingExpertiseDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
+  "teachingTeacherTrainingDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
   "teachingExpertiseCompleted": "complete",
 
   // Areas that you can advise on
