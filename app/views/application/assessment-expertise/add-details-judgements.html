@@ -1,13 +1,13 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/assessment-marking" %}
-{% set pageHeading = "Provide details of your assessment marking experience" %}
+{% set formAction = "/assessment-judgement" %}
+{% set pageHeading = "Provide details of your experience in making assessment judgements" %}
 
 {% block formContent %}
 
   <span class="govuk-caption-l">Assessment expertise </span>
-  <h1 class="govuk-heading-l">Marking assessments</h1>
+  <h1 class="govuk-heading-l">Making assessment judgements</h1>
 
   <p class="govuk-body">
     Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
@@ -112,7 +112,7 @@
       text: pageHeading,
       classes: "govuk-label--m"
     }
-   } | decorateAttributes(data, "data.assessmentMarkingDetails")) }}
+   } | decorateAttributes(data, "data.assessmentJudgementDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
