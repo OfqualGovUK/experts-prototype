@@ -2,33 +2,24 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./select-level" %}
-{% set pageHeading = "Select the qualifications types you can advise for this sector" %}
+{% set pageHeading = "Select the qualifications types you can advise for this subject" %}
 
 {% set captionHeading %}
-  {# If they are coming through the sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-    {{ data.selectedIndustry }}
-  {# Otherwise they must be coming from the subject search #}
-  {% elseif data.referrer == "subjectSearch" %}
-    {# If its not an "other" subject, show the subject and qual type/level #}
-    {% if data.selectedSubject and data.resultQualType != "Other qualification type" %}
-      {{ data.selectedSubject }}
+  {# If its not an "other" subject, show the subject and qual type/level #}
+  {% if data.selectedSubject and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
+    {{ data.selectedSubject }}
     {# If it is an "other" subject, so just show the subject #}
-    {% elseif data.selectedSubject and data.resultQualType == "Other qualification type" %}
+    {% else %}
       {{ data.resultName }}
-    {% endif %}
   {% endif %}
 {% endset %}
 
 {% set pageHeading %}
-  {# If they are coming from the search page  #}
-  {% if data.referrer == "subjectSearch" %}
-    What qualification type can you advise on for this subject?
-  {# Otherwise they must be coming through the sector search flow #}
-  {% elseif data.referrer == "sectorSearch"%}
-    What qualification type can you advise on in this industry or sector?
-  {% else %}
+  {# If they are coming through assessment specialist route  #}
+  {% if data.referrer == "assessmentExpertise" %}
     What qualification type can you advise on?
+    {% else %}
+      What qualification type can you advise on for this subject?
   {% endif %}
 {% endset %}
 
@@ -54,40 +45,8 @@
     text: "I don't know the qualification type"
   }) %}
 
-  {# If they are coming through the select a sector flow #}
-  {% if data.referrer == "sectorSearch" %}
-  
-    {{ govukRadios({
-      fieldset: {
-        legend: {
-          text: pageHeading,
-          classes: "govuk-fieldset__legend--l",
-          isPgeHeading: true
-        }
-      },
-      hint: {
-        text: "You will be able to add more qualification types after you have finished telling us about the first one."
-      },
-      items: qualifications
-    } | decorateAttributes(data, "data.selectedQualificationSector")) }}
-  {# Coming through subject flow #}
-  {% elseif data.referrer == "subjectSearch"%}
-    {{ govukRadios({
-      fieldset: {
-        legend: {
-          text: pageHeading,
-          classes: "govuk-fieldset__legend--l",
-          isPgeHeading: true
-        }
-      },
-      hint: {
-        text: "You will be able to add more qualification types after you have finished telling us about the first one."
-      },
-      items: qualifications
-    } | decorateAttributes(data, "data.selectedQualification")) }}
-
   {# Coming through assessment only, qual only flow #}
-  {% else %}
+  {% if data.referrer == "assessmentExpertise" %}
     {{ govukRadios({
       fieldset: {
         legend: {
@@ -100,7 +59,22 @@
         text: "You will be able to add more qualification types after you have finished telling us about the first one."
       },
       items: qualifications
-    } | decorateAttributes(data, "data.selectedQualificationAssessmntOnly")) }}
+    } | decorateAttributes(data, "data.selectedQualificationAssessmentOnly")) }}
+    {# Coming through subject flow #}
+    {% else %}
+      {{ govukRadios({
+        fieldset: {
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l",
+            isPgeHeading: true
+          }
+        },
+        hint: {
+          text: "You will be able to add more qualification types after you have finished telling us about the first one."
+        },
+        items: qualifications
+      } | decorateAttributes(data, "data.selectedQualification")) }}
   {% endif %}
 
   <div class="govuk-button-group">

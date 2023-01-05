@@ -68,52 +68,86 @@
           })}}
         {% endif %} 
       </section>
-
-      <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Type of expertise</h2>
-        {% if data.assessmentExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Assessment expertise</h2>
-          {% include "_includes/summary-cards/assessment-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Assessment expertise",
-            sectionHref: "./assessment-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-        {% if data.assessmentExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
-          {% include "_includes/summary-cards/industry-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Industry or occupational expertise",
-            sectionHref: "./industry-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-        {% if data.teachingExpertiseCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
-          {% include "_includes/summary-cards/teaching-expertise.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Teaching, lecturing or training expertise",
-            sectionHref: "./teaching-expertise",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %}
-      </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Areas you can advise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Subjects that you can provide expertise on</h2>
         {% if data.adviseAreasCompleted == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Subjects and/or sectors you can advise on",
+            sectionName: "Subjects that you can provide expertise on",
             sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
+      </section>
+
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
+        {# If the Subjects of expertise is NOT complete #}
+        {% if data.adviseAreasCompleted != "complete" %}
+          <p class="govuk-body">You must complete subjects that you can provide expertise on first.</p>
+        {# Otherwise Subjects of expertise IS complete #}
+        {% else %}
+          {% for type in data.expertiseType %}
+            {% if type == "Assessment" %}
+              {% if data.assessmentExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Assessment expertise</h2>
+                {% include "_includes/summary-cards/assessment-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: 'Assessment expertise',
+                  sectionHref: '/assessment-type-answer',
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
+            {% endif %}
+            {% if type == "Industry or occupational" %}
+              {% if data.industryExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
+                {% include "_includes/summary-cards/industry-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: "Industry or occupational expertise",
+                  sectionHref: "./industry-expertise",
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
+            {% endif %}
+            {% if type == "Teaching, lecturing or training" %}
+              {% if data.teachingExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
+                {% include "_includes/summary-cards/teaching-expertise.html" %}
+                {% else %}
+                {{ appInsetText ({
+                  sectionName: "Teaching, lecturing or training expertise",
+                  sectionHref: "/teaching-type-answer",
+                  classes: "app-inset-text--error" if data.showErrors == "true"
+                })}}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if data.communicationCompleted == "complete" %}
+          <h2 class="govuk-heading-m">Communication, analytical and judgement skills</h2>
+          {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Communication, analytical and judgement skills",
+            sectionHref: "./communication-analytical-judgement-skills",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% if data.professionalAchievementDetails == "complete" %}
+          <h2 class="govuk-heading-m">Professional achievements</h2>
+          {% include "_includes/summary-cards/professional-achievements.html" %}
+        {% else %}
+          {{ appInsetText({
+            sectionName: "Professional achievements",
+            sectionHref: "./professional-achievements",
+            classes: "app-inset-text--error" if data.showErrors == "true"
+          })}}
+        {% endif %} 
+        {% endif %}
       </section>
       
       <section class="govuk-!-margin-bottom-8">

@@ -1,7 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/expertise-granular" %}
+{% set formAction = "/expertise-teaching-granular" %}
+{% set pageHeading = "Which assessment activities or responsibilities have you completed in this subject?" %}
 
 {% set captionHeading %}
   {# Coming from the assessment only route #}
@@ -65,43 +66,37 @@
   {% endif %}
 {% endset %}
 
-{% set pageHeading %}
-  What type of expertise do you have for this subject?
-{% endset %}
-
-
 {% block formContent %}
 
   <span class="govuk-caption-l">{{ captionHeading }}</span>
-
-  {# They can only come from the subject flow #}
-    {{ govukCheckboxes({
-      fieldset: {
-        legend: {
-          text: pageHeading,
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
+  
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Making assessment judgements"
       },
-      hint: {
-        text: "Your expertise can be current or previous experience"
+      {
+        text: "Standard setting and awarding qualifications"
       },
-      items: [
-        {
-          text: "Assessment"
-        },
-        {
-          text: "Industry or occupational",
-          hint: {
-            text: "You work in this field in a non-educational context"
-          }
-        },
-        {
-          text: "Teaching, lecturing or training"
-        }
-      ]
-    } | decorateAttributes(data, "data.expertiseType")) }}
-
+      {
+        text: "Designing and developing assessments"
+      },
+      {
+        text: "Evaluating assessments or assessment approaches"
+      }
+    ]
+  } | decorateAttributes(data, "data.assessmentExpertiseType")) }}
+  
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Save and continue"

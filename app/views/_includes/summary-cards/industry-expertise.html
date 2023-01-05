@@ -18,21 +18,6 @@
   rows: [
     {
       key: {
-        text: "Do you have any industry or occupational expertise?"
-      },
-      value: { 
-        text: data.anyIndustryExpertise
-      },
-      actions: {
-        items: [{
-          text: "Change",
-          visuallyHiddenText: "do you have any industry or occupational expertise?",
-          href: "/application/industry-expertise"
-        }]
-      }
-    },
-    {
-      key: {
         text: "Provide details of your industry or occupational expertise"
       },
       value: { 
@@ -42,9 +27,9 @@
         items: [{
           text: "Change",
           visuallyHiddenText: "Provide details of your industry or occupational expertise",
-          href: "/application/industry-expertise/add-details"
+          href: "/application/industry-expertise"
         }]
       }
-    } if data.anyIndustryExpertise == "Yes"
+    }
   ]
 }) }}

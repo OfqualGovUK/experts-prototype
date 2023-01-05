@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/application/search/subject-search-answer" %}
+{% set formAction = "/subject-search-answer" %}
 {% set pageHeading = "Search for a subject" %}
 
 {% block formContent %}
@@ -33,6 +33,9 @@
     <div class="body-text">
       <label for="autocomplete-placeholder" class="govuk-label govuk-label--l">{{ pageHeading }}</label>
       {# <p class="govuk-body">You will be able to add more subjects, apprenticeships or T Levels after you tell us about the first one.</p> #}
+      <div id="subject-hint" class="govuk-hint">
+        You will be able to add more subjects after you have finished telling us about the first one.
+      </div>
       <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6"></div>
     </div>
 
@@ -86,11 +89,20 @@
         templates: {
           suggestion: (value) => {
             var result = results.find(result => result.id == value.id)
-            return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0'> (${result.level})</span>`
+            let finalHtml = `<span class='job-title'>${result.name}</span>`
+            if (result.qualType === "End-point assessment" || result.qualType === "T Level") {
+              finalHtml = `${finalHtml}<span class='govuk-hint govuk-!-margin-bottom-0'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0'> (level ${result.level})</span>`
+            }
+            return finalHtml
           },
           inputValue: (selection) => {
-            if (!!selection)
-              return `${selection.name} (${selection.qualType} - ${selection.level})`
+            if (!!selection) {
+              let finalVal = selection.name
+              if (selection.qualType === "End-point assessment" || selection.qualType === "T Level") {
+                finalVal = `${selection.name} (${selection.qualType} - level ${selection.level})`
+              }
+              return finalVal
+            }
             return ""
           }
         }
@@ -99,12 +111,12 @@
   
   {% set detailsHtml %}
     <p class="govuk-body govuk-!-margin-bottom-0">
-      Try <a href="./sector-search">searching by sector</a> instead.
+      Add expertise as an <a href="/application/search/assessment-subject">assessment specialist</a> instead.
     </p>
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "I can't find what I'm looking for",
+    summaryText: "I do not have a subject specialism",
     text: detailsHtml | safe
   }) }}
 

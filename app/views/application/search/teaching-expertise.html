@@ -1,7 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/expertise-granular" %}
+{% set formAction = "./review" %}
+{% set pageHeading = "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?" %}
 
 {% set captionHeading %}
   {# Coming from the assessment only route #}
@@ -65,43 +66,47 @@
   {% endif %}
 {% endset %}
 
-{% set pageHeading %}
-  What type of expertise do you have for this subject?
-{% endset %}
-
-
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ captionHeading }}</span>
+<span class="govuk-caption-l">{{ captionHeading }}</span>
+  
+  {# {% set natureOtherHtml %}
+    {{ govukTextarea({
+      _classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.teachingExpertiseTypeOther")) }}
+  {% endset -%} #}
 
-  {# They can only come from the subject flow #}
-    {{ govukCheckboxes({
-      fieldset: {
-        legend: {
-          text: pageHeading,
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Teaching or lecturing"
       },
-      hint: {
-        text: "Your expertise can be current or previous experience"
+      {
+        text: "Training"
       },
-      items: [
-        {
-          text: "Assessment"
-        },
-        {
-          text: "Industry or occupational",
-          hint: {
-            text: "You work in this field in a non-educational context"
-          }
-        },
-        {
-          text: "Teaching, lecturing or training"
-        }
-      ]
-    } | decorateAttributes(data, "data.expertiseType")) }}
-
+      {
+        text: "Educational management"
+      },
+      {
+        text: "Teacher training"
+      }
+    ]
+  } | decorateAttributes(data, "data.teachingExpertiseType")) }}
+  
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Save and continue"

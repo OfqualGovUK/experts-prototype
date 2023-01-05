@@ -1,16 +1,16 @@
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your evidence of assessment expertise" %}
+{% set pageHeading = "Review your skills and professional achievements" %}
 {% set backText = "Back to application" %}
 {% set backLink = "/application" %}
 {% set layoutWidth = "fullWidthLayout" %}
 {% set formAction = "/application" %}
 
 {% block formContent %}
-  
+
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  {% include "_includes/summary-cards/assessment-expertise.html" %}
+  {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
 
   <div class="govuk-button-group">
     {{ govukButton({

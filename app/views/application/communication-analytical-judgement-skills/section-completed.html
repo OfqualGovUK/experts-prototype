@@ -2,12 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{# {% set formAction = "/review-expertise-answer" %} #}
 {% set formAction = "./../../application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Subjects that you can provide expertise on</h1>
+  <h1 class="govuk-heading-l">Communication, analytical and judgement skills</h1>
   
   {{ govukRadios({
     fieldset: {
@@ -26,10 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.adviseAreasCompleted")) }}
-
-  {# This resets the "Cannot start yet" status on the task list for the "Evidence of expertise" section #}
-  <input type="hidden" name="evidenceExpertiseCompleted" value="">
+  } | decorateAttributes(data, "data.communicationCompleted")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -1,66 +1,65 @@
-{% set assessmentHtml %}
-  {# Build an list of the items selected #}
-  <ul class="govuk-list">
-    {# loops through and gets al the checked items #}
-    {% for role in data.assessmentExpertiseType %}
-      <li>
-        {% if role == "An option that isn't listed" %}
-          {{ data.assessmentExpertiseTypeOther }}
-        {% else %} 
-          {{ role }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-{% endset %} 
-
 {{ xGovukSummaryCard({
   
   rows: [
     {
       key: {
-        text: "Do you have any assessment expertise?"
+        text: "Provide details of your experience in making assessment judgements"
       },
       value: { 
-        text: data.anyAssessmentExpertise
+        text: data.assessmentJudgementDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "do you have any assessment expertise?",
-          href: "/application/assessment-expertise"
+          visuallyHiddenText: "Provide details of your experience in making assessment judgements",
+          href: "/application/assessment-expertise/add-details-judgements"
         }]
       }
-    },
+    } if data.isJudgement,
     {
       key: {
-        text: "Which activities or responsibilities have you completed?"
+        text: "Provide details of your experience in standard setting and awarding qualifications"
       },
       value: { 
-        html: assessmentHtml
+        text: data.assessmentStandardSettingDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Which activities or responsibilities have you completed?",
-          href: "/application/assessment-expertise/assessment-expertise"
+          visuallyHiddenText: "Provide details of your experience in standard setting and awarding qualifications",
+          href: "/application/assessment-expertise/add-details-standard-setting"
         }]
       }
-    } if data.anyAssessmentExpertise == "Yes",
+    } if data.isStandardSetting,
     {
       key: {
-        text: "Provide details of your assessment expertise"
+        text: "Provide details of your experience in designing and developing assignments"
       },
       value: { 
-        text: data.assessmentExpertiseDetails
+        text: data.assessmentDesigningDetails
       },
       actions: {
         items: [{
           text: "Change",
-          visuallyHiddenText: "Provide details of your assessment expertise",
-          href: "/application/assessment-expertise/add-details"
+          visuallyHiddenText: "Provide details of your experience in designing and developing assignments",
+          href: "/application/assessment-expertise/add-details-designing"
         }]
       }
-    } if data.anyAssessmentExpertise == "Yes"
+    } if data.isDesigning,
+      {
+      key: {
+        text: "Provide details of your experience in evaluating assessments or assessment approaches"
+      },
+      value: { 
+        text: data.assessmentEvaluatingDetails
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: "Provide details of your experience in evaluating assessments or assessment approaches",
+          href: "/application/assessment-expertise/add-details-evaluating"
+        }]
+      }
+    } if data.isEvaluating
   ]
 }) }}

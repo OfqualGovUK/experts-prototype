@@ -1,28 +1,55 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/industry-answer" %}
-{% set pageHeading = "Do you have industry or occupational expertise?" %}
+{% set formAction = "/application/industry-expertise/review" %}
+{% set pageHeading = "Provide details of your industry or occupational expertise" %}
 
 {% block formContent %}
 
-  {{ govukRadios ({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"      
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      },
-      {
-        text: "No"
-      }
-    ]
-  } | decorateAttributes(data, "data.anyIndustryExpertise")) }}
+  <h1 class="govuk-heading-l">Industry or occupational expertise</h1>
+
+  <p class="govuk-body">
+    Industry experts with the knowledge and skills of specific activities within an industry or occupation are required to support the review of qualifications and assessments.
+  </p>
+
+  <p class="govuk-body">
+    Tell us about your industry expertise by describing your experience, skills, achievements, activities and responsibilities.
+  </p>
+  
+  <p class="govuk-body">
+    For example, a plumbing expert with in-depth knowledge of pipework diameters and tolerances would be able to inform Ofqual on whether a student or apprentice is assessed appropriately.
+  </p>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information about your expertise. You can use this section to tell us about:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your experience, skills and current industry practices</li>
+      <li>specific industry practices to evidence your expertise</li>
+      <li>contribution to industry standards</li>
+      <li>experience leading or managing a team (mentoring or training)</li>
+      <li>understanding of your industry standards for your sector</li>
+      <li>understanding of your industry technologies and procedures</li>
+      <li>ability to provide clear and concise feedback</li>
+      <li>your skills and continuous learning and training</li>
+      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
+      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+    </ul>
+    <p class="govuk-body">Evidence of your subject expertise can be covered in more detail in the areas of expertise section.</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 1000,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.industryExpertiseDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
