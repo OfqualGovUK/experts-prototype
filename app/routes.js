@@ -162,7 +162,7 @@ router.post('/achievement-answer', function (req, res) {
 //   // case-insensitive string match
 //   let expertiseAssessmentRegex = new RegExp(/Assessment/i)
 //   let expertiseTeachingRegex = new RegExp(/Teaching, lecturing or training/i)
-//   let expertiseIndustryRegex = new RegExp(/Industry or occupational/i)
+//   let expertiseIndustryRegex = new RegExp(/Industry, occupational or professional/i)
 
 //   let isAssessment = expertiseAssessmentRegex.test(expertiseType)
 //   let isTeaching = expertiseTeachingRegex.test(expertiseType)

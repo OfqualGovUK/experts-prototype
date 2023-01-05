@@ -5,11 +5,11 @@
 {% set pageHeading = "Provide details of your experience in teacher training" %}
 
 {% block formContent %}
-<span class="govuk-caption-l">Teaching, lecturing and training experience </span>
+<span class="govuk-caption-l">Teaching, lecturing or training experience </span>
   <h1 class="govuk-heading-l">Teacher training</h1>
 
   <p class="govuk-body">
-    Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
+    Tell us about your expertise in the subject(s) you have selected:
   </p>
 
   {% set subjectsHtml %}
@@ -83,18 +83,11 @@
   {{ subjectsHtml | safe }}
   
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following expertise:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>understanding of qualifications and specifications</li>
-      <li>teaching experience, qualifications and cohorts</li>
-      <li>curriculum development</li>
-      <li>research and project work</li>
-      <li>commercial training experience</li>
-      <li>development of training materials (classroom, online)</li>
-      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
-      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
+      <li>teaching on a PGCE or similar course</li>
+      <li>co-tutoring or where you may have mentored trainee teachers or trainers</li>
     </ul>
-    <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
   {% endset %}
 
   {{ govukDetails({

@@ -122,7 +122,7 @@ var completedApplicationDataVTQ = {
   "hasMultipleExpertiseTypes": "True",
   "expertiseType": [
     "Assessment",
-    "Industry or occupational",
+    "Industry, occupational or professional",
     "Teaching, lecturing or training"
   ],
   // Sector
