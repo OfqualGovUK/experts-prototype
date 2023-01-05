@@ -102,13 +102,13 @@
                 })}}
               {% endif %}
             {% endif %}
-            {% if type == "Industry or occupational" %}
+            {% if type == "Industry, occupational or professional" %}
               {% if data.industryExpertiseCompleted == "complete" %}
-                <h2 class="govuk-heading-m">Industry or occupational expertise</h2>
+                <h2 class="govuk-heading-m">Industry, occupational or professional expertise</h2>
                 {% include "_includes/summary-cards/industry-expertise.html" %}
                 {% else %}
                 {{ appInsetText ({
-                  sectionName: "Industry or occupational expertise",
+                  sectionName: "Industry, occupational or professional expertise",
                   sectionHref: "./industry-expertise",
                   classes: "app-inset-text--error" if data.showErrors == "true"
                 })}}

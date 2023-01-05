@@ -10,7 +10,7 @@
   <h1 class="govuk-heading-l">Standard setting and awarding qualifications</h1>
 
   <p class="govuk-body">
-    Make sure you cover how this applies to the subject(s), qualification type(s) and level(s) you've selected:
+    Tell us about your expertise in the subject(s) you have selected:
   </p>
 
   {% set subjectsHtml %}
@@ -84,20 +84,12 @@
   {{ subjectsHtml | safe }}
 
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about your expertise and the activities you have selected. You can use this section to tell us about:</p>
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following expertise:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>your understanding of key assessment concepts such as validity and reliability</li>
-      <li>your awareness of the strengths and limitations of different assessment methods</li>
-      <li>providing analytical feedback to others</li>
-      <li>qualifications you have reviewed</li>
-      <li>knowlege and understanding of assessment principles and practices</li>
-      <li>experience of criteria for evaluation and standards setting and maintenance</li>
-      <li>achievements in your roles such as, key note speaker, research or consultancy achievements</li>
-      <li>analytical and judgement skills that enable you to understand approaches and demonstrate your ability to provide conclusions</li>
-      <li>communication skills that demonstrate your ability to write clear evidence based reports</li>
-      <li>ability to work with others</li>
+      <li>reviewing marked scripts and/or statistical evidence to determine key grade boundaries for examinations or assessments</li>
+      <li>setting grading and/or performance standards for qualification outcomes</li>
+      <li>reviewing and/or overseeing qualification standards</li>
     </ul>
-    <p class="govuk-body">Evidence of your subject expertise will be covered in the areas of expertise section.</p>
   {% endset %}
 
   {{ govukDetails({

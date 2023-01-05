@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "./review" %}
-{% set pageHeading = "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?" %}
+{% set pageHeading = "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject?" %}
 
 {% set captionHeading %}
   {# Coming from the assessment only route #}
@@ -93,16 +93,28 @@
     },
     items: [
       {
-        text: "Teaching or lecturing"
+        text: "Teaching or lecturing",
+        hint: {
+          text: "Experience in schools, colleges, further education or higher education"
+        }
       },
       {
-        text: "Training"
+        text: "Training",
+        hint: {
+          text: "Training and observing learners in the workplace"
+        }
       },
       {
-        text: "Educational management"
+        text: "Educational management",
+        hint: {
+          text: "Managing curriculm in schools, college or university, responsible for subject departments or faculties, organisation responsibility"
+        }
       },
       {
-        text: "Teacher training"
+        text: "Teacher training",
+        hint: {
+          text: "Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers"
+        }
       }
     ]
   } | decorateAttributes(data, "data.teachingExpertiseType")) }}
