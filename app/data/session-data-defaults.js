@@ -299,6 +299,126 @@ var completedApplicationDataGQ = {
   "verifyIdentityCompleted": "complete"
 }
 
+// This is all the data needed to populate an Assessment specialist completed application
+var completedApplicationDataAssessmentSpecialist = {
+  "referrer": "assessmentExpertise", 
+
+  // Personal details
+  "fullName": "Joseph Khan",
+  "email": "j.khan@email.com",
+  "telephone": "07800999111",
+  "whereDoYouLive": "In the UK",
+  "addressLine1": "99 Puddle Street",
+  "townOrCity": "Southampton",
+  "postCode": "SO45 1AA",
+  "personalDetailsCompleted": "complete",
+
+  // Education details
+  "anyQualifications": "Yes",
+  "schoolName": "University of Central Lancashire",
+  "awordingOrganisation": "",
+  "qualName": "Performing arts degree / Certificate & Masters in Education",
+  "grade": "",
+  "yearQualAwarded": "1982",
+  "qualUploadAvailable": "Yes",
+  "noQualReasonHtml": " ",
+  "qualificationUpload": "Allcerts.jpg",
+  "educationCompleted": "complete",
+
+  // Work history
+  "employerName": "Brenton College",
+  "jobTitle": "Head of Performing Arts",
+  "roleEnded": "Yes",
+  "workHistoryCompleted": "complete",
+
+  // Professional memberships
+  "anyMemberships": "Yes",
+  "membershipOrganisationName": "Union and Drama teachers network",
+  "membershipType": "",
+  "membershipYearJoined": "1983",
+  "professionalMembershipsCompleted": "complete",
+
+  // References
+  "referenceName": "A N Headteacher",
+  "referenceEmail": "headteacher@school.com",
+  "referenceTelephone": "Not provided",
+  "referenceOrganisation": "A N Head",
+  "referencesCompleted": "complete",
+
+  // Subjects
+  // Assessment only route - doesn't select a subject 
+  "assessmentSubject": "No",
+  "assessmentQual": "No",
+  "isAssessment": "true",  
+  "assessmentExpertiseType": [
+    "Making assessment judgements",
+    "Standard setting and awarding qualifications",
+    "Designing and developing assessments",
+    "Evaluating assessments or assessment approaches"
+  ],
+  "isJudgement": "true",
+  "isStandardSetting": "true",
+  "isDesigning": "true",
+  "isEvaluating": "true",
+  "adviseAreasCompleted": "complete",
+  "expertiseType": [
+    "Assessment"
+  ],
+
+  // Evidence of expertise
+  // Assessment expertise
+  "assessmentJudgementDetails": "I've done a lot of training for exam boards. I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentStandardSettingDetails": "I've run quite a few standards meetings. I've been a standards verifier for BTEC performing arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentDesigningDetails": "I would descsribe my involvement, activities and responsibilities to link with the information selected. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentEvaluatingDetails": "Examiner for GCSE Performing Arts for AQA. Examiner for GCC drama and set the standards Btech Performing Arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentExpertiseCompleted": "complete",
+
+  // Industry, occupational or professional expertise
+  "industryExpertiseDetails": "",
+  "industryExpertiseCompleted": "complete",
+
+  // Teaching, lecturing or training expertise
+  "teachingExpertiseCompleted": "complete",
+
+  // Communication, analytical and judgement skills
+  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  "communicationCompleted": "complete",
+
+  // Professional achievements
+  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
+  "professionalAchievementDetails": "complete",
+
+  // Conflict of interest
+  "conflictOfInterest": "Yes",
+  "conflictOrganisation": "Supply work / External consultant",
+  "conflictType": "I work for an Awarding Organisation as an external consultant or advisor",
+  "conflictDetails": "I'd want to select more options, I have been employed by an AO, I've worked on the subject as a supply teacher and I do work as an advisor.",
+  "conflictStartDate": "June 2005",
+  "currentConflict": "Yes",
+  "conflictEndDate": "",
+  "conflictOfInterestCompleted": "complete",
+
+  // Self declaration
+  "judgements": "No",
+  // "judgementsDetails": "Test",
+  "bankrupt": "No",
+  // "bankruptDetails": "Test",
+  "misconduct": "No",
+  // "misconductDetails": "Test",
+  "breach": "No",
+  // "breachDetails": "I didn't pay my tax for a REALLY long time.",
+  "declarationCompleted": "complete",
+
+  // Your right to work status
+  "rightToWork": "Yes",
+  "rightToWorkStatus": "UK citizenship",
+  "rightToWorkCompleted": "complete",
+
+  // Provide proof of identification
+  "idUpload": "passport.pdf",
+  "verifyIdentityCompleted": "complete"
+}
+
 // This is all the data needed to enable all Evidence sections
 var fillSubjectsData = {
 
@@ -349,6 +469,7 @@ module.exports = {
 
   completedApplicationDataGQ,
   completedApplicationDataVTQ,
+  completedApplicationDataAssessmentSpecialist,
 
   fillSubjectsData,
 

@@ -2,13 +2,19 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/expertise-teaching-granular" %}
-{% set pageHeading = "Which assessment activities or responsibilities are you experienced in for this subject?" %}
+
+{% set pageHeading = "Which assessment activities or responsibilities are you experienced in?" %}
+
+{% if data.assessmentQual == "No" %}
+  {% set pageHeading = "Which assessment activities or responsibilities are you experienced in?" %}
+{% endif %}
 
 {% set captionHeading %}
   {# Coming from the assessment only route #}
   {% if data.referrer == "assessmentExpertise" %}
     {# Coming from the assessment only, qual only route #}
-    {% if data.assessmentQual == "Yes" %}
+    {% if data.assessmentQual == "No" %}
+    {% elseif data.assessmentQual == "Yes"%}
       {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
         {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
           {% else %} 
@@ -19,7 +25,7 @@
           {{ data.selectedQualificationAssessmentOnly }}
           {% else %} 
           {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
-        {% endif %}
+        {% endif %}  
       {% endif %}
       {# Coming from the assessment only, subject route #}
       {% else %}

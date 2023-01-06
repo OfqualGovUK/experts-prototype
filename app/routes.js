@@ -837,6 +837,30 @@ router.all( '/application-submitted-gq-accepted', function (req, res) {
   res.redirect('/dashboard?applicationStatus=Application accepted');
 })
 
+// Assessment Specialist (no subject) Application
+
+// Sets up the tasklist with a completed application when you visit a link
+router.all( '/populate-application-as', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)  
+  res.redirect('/application');
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-as-in-review', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
+  
+  res.redirect('/dashboard?applicationStatus=In review');
+})
+
+// Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-as-accepted', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
+  
+  res.redirect('/dashboard?applicationStatus=Application accepted');
+})
+
 // Enable all Evidence 
 // Sets up the tasklist 
 router.all( '/admin-settings', function (req, res) {
