@@ -2,11 +2,14 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Admin settings" %}
-{% set formAction = "/index" %}
+{% set formAction = "/application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Admin settings<h1>
+  <h1 class="govuk-heading-l">Admin settings</h1>
+  
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Enable evidence of expertise section</h2>
+  <p class="govuk-body govuk-!-margin-bottom-6"><a href="/admin-settings" class="govuk">View with subjects section complete</a></p>
   
   {{ govukCheckboxes({
     fieldset: {
@@ -22,68 +25,6 @@
       }
     ]
   } | decorateAttributes(data, "data.settings.enableErrors")) }}
-
-  <hr class="govuk-section-break govuk-section-break--visible">
-  
-  <h2 class="govuk-heading-l">Types of expertise<h2>
-  
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: "Enable assessment expertise",
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      }
-    ]
-  } | decorateAttributes(data, "data.anyAssessmentExpertise")) }}  
-  
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: "Enable industry, occupational or professional",
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      }
-    ]
-  } | decorateAttributes(data, "data.anyIndustryExpertise")) }}  
-  
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: "Enable teaching, lecturing or training expertise",
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      }
-    ]
-  } | decorateAttributes(data, "data.anyTeachingExpertise")) }}  
-
-  <h2 class="govuk-heading-l">Areas you can advise on<h2>
-
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: "Enable areas you can advise on",
-        classes: "govuk-fieldset__legend--s"
-      }
-    },
-    items: [
-      {
-        text: "Yes"
-      }
-    ]
-  } | decorateAttributes(data, "data.adviseAreasCompleted")) }}
 
   {{ govukButton({
     text: "Update settings"

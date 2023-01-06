@@ -32,13 +32,13 @@ var settings = {
 var completedApplicationDataVTQ = {
 
   // Personal details
-  "fullName": "Lalita Vikram",
-  "email": "lalita@email.com",
-  "telephone": "07552068159",
+  "fullName": "Hans Kuhlman",
+  "email": "hans@email.com",
+  "telephone": "07701123123",
   "whereDoYouLive": "In the UK",
-  "addressLine1": "43 Watson Place",
-  "townOrCity": "Coventry",
-  "postCode": "CV1 1DE",
+  "addressLine1": "01 School Lane",
+  "townOrCity": "Birmingham",
+  "postCode": "B2 4QA",
   "personalDetailsCompleted": "complete",
 
   // Education details
@@ -73,67 +73,62 @@ var completedApplicationDataVTQ = {
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
 
-  // Types of expertise
-
-  // Assessment
-  "anyAssessmentExpertise": "Yes",
-  "assessmentExpertiseType": [
-    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)",
-    "Designing and/or setting assessments",
-    "Designing or writing question papers or assessment tasks",
-    "Designing the assessment approach for a qualification",
-    "Determining key grade boundaries for examinations or assessments",
-    "Evaluating the effectiveness of specific assessment design and approaches",
-    "Leading a team of markers, examiners or assessors",
-    "Marking assessments",
-    "Reviewing or overseeing qualification standards",
-    "Reviewing the performance of assessments (individual questions, assessment tasks, mark schemes)",
-    "Reviewing the validity and reliability of the qualification, as part of the qualification lifecycle",
-    "Setting standards for qualification outcomes",
-    "Specification review Specification design",
-  ],
-  "assessmentExpertiseDetails": "I'd enter the qualifications I've been involved in the work designing the assessments, reviewing assessments and standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it. I'd detail my involvement and what we did in terms of designing the assessments. I'd detail the process of reviewing the qualifications and assessments and then detail the work on standardising.",
-  "assessmentExpertiseCompleted": "complete",
-
-  // Industry
-  "anyIndustryExpertise": "Yes",
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
-  "industryExpertiseCompleted": "complete",
-
-  // Teaching
-  "anyTeachingExpertise": "Yes",
-  "currentlyInTeachingRole": "Yes",
-  "teachingExpertiseType": [
-    "Developing classroom materials",
-    "Developing teacher training materials",
-    "Training other teachers/ lecturers",
-    "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
-
-  ],
-  "teachingTeacherTrainingDetails": "I would include here a specific summary of my teaching and training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed. It is clear now, that where there isn't a space in 'Work history' to tell you about it what I've done. I can see now these sections and how you want my work history by experience in assessment, industry, and teacher training. (Note: It may have given me comfort to know that I would have the opportunity to tell you this information before now).",
-  "teachingExpertiseCompleted": "complete",
-
-  // Areas that you can advise on
-  // Subject
-  "selectedSubject": "Asbestos Analyst and Surveyor (End-Point Assessment - Level 3)",
+  // Subjects
+  "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
   "resultName": "Asbestos Analyst and Surveyor",
-  "resultQualType": "End-Point Assessment",
-  "resultLevel": "Level 3",
-  "hasMultipleExpertiseTypes": "True",
+  "selectedQualification": "End-Point Assessment",
+  "selectedLevel": [
+    "3"
+  ],
   "expertiseType": [
     "Assessment",
     "Industry, occupational or professional",
     "Teaching, lecturing or training"
   ],
-  // Sector
-  "selectedIndustry": "Building and construction",
-  "selectedQualificationSector": [
-    "End-Point Assessment",
-    "Technical Qualification",
-    "Vocationally-Related Qualification"
+  "isAssessment": "true",  
+  "assessmentExpertiseType": [
+    "Making assessment judgements",
+    "Standard setting and awarding qualifications",
+    "Designing and developing assessments",
+    "Evaluating assessments or assessment approaches"
   ],
-  "selectedLevelSector": ["Level 4"],
+  "isJudgement": "true",
+  "isStandardSetting": "true",
+  "isDesigning": "true",
+  "isEvaluating": "true",
+  "isTeaching": "true",  
+  "teachingExpertiseType": [
+    "Training",
+    "Teacher training"
+  ],
+  "isTraining": "true",
+  "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
+
+  // Evidence of expertise
+  // Assessment expertise
+  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
+  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentExpertiseCompleted": "complete",
+
+  // Industry, occupational or professional expertise
+  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseCompleted": "complete",
+
+  // Teaching, lecturing or training expertise
+  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingExpertiseCompleted": "complete",
+
+  // Communication, analytical and judgement skills
+  "communicationDetails": "I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  "communicationCompleted": "complete",
+
+  // Professional achievements
+  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
+  "professionalAchievementDetails": "complete",
 
   // Conflict of interest
   "conflictOfInterest": "Yes",
@@ -170,7 +165,7 @@ var completedApplicationDataVTQ = {
 var completedApplicationDataGQ = {
 
   // Personal details
-  "fullName": "GQ Lalita Vikram",
+  "fullName": "Lalita Vikram",
   "email": "lalita@email.com",
   "telephone": "07552068159",
   "whereDoYouLive": "In the UK",
@@ -211,67 +206,67 @@ var completedApplicationDataGQ = {
   "referenceOrganisation": "A N Head",
   "referencesCompleted": "complete",
 
-  // Types of expertise
-
-  // Assessment
-  "anyAssessmentExpertise": "Yes",
-  "assessmentExpertiseType": [
-    "Checking and verifying the marking of others (as a moderator, or as an internal or external verifier)",
-    "Designing and/or setting assessments",
-    "Designing or writing question papers or assessment tasks",
-    "Designing the assessment approach for a qualification",
-    "Determining key grade boundaries for examinations or assessments",
-    "Evaluating the effectiveness of specific assessment design and approaches",
-    "Leading a team of markers, examiners or assessors",
-    "Marking assessments",
-    "Reviewing or overseeing qualification standards",
-    "Reviewing the performance of assessments (individual questions, assessment tasks, mark schemes)",
-    "Reviewing the validity and reliability of the qualification, as part of the qualification lifecycle",
-    "Setting standards for qualification outcomes",
-    "Specification review Specification design",
+  // Subjects
+  "selectedSubject": "Performing arts (GCE AS/A Level - Level 3)",
+  "resultName": "Performing arts",
+  "selectedQualification": "GCE AS/A Level",
+  "selectedLevel": [
+    "3"
   ],
-  "assessmentExpertiseDetails": "I've done a lot of training for exam boards.  I've run quite a few standards meetings.  I've been a standards verifier for BTEC performing arts.  Examiner for GCSE Performing Arts for AQA.  Examiner for GCC drama and set the standards Btech Performing Arts.  I would descsribe my involvement, activities and responsibilities to link with the information selected.  For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements.",
+  "expertiseType": [
+    "Assessment",
+    "Teaching, lecturing or training"
+  ],
+  "isAssessment": "true",  
+  "assessmentExpertiseType": [
+    "Making assessment judgements",
+    "Standard setting and awarding qualifications",
+    "Designing and developing assessments",
+    "Evaluating assessments or assessment approaches"
+  ],
+  "isJudgement": "true",
+  "isStandardSetting": "true",
+  "isDesigning": "true",
+  "isEvaluating": "true",
+  "isTeaching": "true",  
+  "teachingExpertiseType": [
+    "Teaching or lecturing",
+    "Training",
+    "Educational management",
+    "Teacher training"
+  ],
+  "isLecturing": "true",
+  "isTraining": "true",
+  "isEducationalManagement": "true",
+  "isTeacherTraining": "true",
+  "adviseAreasCompleted": "complete",
+
+  // Evidence of expertise
+  // Assessment expertise
+  "assessmentJudgementDetails": "I've done a lot of training for exam boards. I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentStandardSettingDetails": "I've run quite a few standards meetings. I've been a standards verifier for BTEC performing arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentDesigningDetails": "I would descsribe my involvement, activities and responsibilities to link with the information selected. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentEvaluatingDetails": "Examiner for GCSE Performing Arts for AQA. Examiner for GCC drama and set the standards Btech Performing Arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentExpertiseCompleted": "complete",
 
-  // Industry
-  "anyIndustryExpertise": "No",
+  // Industry, occupational or professional expertise
   "industryExpertiseDetails": "",
   "industryExpertiseCompleted": "complete",
 
-  // Teaching
-  "anyTeachingExpertise": "Yes",
-  "currentlyInTeachingRole": "Yes",
-  "teachingExpertiseType": [
-    "Developing classroom materials",
-    "Developing teacher training materials",
-    "Training other teachers/ lecturers",
-    "Employer / Industry asbestos training Train asbestos training providers Commercial training provider Training other trainers",
-
-  ],
-  "teachingTeacherTrainingDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
+  // Teaching, lecturing or training expertise
+  "teachingLecturingDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
+  "teachingTrainingDetails": "I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingEducationalManagementDetails": "I would include here a specific summary of my experience in education management. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
 
-  // Areas that you can advise on
-  // Subject
-  "selectedSubject": "Performing arts (GCE AS/A Level - Level 3)",
-  "resultName": "Performing arts",
-  "resultQualType": "GCE AS/A Level",
-  "resultLevel": "Level 3",
-  "hasMultipleExpertiseTypes": "True",
-  "expertiseType": [
-    "Assessment",
-    "",
-    "Teaching, lecturing or training"
-  ],
-  // Sector
-  "selectedIndustry": "Performing arts",
-  "selectedQualificationSector": [
-    "End-Point Assessment",
-    "GCE A Level",
-    "GCE AS Level"
-  ],
-  "selectedLevelSector": ["Level 4"],
-  "adviseAreasCompleted": "complete",
+  // Communication, analytical and judgement skills
+  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  "communicationCompleted": "complete",
+
+  // Professional achievements
+  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
+  "professionalAchievementDetails": "complete",
 
   // Conflict of interest
   "conflictOfInterest": "Yes",
@@ -304,6 +299,46 @@ var completedApplicationDataGQ = {
   "verifyIdentityCompleted": "complete"
 }
 
+// This is all the data needed to enable all Evidence sections
+var fillSubjectsData = {
+
+  // Subjects
+  "selectedSubject": "Performing arts (GCE AS/A Level - Level 3)",
+  "resultName": "Performing arts",
+  "selectedQualification": "GCE AS/A Level",
+  "selectedLevel": [
+    "3"
+  ],
+  "expertiseType": [
+    "Assessment",
+    "Industry, occupational or professional",
+    "Teaching, lecturing or training"
+  ],
+  "isAssessment": "true",  
+  "assessmentExpertiseType": [
+    "Making assessment judgements",
+    "Standard setting and awarding qualifications",
+    "Designing and developing assessments",
+    "Evaluating assessments or assessment approaches"
+  ],
+  "isJudgement": "true",
+  "isStandardSetting": "true",
+  "isDesigning": "true",
+  "isEvaluating": "true",
+  "isTeaching": "true",  
+  "teachingExpertiseType": [
+    "Teaching or lecturing",
+    "Training",
+    "Educational management",
+    "Teacher training"
+  ],
+  "isLecturing": "true",
+  "isTraining": "true",
+  "isEducationalManagement": "true",
+  "isTeacherTraining": "true",
+  "adviseAreasCompleted": "complete"
+}
+
 module.exports = {
 
   // This section pulls in various data sources
@@ -314,6 +349,8 @@ module.exports = {
 
   completedApplicationDataGQ,
   completedApplicationDataVTQ,
+
+  fillSubjectsData,
 
   settings: settings,
 
