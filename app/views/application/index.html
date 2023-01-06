@@ -77,16 +77,8 @@
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
         <ul class="app-task-list">
-          {# If the Subjects of expertise is NOT complete #}
-          {% if data.evidenceExpertiseCompleted == "canNotStartYet" %}
-            {{ appTaskListItem({
-              name: 'Evidence',
-              href: 'application/',
-              hint: "Complete subjects first",
-              taskName: data.evidenceExpertiseCompleted
-            })}}
-          {# Otherwise Subjects of expertise IS complete #}
-          {% else %}
+          {# If the Subjects of expertise is complete #}
+          {% if data.adviseAreasCompleted == "complete" %}
           {# loops through and gets all the checked type of expertise #}
           {% for type in data.expertiseType %}   
             {% if type == "Assessment" %}
@@ -120,6 +112,14 @@
               name: 'Professional achievements',
               href: 'application/professional-achievements',
               taskName: data.professionalAchievementDetails
+            })}}
+            {# Otherwise Subjects of expertise IS NOT complete #}
+            {% else %}
+            {{ appTaskListItem({
+              name: 'Evidence',
+              href: 'application/',
+              hint: "Complete subjects first",
+              taskName: data.evidenceExpertiseCompleted
             })}}
           {% endif %}
         </ul>

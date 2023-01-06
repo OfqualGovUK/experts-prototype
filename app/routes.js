@@ -837,6 +837,14 @@ router.all( '/application-submitted-gq-accepted', function (req, res) {
   res.redirect('/dashboard?applicationStatus=Application accepted');
 })
 
+// Enable all Evidence 
+// Sets up the tasklist 
+router.all( '/admin-settings', function (req, res) {
+    req.session.data = Object.assign(req.session.data.fillSubjectsData)  
+    
+    res.redirect('/application');
+})
+
 // ------ Register your interest  ----- //
 
 // Example folder
