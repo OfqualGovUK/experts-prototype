@@ -1,21 +1,12 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Do you have the right to work in the UK?" %}
+{% set pageHeading = "Which document(s) can you provide to verify your identity?" %}
 {% set formAction = "/right-to-work-answer" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Right to work status</h1>
-  <p class="govuk-body">Successful applicants who:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-      have the right to work in the United Kingdom (UK) may be commissioned by Ofqual to carry out any assignment that is relevant to their area of expertise.
-    </li>
-    <li>
-      do not have the right to work in the UK, and live outside of the UK, EEA or Switzerland, may be commissioned to carry out limited desk based assignments from their home country.
-    </li>
-  </ul>  
+  <h1 class="govuk-heading-l">Verify your identity</h1>
 
   {{ govukRadios({
     fieldset: {
@@ -27,10 +18,16 @@
     },
     items: [
       {
-        text: "Yes"
+        text: "A UK or Irish passport"
       },
       {
-        text: "No"
+        text: "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number"
+      },
+      {
+        divider: "or"
+      },
+      {
+        text: "None of the documents listed"
       }
     ]
   } | decorateAttributes(data, "data.rightToWork")) }}
