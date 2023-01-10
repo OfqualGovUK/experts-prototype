@@ -331,22 +331,7 @@
             href: "/application/search/assessment-expertise"
           }]
         }
-      } if data.isAssessment,
-      {
-        key: {
-          text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
-        },
-        value: { 
-          html: teachingExpertiseHtml
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
-            href: "/application/search/teaching-expertise"
-          }]
-        }
-      } if data.isTeaching
+      }
     ]
   }) }}
 {% endif %}
