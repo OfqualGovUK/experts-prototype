@@ -128,11 +128,11 @@
             {% endif %}
           {% endfor %}
           {% if data.communicationCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Communication, analytical and judgement skills</h2>
+          <h2 class="govuk-heading-m">Communication and analytical judgement skills</h2>
           {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Communication, analytical and judgement skills",
+            sectionName: "Communication and analytical judgement skills",
             sectionHref: "./communication-analytical-judgement-skills",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
