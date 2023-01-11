@@ -1,7 +1,28 @@
 {# Show this if the user says they have qualification to enter #}
 {% if data.anyQualifications == "Yes" %}
 
-  {{ xGovukSummaryCard({
+{% if data.anyQualifications == "Yes" %}
+{{ xGovukSummaryCard({
+  rows: [
+    {
+      key: {
+        text: "Do you have any qualifications that are relevant to your application?"
+      },
+      value: { 
+        text: data.anyQualifications
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: " relevant to your application?",
+          href: "./../education"
+        }]
+      }
+    }]
+}) }}
+{% endif %} 
+
+{{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
     titleText: data.qualName,
     actions: {
