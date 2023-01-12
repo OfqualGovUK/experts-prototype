@@ -1,0 +1,34 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/teaching-type-answer" %}
+{% set pageHeading = "Are you currently working in a teaching, lecturing or training role?" %}
+
+{% block formContent %}
+
+  {{ govukRadios ({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"      
+      }
+    },
+    items: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.currentlyInTeachingRole")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
