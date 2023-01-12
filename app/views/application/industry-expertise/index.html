@@ -8,14 +8,78 @@
 
   <h1 class="govuk-heading-l">Industry, occupational or professional expertise</h1>
 
-  <p class="govuk-body">
-    Tell us about your industry expertise by describing your experience, skills, achievements, activities and responsibilities.
-  </p>
-  
-  <p class="govuk-body">
-    For example, a plumbing expert with in-depth knowledge of pipework diameters and tolerances would be able to inform Ofqual on whether a student or apprentice is assessed appropriately.
-  </p>
+  <p class="govuk-body">Tell us about your industry expertise by describing your experience, skills, achievements, activities and responsibilities in the subject(s) you have selected.</p>
 
+  {% set subjectsHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list govuk-list--bullet">
+      {# loops through and gets all the checked items #}
+        <li>
+          {# Coming from the assessment only route #}
+          {% if data.referrer == "assessmentExpertise" %}
+            {# Coming from the assessment only, qual only route #}
+            {% if data.assessmentQual == "Yes" %}
+              {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+                {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+                  {% else %} 
+                  {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+                {% else %} 
+                {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+                  {{ data.selectedQualificationAssessmentOnly }}
+                  {% else %} 
+                  {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+              {% endif %}
+              {# Coming from the assessment only, subject route #}
+              {% else %}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+                {# If it is an "other" subject, so just show the subject #}
+                {% else %}
+                  {{ data.resultName }}
+                  {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+                    {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+                      {% else %} 
+                      ({{ data.selectedLevelAssessmentOnly }})
+                    {% endif %}
+                    {% else %} 
+                      {% if data.selecteselectedLevelAssessmentOnlydLevel == "I don't know the level" %}
+                        ({{ data.selectedQualificationAssessmentOnly }})
+                        {% else %} 
+                        ({{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }})
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+            {# Otherwise they must be coming from the subject search #}
+            {% else %}
+              {# If its not an "other" subject, show the subject and qual type/level #}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+              {# If it is an "other" subject, so just show the subject #}
+              {% else %}
+                {{ data.resultName }}
+                {% if data.selectedQualification == "I don't know the qualification type" %}
+                  {% if data.selectedLevel == "I don't know the level" %}
+                    {% else %} 
+                    ({{ data.selectedLevel }})
+                  {% endif %}
+                  {% else %} 
+                    {% if data.selectedLevel == "I don't know the level" %}
+                      ({{ data.selectedQualification }})
+                      {% else %} 
+                      ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+          {% endif %}
+        </li>
+    </ul>
+  {% endset %}
+
+  {{ subjectsHtml | safe }}
+    
   {% set detailsHtml %}
     <p class="govuk-body">This is your opportunity to provide information and evidence about the following expertise:</p>
     <ul class="govuk-list govuk-list--bullet">
