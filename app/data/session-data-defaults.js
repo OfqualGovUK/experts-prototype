@@ -45,7 +45,7 @@ var completedApplicationDataVTQ = {
   "anyQualifications": "Yes",
   "schoolName": "British Occupational Hygiene Society",
   "awordingOrganisation": "British Occupational Hygiene Society",
-  "qualName": "Certificate of Compentence in Asbestos",
+  "qualName": "Certificate of Competence in Asbestos",
   "grade": "Pass",
   "yearQualAwarded": "1995",
   "qualUploadAvailable": "No",
