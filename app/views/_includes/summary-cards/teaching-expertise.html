@@ -3,6 +3,21 @@
   rows: [
     {
       key: {
+        text: "Are you currently working in a teaching, lecturing or training role?"
+      },
+      value: { 
+        text: data.currentlyInTeachingRole
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Are you currently working in a teaching, lecturing or training role?",
+          href: "/application/teaching-expertise/currently-in-role"
+        }]
+      }
+    },  
+    {
+      key: {
         text: "Provide details of your experience in teaching or lecturing"
       },
       value: { 
