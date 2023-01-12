@@ -122,8 +122,8 @@ var completedApplicationDataVTQ = {
   "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
@@ -260,8 +260,8 @@ var completedApplicationDataGQ = {
   "teachingTeacherTrainingDetails": "I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
@@ -380,8 +380,8 @@ var completedApplicationDataAssessmentSpecialist = {
   // Teaching, lecturing or training expertise
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "For the communication and analytical judgement skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
