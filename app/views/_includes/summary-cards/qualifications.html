@@ -1,7 +1,27 @@
+
+{{ xGovukSummaryCard({
+  rows: [
+    {
+      key: {
+        text: "Do you have any qualifications that are relevant to your application?"
+      },
+      value: { 
+        text: data.anyQualifications
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: " relevant to your application?",
+          href: "./../education"
+        }]
+      }
+    }]
+}) }}
+
 {# Show this if the user says they have qualification to enter #}
 {% if data.anyQualifications == "Yes" %}
 
-  {{ xGovukSummaryCard({
+{{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
     titleText: data.qualName,
     actions: {
@@ -135,26 +155,4 @@
     ]
   }) }}
 
-{% endif %}
-
-{# show this is there are no conflicts of interest #}
-{% if data.anyQualifications == "No" %}
-  {{ xGovukSummaryCard({
-    rows: [
-      {
-        key: {
-          text: "Do you have any qualifications that are relevant to your application?"
-        },
-        value: { 
-          text: data.anyQualifications or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "do you have any qualifications that are relevant to your application?",
-            href: "./../education"
-          }]
-        }
-      }]
-  }) }}
 {% endif %}
