@@ -3,6 +3,21 @@
   rows: [
     {
       key: {
+        text: "Are you currently working in a teaching, lecturing or training role?"
+      },
+      value: { 
+        text: data.currentlyInTeachingRole
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Are you currently working in a teaching, lecturing or training role?",
+          href: "/application/teaching-expertise/currently-in-role"
+        }]
+      }
+    },  
+    {
+      key: {
         text: "Provide details of your experience in teaching or lecturing"
       },
       value: { 
@@ -10,7 +25,7 @@
       },
       actions: {
         items: [{
-          text: "Change",
+          text: "Change ",
           visuallyHiddenText: "Provide details of your experience in teaching or lecturing",
           href: "/application/teaching-expertise/add-details-teaching-lecturing"
         }]
@@ -25,7 +40,7 @@
       },
       actions: {
         items: [{
-          text: "Change",
+          text: "Change ",
           visuallyHiddenText: "Provide details of your experience working in training",
           href: "/application/teaching-expertise/add-details-training"
         }]
@@ -40,7 +55,7 @@
       },
       actions: {
         items: [{
-          text: "Change",
+          text: "Change ",
           visuallyHiddenText: "Provide details of your experience in educational management",
           href: "/application/teaching-expertise/add-details-educational-management"
         }]
@@ -55,7 +70,7 @@
       },
       actions: {
         items: [{
-          text: "Change",
+          text: "Change ",
           visuallyHiddenText: "Provide details of your experience in teacher training",
           href: "/application/teaching-expertise/add-details-teacher-training"
         }]
