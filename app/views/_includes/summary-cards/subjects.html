@@ -1,3 +1,61 @@
+{% set titleTextSubjectHtml %}
+  {# Coming from the assessment only route #}
+  {% if data.referrer == "assessmentExpertise" %}
+    {# Coming from the assessment only, qual only route #}
+    {% if data.assessmentQual == "Yes" %}
+      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+        {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+          {% else %} 
+          ({{ data.selectedLevelAssessmentOnly }})
+        {% endif %}
+        {% else %} 
+          {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+      {% endif %}
+      {# Coming from the assessment only, subject route #}
+      {% else %}
+      {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
+        {{ data.resultName }}
+        {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+          {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+            {% else %} 
+            {{ data.selectedLevelAssessmentOnly }}
+          {% endif %}
+          {% else %} 
+            {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+              {{ data.selectedQualificationAssessmentOnly }}
+            {% else %} 
+              {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+          {% endif %}
+        {% endif %}
+        {# It is a subject with defined qual type and level #}
+        {% else %}
+        {{ data.selectedSubject }}
+      {% endif %}
+    {% endif %}
+    {# Coming from the subject search #}
+    {% else %}
+    {# If its not an "other" subject, show the subject and qual type/level #}
+    {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
+      {{ data.resultName }}
+      {% if data.selectedQualification == "I don't know the qualification type" %}
+          {% if data.selectedLevel == "I don't know the level" %}
+            {% else %} 
+            ({{ data.selectedLevel }})
+          {% endif %}
+          {% else %} 
+          {% if data.selectedLevel == "I don't know the level" %}
+            ({{ data.selectedQualification }})
+            {% else %} 
+            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+          {% endif %}
+        {% endif %}
+      {# It is a subject with defined qual type and level #}
+      {% else %}
+      {{ data.selectedSubject }}
+    {% endif %}
+  {% endif %}
+{% endset %}
+
 {% set qualTypeHtml %}
   {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
     {{ data.selectedQualification }}
@@ -156,7 +214,7 @@
 {# If it is a subject  #}
 {% if (data.selectedSubject and (data.referrer != "assessmentExpertise")) %}
   {{ xGovukSummaryCard({
-    titleText: data.selectedSubject,
+    titleText: titleTextSubjectHtml,
     actions: {
       items: [{
         text: "Delete choice ",
