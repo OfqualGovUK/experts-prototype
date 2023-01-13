@@ -529,8 +529,10 @@ router.post('/assessment-qual-answer', function (req, res) {
 })
 
 // This route has been contributed to by Joe Ingledew  
-router.post('/subject-search-answer', function (req, res) {
+router.get('/subject-search-answer', function (req, res) {
   const qualType = req.session.data.resultQualType
+
+  let assessmentReferral = req.session.data.referrer
 
   // case-insensitive string match
   const qualTypeRegex = new RegExp(/End-point assessment/i)
@@ -538,60 +540,28 @@ router.post('/subject-search-answer', function (req, res) {
 
   const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualType)
 
-  // const assessmentExpertise = req.session.data.anyAssessmentExpertise
-  // const industryExpertise = req.session.data.anyIndustryExpertise
-  // const teachingExpertise = req.session.data.anyTeachingExpertise
-  // let hasMultipleExpertiseTypes = true
-
-  //#region suggestions
-
-  // suggestion...
-  // const yesRegEx = new RegExp(/Yes/i);
-
-  // const typesOfExpertise = [
-  //   yesRegEx.test(assessmentExpertise),
-  //   yesRegEx.test(industryExpertise),
-  //   yesRegEx.test(teachingExpertise)
-  // ]; // [true, false, true] or [true, false, false] etc...
-
-  // if (typesOfExpertise.filter(x => x).length >= 2) {
-  //   hasMultipleExpertiseTypes = true
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
-
-  //#endregion
-
-
-  // Has the user has selected at least 2 types of expertise
-  // if ( ((assessmentExpertise == "Yes") && (industryExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  // ((assessmentExpertise == "Yes") && (industryExpertise == "Yes")) ||
-  // ((assessmentExpertise == "Yes") && (teachingExpertise == "Yes")) ||
-  // ((industryExpertise == "Yes") && (teachingExpertise == "Yes") )) {
-  //   hasMultipleExpertiseTypes = true
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
-
-  // // Has the user has selected at least 2 types of expertise 
-  // const typesOfExpertise2 = [
-  //   assessmentExpertise,
-  //   industryExpertise,
-  //   teachingExpertise
-  // ]; // [true, false, true] or [true, false, false] etc...
-
-  // if (typesOfExpertise2.filter(x => x == "Yes").length >= 2) {
-  //   // this is just for this function 
-  //   hasMultipleExpertiseTypes = true
-  //   // this is to use in the nunjucks view
-  //   req.session.data.hasMultipleExpertiseTypes = true 
-  // } else {
-  //   hasMultipleExpertiseTypes = false
-  // }
-
   // if it's not End-point or T-level qual type they need to specify qual type and level
-  if (isMatch == false) {
+  if (assessmentReferral === "assessmentExpertise") {
+    if (isMatch == false) {
+      res.redirect('/application/search/select-qualification')
+    } else {
+      res.redirect('/application/search/assessment-expertise')
+    }
+  } else if (isMatch == false) {
     res.redirect('/application/search/select-qualification')
+  } else {
+    res.redirect('/application/search/select-expertise-type')
+  }
+})
+
+// After selecting level, if assessment only they go to assessment granular checkboxes. 
+// Otherwise user needs to select expertise type
+router.post('/select-subject-level', function (req, res) {
+
+  let assessmentReferral = req.session.data.referrer
+
+  if (assessmentReferral === "assessmentExpertise") {
+    res.redirect('/application/search/assessment-expertise')
   } else {
     res.redirect('/application/search/select-expertise-type')
   }

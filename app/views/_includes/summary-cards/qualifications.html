@@ -1,12 +1,32 @@
+
+{{ xGovukSummaryCard({
+  rows: [
+    {
+      key: {
+        text: "Do you have any qualifications that are relevant to your application?"
+      },
+      value: { 
+        text: data.anyQualifications
+      },
+      actions: {
+        items: [{
+          text: "Change",
+          visuallyHiddenText: " relevant to your application?",
+          href: "./../education"
+        }]
+      }
+    }]
+}) }}
+
 {# Show this if the user says they have qualification to enter #}
 {% if data.anyQualifications == "Yes" %}
 
-  {{ xGovukSummaryCard({
+{{ xGovukSummaryCard({
     classes: "govuk-!-margin-bottom-9",
     titleText: data.qualName,
     actions: {
       items: [{
-        text: "Delete qualification",
+        text: "Delete qualification ",
         visuallyHiddenText: data.qualName,
         href: "/application/education/delete?delete=" + data.qualName
       }]
@@ -21,7 +41,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "college, school, training provider, university or other organisation",
             href: "/application/education/add-qualifcation"
           }]
@@ -36,7 +56,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "awarding organisation",
             href: "/application/education/add-qualifcation"
           }]
@@ -51,7 +71,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "qualification, course or subject name",
             href: "/application/education/add-qualifcation"
           }]
@@ -66,7 +86,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "grade",
             href: "/application/education/add-qualifcation"
           }]
@@ -81,7 +101,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "year qualification was awarded",
             href: "/application/education/add-qualifcation"
           }]
@@ -96,7 +116,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "Are you able to upload a copy of a certificate for this qualification?",
             href: "/application/education/upload-available"
           }]
@@ -111,7 +131,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "Provide a reason for not being able to upload a copy of a certificate for this qualification",
             href: "/application/education/upload-available"
           }]
@@ -126,7 +146,7 @@
         },
         actions: {
           items: [{
-            text: "Change",
+            text: "Change ",
             visuallyHiddenText: "Uploaded file",
             href: "/application/education/upload-qualification"
           }]
@@ -135,26 +155,4 @@
     ]
   }) }}
 
-{% endif %}
-
-{# show this is there are no conflicts of interest #}
-{% if data.anyQualifications == "No" %}
-  {{ xGovukSummaryCard({
-    rows: [
-      {
-        key: {
-          text: "Do you have any qualifications that are relevant to your application?"
-        },
-        value: { 
-          text: data.anyQualifications or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change",
-            visuallyHiddenText: "do you have any qualifications that are relevant to your application?",
-            href: "./../education"
-          }]
-        }
-      }]
-  }) }}
 {% endif %}

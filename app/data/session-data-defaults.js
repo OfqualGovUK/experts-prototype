@@ -45,7 +45,7 @@ var completedApplicationDataVTQ = {
   "anyQualifications": "Yes",
   "schoolName": "British Occupational Hygiene Society",
   "awordingOrganisation": "British Occupational Hygiene Society",
-  "qualName": "Certificate of Compentence in Asbestos",
+  "qualName": "Certificate of Competence in Asbestos",
   "grade": "Pass",
   "yearQualAwarded": "1995",
   "qualUploadAvailable": "No",
@@ -118,12 +118,13 @@ var completedApplicationDataVTQ = {
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
+  "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
@@ -254,14 +255,15 @@ var completedApplicationDataGQ = {
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
+  "currentlyInTeachingRole": "Yes",
   "teachingLecturingDetails": "I would enter all my experience relevant to teacher, training and lecturing and I'd evidence with the bullets I've selected. I might enter detail under each of the headings. I'd want to prepare this elsewhere and paste it here to make sure that I get it right and cover everything I've selected.",
   "teachingTrainingDetails": "I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingEducationalManagementDetails": "I would include here a specific summary of my experience in education management. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
@@ -380,8 +382,8 @@ var completedApplicationDataAssessmentSpecialist = {
   // Teaching, lecturing or training expertise
   "teachingExpertiseCompleted": "complete",
 
-  // Communication, analytical and judgement skills
-  "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication, analytical and judgement skills I have not already covered.",
+  // Communication and analytical judgement skills
+  "communicationDetails": "For the communication and analytical judgement skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
   // Professional achievements
