@@ -206,6 +206,7 @@ router.all('/assessment-type-answer', function (req, res) {
     req.session.data.isJudgement = true 
   } else {
     isJudgement = false
+    req.session.data.isJudgement = false
   }
 
   if (isStandardSetting == true) {
@@ -213,6 +214,7 @@ router.all('/assessment-type-answer', function (req, res) {
     req.session.data.isStandardSetting = true 
   } else {
     isStandardSetting = false
+    req.session.data.isStandardSetting = false 
   }
 
   if (isDesigning == true) {
@@ -220,6 +222,7 @@ router.all('/assessment-type-answer', function (req, res) {
     req.session.data.isDesigning = true 
   } else {
     isDesigning = false
+    req.session.data.isDesigning = false 
   }
 
   if (isEvaluating == true) {
@@ -227,6 +230,7 @@ router.all('/assessment-type-answer', function (req, res) {
     req.session.data.isEvaluating = true 
   } else {
     isEvaluating = false
+    req.session.data.isEvaluating = false 
   }
 
   if (isJudgement == true) {
@@ -262,6 +266,7 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isJudgement = true 
   } else {
     isJudgement = false
+    req.session.data.isJudgement = false
   }
 
   if (isStandardSetting == true) {
@@ -269,6 +274,7 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isStandardSetting = true 
   } else {
     isStandardSetting = false
+    req.session.data.isStandardSetting = false 
   }
 
   if (isDesigning == true) {
@@ -276,6 +282,7 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isDesigning = true 
   } else {
     isDesigning = false
+    req.session.data.isDesigning = false 
   }
 
   if (isEvaluating == true) {
@@ -283,6 +290,7 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isEvaluating = true 
   } else {
     isEvaluating = false
+    req.session.data.isEvaluating = false 
   }
 
   let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
@@ -364,7 +372,7 @@ router.all('/teaching-type-answer', function (req, res) {
 
   // case-insensitive string match
   let teachingLecturingRegex = new RegExp(/Teaching or lecturing/i)
-  let teachingTrainingRegex = new RegExp(/Training/i)
+  let teachingTrainingRegex = new RegExp(/Training /i)
   let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
   let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
 
@@ -378,6 +386,7 @@ router.all('/teaching-type-answer', function (req, res) {
     req.session.data.isLecturing = true 
   } else {
     isLecturing = false
+    req.session.data.isLecturing = false
   }
   
   if (isTraining == true) {
@@ -385,6 +394,7 @@ router.all('/teaching-type-answer', function (req, res) {
     req.session.data.isTraining = true 
   } else {
     isTraining = false
+    req.session.data.isTraining = false 
   }
 
   if (isEducationalManagement == true) {
@@ -392,6 +402,7 @@ router.all('/teaching-type-answer', function (req, res) {
     req.session.data.isEducationalManagement = true 
   } else {
     isEducationalManagement = false
+    req.session.data.isEducationalManagement = false 
   }
 
   if (isTeacherTraining == true) {
@@ -399,6 +410,7 @@ router.all('/teaching-type-answer', function (req, res) {
     req.session.data.isTeacherTraining = true 
   } else {
     isTeacherTraining = false
+    req.session.data.isTeacherTraining = false
   }
 
   if (isLecturing == true) {
@@ -413,8 +425,58 @@ router.all('/teaching-type-answer', function (req, res) {
   
 })
 
+// Teaching expertise. Set url here so the review screen comes through routes.js to recheck 
+// what teaching checkboxes have been selected, in case the user has amended the answer. 
+router.get('/teaching-expertise', function (req, res) {
+    res.redirect('/application/teaching-expertise/')
+})
+
 // Route for teaching expertise from task list, once in progress or completed
-router.get('/teaching-type-answer/review', function (req, res) {
+router.all('/teaching-expertise/review', function (req, res) {
+  let teachingExpertise = req.session.data.teachingExpertiseType
+
+  // case-insensitive string match
+  let teachingLecturingRegex = new RegExp(/Teaching or lecturing/i)
+  let teachingTrainingRegex = new RegExp(/Training /i)
+  let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
+  let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
+
+  let isLecturing = teachingLecturingRegex.test(teachingExpertise)
+  let isTraining = teachingTrainingRegex.test(teachingExpertise)
+  let isEducationalManagement = teachingEducationalManagementRegex.test(teachingExpertise)
+  let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
+
+  if (isLecturing == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isLecturing = true 
+  } else {
+    isLecturing = false
+    req.session.data.isLecturing = false
+  }
+  
+  if (isTraining == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isTraining = true 
+  } else {
+    isTraining = false
+    req.session.data.isTraining = false 
+  }
+
+  if (isEducationalManagement == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isEducationalManagement = true 
+  } else {
+    isEducationalManagement = false
+    req.session.data.isEducationalManagement = false 
+  }
+
+  if (isTeacherTraining == true) {
+    // this is to use in the nunjucks view
+    req.session.data.isTeacherTraining = true 
+  } else {
+    isTeacherTraining = false
+    req.session.data.isTeacherTraining = false
+  }
 
   let teachingExpertiseCompleted = req.session.data.teachingExpertiseCompleted
 
@@ -431,7 +493,7 @@ router.get('/teaching-lecturing', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
-  let teachingTrainingRegex = new RegExp(/Training/i)
+  let teachingTrainingRegex = new RegExp(/Training /i)
   let teachingEducationalManagementRegex = new RegExp(/Educational management/i)
   let teachingTeacherTrainingRegex = new RegExp(/Teacher training/i)
 
