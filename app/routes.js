@@ -746,8 +746,17 @@ router.post('/review-conflict-of-interest-answer', function (req, res) {
 })
 
 // Route for identity checks, from task list
-router.all('/identity-check-answer', function (req, res) {
+router.post('/identity-check-answer', function (req, res) {
+  
   let identityCheck = req.session.data.identityCheckType
+
+  if (identityCheck === 'passport') {
+    res.redirect('/application/verify-your-identity/passport-upload')
+  } else if (identityCheck === 'birth-adoption-certificate') {
+    res.redirect('/application/verify-your-identity/certificate-upload') 
+  } else {
+    res.redirect('/application/verify-your-identity/no-id')
+  } 
 
   // case-insensitive string match
   // let idPassportRegex = new RegExp(/A UK or Irish passport/i)
@@ -786,13 +795,6 @@ router.all('/identity-check-answer', function (req, res) {
   // } else {
   //   res.redirect('/application/verify-your-identity/no-id')
   // } 
-  if (identityCheck === 'A UK or Irish passport') {
-    res.redirect('/application/verify-your-identity/passport-upload')
-  } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number'){
-    res.redirect('/application/verify-your-identity/certificate-upload') 
-} else {
-  res.redirect('/application/verify-your-identity/no-id')
-} 
   
 })
 
