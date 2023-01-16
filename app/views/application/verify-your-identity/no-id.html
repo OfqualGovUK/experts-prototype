@@ -1,0 +1,28 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./verify-your-identity/review" %}
+{% set pageHeading = "Verify your identity" %}
+
+
+{% block formContent %}
+  
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <p class="govuk-body">As you have not provided a UK or Irish passport, or birth or adoption certificate, you will be contacted by the Ofqual subject matter experts team before your application is evaluated. The team will discuss with you alternative forms of identification that you can provide.</p>
+
+  {{ govukFileUpload({
+    label: {
+      text: "Upload a file",
+      classes: "govuk-label--s"
+    }
+  } | decorateAttributes(data, "data.noUpload")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

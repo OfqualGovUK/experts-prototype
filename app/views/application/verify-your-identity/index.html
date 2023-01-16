@@ -1,61 +1,49 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "./verify-your-identity/review" %}
+{% set formAction = "/identity-check-answer" %}
 {% set pageHeading = "Verify your identity" %}
 
 
 {% block formContent %}
   
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-  <p class="govuk-body">A scan or photograph of one of the following documents can be uploaded to help us ensure your identity:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-      benefit book or original notification letter from Benefits Agency
-    </li>
-    <li>
-      current signed passport
-    </li>
-    <li>
-      current UK or EEA photocard driving licence
-    </li>
-    <li>
-      EEA member state identity card (which can also be used as evidence of address if it carries this)
-    </li>
-    <li>
-      full old-style driving licence
-    </li>
-    <li>
-      national identity card bearing a photograph of the applicant
-    </li>
-    <li>
-      original birth certificate (UK birth certificate issued within 12 months of the date of birth in full form including those issued by UK authorities overseas such as Embassies High Commissions and HM Forces)
-    </li>
-    <li>
-      photographic registration cards for self-employed individuals in the construction industry -CIS4
-    </li>
-    <li>
-      proof of change-of-name if the name in which you are applying is different from the name on any of the supporting documents or certificates provided (e.g. marriage licence, deed-poll certificate, decree absolute, etc.)
-    </li>
-    <li>
-      residence permit issued by the Home Office to EEA nationals on sight of own country passport
-    </li>
-  </ul>
 
-  <p class="govuk-body">Supported file types: gif, jpg, jpeg, pdf, png.</p>
-
-  {{ govukFileUpload({
-    label: {
-      text: "Upload a file",
-      classes: "govuk-label--s"
+{{ govukRadios({
+  name: "documents",
+  fieldset: {
+    legend: {
+      text: "Which document(s) can you provide to verify your identity?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
     }
-  } | decorateAttributes(data, "data.idUpload")) }}
+  },
+  items: [
+    {
+      value: "passport",
+      text: "A UK or Irish passport"
+    },
+    {
+      value: "birth-adoption-certificate",
+      text: "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of the documents listed"
+    }
+  ]
+} | decorateAttributes(data, "data.identityCheckType")) }}
+
+
 
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Save and continue"
     }) }}
-    <a class="govuk-link" href="/application">Cancel</a>
+    <a class="govuk-link" href="/application/">Cancel</a>
   </div>
 
 {% endblock %}
