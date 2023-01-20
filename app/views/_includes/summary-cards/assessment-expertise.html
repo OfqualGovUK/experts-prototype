@@ -3,6 +3,21 @@
   rows: [
     {
       key: {
+        text: "Provide details of your experience in designing and developing assignments"
+      },
+      value: { 
+        text: data.assessmentDesigningDetails
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your experience in designing and developing assignments",
+          href: "/application/assessment-expertise/add-details-designing"
+        }]
+      }
+    } if data.isDesigning,
+    {
+      key: {
         text: "Provide details of your experience in making assessment judgements"
       },
       value: { 
@@ -32,21 +47,6 @@
       }
     } if data.isStandardSetting,
     {
-      key: {
-        text: "Provide details of your experience in designing and developing assignments"
-      },
-      value: { 
-        text: data.assessmentDesigningDetails
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "Provide details of your experience in designing and developing assignments",
-          href: "/application/assessment-expertise/add-details-designing"
-        }]
-      }
-    } if data.isDesigning,
-      {
       key: {
         text: "Provide details of your experience in evaluating assessments or assessment approaches"
       },
