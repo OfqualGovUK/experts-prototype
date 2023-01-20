@@ -1,12 +1,11 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Do you have any potential conflicts of interests?" %}
-{% set formAction = "/conflict-of-interest-answer" %}
+{% set pageHeading = "Provide a reference" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Provide a reference</h1>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
   <p class="govuk-body">You need to provide the details of at least one individual that can provide a reference for you. Your reference should be from someone that you have a professional relationship with.</p>
   <p class="govuk-body">The reference could be:</p>
   <ul class="govuk-list govuk-list--bullet">

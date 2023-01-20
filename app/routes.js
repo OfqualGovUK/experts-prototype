@@ -805,6 +805,59 @@ router.post('/review-conflict-of-interest-answer', function (req, res) {
 
 })
 
+// Route for identity checks, from task list
+router.post('/identity-check-answer', function (req, res) {
+  
+  let identityCheck = req.session.data.identityCheckType
+
+  if (identityCheck === 'A UK or Irish passport') {
+    res.redirect('/application/verify-your-identity/passport-upload')
+  } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number') {
+    res.redirect('/application/verify-your-identity/certificate-upload') 
+  } else {
+    res.redirect('/application/verify-your-identity/no-id')
+  } 
+
+  // case-insensitive string match
+  // let idPassportRegex = new RegExp(/A UK or Irish passport/i)
+  // let idCertificateRegex = new RegExp(/A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number/i)
+  // let idNoneRegex = new RegExp(/None of the documents listed/i)
+  
+  // let isPassport = idPassportRegex.test(identityCheck)
+  // let isCertificate = idCertificateRegex.test(identityCheck)
+  // let isNone = idNoneRegex.test(identityCheck)
+
+  // if (isPassport == true) {
+  //   // this is to use in the nunjucks view
+  //   req.session.data.isPassport = true 
+  // } else {
+  //   isPassport = false
+  // }
+
+  // if (isCertificate == true) {
+  //   // this is to use in the nunjucks view
+  //   req.session.data.isCertificate = true 
+  // } else {
+  //   isCertificate = false
+  // }
+
+  // if (isNone == true) {
+  //   // this is to use in the nunjucks view
+  //   req.session.data.isNone = true 
+  // } else {
+  //   isNone = false
+  // }
+
+  // if (isPassport == true) {
+  //   res.redirect('/application/verify-your-identity/passport-upload')
+  // } else if (isCertificate == true) {
+  //   res.redirect('/application/verify-your-identity/certificate-upload')
+  // } else {
+  //   res.redirect('/application/verify-your-identity/no-id')
+  // } 
+  
+})
+
 // Do you want to answer the equality questions?
 router.post('/equality-question-answer', function (req, res) {
 

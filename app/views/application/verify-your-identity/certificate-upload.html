@@ -1,0 +1,30 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./government-upload" %}
+{% set pageHeading = "Upload your birth or adoption certificate" %}
+
+
+{% block formContent %}
+  
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <p class="govuk-body">Upload a clear photograph or scanned copy of your UK birth or adoption certificate.</p>
+
+  <p class="govuk-body">Supported file types: gif, jpg, jpeg, pdf, png.</p>
+
+  {{ govukFileUpload({
+    label: {
+      text: "Upload a file",
+      classes: "govuk-label--s"
+    }
+  } | decorateAttributes(data, "data.certificateUpload")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -9,16 +9,16 @@
   {{ xGovukSummaryCard({
     rows: [{
       key: {
-        text: "Do you have the right to work in the UK?"
+        text: "Which document(s) can you provide to verify your identity?"
       },
       value: {
-        text: data.rightToWork
+        text: data.idUpload
       },
       actions: {
         items: [{
           text: "Change ",
-          visuallyHiddenText: "Do you have the right to work in the UK?",
-          href: "/application/right-to-work"
+          visuallyHiddenText: "Which document(s) can you provide to verify your identity?",
+          href: "/application/verify-your-identity"
         }]
       }
     }, 

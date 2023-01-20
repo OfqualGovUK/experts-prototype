@@ -1,49 +1,26 @@
 
-{% extends "_templates/form-template.html" %}
+{% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "What is your right to work status?" %}
-{% set formAction = "./review" %}
+{% set pageHeading = "Verify your identity" %}
 
-{% block formContent %}
+{% block content %}
 
-  {% set otherDetailsHtml %}
-    {{ govukInput({
-      label: {
-        text: "Provide details",
-        classes: "govuk-label--s"
-      }
-    } | decorateAttributes(data, "data.otherStatusDetails")) }}
-  {% endset %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: pageHeading,
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    },
-    items: [
-      {
-        text: "UK citizenship"
-      },
-      {
-        text: "European Economic Area (EEA) citizenship"
-      },
-      {
-        text: "An option that isn't listed",
-        conditional: {
-          html: otherDetailsHtml
-        }
-      }
-    ]
-  } | decorateAttributes(data, "data.rightToWorkStatus")) }}
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">
+        As you have not provided a UK or Irish passport, or birth or adoption certificate, you will be contacted by the Ofqual subject matter experts team before your application is evaluated. The team will discuss with you alternative forms of identification that you can provide.
+      </p>
 
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Save and continue"
-    }) }}
-    <a class="govuk-link govuk-body" href="/application">Cancel</a>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "/application/right-to-work/review"
+        }) }}
+      </div>
+
+    </div>
   </div>
 
 {% endblock %}

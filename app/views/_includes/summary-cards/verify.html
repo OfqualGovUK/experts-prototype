@@ -1,34 +1,73 @@
-  {% set uploadHtml %}
-    {% if data.idUpload %}
-      <a href="#">{{data.idUpload}}</a>
+  {# {% set uploadHtml %}
+    {% if data.identityCheckType %}
+      <a href="#">{{data.identityCheckType}}</a>
     {% else %}
       Not provided
     {% endif %}
-  {% endset %}
+  {% endset %} #}
   
   {{ xGovukSummaryCard({
-    rows: [{
+    rows: [ {
       key: {
-        text: "Uploaded file"
+        text: "Which document(s) can you provide to verify your identity?"
+      },
+      value: { 
+        text: data.identityCheckType
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Which document(s) can you provide to verify your identity?",
+          href: "/application/verify-your-identity"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Upload your passport"
       },
       value: {
-        html: uploadHtml
+        text: data.passportUpload or "Not provided"
       },
       actions: {
         items: [
           {
             html: "Change ",
             visuallyHiddenText: "uploaded file",
-            href: "/application/verify-your-identity"
-          },
-          {
-            html: "Delete ",
-            visuallyHiddenText: "uploaded file",
-            href: "/application/verify-your-identity/delete-document"
+            href: "/application/verify-your-identity/passport-upload"
           }
         ]
       }      
-    }]
-     
-
+    } if data.identityCheckType == "A UK or Irish passport",
+    {
+      key: {
+        text: "Upload your birth or adoption certificate"
+      },
+      value: { 
+        text: data.certificateUpload or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Upload your birth or adoption certificate",
+          href: "/application/verify-your-identity/certificate-upload"
+        }]
+      }
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number",
+    {
+      key: {
+        text: "Upload a government letter"
+      },
+      value: { 
+        text: data.governmentUpload or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Upload a government letter",
+          href: "/application/verify-your-identity/government-upload"
+        }]
+      }
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number"
+    ]   
   }) }}
