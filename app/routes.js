@@ -750,9 +750,9 @@ router.post('/identity-check-answer', function (req, res) {
   
   let identityCheck = req.session.data.identityCheckType
 
-  if (identityCheck === 'passport') {
+  if (identityCheck === 'A UK or Irish passport') {
     res.redirect('/application/verify-your-identity/passport-upload')
-  } else if (identityCheck === 'birth-adoption-certificate') {
+  } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number') {
     res.redirect('/application/verify-your-identity/certificate-upload') 
   } else {
     res.redirect('/application/verify-your-identity/no-id')

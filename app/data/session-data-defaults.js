@@ -158,7 +158,7 @@ var completedApplicationDataVTQ = {
   "rightToWorkCompleted": "complete",
 
   // Provide proof of identification
-  "idUpload": "passport.pdf",
+  "identityCheckType": "passport.pdf",
   "verifyIdentityCompleted": "complete"
 }
 
