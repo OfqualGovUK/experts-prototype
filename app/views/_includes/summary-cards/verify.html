@@ -1,18 +1,11 @@
-  {# {% set uploadHtml %}
-    {% if data.identityCheckType %}
-      <a href="#">{{data.identityCheckType}}</a>
-    {% else %}
-      Not provided
-    {% endif %}
-  {% endset %} #}
-  
+
   {{ xGovukSummaryCard({
     rows: [ {
       key: {
         text: "Which document(s) can you provide to verify your identity?"
       },
       value: { 
-        text: data.identityCheckType
+        text: data.identityCheckType or "Not provided"
       },
       actions: {
         items: [{

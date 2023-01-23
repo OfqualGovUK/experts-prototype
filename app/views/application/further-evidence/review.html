@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Review your details" %}
+{% set pageHeading = "Review your further supporting evidence" %}
 {% set formAction = "./section-completed" %}
 {% set layoutWidth = "fullWidthLayout" %}
 {% set backText = "Back to application" %}
@@ -11,7 +11,7 @@
 
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
   
-  {% include "_includes/summary-cards/professional-achievements.html" %}
+  {% include "_includes/summary-cards/further-evidence.html" %}
 
   <div class="govuk-button-group">
     {{ govukButton({

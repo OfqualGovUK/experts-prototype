@@ -6,13 +6,13 @@
         text: "Are you currently working in a teaching, lecturing or training role?"
       },
       value: { 
-        text: data.currentlyInTeachingRole
+        text: data.currentlyInTeachingRole or "Not provided"
       },
       actions: {
         items: [{
           text: "Change ",
           visuallyHiddenText: "Are you currently working in a teaching, lecturing or training role?",
-          href: "/application/teaching-expertise/currently-in-role"
+          href: "/application/teaching-expertise"
         }]
       }
     },  
@@ -21,7 +21,7 @@
         text: "Provide details of your experience in teaching or lecturing"
       },
       value: { 
-        text: data.teachingLecturingDetails
+        text: data.teachingLecturingDetails or "Not provided"
       },
       actions: {
         items: [{
@@ -36,7 +36,7 @@
         text: "Provide details of your experience working in training"
       },
       value: { 
-        text: data.teachingTrainingDetails
+        text: data.teachingTrainingDetails or "Not provided"
       },
       actions: {
         items: [{
@@ -51,7 +51,7 @@
         text: "Provide details of your experience in educational management"
       },
       value: { 
-        text: data.teachingEducationalManagementDetails
+        text: data.teachingEducationalManagementDetails or "Not provided"
       },
       actions: {
         items: [{
@@ -66,7 +66,7 @@
         text: "Provide details of your experience in teacher training"
       },
       value: { 
-        text: data.teachingTeacherTrainingDetails
+        text: data.teachingTeacherTrainingDetails or "Not provided"
       },
       actions: {
         items: [{

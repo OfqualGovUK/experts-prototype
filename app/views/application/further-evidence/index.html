@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/application/further-evidence/review" %}
+{% set pageHeading = "Provide details of any further supporting evidence (optional)" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Further supporting evidence</h1>
+
+  <p class="govuk-body">
+    Tell us about any additional skills and experience you have that may be relevant to your application to be a subject matter expert.
+  </p>
+
+  {% set detailsHtml %}
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Achievements in your roles such as professional awards, key note speaker, research, publication or consultancy achievements</li>
+    <li>Experience in overseeing equality and diversity in assessment, teaching, lecturing, training, or within your industry, occupational or professional role(s)</li>
+    <li>Any other skills or experience that you haven't told us about in your applications</li>
+  </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "10",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m",
+      isPageHeading: true
+    }
+   } | decorateAttributes(data, "data.furtherEvidenceSummary")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

@@ -27,21 +27,6 @@
     }, 
     {
       key: {
-        text: "Email address"
-      },
-      value: {
-        text: data.email or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "email address",
-          href: "/application/personal-details"
-        }]
-      }
-    }, 
-    {
-      key: {
         text: "Telephone number"
       },
       value: {
@@ -54,7 +39,22 @@
           href: "/application/personal-details"
         }]
       }
-    }, 
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: data.email or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "email address",
+          href: "/application/personal-details"
+        }]
+      }
+    },
     {
       key: {
         text: "Country"
