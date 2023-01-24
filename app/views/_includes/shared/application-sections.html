@@ -23,13 +23,13 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %}
-        {# {% if data.professionalAchievementDetails == "complete" %}
-          <h2 class="govuk-heading-m">Professional achievements</h2>
-          {% include "_includes/summary-cards/professional-achievements.html" %}
+        {# {% if data.furtherEvidenceDetails == "complete" %}
+          <h2 class="govuk-heading-m">Further supporting evidence</h2>
+          {% include "_includes/summary-cards/further-evidence.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Professional achievements",
-            sectionHref: "./professional-achievements",
+            sectionName: "Further supporting evidence",
+            sectionHref: "./further-evidence",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} #}
@@ -137,13 +137,13 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.professionalAchievementDetails == "complete" %}
-          <h2 class="govuk-heading-m">Professional achievements</h2>
-          {% include "_includes/summary-cards/professional-achievements.html" %}
+        {% if data.furtherEvidenceDetails == "complete" %}
+          <h2 class="govuk-heading-m">Further supporting evidence</h2>
+          {% include "_includes/summary-cards/further-evidence.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Professional achievements",
-            sectionHref: "./professional-achievements",
+            sectionName: "Further supporting evidence",
+            sectionHref: "./further-evidence",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
@@ -175,22 +175,12 @@
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
         {% endif %} 
-        {% if data.rightToWorkCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Right to work status</h2>
-          {% include "_includes/summary-cards/right-to-work.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Right to work",
-            sectionHref: "./right-to-work",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %} 
         {% if data.verifyIdentityCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Verify your identity</h2>
+          <h2 class="govuk-heading-m">Identity checks</h2>
           {% include "_includes/summary-cards/verify.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Provide proof of identification",
+            sectionName: "Identity checks",
             sectionHref: "./verify-your-identity",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}

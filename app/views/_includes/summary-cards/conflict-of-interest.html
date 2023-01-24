@@ -1,6 +1,25 @@
 {# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
 {% set deletedSubject = data.delete %}
 
+{{ xGovukSummaryCard({
+  rows: [
+    {
+      key: {
+        text: "Do you have any potential conflicts of interests?"
+      },
+      value: { 
+        text: data.conflictOfInterest or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "do you have any potential conflicts of interests?",
+          href: "./../conflict-of-interest"
+        }]
+      }
+    }]
+}) }}
+
 {# Show this if the user says they have conflicts of interest #}
 {% if data.conflictOfInterest == "Yes" %}
 
@@ -107,26 +126,4 @@
     ]
   }) }}
 
-{% endif %}
-
-{# show this is there are no conflicts of interest #}
-{% if data.conflictOfInterest == "No" %}
-  {{ xGovukSummaryCard({
-    rows: [
-      {
-        key: {
-          text: "Do you have any potential conflicts of interests?"
-        },
-        value: { 
-          text: data.conflictOfInterest or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "do you have any potential conflicts of interests?",
-            href: "./../conflict-of-interest"
-          }]
-        }
-      }]
-  }) }}
 {% endif %}

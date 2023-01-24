@@ -127,9 +127,9 @@ var completedApplicationDataVTQ = {
   "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
-  // Professional achievements
-  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
-  "professionalAchievementDetails": "complete",
+  // Further evidence
+  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
   "conflictOfInterest": "Yes",
@@ -152,13 +152,9 @@ var completedApplicationDataVTQ = {
   // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
 
-  // Your right to work status
-  "rightToWork": "Yes",
-  "rightToWorkStatus": "UK citizenship",
-  "rightToWorkCompleted": "complete",
-
-  // Provide proof of identification
-  "identityCheckType": "passport.pdf",
+  // ID checks
+  "rightToWork": "A UK or Irish passport",
+  "passportUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete"
 }
 
@@ -266,9 +262,9 @@ var completedApplicationDataGQ = {
   "communicationDetails": "For the analytical, judgement and communication skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
-  // Professional achievements
-  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
-  "professionalAchievementDetails": "complete",
+  // Further evidence
+  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
   "conflictOfInterest": "Yes",
@@ -291,13 +287,10 @@ var completedApplicationDataGQ = {
   // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
 
-  // Your right to work status
-  "rightToWork": "Yes",
-  "rightToWorkStatus": "UK citizenship",
-  "rightToWorkCompleted": "complete",
-
-  // Provide proof of identification
-  "idUpload": "passport.pdf",
+  // ID checks
+  "rightToWork": "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number",
+  "certificateUpload": "birth-certificate.pdf",
+  "governmentUpload": "letter.jpg",
   "verifyIdentityCompleted": "complete"
 }
 
@@ -386,9 +379,9 @@ var completedApplicationDataAssessmentSpecialist = {
   "communicationDetails": "For the communication and analytical judgement skills, I would link and describe to my experience and professional achievements. I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
   "communicationCompleted": "complete",
 
-  // Professional achievements
-  "professionalAchievementSummary": "I would include here any extra details about achievement I have not already covered.",
-  "professionalAchievementDetails": "complete",
+  // Further evidence
+  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
   "conflictOfInterest": "Yes",
@@ -411,13 +404,9 @@ var completedApplicationDataAssessmentSpecialist = {
   // "breachDetails": "I didn't pay my tax for a REALLY long time.",
   "declarationCompleted": "complete",
 
-  // Your right to work status
-  "rightToWork": "Yes",
-  "rightToWorkStatus": "UK citizenship",
-  "rightToWorkCompleted": "complete",
-
-  // Provide proof of identification
-  "idUpload": "passport.pdf",
+  // ID checks
+  "rightToWork": "A UK or Irish passport",
+  "passportUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete"
 }
 

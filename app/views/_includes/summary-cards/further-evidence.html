@@ -1,0 +1,18 @@
+  {{ xGovukSummaryCard({
+    
+    rows: [{
+      key: {
+        text: "Provide details of any further supporting evidence"
+      },
+      value: {
+        text: data.furtherEvidenceSummary or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "provide details of any further supporting evidence",
+          href: "/application/further-evidence"
+        }]
+      }
+    }]
+  }) }}

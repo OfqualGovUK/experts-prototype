@@ -140,19 +140,6 @@ router.post('/review-qualifications-answer', function (req, res) {
 
 })
 
-// Do you have any professional achievements?
-router.post('/achievement-answer', function (req, res) {
-  
-  let anyAchievement = req.session.data.anyAchievement
-  
-  if (anyAchievement === 'Yes') {
-    res.redirect('/application/professional-achievements/add-achievements')
-  } else {
-    res.redirect('/application/professional-achievements/section-completed') 
-  }
-  
-})
-
 // // route for assessment specialist from task list (pre subject/evidence swap)
 // // Redirect for users who only select Assessment as type of expertise
 // router.get('/assessment-only', function (req, res) {
@@ -763,21 +750,6 @@ router.post('/review-subjects-answer', function (req, res) {
     }
   }
 })
-
-
-// Do you have the right to work in the UK?
-router.post('/right-to-work-answer', function (req, res) {
-
-  let rightToWork = req.session.data.rightToWork
-
-    if (rightToWork === 'Yes') {
-      res.redirect('/application/right-to-work/right-to-work-status')
-    } else {
-      res.redirect('/application/right-to-work/review') 
-  }
-
-})
-
 
 // Do you have any potential conflicts of interests?
 router.post('/conflict-of-interest-answer', function (req, res) {

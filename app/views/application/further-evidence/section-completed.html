@@ -2,12 +2,11 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Review your answers" %}
-{# {% set formAction = "/review-expertise-answer" %} #}
 {% set formAction = "./../../application" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Right to work status</h1>
+  <h1 class="govuk-heading-l">Further supporting evidence</h1>
   
   {{ govukRadios({
     fieldset: {
@@ -26,7 +25,7 @@
         html: "No, I’ll come back to it later"
       }
     ]
-  } | decorateAttributes(data, "data.rightToWorkCompleted")) }}
+  } | decorateAttributes(data, "data.furtherEvidenceDetails")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

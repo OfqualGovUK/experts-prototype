@@ -1,3 +1,23 @@
+
+{{ xGovukSummaryCard({
+  rows: [
+    {
+      key: {
+        text: "Are you currently a member of any professional bodies, associations or institutes?"
+      },
+      value: { 
+        text: data.anyMemberships or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Are you currently a member of any professional bodies, associations or institutes?",
+          href: "/application/professional-memberships"
+        }]
+      }
+    }]
+}) }}
+
 {# Show this if the user says they have memberships to enter #}
 {% if data.anyMemberships == "Yes" %}
 
@@ -60,26 +80,4 @@
     ]
   }) }}
 
-{% endif %}
-
-{# show this is there are no memberships #}
-{% if data.anyMemberships == "No" %}
-  {{ xGovukSummaryCard({
-    rows: [
-      {
-        key: {
-          text: "Are you currently a member of any professional bodies, associations or institutes?"
-        },
-        value: { 
-          text: data.anyMemberships or "Not provided"
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Are you currently a member of any professional bodies, associations or institutes?",
-            href: "/application/professional-memberships"
-          }]
-        }
-      }]
-  }) }}
 {% endif %}

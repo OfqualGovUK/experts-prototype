@@ -1,28 +1,44 @@
   {% set judgementHtml %}
-    {{ data.judgements }}
-    {% if data.judgements == "Yes" %}
-      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.judgementsDetails}}</p> 
+    {% if data.judgements == "No" %}
+      {{ data.judgements }}
+      {% elseif data.judgements == "Yes" %}
+        {{ data.judgements }}
+        <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.judgementsDetails}}</p> 
+      {% else %}
+      Not provided
     {% endif %}
   {% endset %}
 
   {% set bankruptHtml %}
-    {{ data.bankrupt }}
-    {% if data.bankrupt == "Yes" %}
-      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.bankruptDetails}}</p> 
+    {% if data.bankrupt == "No" %}
+      {{ data.bankrupt }}
+      {% elseif data.bankrupt == "Yes" %}
+        {{ data.bankrupt }}  
+        <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.bankruptDetails}}</p> 
+      {% else %}
+        Not provided
     {% endif %}
   {% endset %}
 
   {% set misconductHtml %}
-    {{ data.misconduct }}
-    {% if data.misconduct == "Yes" %}
-      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.misconductDetails}}</p> 
-    {% endif %}
+    {% if data.misconduct == "No" %}
+      {{ data.misconduct }}
+      {% elseif data.misconduct == "Yes" %}
+        {{ data.misconduct }}
+        <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.misconductDetails}}</p> 
+      {% else %}
+        Not provided
+      {% endif %}
   {% endset %}
 
   {% set breachHtml %}
-    {{ data.breach }}
-    {% if data.breach == "Yes" %}
-      <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.breachDetails}}</p> 
+    {% if data.breach == "No" %}
+      {{ data.breach }}
+      {% elseif data.breach == "Yes" %}
+        {{ data.breach }}
+        <p class="govuk-body"><span class="govuk-visually-hidden">Details:</span> {{data.breachDetails}}</p> 
+      {% else %}
+        Not provided
     {% endif %}
   {% endset %}
 

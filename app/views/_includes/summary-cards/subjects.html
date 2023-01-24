@@ -211,112 +211,6 @@
   }) }}
 {% endif %}
 
-{# If it is a subject  #}
-{% if (data.selectedSubject and (data.referrer != "assessmentExpertise")) %}
-  {{ xGovukSummaryCard({
-    titleText: titleTextSubjectHtml,
-    actions: {
-      items: [{
-        text: "Delete choice ",
-        visuallyHiddenText: data.selectedSubject,
-        href: "/application/search/delete?delete=" + data.selectedSubject
-      }]
-    },
-    rows: [
-      {
-        key: {
-          text: "Subject"
-        },
-        value: { 
-          text: data.resultName
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Subjects, apprenticeship or T Level",
-            href: "/application/search/subject-search"
-          }]
-        }
-      },
-      {
-        key: {
-          text: "Qualification type"
-        },
-        value: { 
-          html: qualTypeHtml
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Qualification type",
-            href: "/application/search/select-qualification"
-          }]
-        } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
-      },
-      {
-        key: {
-          text: "Qualification level"
-        },
-        value: { 
-          html: levelHtml
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Qualification level",
-            href: "/application/search/select-level"
-          }]
-        } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
-      },
-      {
-        key: {
-          text: "What best describes your type of expertise for this subject?"
-        },
-        value: { 
-          html: expertiseTypeHtml
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "what best describes your type of expertise for this subject?",
-            href: "/application/search/select-expertise-type"
-          }]
-        } 
-      },
-      {
-        key: {
-          text: "Which assessment activities or responsibilities have you completed in this subject?"
-        },
-        value: { 
-          html: assessmentExpertiseHtml
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
-            href: "/application/search/assessment-expertise"
-          }]
-        }
-      } if data.isAssessment,
-      {
-        key: {
-          text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
-        },
-        value: { 
-          html: teachingExpertiseHtml
-        },
-        actions: {
-          items: [{
-            text: "Change ",
-            visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
-            href: "/application/search/teaching-expertise"
-          }]
-        }
-      } if data.isTeaching
-    ]
-  }) }}
-{% endif %}
-
 {# If assessment only #}
 {% if data.referrer == "assessmentExpertise" %}
 {% if (data.assessmentSubject == "Yes" or data.assessmentQual == "Yes") %}
@@ -335,7 +229,7 @@
           text: "Subject"
         },
         value: { 
-          text: data.resultName
+          text: data.resultName or "Not provided"
         },
         actions: {
           items: [{
@@ -394,3 +288,107 @@
   }) }}
 {% endif %}
 {% endif %}
+
+{# Else it is a subject, non-assessment specialist #}
+{{ xGovukSummaryCard({
+  titleText: titleTextSubjectHtml,
+  actions: {
+    items: [{
+      text: "Delete choice ",
+      visuallyHiddenText: data.selectedSubject,
+      href: "/application/search/delete?delete=" + data.selectedSubject
+    }]
+  },
+  rows: [
+    {
+      key: {
+        text: "Subject"
+      },
+      value: { 
+        text: data.resultName or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Subjects, apprenticeship or T Level",
+          href: "/application/search/subject-search"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Qualification type"
+      },
+      value: { 
+        html: qualTypeHtml
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Qualification type",
+          href: "/application/search/select-qualification"
+        }]
+      } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
+    },
+    {
+      key: {
+        text: "Qualification level"
+      },
+      value: { 
+        html: levelHtml
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Qualification level",
+          href: "/application/search/select-level"
+        }]
+      } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
+    },
+    {
+      key: {
+        text: "What best describes your type of expertise for this subject?"
+      },
+      value: { 
+        html: expertiseTypeHtml
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "what best describes your type of expertise for this subject?",
+          href: "/application/search/select-expertise-type"
+        }]
+      } 
+    },
+    {
+      key: {
+        text: "Which assessment activities or responsibilities have you completed in this subject?"
+      },
+      value: { 
+        html: assessmentExpertiseHtml
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+          href: "/application/search/assessment-expertise"
+        }]
+      }
+    } if data.isAssessment,
+    {
+      key: {
+        text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
+      },
+      value: { 
+        html: teachingExpertiseHtml
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
+          href: "/application/search/teaching-expertise"
+        }]
+      }
+    } if data.isTeaching
+  ]
+}) }}

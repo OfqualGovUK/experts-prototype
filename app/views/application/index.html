@@ -34,11 +34,6 @@
             href: 'application/education',
             taskName: data.educationCompleted
           })}}
-          {# {{ appTaskListItem({
-            name: 'Professional achievements',
-            href: 'application/professional-achievements',
-            taskName: data.professionalAchievementDetails
-          })}} #}
         </ul>
       </section>
 
@@ -109,9 +104,9 @@
               taskName: data.communicationCompleted
             })}}
             {{ appTaskListItem({
-              name: 'Professional achievements',
-              href: 'application/professional-achievements',
-              taskName: data.professionalAchievementDetails
+              name: 'Further supporting evidence',
+              href: 'application/further-evidence',
+              taskName: data.furtherEvidenceDetails
             })}}
             {# Otherwise Subjects of expertise IS NOT complete #}
             {% else %}
