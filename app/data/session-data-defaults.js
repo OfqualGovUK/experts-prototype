@@ -153,7 +153,7 @@ var completedApplicationDataVTQ = {
   "declarationCompleted": "complete",
 
   // ID checks
-  "rightToWork": "A UK or Irish passport",
+  "identityCheckType": "A UK or Irish passport",
   "passportUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete"
 }
@@ -288,7 +288,7 @@ var completedApplicationDataGQ = {
   "declarationCompleted": "complete",
 
   // ID checks
-  "rightToWork": "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number",
+  "identityCheckType": "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number",
   "certificateUpload": "birth-certificate.pdf",
   "governmentUpload": "letter.jpg",
   "verifyIdentityCompleted": "complete"
@@ -405,7 +405,7 @@ var completedApplicationDataAssessmentSpecialist = {
   "declarationCompleted": "complete",
 
   // ID checks
-  "rightToWork": "A UK or Irish passport",
+  "identityCheckType": "A UK or Irish passport",
   "passportUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete"
 }
