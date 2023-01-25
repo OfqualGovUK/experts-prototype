@@ -46,7 +46,7 @@
           href: "/application/verify-your-identity/certificate-upload"
         }]
       }
-    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number",
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number",
     {
       key: {
         text: "Upload a government letter"
@@ -58,9 +58,9 @@
         items: [{
           text: "Change ",
           visuallyHiddenText: "Upload a government letter",
-          href: "/application/verify-your-identity/government-upload"
+          href: "/application/verify-your-identity/national-insurance-upload"
         }]
       }
-    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number"
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number"
     ]   
   }) }}

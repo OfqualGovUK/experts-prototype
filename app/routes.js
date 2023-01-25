@@ -784,7 +784,7 @@ router.post('/identity-check-answer', function (req, res) {
 
   if (identityCheck === 'A UK or Irish passport') {
     res.redirect('/application/verify-your-identity/passport-upload')
-  } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number') {
+  } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number') {
     res.redirect('/application/verify-your-identity/certificate-upload') 
   } else {
     res.redirect('/application/verify-your-identity/no-id')
@@ -792,7 +792,7 @@ router.post('/identity-check-answer', function (req, res) {
 
   // case-insensitive string match
   // let idPassportRegex = new RegExp(/A UK or Irish passport/i)
-  // let idCertificateRegex = new RegExp(/A UK or Irish birth or adoption certificate and a letter from a government agency that includes your full name and national insurance number/i)
+  // let idCertificateRegex = new RegExp(/A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number/i)
   // let idNoneRegex = new RegExp(/None of the documents listed/i)
   
   // let isPassport = idPassportRegex.test(identityCheck)
