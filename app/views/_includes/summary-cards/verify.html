@@ -49,7 +49,7 @@
     } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number",
     {
       key: {
-        text: "Upload a government letter"
+        text: "Upload a national insurance letter"
       },
       value: { 
         text: data.governmentUpload or "Not provided"
@@ -57,7 +57,7 @@
       actions: {
         items: [{
           text: "Change ",
-          visuallyHiddenText: "Upload a government letter",
+          visuallyHiddenText: "Upload a national insurance letter",
           href: "/application/verify-your-identity/national-insurance-upload"
         }]
       }
