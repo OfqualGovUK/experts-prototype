@@ -785,7 +785,7 @@ router.post('/identity-check-answer', function (req, res) {
   if (identityCheck === 'A UK or Irish passport') {
     res.redirect('/application/verify-your-identity/passport-upload')
   } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number') {
-    res.redirect('/application/verify-your-identity/certificate-upload') 
+    res.redirect('/application/verify-your-identity/birth-certificate-upload') 
   } else {
     res.redirect('/application/verify-your-identity/no-id')
   } 
@@ -823,7 +823,7 @@ router.post('/identity-check-answer', function (req, res) {
   // if (isPassport == true) {
   //   res.redirect('/application/verify-your-identity/passport-upload')
   // } else if (isCertificate == true) {
-  //   res.redirect('/application/verify-your-identity/certificate-upload')
+  //   res.redirect('/application/verify-your-identity/birth-certificate-upload')
   // } else {
   //   res.redirect('/application/verify-your-identity/no-id')
   // } 
