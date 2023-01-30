@@ -35,6 +35,8 @@
     {# Coming from the subject search #}
     {% else %}
     {# If its not an "other" subject, show the subject and qual type/level #}
+    
+    
     {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       {{ data.resultName }}
       {% if data.selectedQualification == "I don't know the qualification type" %}
@@ -42,17 +44,13 @@
             {% else %} 
             ({{ data.selectedLevel }})
           {% endif %}
-          {% else %} 
-          {% if data.selectedLevel == "I don't know the level" %}
-            ({{ data.selectedQualification }})
-            {% else %} 
-            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
-          {% endif %}
-        {% endif %}
+      {% endif %}
       {# It is a subject with defined qual type and level #}
       {% else %}
       {{ data.selectedSubject }}
     {% endif %}
+
+
   {% endif %}
 {% endset %}
 

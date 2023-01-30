@@ -48,11 +48,6 @@
             ({{ data.selectedLevel }})
           {% endif %}
           {% else %} 
-          {% if data.selectedLevel == "I don't know the level" %}
-            ({{ data.selectedQualification }})
-            {% else %} 
-            ({{ data.selectedQualification }} – {{ data.selectedLevel }})
-          {% endif %}
         {% endif %}
       {# It is a subject with defined qual type and level #}
       {% else %}
