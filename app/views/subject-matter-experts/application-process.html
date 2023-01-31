@@ -1,0 +1,126 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk/government/organisations">Organisations</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk/government/organisations/ofqual">Ofqual</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/subject-matter-experts">Subject matter experts</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-1">
+    <h1 class="gem-c-title__text govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+    <nav class="contents-list" aria-label="Contents" role="navigation" data-module="track-click"></nav>
+      <h2 class="govuk-heading-s contents-list__title">
+      Contents
+      </h2>
+      <ol class="govuk-list contents-list__list">
+        <li class="contents-list__list-item"><a href="/subject-matter-experts" class="contents-list__link govuk-body-s govuk-link">The role</a></li> 
+        <li class="contents-list__list-item"><a href="/subject-matter-experts/who-can-be-an-expert" class="contents-list__link govuk-body-s govuk-link">Who can be an expert</a></li> 
+        <li class="contents-list__list-item"><a href="/subject-matter-experts/application-process" class="contents-list__link govuk-body-s govuk-link">Application process</a></li>
+        <li class="contents-list__list-item"><a href="/subject-matter-experts/apply-experts" class="contents-list__link govuk-body-s govuk-link">Apply to be an expert</a></li>
+        <li class="contents-list__list-item"><a href="/subject-matter-experts/sign-in-experts-account" class="contents-list__link govuk-body-s govuk-link">Sign in to your expert account</a></li>   
+      </ol>
+    </nav>
+  </div>
+  <div class="govuk-grid-column-two-thirds-from-desktop govuk-!-margin-top-4">
+    <hr>
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">Application process</h1>
+      <h2 class="govuk-heading-m">
+        How is the application evaluated?
+      </h2>
+  
+      <p>Your application will be reviewed on your areas of expertise aligning with the evidence you provide.</p>
+  
+      <p>In the application you will need to detail:</p>
+  
+      <ul class="govuk-list govuk-list--bullet"> 
+        <li>your assessment, teaching, lecturing, training or industry expertise, describing your experience, skills, achievements, activities and responsibilities.</li>
+        <li>your subject or sector expertise, describing your experience and skills by  qualification type and level (if applicable).</li>
+      </ul>
+  
+      <p>Applicants must undergo satisfactory reference and identity checks and accept our terms and conditions prior to being appointed as a subject matter expert.</p>
+  
+      <h2 class="govuk-heading-m">
+        What happens after the application is evaluated?
+      </h2>
+      
+      <p>Your application will be accepted or rejected.</p>
+  
+      <p>If appointed as a subject matter expert, you may be commissioned as an external contractor to carry out specific projects and assignments.</p>
+  
+      <p>It is important to note, depending on your area of expertise aligning with Ofqual's or The Department for Education's requirements, commissions are not guaranteed during the contractual period.</p>
+  
+      <p>As a subject matter expert, you are expected to complete assignments to a high standard and will receive feedback following the completion of each assignment in the following areas:</p>
+  
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          quality of work
+        </li>
+        <li>
+          working independently
+        </li>
+        <li>
+          working to time
+        </li>
+        <li>
+          working to specification
+        </li>
+        <li>
+          professionalism
+        </li>
+      </ul>
+
+    </div>
+    <div class="govuk-grid-column-one-third-from-desktop app-related govuk-!-margin-top-5">
+      <h2 class="govuk-heading-s govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+       Related content
+      </h2>
+      <ul class="app-related__list">
+        <li class="app-related__list-item"><a href="https://www.gov.uk/guidance/ofqual-rolling-update" class="govuk-body-s govuk-link">Latest updates from Ofqual </a></li>
+        <li class="app-related__list-item"><a href="https://register.ofqual.gov.uk/" class="govuk-body-s govuk-link">Find a regulated qualification or organisation</a></li>
+        <li class="app-related__list-item"><a href="https://www.gov.uk/guidance/apply-to-have-your-qualifications-regulated" class="govuk-body-s govuk-link">Apply to have your qualifications regulated</a></li> 
+        <li class="app-related__list-item"><a href="https://contact.ofqual.gov.uk/" class="govuk-body-s govuk-link">Contact Ofqual</a></li> 
+        
+      </ul>
+    </div>
+  </div>
+  <nav class="govuk-pagination govuk-pagination--block" role="navigation" aria-label="results">
+    <div class="govuk-pagination__prev">
+      <a class="govuk-link govuk-pagination__link" href="/subject-matter-experts/who-can-be-an-expert" rel="prev">
+        <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+          <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+        </svg>
+        <span class="govuk-pagination__link-title">Previous</span><span class="govuk-visually-hidden">:</span>
+        <span class="govuk-pagination__link-label">Who can be an expert</span></a>
+    </div>
+    <div class="govuk-pagination__next">
+      <a class="govuk-link govuk-pagination__link" href="/subject-matter-experts/apply-experts" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+          <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+        </svg> <span class="govuk-pagination__link-title">Next</span><span class="govuk-visually-hidden">:</span>
+        <span class="govuk-pagination__link-label">Apply to be an expert</span></a>
+    </div>
+  </nav>
+
+{% endblock %}
