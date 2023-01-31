@@ -8,8 +8,8 @@
   {% if data.referrer == "assessmentExpertise" %}
     {# Coming from the assessment only, qual only route #}
     {% if data.assessmentQual == "Yes" %}
-      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-        {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+      {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
+        {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
           {% else %} 
           ({{ data.selectedLevelAssessmentOnly }})
         {% endif %}
@@ -20,13 +20,13 @@
       {% else %}
       {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
         {{ data.resultName }}
-        {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-          {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+        {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
+          {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
             {% else %} 
             {{ data.selectedLevelAssessmentOnly }}
           {% endif %}
           {% else %} 
-            {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
+            {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
               {{ data.selectedQualificationAssessmentOnly }}
             {% else %} 
               {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
@@ -42,13 +42,13 @@
     {# If its not an "other" subject, show the subject and qual type/level #}
     {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       {{ data.resultName }}
-      {% if data.selectedQualification == "I don't know the qualification type" %}
-          {% if data.selectedLevel == "I don't know the level" %}
+      {% if data.selectedQualification == "My expertise in this subject is not related to a qualification type" %}
+          {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
             {% else %} 
             ({{ data.selectedLevel }})
           {% endif %}
           {% else %} 
-          {% if data.selectedLevel == "I don't know the level" %}
+          {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
             ({{ data.selectedQualification }})
             {% else %} 
             ({{ data.selectedQualification }} – {{ data.selectedLevel }})
