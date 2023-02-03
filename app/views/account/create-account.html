@@ -1,9 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Do you want to search for a thing?" %}
-{# {% set backLink = "false" %} #}
-{% set formAction = "./check-your-emails" %}
+{% set serviceName = "GOV.UK One Login" %}
+{% set formAction = "/account/check-your-emails" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
@@ -14,16 +13,13 @@
     label: { 
       classes: "govuk-label--m"
     },
-    hint: {
-      text: "We'll use this to check if you have a GOV.UK account"
-    },
     classes: "govuk-!-width-two-thirds",
     attributes: {
       spellcheck: "false"
     },
     autocomplete: "email",
     type: "email"
-    } | decorateAttributes(data, "data.checkEmail")) }}
+    } | decorateAttributes(data, "data.oneLoginEmail")) }}
 
 
   {{ govukButton({

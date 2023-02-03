@@ -3,25 +3,22 @@
 
 {% set serviceName = "GOV.UK One Login" %}
 {% set pageHeading = "Check your email" %}
-{% set formAction = "/account/create-password" %}
+{% set formAction = "/phone-code" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
-  <h1 class="govuk-heading-l">Check your email</h1>
+  <h1 class="govuk-heading-l">Check your phone</h1>
   {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
   {% set insetTextHtml %}
-    We have sent an email to: 
-    <p class="govuk-body govuk-!-font-weight-bold">{{ data.oneLoginEmail }}</p>
+    <p class="govuk-body">We have sent a code to <span class="govuk-body govuk-!-font-weight-bold">********001</span></p>
   {% endset %}
 
   {{ govukInsetText({
     html: insetTextHtml
   }) }}
 
-  <p class="govuk-body">This email contains a 6-digit code.</p>
-  <p class="govuk-body">The email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
-  <p class="govuk-body">Your code will expire after 2 hours.</p>
+  <p class="govuk-body">It might take a few minutes to arrive. The code will expire after 2 hours.</p>
 
   {{ govukInput({
     label: {
@@ -34,7 +31,7 @@
 
   {% set detailsHtml %}
     <p class="govuk-body govuk-!-margin-bottom-0">
-      We can <a href="#">send the code again</a> or you can <a href="/account/create-account">use a different email address</a>.
+      We can <a href="#">send the code again</a> if the code is not working or you did not receive it.
     </p>
   {% endset %}
 

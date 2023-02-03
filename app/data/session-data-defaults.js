@@ -468,5 +468,7 @@ module.exports = {
 
   // Setting the sections that aren't able to be started yet
   // The section is enabled with hidden inputs in the dependant section
-  "evidenceExpertiseCompleted": "canNotStartYet"
+  "evidenceExpertiseCompleted": "canNotStartYet",
+  // set GOV.UK email address default
+  "oneLoginEmail": "name@email.com"
 }
