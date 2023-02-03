@@ -15,28 +15,16 @@
     {# Coming from the assessment only, qual only route #}
     {% if data.assessmentQual == "Yes" %}
       {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-        {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
-          {% else %} 
-          ({{ data.selectedLevelAssessmentOnly }})
-        {% endif %}
         {% else %} 
-          {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+          {{ data.selectedQualificationAssessmentOnly }}
       {% endif %}
       {# Coming from the assessment only, subject route #}
       {% else %}
       {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
         {{ data.resultName }}
         {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
-          {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
-            {% else %} 
-            {{ data.selectedLevelAssessmentOnly }}
-          {% endif %}
           {% else %} 
-            {% if data.selectedLevelAssessmentOnly == "I don't know the level" %}
-              {{ data.selectedQualificationAssessmentOnly }}
-            {% else %} 
-              {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
-          {% endif %}
+            ({{ data.selectedQualificationAssessmentOnly }})
         {% endif %}
         {# It is a subject with defined qual type and level #}
         {% else %}
@@ -49,12 +37,9 @@
     {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       {{ data.resultName }}
       {% if data.selectedQualification == "I don't know the qualification type" %}
-          {% if data.selectedLevel == "I don't know the level" %}
-            {% else %} 
-            ({{ data.selectedLevel }})
-          {% endif %}
-          {% else %} 
-        {% endif %}
+        {% else %} 
+          ({{ data.selectedQualification }})
+      {% endif %}
       {# It is a subject with defined qual type and level #}
       {% else %}
       {{ data.selectedSubject }}
