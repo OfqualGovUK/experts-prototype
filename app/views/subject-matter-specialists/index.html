@@ -1,9 +1,13 @@
 
 {% extends "layout.html" %}
 
+{% set serviceName = "Subject matter specialists" %}
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
 {% endblock %}
+
+{% set signedOut = "true" %}
+{% set backLink = "false" %}
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
@@ -32,30 +36,33 @@
         Contents
         </h2>
         <ol class="govuk-list contents-list__list">
-          <li class="contents-list__list-item"><a href="/subject-matter-experts" class="contents-list__link govuk-body-s govuk-link">The role</a></li> 
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/who-can-be-an-expert" class="contents-list__link govuk-body-s govuk-link">Who can be an expert</a></li> 
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/application-process" class="contents-list__link govuk-body-s govuk-link">Application process</a></li>
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/apply-experts" class="contents-list__link govuk-body-s govuk-link">Apply to be an expert</a></li>
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/sign-in-experts-account" class="contents-list__link govuk-body-s govuk-link">Sign in to your expert account</a></li>   
+          <li class="contents-list__list-item govuk-body-s">The role</li> 
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/who-can-be-a-specialist" class="contents-list__link govuk-body-s govuk-link">Who can be a specialist</a></li> 
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/application-process" class="contents-list__link govuk-body-s govuk-link">Application process</a></li>
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/apply-specialists" class="contents-list__link govuk-body-s govuk-link">Apply to be an subject matter specialist</a></li>
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/sign-in-specialists-account" class="contents-list__link govuk-body-s govuk-link">Sign in to your account</a></li>   
         </ol>
       </nav>
     </div>
     <div class="govuk-grid-column-two-thirds-from-desktop govuk-!-margin-top-4">
       <hr>
       <h1 class="govuk-heading-l govuk-!-margin-top-4">The role</h1>
-      <h2 class="govuk-heading-m">What is an Ofqual subject matter expert? </h2>
-      <p>Subject matter experts work externally from Ofqual supporting work on qualifications and assessments across England. These may include GCSEs, A Levels, T-Levels, Apprenticeships, BTECs, functional skills and vocational qualifications.</p>
-      <p>Subject matter experts work on a contractual basis when needed and are invaluable to the work Ofqual do to ensure the qualifications that we regulate are fit for purpose, ensuring that the right things can be assessed consistently.</p>
-      <p>Ofqual is looking for people across different disciplines to apply to become a subject matter expert.</p>
+      
+      <h2 class="govuk-heading-m">Who are Ofqual? </h2>
+      <p>We are the Office of Qualifications and Examinations Regulation (Ofqual) and we regulate qualifications, examinations and assessments in England. </p>
+      
+      <h2 class="govuk-heading-m">What is an Ofqual subject matter specialist? </h2>
+      <p>Subject matter specialists work externally from Ofqual supporting work on qualifications and assessments across England. These may include GCSEs, A levels, T Levels, Apprenticeships, functional skills and vocational qualifications.</p>
+      <p>Subject matter specialists work on a contractual basis and provide invaluable support to Ofqual as we carry out our role in regulating qualifications. Subject matter specialists are commissioned for individual assignments as and when Ofqual requires.</p>
       
       <h2 class="govuk-heading-m">What is the role?</h2>
-      <p>As a subject matter expert for Ofqual, you may be contracted to support the review of qualifications relevant to your field. You will use communication and analytical judgement skills  in the following types of activities:</p>
+      <p>As a subject matter specialist for Ofqual, you may be contracted to support the review of qualifications relevant to your subject areas. You will use communication and analytical judgement skills in the following types of activities:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>
           review and report on the content of qualifications and the quality of their assessments
         </li>
         <li>
-          provide specialist opinion and expertise to evaluate the validity of qualifications and assessments
+          provide specialist opinions to evaluate the validity of qualifications and assessments
         </li>
         <li>
           become involved in large scale projects where qualifications are being developed, or respond to ad hoc queries
@@ -71,6 +78,13 @@
         </li>
       </ul>
 
+      <h2 class="govuk-heading-m">Will I be paid?</h2>
+      <p>If you are commissioned for a piece of work, yes - the pay for each assignment is set by the manager contracting the work, with each assignment individually appraised. </p>
+      <p>The rate will be communicated with you prior to any work you are contracted to undertake. </p>
+
+      <h2 class="govuk-heading-m">Will I have to travel?</h2>
+      <p>The majority of commissions do not require any travel, as most projects are remote and desk based. </p>
+      <p>If we require a subject matter specialist to travel to a location, you will be contacted by the commissioning manager to arrange this and any expenses will be discussed. </p>
     </div>
     <div class="govuk-grid-column-one-third-from-desktop app-related govuk-!-margin-top-5">
       <h2 class="govuk-heading-s govuk-!-margin-top-2 govuk-!-margin-bottom-2">
@@ -87,10 +101,10 @@
   </div>
   <nav class="govuk-pagination govuk-pagination--block" role="navigation" aria-label="results">
     <div class="govuk-pagination__next">
-      <a class="govuk-link govuk-pagination__link" href="/subject-matter-experts/who-can-be-an-expert" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+      <a class="govuk-link govuk-pagination__link" href="/subject-matter-specialists/who-can-be-a-specialist" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
           <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
         </svg> <span class="govuk-pagination__link-title">Next</span><span class="govuk-visually-hidden">:</span>
-        <span class="govuk-pagination__link-label">Who can be an expert</span></a>
+        <span class="govuk-pagination__link-label">Who can be a specialist</span></a>
     </div>
   </nav>
   

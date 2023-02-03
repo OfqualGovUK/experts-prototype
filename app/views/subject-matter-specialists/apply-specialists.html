@@ -1,9 +1,13 @@
 
 {% extends "layout.html" %}
 
+{% set serviceName = "Subject matter specialists" %}
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
 {% endblock %}
+
+{% set signedOut = "true" %}
+{% set backLink = "false" %}
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
@@ -18,7 +22,7 @@
       <a class="govuk-breadcrumbs__link" href="https://www.gov.uk/government/organisations/ofqual">Ofqual</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/subject-matter-experts">Subject matter experts</a>
+      <a class="govuk-breadcrumbs__link" href="/subject-matter-specialists">Subject matter specialists</a>
     </li>
   </ol>
 </div>
@@ -36,38 +40,39 @@
         Contents
         </h2>
         <ol class="govuk-list contents-list__list">
-          <li class="contents-list__list-item"><a href="/subject-matter-experts" class="contents-list__link govuk-body-s govuk-link">The role</a></li> 
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/who-can-be-an-expert" class="contents-list__link govuk-body-s govuk-link">Who can be an expert</a></li> 
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/application-process" class="contents-list__link govuk-body-s govuk-link">Application process</a></li>
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/apply-experts" class="contents-list__link govuk-body-s govuk-link">Apply to be an expert</a></li>
-          <li class="contents-list__list-item"><a href="/subject-matter-experts/sign-in-experts-account" class="contents-list__link govuk-body-s govuk-link">Sign in to your expert account</a></li>   
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists" class="contents-list__link govuk-body-s govuk-link">The role</a></li> 
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/who-can-be-a-specialist" class="contents-list__link govuk-body-s govuk-link">Who can be a specialist</a></li> 
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/application-process" class="contents-list__link govuk-body-s govuk-link">Application process</a></li>
+          <li class="contents-list__list-item govuk-body-s">Apply to be an subject matter specialist</li>
+          <li class="contents-list__list-item"><a href="/subject-matter-specialists/sign-in-specialists-account" class="contents-list__link govuk-body-s govuk-link">Sign in to your account</a></li>   
         </ol>
       </nav>
     </div>
     <div class="govuk-grid-column-two-thirds-from-desktop govuk-!-margin-top-4">
       <hr>
-      <h1 class="govuk-heading-l govuk-!-margin-top-4">Apply to be an expert</h1>
-      <p class="govuk-body">Use this service to apply to be an subject matter expert in specific subjects or industries to support Ofqual in regulating a range of qualifications.</p>
-      <p class="govuk-body">Ofqual is looking for people from different backgrounds to apply to become a subject matter expert. Such as:</p>
+      <h1 class="govuk-heading-l govuk-!-margin-top-4">Apply to be a subject matter specialist</h1>
+
+      <p class="govuk-body">Use this service to apply to be a subject matter specialist to provide support to Ofqual in the regulation of qualifications in England.</p>
+      <p class="govuk-body">Ofqual is looking for people from different backgrounds to apply to become subject matter specialists. Such as:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>an assessor, examiner, or moderator</li>
-        <li>extensive skills and experience in a particular industry</li>
+        <li>an industry professional with extensive skills and experience</li>
         <li>a teacher, lecturer, trainer, practitioner, or an academic</li>
       </ul>
       <h2 class="govuk-heading-m">Before you start</h2>
-      <p class="govuk-body">You can read the <a href="https://www.gov.uk/guidance/apply-to-be-an-external-expert-with-ofqual" class="govuk-link">subject matter experts guidance</a> for further information.</p>
       <p class="govuk-body">You will be asked to provide the following:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>Personal details</li>
-        <li>Qualifications</li>
-        <li>Work history</li>
-        <li>Subjects that you can provide expertise on</li> 
-        <li>Evidence of expertise</li>
+        <li>Qualifications (including scanned copies of certificates)</li>
+        <li>Work history (including employment dates)</li>
+        <li>Subjects areas</li> 
+        <li>Evidence of experience</li>
         <li>Conflicts of interest</li>
-        <li>Identity and verification checks</li>
+        <li>Identity and verification documents</li>
       </ul>
-      <p class="govuk-body">You will need qualification dates and scanned copies of certificates, employment dates and scanned copies of identification documents.</p>
       <p class="govuk-body">You can save your application and come back to it at any time.</p>
+      <p class="govuk-body">By starting your application, you are accepting the <a href="#" class="govuk-link">privacy statement</a> of the service.</p>
+
       {{ govukButton({
         text: "Start your application",
         href: "/account/sign-in",
@@ -90,7 +95,7 @@
   </div>
   <nav class="govuk-pagination govuk-pagination--block" role="navigation" aria-label="results">
     <div class="govuk-pagination__prev">
-      <a class="govuk-link govuk-pagination__link" href="/subject-matter-experts/application-process" rel="prev">
+      <a class="govuk-link govuk-pagination__link" href="/subject-matter-specialists/application-process" rel="prev">
         <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
           <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
         </svg>
@@ -98,10 +103,10 @@
         <span class="govuk-pagination__link-label">Application process</span></a>
     </div>
     <div class="govuk-pagination__next">
-      <a class="govuk-link govuk-pagination__link" href="/subject-matter-experts/sign-in-experts-account" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+      <a class="govuk-link govuk-pagination__link" href="/subject-matter-specialists/sign-in-specialists-account" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
           <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
         </svg> <span class="govuk-pagination__link-title">Next</span><span class="govuk-visually-hidden">:</span>
-        <span class="govuk-pagination__link-label">Sign in to your expert account</span></a>
+        <span class="govuk-pagination__link-label">Sign in to your account</span></a>
     </div>
   </nav>
 
