@@ -1,0 +1,20 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "GOV.UK One Login" %}
+{% set backLink = "false" %}
+{% set formAction = "/application" %}
+{% set signedOut = "false" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">You've created your GOV.UK account</h1>
+
+  <p class="govuk-body">Continue to <span class="govuk-!-font-weight-bold">apply be a subject matter specialist</span>.</p>
+
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

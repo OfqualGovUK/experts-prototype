@@ -36,6 +36,35 @@ router.post('/existing-account-answer', function (req, res) {
 
 })
 
+// gov.uk log in - security code option 
+router.post('/security-code-option', function (req, res) {
+
+  let securityOption = req.session.data.securityCodeOption
+
+  if (securityOption === 'Text message') {
+      res.redirect('/account/mobile')
+    } else {
+      res.redirect('/account/authenticator-app')
+  }
+
+})
+
+// gov.uk log in - route after mobile code  
+router.post('/phone-code', function (req, res) {
+
+  let codeReferral = req.session.data.referrer
+
+  if (codeReferral === 'createAccount') {
+      res.redirect('/account/account-created')
+    } else {
+      res.redirect('/application')
+  }
+
+})
+
+
+
+
 // Do you want to add more expertise? 
 router.post('/review-answer', function (req, res) {
 
