@@ -41,25 +41,20 @@
       text: "Email address",
       classes: "govuk-label--s"
     },
-    attributes: {
-      readonly: "readonly"
-    },
     type: "email",
     autocomplete: "email",
-    spellcheck: false,
-    value: "email@email.com"
+    spellcheck: false
   } | decorateAttributes(data, "data.email")) }}
 
   {% set detailsHtml %}
-    <p class="govuk-body">This is the email address you used to create your GOV.UK account.<br>
-      <a href="#" class="govul-link">Update your email address on GOV.UK Sign in</a>
+    <p class="govuk-body">The email address you provide here will be used for notifications and communication with Ofqual. It is not connected to your GOV.UK One Login account, which you used to sign in to this service.  
     </p>
-  {% endset %}
+  {% endset %} 
 
   {{ govukDetails({
-    summaryText: "How do I change my email address?",
+    summaryText: "What's this email address used for?",
     html: detailsHtml
-  }) }}
+  }) }} 
 
   <div class="govuk-button-group">
     {{ govukButton({
