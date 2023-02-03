@@ -16,7 +16,7 @@
   {% if data.referrer == "assessmentExpertise" %}
     {# Coming from the assessment only, qual only route #}
     {% if data.assessmentQual == "Yes" %}
-      {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+      {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
         {% else %} 
           {{ data.selectedQualificationAssessmentOnly }}
       {% endif %}
@@ -24,7 +24,7 @@
       {% else %}
       {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
         {{ data.resultName }}
-        {% if data.selectedQualificationAssessmentOnly == "I don't know the qualification type" %}
+        {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
           {% else %} 
             ({{ data.selectedQualificationAssessmentOnly }})
         {% endif %}
@@ -38,7 +38,7 @@
     {# If its not an "other" subject, show the subject and qual type/level #}
     {% if data.selectedSubject and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
       {{ data.resultName }}
-      {% if data.selectedQualification == "I don't know the qualification type" %}
+      {% if data.selectedQualification == "My expertise in this subject is not related to a qualification type" %}
         {% else %} 
           ({{ data.selectedQualification }})
       {% endif %}
@@ -146,8 +146,8 @@
           divider: "or"
         },
         {
-          value: "I don't know the level",
-          text: "I don't know the level",
+          value: "My expertise in this subject is not related to a qualification level",
+          text: "My expertise in this subject is not related to a qualification level",
           behaviour: "exclusive"
         }
       ]
@@ -232,8 +232,8 @@
             divider: "or"
           },
           {
-            value: "I don't know the level",
-            text: "I don't know the level",
+            value: "My expertise in this subject is not related to a qualification level",
+            text: "My expertise in this subject is not related to a qualification level",
             behaviour: "exclusive"
           }
         ]

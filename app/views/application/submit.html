@@ -10,15 +10,15 @@
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
       <p class="govuk-body">
-        Is there anything we want to say here?
+        By submitting your application, you are agreeing to the <a href="#" class="govuk-link">terms and conditions</a> of the subject matter experts service.
       </p>
       <p class="govuk-body">
-        By submitting this application, I confirm that the information given is true, complete and accurate.
+        I confirm that the information given is true, complete and accurate.
       </p>
 
       {{ govukButton({
         text: "Submit application",
-        href: "/dashboard?applicationStatus=inReview"
+        href: "/dashboard?applicationStatus=Submitted"
       }) }}
 
     </div>

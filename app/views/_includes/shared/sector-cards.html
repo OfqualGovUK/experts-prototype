@@ -5,7 +5,7 @@
       {% if data.level.careServices == "An option that isn't listed" %}
         {{ data.level.careServicesOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.careServices != "I don't know the level" or data.level.careServices != "An option that isn't listed" %}
+      {% elseif data.level.careServices != "My expertise in this subject is not related to a qualification level" or data.level.careServices != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.careServices %}
             <li>
@@ -14,7 +14,7 @@
           {% endfor %}
         </ul>
       {# if I dont know, list "I dont know" #}
-      {% elseif data.level.careServices == "I don't know the level" %}
+      {% elseif data.level.careServices == "My expertise in this subject is not related to a qualification level" %}
         {{ data.level.careServices }}
       {% endif %}
 
@@ -29,7 +29,7 @@
       {% if data.level.business.human == "An option that isn't listed" %}
         {{ data.level.business.humanOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.business.human != "I don't know the level" or data.level.business.human != "An option that isn't listed" %}
+      {% elseif data.level.business.human != "My expertise in this subject is not related to a qualification level" or data.level.business.human != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.business.human %}
             <li>
@@ -38,7 +38,7 @@
           {% endfor %}
         </ul>
       {# if I dont know, list "I dont know" #}
-      {% elseif data.level.business.human == "I don't know the level" %}
+      {% elseif data.level.business.human == "My expertise in this subject is not related to a qualification level" %}
         {{ data.level.business.human }}
       {% endif %}
 
@@ -53,7 +53,7 @@
       {% if data.level.business.management == "An option that isn't listed" %}
         {{ data.level.business.managementOther }}
       {# if not either of these two, list out the levels #}
-      {% elseif data.level.business.management != "I don't know the level" or data.level.business.management != "An option that isn't listed" %}
+      {% elseif data.level.business.management != "My expertise in this subject is not related to a qualification level" or data.level.business.management != "An option that isn't listed" %}
         <ul class="govuk-list">
           {% for level in data.level.business.management %}
             <li>
@@ -62,7 +62,7 @@
           {% endfor %}
         </ul>
       {# if I dont know, list "I dont know" #}
-      {% elseif data.level.business.management == "I don't know the level" %}
+      {% elseif data.level.business.management == "My expertise in this subject is not related to a qualification level" %}
         {{ data.level.business.management }}
       {% endif %}
 
