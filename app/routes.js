@@ -831,17 +831,17 @@ router.post('/identity-check-answer', function (req, res) {
 })
 
 // Do you want to answer the equality questions?
-router.post('/equality-question-answer', function (req, res) {
+// router.post('/equality-question-answer', function (req, res) {
 
-  let equalityQuestionAnswer = req.session.data.equalityQuestionAnswer
+//   let equalityQuestionAnswer = req.session.data.equalityQuestionAnswer
 
-    if (equalityQuestionAnswer === 'yes') {
-      res.redirect('/application/sorry')
-    } else {
-      res.redirect('/application/how-did-you-hear-about-this-service') 
-  }
+//     if (equalityQuestionAnswer === 'yes') {
+//       res.redirect('/application/sorry')
+//     } else {
+//       res.redirect('/application/how-did-you-hear-about-this-service') 
+//   }
 
-})
+// })
 
 // View the application in different states
 // VTQ Application
