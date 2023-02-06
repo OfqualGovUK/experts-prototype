@@ -1,0 +1,32 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "GOV.UK One Login" %}
+{% set formAction = "/account/check-phone?referrer=createAccount" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Enter your mobile phone number</h1>
+
+  <p class="govuk-body">We will send a 6 digit security code to the number you give us.</p>
+  <p class="govuk-body">You must use a UK mobile phone number.</p>
+  
+  {{ govukInput({
+    label: { 
+        text: "UK mobile phone number",
+        classes: "govuk-label--s"
+    },
+    classes: "govuk-!-width-two-thirds",
+    attributes: {
+      spellcheck: "false"
+    },
+    type: "phone"
+    } | decorateAttributes(data, "data.oneLoginPhone")) }}
+
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

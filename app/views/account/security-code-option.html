@@ -1,0 +1,51 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "GOV.UK One Login" %}
+{% set formAction = "/security-code-option" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Choose how to get security codes</h1>
+
+  <p class="govuk-body">To finish creating your account, choose a way to prove it's you when you sign in.</p>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    items: [
+      {
+        value: "Text message",
+        text: "Text message",
+        hint: {
+            text: "This is only available for UK mobile numbers."
+        }
+      },
+      {
+        value: "Authenticator app for smartphone, tablet or computer",
+        text: "Authenticator app for smartphone, tablet or computer"
+      }
+    ]
+  } | decorateAttributes(data, "data.securityCodeOption")) }}
+
+  {% set govukDetailsHtml %}        
+    <p>An authenticator app created a security code that helps confirm it's you when you sign in.</p> 
+    <p>You can use an authenticator app on your smartphone, tablet or desktop computer. Download an authenticator app for your smartphone or tablet from your app store or search online for an authenticator app for your computer.</p> 
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What is an authenticator app?",
+    html: govukDetailsHtml
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}

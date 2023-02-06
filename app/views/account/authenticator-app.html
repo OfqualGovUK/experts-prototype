@@ -1,0 +1,54 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "GOV.UK One Login" %}
+{% set pageHeading = "Check your email" %}
+{% set formAction = "/account/account-created" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+    <h1 class="govuk-heading-l">Set up an authenticator app</h1>
+
+    <ol class="govuk-list govuk-list--number">
+        <li>Open your authenticator app on your smartphone, tablet or computer.</li>
+    </ol>
+        {% set detailsHtml %}
+            <p class="govuk-body">You can download an authenticator app for your smartphone or tablet from your app store. </p>
+            <p class="govuk-body">If you don't have a smartphone or tablet, search online for an authenticator app for your computer. </p>
+            <p class="govuk-body govuk-!-margin-bottom-0">You can use any authenticator app. </p>
+        {% endset %}
+
+        {{ govukDetails({
+            summaryText: "I don't have an authenticator app",
+            text: detailsHtml | safe
+        }) }}
+    
+    <ol class="govuk-list govuk-list--number" start="2">
+        <li>Use your authenticator app to scan the QR code or type the secret key into your authenticator app. Some authenticator apps call the secret key a 'code'.</li>
+    </ol>
+    <img scr="/public/images/qr-code.jpg" alt="QR code" width="200" height="200">
+    <p class="govuk-body">Secret key: </br>
+        <span class="govuk-!-font-weight-bold">HC7F SIQW YIJJ RRIT X64U KCSS OHSK</span>
+    </p>
+    <ol class="govuk-list govuk-list--number" start="3">
+        <li>The authenticator app will show a security code.</li>
+        <li>Enter the security code.</li>
+    </ol>
+
+    {{ govukInput({
+        label: {
+            text: "Security code"
+        },
+        hint: {
+            text: "This is the 6-digit number shown in your authenticator app"
+        },
+        classes: "govuk-input--width-5",
+        id: "width-6",
+        name: "width-6"
+    }) }}
+
+    {{ govukButton({
+        text: "Continue"
+    }) }}
+
+{% endblock %}

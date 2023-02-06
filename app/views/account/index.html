@@ -1,9 +1,9 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Do you want to search for a thing?" %}
+{% set serviceName = "GOV.UK One Login" %}
 {% set backLink = "false" %}
-{% set formAction = "account/request-code" %}
+{% set formAction = "account/create-account" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
@@ -29,13 +29,13 @@
   <p class="govuk-body">If you already have a GOV.UK account you can <a href="/account/sign-in" class="govuk-link">sign in</a>.</p>
 
   {% set govukDetailsHtml %}        
-    <p>GOV.UK accounts are new. They are the first step towards creating a single account that you can use to sign in to all government services.</p> 
-    <p>GOV.UK accounts will eventually replace all other government accounts. We're working on adding more features and services.</p> 
-    <p>For now, you need to use different accounts to access different government services.</p> 
+    <p>GOV.UK accounts are new. At the moment you can only use your GOV.UK account with a few services.</p> 
+    <p>GOV.UK accounts are currentlt separate from other government accounts (for example Government Gateway or Universal Credit.)</p> 
+    <p>In the future, you'll be able to use your GOV.UK account to sign in to most services on GOV.UK</p> 
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "Apply for a GOV.UK account",
+    summaryText: "About GOV.UK accounts",
     html: govukDetailsHtml
   }) }}
 
