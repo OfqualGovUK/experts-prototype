@@ -52,10 +52,12 @@ router.post('/security-code-option', function (req, res) {
 // gov.uk log in - route after mobile code  
 router.post('/phone-code', function (req, res) {
 
-  let codeReferral = req.session.data.referrer
+  let linkReferral = req.session.data.referrer
 
-  if (codeReferral === 'createAccount') {
+  if (linkReferral === 'createAccount') {
       res.redirect('/account/account-created')
+    } if (linkReferral === 'existingSpecialist') {
+      res.redirect('/dashboard?applicationStatus=Submitted')
     } else {
       res.redirect('/application')
   }

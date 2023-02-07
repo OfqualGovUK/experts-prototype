@@ -20,33 +20,34 @@
 
       <h2 class="govuk-heading-m">{{ serviceName }}</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/home">Home page (signed out)</a></li>
-        <li><a href="/application/start">Start page</a></li>
-        <li><a href="/account">Create an account</a></li>
+        <li><a href="/subject-matter-specialists">GOV.UK start page (signed out)</a></li>
+        <li><a href="/account">Create an GOV.UK One Login account</a></li>
         <li><a href="/application">Your application</a></li>
         <li><a href="/application/equality-and-diversity">Equality and diversity</a></li>
         <li><a href="/application/how-did-you-hear-about-this-service">How did you hear about this service?</a></li>
         <li><a href="/application/submit">Submit application</a></li>
+        <li><a href="/dashboard?applicationStatus=Submitted">Submitted application</a></li>
       </ul>
       
       {# <hr class="govuk-section-break govuk-section-break--visible"> #}
 
       <h2 class="govuk-heading-m">View the application in various states<h2>
       <h3 class="govuk-heading-s">Before submit<h3>
-
-      <p class="govuk-body"><a href="/populate-application-gq" class="govuk">GQ - View a completed application</a></p>
-      <p class="govuk-body"><a href="/populate-application-vtq" class="govuk">VTQ - View a completed application</a></p>
-      <p class="govuk-body"><a href="/populate-application-as" class="govuk">Assessment Specialist - View a completed application</a></p>
-
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/populate-application-gq" class="govuk">GQ - View a completed application</a></li>
+        <li><a href="/populate-application-vtq" class="govuk">VTQ - View a completed application</a></li>
+        <li><a href="/populate-application-as" class="govuk">Assessment Specialist - View a completed application</a></li>
+      </ul>
       <h3 class="govuk-heading-s">Dashboard - after submit<h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/application-submitted-gq-in-review" class="govuk">GQ - View a submitted application (In review)</a></li>
+        <li><a href="/application-submitted-vtq-in-review" class="govuk">VTQ - View a submitted application (In review)</a></li>
+        <li><a href="/application-submitted-as-in-review" class="govuk">Assessment Specialist - View a submitted application (In review)</a></li>
+        <li><a href="/application-submitted-gq-accepted" class="govuk">GQ - View a submitted application (Application accepted)</a></li>
+        <li><a href="/application-submitted-vtq-accepted" class="govuk">VTQ - View a submitted application (Application accepted)</a></li>
+        <li><a href="/application-submitted-as-accepted" class="govuk">Assessment Specialist - View a submitted application (Application accepted)</a></li>
+      </ul>
 
-      <p class="govuk-body"><a href="/application-submitted-gq-in-review" class="govuk">GQ - View a submitted application (In review)</a></p>
-      <p class="govuk-body"><a href="/application-submitted-vtq-in-review" class="govuk">VTQ - View a submitted application (In review)</a></p>
-      <p class="govuk-body"><a href="/application-submitted-as-in-review" class="govuk">Assessment Specialist - View a submitted application (In review)</a></p>
-      <p class="govuk-body"><a href="/application-submitted-gq-accepted" class="govuk">GQ - View a submitted application (Application accepted)</a></p>
-      <p class="govuk-body"><a href="/application-submitted-vtq-accepted" class="govuk">VTQ - View a submitted application (Application accepted)</a></p>
-      <p class="govuk-body"><a href="/application-submitted-as-accepted" class="govuk">Assessment Specialist - View a submitted application (Application accepted)</a></p>
-      
       {# <h2 class="govuk-heading-m">Demos</h2>
       <a href="/application/expertise/select-occupation-demo" class="govuk-body">Select an occupation (Option search/select demo)</a> #}
       
