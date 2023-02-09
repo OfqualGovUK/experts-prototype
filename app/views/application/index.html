@@ -31,7 +31,7 @@
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Your qualifications',
-            href: 'application/education',
+            href: 'application/qualifications',
             taskName: data.educationCompleted
           })}}
         </ul>
@@ -42,7 +42,7 @@
         <ul class="app-task-list">
           {{ appTaskListItem({
             name: 'Work history',
-            href: 'application/experience-details',
+            href: 'application/work-history',
             taskName: data.workHistoryCompleted
           })}}
           {{ appTaskListItem({
@@ -70,30 +70,30 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
         <ul class="app-task-list">
-          {# If the Subjects of expertise is complete #}
+          {# If the Subjects of experience is complete #}
           {% if data.adviseAreasCompleted == "complete" %}
-          {# loops through and gets all the checked type of expertise #}
+          {# loops through and gets all the checked type of experience #}
           {% for type in data.expertiseType %}   
             {% if type == "Assessment" %}
               {{ appTaskListItem ({
-                name: 'Assessment expertise',
+                name: 'Assessment experience',
                 href: '/assessment-type-answer',
-                taskName: data.assessmentExpertiseCompleted
+                taskName: data.assessmentExperienceCompleted
               })}}
             {% endif %}
             {% if type == "Industry, occupational or professional" %}
               {{ appTaskListItem ({
-                name: 'Industry, occupational or professional expertise',
-                href: '/application/industry-expertise',
+                name: 'Industry, occupational or professional experience',
+                href: '/application/industry-experience',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
             {% if type == "Teaching, lecturing or training" %}
               {{ appTaskListItem ({
-                name: 'Teaching, lecturing or training expertise',
-                href: '/teaching-expertise',
+                name: 'Teaching, lecturing or training experience',
+                href: '/teaching-experience',
                 taskName: data.teachingExpertiseCompleted
               })}}
             {% endif %}
@@ -108,7 +108,7 @@
               href: 'application/further-evidence',
               taskName: data.furtherEvidenceDetails
             })}}
-            {# Otherwise Subjects of expertise IS NOT complete #}
+            {# Otherwise Subjects of experience IS NOT complete #}
             {% else %}
             {{ appTaskListItem({
               name: 'Evidence',
@@ -140,8 +140,8 @@
             taskName: data.declarationCompleted
           })}}
           {{ appTaskListItem({
-            name: 'Identity checks',
-            href: 'application/verify-your-identity',
+            name: 'Verify your identity',
+            href: 'application/verify-identity',
             taskName: data.verifyIdentityCompleted
           })}}
         </ul>

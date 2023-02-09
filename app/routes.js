@@ -88,7 +88,7 @@ router.post('/review-jobs-answer', function (req, res) {
     if (addAnotherJob === 'Yes') {
       res.redirect('/application/sorry')
     } else {
-      res.redirect('/application/experience-details/section-completed') 
+      res.redirect('/application/work-history/section-completed') 
   }
 
 })
@@ -138,9 +138,9 @@ router.post('/qualifications-answer', function (req, res) {
   let anyQualifications = req.session.data.anyQualifications
 
     if (anyQualifications === 'Yes') {
-      res.redirect('/application/education/add-qualifcation')
+      res.redirect('/application/qualifications/add-qualifcation')
     } else {
-      res.redirect('/application/education/review') 
+      res.redirect('/application/qualifications/review') 
   }
 
 })
@@ -151,9 +151,9 @@ router.post('/upload-available-answer', function (req, res) {
   let uploadAvailable = req.session.data.qualUploadAvailable
 
     if (uploadAvailable === 'Yes') {
-      res.redirect('/application/education/upload-qualification')
+      res.redirect('/application/qualifications/upload-qualification')
     } else {
-      res.redirect('/application/education/review') 
+      res.redirect('/application/qualifications/review') 
   }
 
 })
@@ -166,7 +166,7 @@ router.post('/review-qualifications-answer', function (req, res) {
     if (addAnotherqualification === 'Yes') {
       res.redirect('/application/sorry')
     } else {
-      res.redirect('/application/education/section-completed') 
+      res.redirect('/application/qualifications/section-completed') 
   }
 
 })
@@ -251,13 +251,13 @@ router.all('/assessment-type-answer', function (req, res) {
   }
 
   if (isDesigning == true) {
-    res.redirect('/application/assessment-expertise/add-details-designing')
+    res.redirect('/application/assessment-experience/add-details-designing-developing')
   } else if (isJudgement == true) {
-    res.redirect('/application/assessment-expertise/add-details-judgements')
+    res.redirect('/application/assessment-experience/add-details-making-judgements')
   } else if (isStandardSetting == true) {
-    res.redirect('/application/assessment-expertise/add-details-standard-setting')
+    res.redirect('/application/assessment-experience/add-details-standard-setting')
   } else {
-    res.redirect('/application/assessment-expertise/add-details-evaluating')
+    res.redirect('/application/assessment-experience/add-details-evaluating')
   }
   
 })
@@ -309,12 +309,12 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isEvaluating = false 
   }
 
-  let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
+  let assessmentExperienceCompleted = req.session.data.assessmentExperienceCompleted
 
-  if (assessmentExpertiseCompleted === "complete") {
-    res.redirect('/application/assessment-expertise/review')
-  } else if (assessmentExpertiseCompleted === "inProgress") {
-    res.redirect('/application/assessment-expertise/review')
+  if (assessmentExperienceCompleted === "complete") {
+    res.redirect('/application/assessment-experience/review')
+  } else if (assessmentExperienceCompleted === "inProgress") {
+    res.redirect('/application/assessment-experience/review')
   } 
   
 })
@@ -333,13 +333,13 @@ router.get('/assessment-designing', function (req, res) {
   let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
   if (isJudgement == true) {
-    res.redirect('/application/assessment-expertise/add-details-judgements')
+    res.redirect('/application/assessment-experience/add-details-making-judgements')
   } else if (isStandardSetting == true) {
-    res.redirect('/application/assessment-expertise/add-details-standard-setting')
+    res.redirect('/application/assessment-experience/add-details-standard-setting')
   } else if (isEvaluating == true) {
-    res.redirect('/application/assessment-expertise/add-details-evaluating')
+    res.redirect('/application/assessment-experience/add-details-evaluating')
   } else {
-    res.redirect('/application/assessment-expertise/review')
+    res.redirect('/application/assessment-experience/review')
   }
   
 })
@@ -356,11 +356,11 @@ router.get('/assessment-judgement', function (req, res) {
   let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
   if (isStandardSetting == true) {
-    res.redirect('/application/assessment-expertise/add-details-standard-setting')
+    res.redirect('/application/assessment-experience/add-details-standard-setting')
   } else if (isEvaluating == true) {
-    res.redirect('/application/assessment-expertise/add-details-evaluating')
+    res.redirect('/application/assessment-experience/add-details-evaluating')
   } else {
-    res.redirect('/application/assessment-expertise/review')
+    res.redirect('/application/assessment-experience/review')
   }
   
 })
@@ -375,9 +375,9 @@ router.get('/assessment-standard-setting', function (req, res) {
   let isEvaluating = assessmentEvaluatingRegex.test(assessmentExpertise)
 
   if (isEvaluating == true) {
-    res.redirect('/application/assessment-expertise/add-details-evaluating')
+    res.redirect('/application/assessment-experience/add-details-evaluating')
   } else {
-    res.redirect('/application/assessment-expertise/review')
+    res.redirect('/application/assessment-experience/review')
   }
   
 })
@@ -430,25 +430,25 @@ router.all('/teaching-type-answer', function (req, res) {
   }
 
   if (isLecturing == true) {
-    res.redirect('/application/teaching-expertise/add-details-teaching-lecturing')
+    res.redirect('/application/teaching-experience/add-details-teaching-lecturing')
   } else if (isTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-training')
+    res.redirect('/application/teaching-experience/add-details-training')
   } else if (isEducationalManagement == true) {
-    res.redirect('/application/teaching-expertise/add-details-educational-management')
+    res.redirect('/application/teaching-experience/add-details-educational-management')
   } else {
-    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+    res.redirect('/application/teaching-experience/add-details-teacher-training')
   }
   
 })
 
 // Teaching expertise. Set url here so the review screen comes through routes.js to recheck 
 // what teaching checkboxes have been selected, in case the user has amended the answer. 
-router.get('/teaching-expertise', function (req, res) {
-    res.redirect('/application/teaching-expertise/')
+router.get('/teaching-experience', function (req, res) {
+    res.redirect('/application/teaching-experience/')
 })
 
 // Route for teaching expertise from task list, once in progress or completed
-router.all('/teaching-expertise/review', function (req, res) {
+router.all('/teaching-experience/review', function (req, res) {
   let teachingExpertise = req.session.data.teachingExpertiseType
 
   // case-insensitive string match
@@ -497,9 +497,9 @@ router.all('/teaching-expertise/review', function (req, res) {
   let teachingExpertiseCompleted = req.session.data.teachingExpertiseCompleted
 
   if (teachingExpertiseCompleted === "complete") {
-    res.redirect('/application/teaching-expertise/review')
+    res.redirect('/application/teaching-experience/review')
   } else if (teachingExpertiseCompleted === "inProgress") {
-    res.redirect('/application/teaching-expertise/review')
+    res.redirect('/application/teaching-experience/review')
   } 
   
 })
@@ -518,13 +518,13 @@ router.get('/teaching-lecturing', function (req, res) {
   let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
 
   if (isTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-training')
+    res.redirect('/application/teaching-experience/add-details-training')
   } else if (isEducationalManagement == true) {
-    res.redirect('/application/teaching-expertise/add-details-educational-management')
+    res.redirect('/application/teaching-experience/add-details-educational-management')
   } else if (isTeacherTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+    res.redirect('/application/teaching-experience/add-details-teacher-training')
   } else {
-    res.redirect('/application/teaching-expertise/review')
+    res.redirect('/application/teaching-experience/review')
   }
   
 })
@@ -541,11 +541,11 @@ router.get('/teaching-training', function (req, res) {
   let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
 
   if (isEducationalManagement == true) {
-    res.redirect('/application/teaching-expertise/add-details-educational-management')
+    res.redirect('/application/teaching-experience/add-details-educational-management')
   } else if (isTeacherTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+    res.redirect('/application/teaching-experience/add-details-teacher-training')
   } else {
-    res.redirect('/application/teaching-expertise/review')
+    res.redirect('/application/teaching-experience/review')
   }
   
 })
@@ -560,14 +560,14 @@ router.get('/teaching-educational', function (req, res) {
   let isTeacherTraining = teachingTeacherTrainingRegex.test(teachingExpertise)
 
   if (isTeacherTraining == true) {
-    res.redirect('/application/teaching-expertise/add-details-teacher-training')
+    res.redirect('/application/teaching-experience/add-details-teacher-training')
   } else {
-    res.redirect('/application/teaching-expertise/review')
+    res.redirect('/application/teaching-experience/review')
   }
   
 })
 
-// If areas of expertise is complete 
+// If areas of experience is complete 
 router.get('/assessment-only/review', function (req, res) {
   
   let adviseAreasCompleted = req.session.data.adviseAreasCompleted
@@ -580,7 +580,7 @@ router.get('/assessment-only/review', function (req, res) {
   
 })
 
-// Does your assessment expertise relate to a subject?
+// Does your assessment experience relate to a subject?
 router.post('/assessment-subject-answer', function (req, res) {
   
   let assessmentSubject = req.session.data.assessmentSubject
@@ -593,7 +593,7 @@ router.post('/assessment-subject-answer', function (req, res) {
   
 })
 
-// Does your assessment expertise relate to specific qualifications?
+// Does your assessment experience relate to specific qualifications?
 router.post('/assessment-qual-answer', function (req, res) {
   
   let assessmentQual = req.session.data.assessmentQual
@@ -601,7 +601,7 @@ router.post('/assessment-qual-answer', function (req, res) {
   if (assessmentQual === "Yes") {
     res.redirect('/application/search/select-qualification')
   } else {
-    res.redirect('/application/search/assessment-expertise')
+    res.redirect('/application/search/assessment-experience')
   }
   
 })
@@ -623,7 +623,7 @@ router.get('/subject-search-answer', function (req, res) {
     if (isMatch == false) {
       res.redirect('/application/search/select-qualification')
     } else {
-      res.redirect('/application/search/assessment-expertise')
+      res.redirect('/application/search/assessment-experience')
     }
   } else if (isMatch == false) {
     res.redirect('/application/search/select-qualification')
@@ -639,7 +639,7 @@ router.post('/select-subject-level', function (req, res) {
   let assessmentReferral = req.session.data.referrer
 
   if (assessmentReferral === "assessmentExpertise") {
-    res.redirect('/application/search/assessment-expertise')
+    res.redirect('/application/search/assessment-experience')
   } else {
     res.redirect('/application/search/select-expertise-type')
   }
@@ -707,9 +707,9 @@ router.post('/expertise-granular', function (req, res) {
   }
 
   if (isAssessment == true) {
-    res.redirect('/application/search/assessment-expertise')
+    res.redirect('/application/search/assessment-experience')
   } else if (isTeaching == true) {
-    res.redirect('/application/search/teaching-expertise')
+    res.redirect('/application/search/teaching-experience')
   } else {
     res.redirect('/application/search/review')
   }
@@ -726,22 +726,22 @@ router.post('/expertise-teaching-granular', function (req, res) {
 
   // if teaching, they need to say what types 
   if (isTeaching == true) {
-    res.redirect('/application/search/teaching-expertise')
+    res.redirect('/application/search/teaching-experience')
   } else {
     res.redirect('/application/search/review')
   }
 })
 
-// // After selecting subject type of expertise, go to the granular checkboxes for those selected
+// // After selecting subject type of experience, go to the granular checkboxes for those selected
 // router.post('/expertise-granular', function (req, res) {
 
 //   let expertiseType = req.session.data.expertiseType
 
 //   if (expertiseType === "Assessment") {
-//     res.redirect('/application/search/assessment-expertise')
+//     res.redirect('/application/search/assessment-experience')
 //   } else {
 //     if (expertiseType === "Teaching, lecturing or training") {
-//       res.redirect('/application/search/teaching-expertise') 
+//       res.redirect('/application/search/teaching-experience') 
 //     }
 //     else {
 //       res.redirect('/application/search/review')
@@ -755,7 +755,7 @@ router.post('/expertise-teaching-granular', function (req, res) {
 //   let expertiseType = req.session.data.expertiseType
 
 //   if (expertiseType === 'Teaching, lecturing or training') {
-//     res.redirect('/application/search/teaching-expertise')
+//     res.redirect('/application/search/teaching-experience')
 //   } else {
 //       res.redirect('/application/search/review')
 //   }
@@ -814,11 +814,11 @@ router.post('/identity-check-answer', function (req, res) {
   let identityCheck = req.session.data.identityCheckType
 
   if (identityCheck === 'A UK or Irish passport') {
-    res.redirect('/application/verify-your-identity/passport-upload')
+    res.redirect('/application/verify-identity/passport-upload')
   } else if (identityCheck === 'A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number') {
-    res.redirect('/application/verify-your-identity/birth-certificate-upload') 
+    res.redirect('/application/verify-identity/birth-certificate-upload') 
   } else {
-    res.redirect('/application/verify-your-identity/no-id')
+    res.redirect('/application/verify-identity/no-id')
   } 
 
   // case-insensitive string match
@@ -852,11 +852,11 @@ router.post('/identity-check-answer', function (req, res) {
   // }
 
   // if (isPassport == true) {
-  //   res.redirect('/application/verify-your-identity/passport-upload')
+  //   res.redirect('/application/verify-identity/passport-upload')
   // } else if (isCertificate == true) {
-  //   res.redirect('/application/verify-your-identity/birth-certificate-upload')
+  //   res.redirect('/application/verify-identity/birth-certificate-upload')
   // } else {
-  //   res.redirect('/application/verify-your-identity/no-id')
+  //   res.redirect('/application/verify-identity/no-id')
   // } 
   
 })

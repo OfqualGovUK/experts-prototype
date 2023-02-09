@@ -1,0 +1,21 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Do you want to search for a thing?" %}
+{% set backLink = "/application/verify-identity" %}
+{% set signedOut = "true" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">Are you sure you want to delete this document?</h1>
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Yes, delete this document",
+      classes: "govuk-button--warning",
+      href: "/application/verify-identity"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}
