@@ -4,7 +4,7 @@
 {% set formAction = "/expertise-granular" %}
 
 {% set captionHeading %}
-{# Coming from the assessment only route #}
+  {# Coming from the assessment only route #}
   {% if data.referrer == "assessmentExpertise" %}
     {# Coming from the assessment only, qual only route #}
     {% if data.assessmentQual == "Yes" %}
@@ -43,7 +43,7 @@
 
 
 {% set pageHeading %}
-  What type of expertise do you have for this subject?
+  What type of experience do you have for this subject or occupational area?
 {% endset %}
 
 
@@ -61,7 +61,7 @@
         }
       },
       hint: {
-        text: "Your expertise can be current or past experience"
+        text: "You will be asked to provide evidence for the type(s) of experience that you select from this list in the following section of the application. The evidence you provide can be from current or past experience."
       },
       items: [
         {

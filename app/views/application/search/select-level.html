@@ -5,7 +5,7 @@
   {% if data.referrer == "assessmentExpertise"%}
     What qualification levels can you advise on?
   {% else %}
-    What qualification levels can you advise on for this subject?
+    What qualification levels can you advise on for this subject or occupational area?
   {% endif %}
 {% endset %}
 
@@ -146,8 +146,8 @@
           divider: "or"
         },
         {
-          value: "My expertise in this subject is not related to a qualification level",
-          text: "My expertise in this subject is not related to a qualification level",
+          value: "My experience in this subject or occupational area is not related to a qualification level",
+          text: "My experience in this subject or occupational area is not related to a qualification level",
           behaviour: "exclusive"
         }
       ]
@@ -232,8 +232,8 @@
             divider: "or"
           },
           {
-            value: "My expertise in this subject is not related to a qualification level",
-            text: "My expertise in this subject is not related to a qualification level",
+            value: "My experience in this subject or occupational area is not related to a qualification level",
+            text: "My experience in this subject or occupational area is not related to a qualification level",
             behaviour: "exclusive"
           }
         ]
