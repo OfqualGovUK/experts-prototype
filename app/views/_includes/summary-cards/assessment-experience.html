@@ -1,0 +1,65 @@
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Provide details of your experience in designing and developing assessments"
+      },
+      value: { 
+        text: data.assessmentDesigningDetails or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your experience in designing and developing assessments",
+          href: "/application/assessment-experience/add-details-designing-developing"
+        }]
+      }
+    } if data.isDesigning,
+    {
+      key: {
+        text: "Provide details of your experience in making assessment judgements"
+      },
+      value: { 
+        text: data.assessmentJudgementDetails or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your experience in making assessment judgements",
+          href: "/application/assessment-experience/add-details-making-judgements"
+        }]
+      }
+    } if data.isJudgement,
+    {
+      key: {
+        text: "Provide details of your experience in standard setting and awarding qualifications"
+      },
+      value: { 
+        text: data.assessmentStandardSettingDetails or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your experience in standard setting and awarding qualifications",
+          href: "/application/assessment-experience/add-details-standard-setting"
+        }]
+      }
+    } if data.isStandardSetting,
+    {
+      key: {
+        text: "Provide details of your experience in evaluating assessments or assessment approaches"
+      },
+      value: { 
+        text: data.assessmentEvaluatingDetails or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your experience in evaluating assessments or assessment approaches",
+          href: "/application/assessment-experience/add-details-evaluating"
+        }]
+      }
+    } if data.isEvaluating
+  ]
+}) }}
