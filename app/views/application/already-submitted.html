@@ -1,0 +1,25 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Application already submitted" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+    <p class="govuk-body">You've come to a page for a subject matter specialist application that has already been submitted. The application cannot be edited after it is submitted. </p>
+
+    <p class="govuk-body">To continue you can:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>view a <a href="/dashboard?applicationStatus=Submitted">confirmation of your submitted application</a></li>
+        <li>contact us using the details in the footer</li>
+    </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
