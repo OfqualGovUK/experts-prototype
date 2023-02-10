@@ -70,12 +70,12 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Subjects that you can provide expertise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
         {% if data.adviseAreasCompleted == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Subjects that you can provide expertise on",
+            sectionName: "Subject or occupational areas",
             sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
@@ -83,16 +83,16 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
         {# If the Subjects of expertise is NOT complete #}
         {% if data.adviseAreasCompleted != "complete" %}
-          <p class="govuk-body">You must complete subjects that you can provide expertise on first.</p>
+          <p class="govuk-body">You must complete Subject or occupational areas first.</p>
         {# Otherwise Subjects of expertise IS complete #}
         {% else %}
           {% for type in data.expertiseType %}
             {% if type == "Assessment" %}
               {% if data.assessmentExpertiseCompleted == "complete" %}
-                <h2 class="govuk-heading-m">Assessment expertise</h2>
+                <h2 class="govuk-heading-m">Assessment experience</h2>
                 {% include "_includes/summary-cards/assessment-expertise.html" %}
                 {% else %}
                 {{ appInsetText ({
@@ -104,11 +104,11 @@
             {% endif %}
             {% if type == "Industry, occupational or professional" %}
               {% if data.industryExpertiseCompleted == "complete" %}
-                <h2 class="govuk-heading-m">Industry, occupational or professional expertise</h2>
+                <h2 class="govuk-heading-m">Industry, occupational or professional experience</h2>
                 {% include "_includes/summary-cards/industry-expertise.html" %}
                 {% else %}
                 {{ appInsetText ({
-                  sectionName: "Industry, occupational or professional expertise",
+                  sectionName: "Industry, occupational or professional experience",
                   sectionHref: "./industry-expertise",
                   classes: "app-inset-text--error" if data.showErrors == "true"
                 })}}
@@ -116,11 +116,11 @@
             {% endif %}
             {% if type == "Teaching, lecturing or training" %}
               {% if data.teachingExpertiseCompleted == "complete" %}
-                <h2 class="govuk-heading-m">Teaching, lecturing or training expertise</h2>
+                <h2 class="govuk-heading-m">Teaching, lecturing or training experience</h2>
                 {% include "_includes/summary-cards/teaching-expertise.html" %}
                 {% else %}
                 {{ appInsetText ({
-                  sectionName: "Teaching, lecturing or training expertise",
+                  sectionName: "Teaching, lecturing or training experience",
                   sectionHref: "/teaching-type-answer",
                   classes: "app-inset-text--error" if data.showErrors == "true"
                 })}}

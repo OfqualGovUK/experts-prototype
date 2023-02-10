@@ -6,11 +6,11 @@
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">Assessment expertise </span>
+  <span class="govuk-caption-l">Assessment experience </span>
   <h1 class="govuk-heading-l">Standard setting and awarding qualifications</h1>
 
   <p class="govuk-body">
-    Tell us about your expertise in the subject(s) you have selected:
+    Tell us about your experience in the subject(s) you have selected:
   </p>
 
   {% set subjectsHtml %}
@@ -22,13 +22,13 @@
           {% if data.referrer == "assessmentExpertise" %}
             {# Coming from the assessment only, qual only route #}
             {% if data.assessmentQual == "Yes" %}
-              {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
-                {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
+              {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
                   {% else %} 
                   {{ data.selectedLevelAssessmentOnly }}
                 {% endif %}
                 {% else %} 
-                {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
                   {{ data.selectedQualificationAssessmentOnly }}
                   {% else %} 
                   {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
@@ -41,13 +41,13 @@
                 {# If it is an "other" subject, so just show the subject #}
                 {% else %}
                   {{ data.resultName }}
-                  {% if data.selectedQualificationAssessmentOnly == "My expertise in this subject is not related to a qualification type" %}
-                    {% if data.selectedLevelAssessmentOnly == "My expertise in this subject is not related to a qualification level" %}
+                  {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                    {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
                       {% else %} 
                       ({{ data.selectedLevelAssessmentOnly }})
                     {% endif %}
                     {% else %} 
-                      {% if data.selecteselectedLevelAssessmentOnlydLevel == "My expertise in this subject is not related to a qualification level" %}
+                      {% if data.selecteselectedLevelAssessmentOnlydLevel == "My experience in this subject is not related to a qualification level" %}
                         ({{ data.selectedQualificationAssessmentOnly }})
                         {% else %} 
                         ({{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }})
@@ -63,13 +63,13 @@
               {# If it is an "other" subject, so just show the subject #}
               {% else %}
                 {{ data.resultName }}
-                {% if data.selectedQualification == "My expertise in this subject is not related to a qualification type" %}
-                  {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
+                {% if data.selectedQualification == "My experience in this subject is not related to a qualification type" %}
+                  {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
                     {% else %} 
                     ({{ data.selectedLevel }})
                   {% endif %}
                   {% else %} 
-                    {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
+                    {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
                       ({{ data.selectedQualification }})
                       {% else %} 
                       ({{ data.selectedQualification }} – {{ data.selectedLevel }})
@@ -84,7 +84,7 @@
   {{ subjectsHtml | safe }}
 
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about the following expertise:</p>
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following experience:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>reviewing marked scripts and/or statistical evidence to determine key grade boundaries for examinations or assessments</li>
       <li>setting grading and/or performance standards for qualification outcomes</li>

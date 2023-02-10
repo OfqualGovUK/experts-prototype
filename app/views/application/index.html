@@ -62,7 +62,7 @@
         <h2 class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Add your subject or occupational areas',
+            name: 'Add your subjects or occupational areas',
             href: 'application/search',
             taskName: data.adviseAreasCompleted
           })}}
@@ -70,7 +70,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
         <ul class="app-task-list">
           {# If the Subjects of expertise is complete #}
           {% if data.adviseAreasCompleted == "complete" %}
@@ -78,21 +78,21 @@
           {% for type in data.expertiseType %}   
             {% if type == "Assessment" %}
               {{ appTaskListItem ({
-                name: 'Assessment expertise',
+                name: 'Assessment experience',
                 href: '/assessment-type-answer',
                 taskName: data.assessmentExpertiseCompleted
               })}}
             {% endif %}
             {% if type == "Industry, occupational or professional" %}
               {{ appTaskListItem ({
-                name: 'Industry, occupational or professional expertise',
+                name: 'Industry, occupational or professional experience',
                 href: '/application/industry-expertise',
                 taskName: data.industryExpertiseCompleted
               })}}
             {% endif %}
             {% if type == "Teaching, lecturing or training" %}
               {{ appTaskListItem ({
-                name: 'Teaching, lecturing or training expertise',
+                name: 'Teaching, lecturing or training experience',
                 href: '/teaching-expertise',
                 taskName: data.teachingExpertiseCompleted
               })}}
@@ -108,12 +108,12 @@
               href: 'application/further-evidence',
               taskName: data.furtherEvidenceDetails
             })}}
-            {# Otherwise Subjects of expertise IS NOT complete #}
+            {# Otherwise Subjects of experience IS NOT complete #}
             {% else %}
             {{ appTaskListItem({
               name: 'Evidence',
               href: 'application/',
-              hint: "Complete subjects first",
+              hint: "Complete subject or occupational areas first",
               taskName: data.evidenceExpertiseCompleted
             })}}
           {% endif %}

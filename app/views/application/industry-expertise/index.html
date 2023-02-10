@@ -2,13 +2,13 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/application/industry-expertise/review" %}
-{% set pageHeading = "Provide details of your industry, occupational or professional expertise" %}
+{% set pageHeading = "Provide details of your industry, occupational or professional experience" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Industry, occupational or professional expertise</h1>
+  <h1 class="govuk-heading-l">Industry, occupational or professional experience</h1>
 
-  <p class="govuk-body">Tell us about your industry expertise by describing your experience, skills, achievements, activities and responsibilities in the subject(s) you have selected.</p>
+  <p class="govuk-body">Tell us about your industry experience by describing your experience, skills, achievements, activities and responsibilities in the subject(s) you have selected.</p>
 
   {% set subjectsHtml %}
     {# Build an list of the items selected #}
@@ -60,13 +60,13 @@
               {# If it is an "other" subject, so just show the subject #}
               {% else %}
                 {{ data.resultName }}
-                {% if data.selectedQualification == "My expertise in this subject is not related to a qualification type" %}
-                  {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
+                {% if data.selectedQualification == "My experience in this subject is not related to a qualification type" %}
+                  {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
                     {% else %} 
                     ({{ data.selectedLevel }})
                   {% endif %}
                   {% else %} 
-                    {% if data.selectedLevel == "My expertise in this subject is not related to a qualification level" %}
+                    {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
                       ({{ data.selectedQualification }})
                       {% else %} 
                       ({{ data.selectedQualification }} – {{ data.selectedLevel }})
@@ -81,7 +81,7 @@
   {{ subjectsHtml | safe }}
     
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about the following expertise:</p>
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following experience:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>your experience, skills and current industry, occupational or professional practices</li>
       <li>contribution to industry, occupational or professional standards</li>
