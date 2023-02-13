@@ -70,12 +70,12 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Subjects that you can provide expertise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
         {% if data.adviseAreasCompleted == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
           {{ appInsetText({
-            sectionName: "Subjects that you can provide expertise on",
+            sectionName: "Subject or occupational areas",
             sectionHref: "./search",
             classes: "app-inset-text--error" if data.showErrors == "true"
           })}}
@@ -83,16 +83,16 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of expertise</h2>
-        {# If the Subjects of experience is NOT complete #}
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
+        {# If the Subjects of expertise is NOT complete #}
         {% if data.adviseAreasCompleted != "complete" %}
-          <p class="govuk-body">You must complete subjects that you can provide expertise on first.</p>
-        {# Otherwise Subjects of experience IS complete #}
+          <p class="govuk-body">You must complete subject or occupational area(s) first.</p>
+        {# Otherwise Subjects of expertise IS complete #}
         {% else %}
           {% for type in data.expertiseType %}
             {% if type == "Assessment" %}
-              {% if data.assessmentExperienceCompleted == "complete" %}
-                <h2 class="govuk-heading-m">Assessment expertise</h2>
+              {% if data.assessmentExpertiseCompleted == "complete" %}
+                <h2 class="govuk-heading-m">Assessment experience</h2>
                 {% include "_includes/summary-cards/assessment-experience.html" %}
                 {% else %}
                 {{ appInsetText ({
