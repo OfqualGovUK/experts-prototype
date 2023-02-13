@@ -84,10 +84,10 @@
 
       <section class="govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
-        {# If the Subjects of expertise is NOT complete #}
+        {# If the Subjects is NOT complete #}
         {% if data.adviseAreasCompleted != "complete" %}
-          <p class="govuk-body">You must complete subject or occupational area(s) first.</p>
-        {# Otherwise Subjects of expertise IS complete #}
+          <p class="govuk-body">You must complete subject or occupational areas first.</p>
+        {# Otherwise Subjects IS complete #}
         {% else %}
           {% for type in data.expertiseType %}
             {% if type == "Assessment" %}
