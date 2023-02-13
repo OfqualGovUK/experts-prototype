@@ -1,0 +1,35 @@
+{% set industryHtml %}
+  {# Build an list of the items selected #}
+  <ul class="govuk-list">
+    {% for role in data.industryExpertiseType %}
+      <li>
+        {% if role == "An option that isn't listed" %}
+          {{ data.industryExpertiseTypeOther }}
+        {% else %} 
+          {{ role }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %} 
+
+{{ xGovukSummaryCard({
+  
+  rows: [
+    {
+      key: {
+        text: "Provide details of your industry, occupational or professional experience"
+      },
+      value: { 
+        text: data.industryExpertiseDetails or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Provide details of your industry, occupational or professional experience",
+          href: "/application/industry-experience"
+        }]
+      }
+    }
+  ]
+}) }}

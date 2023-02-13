@@ -105,8 +105,8 @@ var completedApplicationDataVTQ = {
   "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
 
-  // Evidence of expertise
-  // Assessment expertise
+  // Evidence of experience
+  // Assessment experience
   "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
   "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",

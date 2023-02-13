@@ -1,0 +1,125 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./review" %}
+{% set pageHeading = "Provide details of your experience in evaluating assessments or assessment approaches" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Assessment experience </span>
+  <h1 class="govuk-heading-l">Evaluating assessments or assessment approaches</h1>
+
+  <p class="govuk-body">
+    Tell us about your experience in the subject or occupational area(s) you have selected:
+  </p>
+
+  {% set subjectsHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list govuk-list--bullet">
+      {# loops through and gets all the checked items #}
+        <li>
+          {# Coming from the assessment only route #}
+          {% if data.referrer == "assessmentExpertise" %}
+            {# Coming from the assessment only, qual only route #}
+            {% if data.assessmentQual == "Yes" %}
+              {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                  {% else %} 
+                  {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+                {% else %} 
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                  {{ data.selectedQualificationAssessmentOnly }}
+                  {% else %} 
+                  {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+              {% endif %}
+              {# Coming from the assessment only, subject route #}
+              {% else %}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+                {# If it is an "other" subject, so just show the subject #}
+                {% else %}
+                  {{ data.resultName }}
+                  {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                    {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                      {% else %} 
+                      ({{ data.selectedLevelAssessmentOnly }})
+                    {% endif %}
+                    {% else %} 
+                      {% if data.selecteselectedLevelAssessmentOnlydLevel == "My experience in this subject is not related to a qualification level" %}
+                        ({{ data.selectedQualificationAssessmentOnly }})
+                        {% else %} 
+                        ({{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }})
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+            {# Otherwise they must be coming from the subject search #}
+            {% else %}
+              {# If its not an "other" subject, show the subject and qual type/level #}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+              {# If it is an "other" subject, so just show the subject #}
+              {% else %}
+                {{ data.resultName }}
+                {% if data.selectedQualification == "My experience in this subject is not related to a qualification type" %}
+                  {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
+                    {% else %} 
+                    ({{ data.selectedLevel }})
+                  {% endif %}
+                  {% else %} 
+                    {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
+                      ({{ data.selectedQualification }})
+                      {% else %} 
+                      ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+          {% endif %}
+        </li>
+    </ul>
+  {% endset %}
+
+  {{ subjectsHtml | safe }}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Reviewing the performance of assessments</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>considering the performance of individual questions / assessment tasks and/or mark schemes</li>
+      <li>keeping the validity and reliability of the qualification under review as part of the qualification lifecycle</li>
+    </ul>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Experience of evaluating the effectiveness of assessment approaches</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>evaluating the effectiveness of specific assessment design and approaches</li>
+    </ul>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Research and/or work on assessment policy and practices</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>carrying out research into assessment</li>
+      <li>developing assessment policy</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.assessmentEvaluatingDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

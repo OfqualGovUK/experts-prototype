@@ -1,0 +1,95 @@
+{# Set a flag to test of the selected subject has been deleted, this comes fomr the hidden input on the delete screen #}
+{% set deletedSubject = data.delete %}
+
+{# TODO: Get the date arrays working #}
+{# {% set startDateArray = data.roleStartDate | toDateArray %} #}
+{{ data.roleStartDate.month | log }}
+
+  {{ xGovukSummaryCard({
+    classes: "govuk-!-margin-bottom-9",
+    titleText: data.jobTitle,
+    actions: {
+      items: [{
+        text: "Delete role ",
+        visuallyHiddenText: data.jobTitle,
+        href: "/application/work-history/delete?delete=" + data.jobTitle
+      }]
+    },
+    rows: [
+      {
+        key: {
+          text: "Name of employer"
+        },
+        value: { 
+          text: data.employerName or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "employer",
+            href: "/application/work-history/job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Job title"
+        },
+        value: { 
+          text: data.jobTitle or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "role",
+            href: "/application/work-history/job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Start date"
+        },
+        value: { 
+          text: "June 2005"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Start date",
+            href: "/application/work-history/job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "Are you still working in this role?"
+        },
+        value: { 
+          text: data.roleEnded or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "End date",
+            href: "/application/work-history/job-details"
+          }]
+        }
+      },
+      {
+        key: {
+          text: "End date"
+        },
+        value: { 
+          text: "March 2015"
+        },
+        actions: {
+          items: [{
+            text: "Change",
+            visuallyHiddenText: "End date",
+            href: "/application/work-history/job-details"
+          }]
+        }
+      } if data.roleEnded == "No"
+    ]
+  }) }}

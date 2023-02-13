@@ -12,7 +12,7 @@
         items: [{
           text: "Change",
           visuallyHiddenText: " relevant to your application?",
-          href: "./../education"
+          href: "./../qualifications"
         }]
       }
     }]
@@ -28,7 +28,7 @@
       items: [{
         text: "Delete qualification ",
         visuallyHiddenText: data.qualName,
-        href: "/application/education/delete?delete=" + data.qualName
+        href: "/application/qualifications/delete?delete=" + data.qualName
       }]
     },
     rows: [
@@ -43,7 +43,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "college, school, training provider, university or other organisation",
-            href: "/application/education/add-qualifcation"
+            href: "/application/qualifications/add-qualifcation"
           }]
         }
       },
@@ -58,7 +58,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "awarding organisation",
-            href: "/application/education/add-qualifcation"
+            href: "/application/qualifications/add-qualifcation"
           }]
         }
       },
@@ -73,7 +73,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "qualification, course or subject name",
-            href: "/application/education/add-qualifcation"
+            href: "/application/qualifications/add-qualifcation"
           }]
         }
       },
@@ -88,7 +88,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "grade",
-            href: "/application/education/add-qualifcation"
+            href: "/application/qualifications/add-qualifcation"
           }]
         }
       },
@@ -103,7 +103,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "year qualification was awarded",
-            href: "/application/education/add-qualifcation"
+            href: "/application/qualifications/add-qualifcation"
           }]
         }
       },
@@ -118,7 +118,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "Are you able to upload a copy of a certificate for this qualification?",
-            href: "/application/education/upload-available"
+            href: "/application/qualifications/upload-available"
           }]
         }
       },
@@ -133,7 +133,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "Provide a reason for not being able to upload a copy of a certificate for this qualification",
-            href: "/application/education/upload-available"
+            href: "/application/qualifications/upload-available"
           }]
         }
       } if data.qualUploadAvailable == "No",
@@ -148,7 +148,7 @@
           items: [{
             text: "Change ",
             visuallyHiddenText: "Uploaded file",
-            href: "/application/education/upload-qualification"
+            href: "/application/qualifications/upload-qualification"
           }]
         }
       } if data.qualUploadAvailable == "Yes"

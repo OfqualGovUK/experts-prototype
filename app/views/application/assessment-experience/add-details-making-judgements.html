@@ -1,0 +1,124 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/assessment-judgement" %}
+{% set pageHeading = "Provide details of your experience in making assessment judgements" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Assessment experience </span>
+  <h1 class="govuk-heading-l">Making assessment judgements</h1>
+
+  <p class="govuk-body">
+    Tell us about your experience in the subject or occupational area(s) you have selected:
+  </p>
+
+  {% set subjectsHtml %}
+    {# Build an list of the items selected #}
+    <ul class="govuk-list govuk-list--bullet">
+      {# loops through and gets all the checked items #}
+        <li>
+          {# Coming from the assessment only route #}
+          {% if data.referrer == "assessmentExpertise" %}
+            {# Coming from the assessment only, qual only route #}
+            {% if data.assessmentQual == "Yes" %}
+              {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                  {% else %} 
+                  {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+                {% else %} 
+                {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                  {{ data.selectedQualificationAssessmentOnly }}
+                  {% else %} 
+                  {{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }}
+                {% endif %}
+              {% endif %}
+              {# Coming from the assessment only, subject route #}
+              {% else %}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+                {# If it is an "other" subject, so just show the subject #}
+                {% else %}
+                  {{ data.resultName }}
+                  {% if data.selectedQualificationAssessmentOnly == "My experience in this subject is not related to a qualification type" %}
+                    {% if data.selectedLevelAssessmentOnly == "My experience in this subject is not related to a qualification level" %}
+                      {% else %} 
+                      ({{ data.selectedLevelAssessmentOnly }})
+                    {% endif %}
+                    {% else %} 
+                      {% if data.selecteselectedLevelAssessmentOnlydLevel == "My experience in this subject is not related to a qualification level" %}
+                        ({{ data.selectedQualificationAssessmentOnly }})
+                        {% else %} 
+                        ({{ data.selectedQualificationAssessmentOnly }} – {{ data.selectedLevelAssessmentOnly }})
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+            {# Otherwise they must be coming from the subject search #}
+            {% else %}
+              {# If its not an "other" subject, show the subject and qual type/level #}
+              {% if data.selectedSubject and data.resultQualType == ("End-point assessment" or "T Level") %}
+                {{ data.selectedSubject }}
+              {# If it is an "other" subject, so just show the subject #}
+              {% else %}
+                {{ data.resultName }}
+                {% if data.selectedQualification == "My experience in this subject is not related to a qualification type" %}
+                  {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
+                    {% else %} 
+                    ({{ data.selectedLevel }})
+                  {% endif %}
+                  {% else %} 
+                    {% if data.selectedLevel == "My experience in this subject is not related to a qualification level" %}
+                      ({{ data.selectedQualification }})
+                      {% else %} 
+                      ({{ data.selectedQualification }} – {{ data.selectedLevel }})
+                    {% endif %}
+                  {% endif %}
+              {% endif %}
+          {% endif %}
+        </li>
+    </ul>
+  {% endset %}
+
+  {{ subjectsHtml | safe }}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Marking assessments</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>marking exam papers or assessment tasks</li>
+      <li>making judgements about candidate's performance against assessment criteria</li>
+    </ul>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Standardising the marking of others</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>leading a team of of markers/ examiners/ assessors to ensure marking criteria will be applied accurately and consistently</li>
+    </ul>
+    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Moderating the marking of others</span></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>checking and verifying the marking of others, as a moderator within a school, college, for an awarding organisation or as an internal or external verifier</li>
+    </ul>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.assessmentJudgementDetails")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/application">Cancel</a>
+  </div>
+
+{% endblock %}

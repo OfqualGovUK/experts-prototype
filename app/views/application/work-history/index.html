@@ -1,0 +1,34 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Add your work history" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">
+        You will be asked to provide the employer name, job title, start and end dates of your work history. 
+      </p>
+      <p class="govuk-body">
+        If you're self employed, or have had multiple job titles under one employer, add a new role for each job title. If you have worked for Ofqual outside of the subject matter specialist service, or you have worked for other regulatory bodies, include these roles in this section.
+      </p>
+      <p class="govuk-body">
+        You will only need to add roles that are relevant to your application to be a subject matter specialist.
+      </p>
+      
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Add a role",
+          href: "./work-history/job-details"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,10 +1,11 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set formAction = "/expertise-granular" %}
+{% set formAction = "./review" %}
+{% set pageHeading = "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?" %}
 
 {% set captionHeading %}
-  {# Coming from the assessment only route #}
+{# Coming from the assessment only route #}
   {% if data.referrer == "assessmentExpertise" %}
     {# Coming from the assessment only, qual only route #}
     {% if data.assessmentQual == "Yes" %}
@@ -41,50 +42,59 @@
   {% endif %}
 {% endset %}
 
-
-{% set pageHeading %}
-  What type(s) of experience do you have for this subject or occupational area?
-{% endset %}
-
-
 {% block formContent %}
 
-  <span class="govuk-caption-l">{{ captionHeading }}</span>
+<span class="govuk-caption-l">{{ captionHeading }}</span>
+  
+  {# {% set natureOtherHtml %}
+    {{ govukTextarea({
+      _classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Provide details (optional)",
+        classes: "govuk-label--s"
+      }
+    } | decorateAttributes(data, "data.teachingExpertiseTypeOther")) }}
+  {% endset -%} #}
 
-  {# They can only come from the subject flow #}
-    {{ govukCheckboxes({
-      fieldset: {
-        legend: {
-          text: pageHeading,
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: "Select all that apply"
+    },
+    items: [
+      {
+        text: "Teaching or lecturing",
+        hint: {
+          text: "Experience in schools, colleges, further education or higher education"
         }
       },
-      hint: {
-        text: "You will be asked to provide evidence for the type(s) of experience that you select from this list in the following section of the application. The evidence you provide can be from current or past experience."
-      },
-      items: [
-        {
-          text: "Assessment",
-          hint: {
-            text: "Designing and developing, marking, standardising, moderating and researching assessment policy and practice in this subject"
-          }
-        },
-        {
-          text: "Industry, occupational or professional",
-          hint: {
-            text: "Experience, specific knowledge and skills, understanding of standards, technologies and procedures"
-          }
-        },
-        {
-          text: "Teaching, lecturing or training",
-          hint: {
-            text: "Developing classroom materials, training others, knowledge of specifications and qualification standards in this subject, management of curriculum areas and organisation"
-          }
+      {
+        text: "Training ",
+        hint: {
+          text: "Training and observing learners in the workplace"
         }
-      ]
-    } | decorateAttributes(data, "data.expertiseType")) }}
-
+      },
+      {
+        text: "Educational management",
+        hint: {
+          text: "Managing curriculum in schools, college or university, responsible for subject departments or faculties, organisation responsibility"
+        }
+      },
+      {
+        text: "Teacher training",
+        hint: {
+          text: "Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers"
+        }
+      }
+    ]
+  } | decorateAttributes(data, "data.teachingExpertiseType")) }}
+  
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Save and continue"
