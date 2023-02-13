@@ -1,0 +1,66 @@
+
+  {{ xGovukSummaryCard({
+    rows: [ {
+      key: {
+        text: "Which document(s) can you provide to verify your identity?"
+      },
+      value: { 
+        text: data.identityCheckType or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Which document(s) can you provide to verify your identity?",
+          href: "/application/verify-identity"
+        }]
+      }
+    },
+    {
+      key: {
+        text: "Upload your passport"
+      },
+      value: {
+        text: data.passportUpload or "Not provided"
+      },
+      actions: {
+        items: [
+          {
+            html: "Change ",
+            visuallyHiddenText: "uploaded file",
+            href: "/application/verify-identity/passport-upload"
+          }
+        ]
+      }      
+    } if data.identityCheckType == "A UK or Irish passport",
+    {
+      key: {
+        text: "Upload your birth or adoption certificate"
+      },
+      value: { 
+        text: data.certificateUpload or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Upload your birth or adoption certificate",
+          href: "/application/verify-identity/birth-certificate-upload"
+        }]
+      }
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number",
+    {
+      key: {
+        text: "Upload a national insurance letter"
+      },
+      value: { 
+        text: data.governmentUpload or "Not provided"
+      },
+      actions: {
+        items: [{
+          text: "Change ",
+          visuallyHiddenText: "Upload a national insurance letter",
+          href: "/application/verify-identity/national-insurance-upload"
+        }]
+      }
+    } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number"
+    ]   
+  }) }}
