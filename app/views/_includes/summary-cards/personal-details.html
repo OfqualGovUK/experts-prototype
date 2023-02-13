@@ -23,7 +23,7 @@
           visuallyHiddenText: "full name",
           href: "/application/personal-details"
         }]
-      }
+      } if pageType != "Account"
     }, 
     {
       key: {
@@ -38,7 +38,7 @@
           visuallyHiddenText: "Telephone number",
           href: "/application/personal-details"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -53,7 +53,7 @@
           visuallyHiddenText: "email address",
           href: "/application/personal-details"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -68,7 +68,7 @@
           visuallyHiddenText: "Country",
           href: "/application/personal-details/where-do-you-live"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -83,7 +83,7 @@
           visuallyHiddenText: "address line 1",
           href: "/application/personal-details/contact-address"
         }]
-      }
+      } if pageType != "Account"
     }, 
     {
       key: {
@@ -98,7 +98,7 @@
           visuallyHiddenText: "address line 2",
           href: "/application/personal-details/contact-address"
         }]
-      }
+      } if pageType != "Account"
     }, 
     {
       key: {
@@ -113,7 +113,7 @@
           visuallyHiddenText: "town or city",
           href: "/application/personal-details/contact-address"
         }]
-      }
+      } if pageType != "Account"
     }, 
     {
       key: {
@@ -128,7 +128,7 @@
           visuallyHiddenText: "region, state or province",
           href: "/application/personal-details/contact-address"
         }]
-      }
+      } if pageType != "Account"
     } if data.whereDoYouLive == "Outside the UK",
     {
       key: {
@@ -143,6 +143,6 @@
           visuallyHiddenText: "county",
           href: "/application/personal-details/contact-address"
         }]
-      }
+      } if pageType != "Account"
     }]
   }) }}

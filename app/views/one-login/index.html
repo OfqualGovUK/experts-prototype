@@ -1,0 +1,42 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set serviceName = "GOV.UK One Login" %}
+{% set backLink = "false" %}
+{% set formAction = "one-login/create-account" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Create a GOV.UK One Login account or sign in</h1>
+
+  <p class="govuk-body">You'll need:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      an email address
+    </li>
+    <li>
+      a way to get security codes - this can be a UK mobile phone number or an authenticator app
+    </li>
+    
+  </ul>
+
+  {{ govukButton({
+    text: "Create a GOV.UK One Login account"
+  }) }}
+
+  <p class="govuk-body">If you already have a GOV.UK One Login account you can <a href="/one-login/sign-in" class="govuk-link">sign in</a>.</p>
+
+  {% set govukDetailsHtml %}        
+    <p>GOV.UK One Login accounts are new. At the moment you can only use your GOV.UK One Login account with a few services.</p> 
+    <p>GOV.UK One Login accounts are currently separate from other government accounts (for example Government Gateway or Universal Credit.)</p> 
+    <p>In the future, you'll be able to use your GOV.UK One Login account to sign in to most services on GOV.UK</p> 
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "About GOV.UK accounts",
+    html: govukDetailsHtml
+  }) }}
+
+{% endblock %}

@@ -14,7 +14,7 @@
         visuallyHiddenText: data.jobTitle,
         href: "/application/work-history/delete?delete=" + data.jobTitle
       }]
-    },
+    } if pageType != "Account",
     rows: [
       {
         key: {
@@ -29,7 +29,7 @@
             visuallyHiddenText: "employer",
             href: "/application/work-history/job-details"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -44,7 +44,7 @@
             visuallyHiddenText: "role",
             href: "/application/work-history/job-details"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -59,7 +59,7 @@
             visuallyHiddenText: "Start date",
             href: "/application/work-history/job-details"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -74,7 +74,7 @@
             visuallyHiddenText: "End date",
             href: "/application/work-history/job-details"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -89,7 +89,7 @@
             visuallyHiddenText: "End date",
             href: "/application/work-history/job-details"
           }]
-        }
+        } if pageType != "Account"
       } if data.roleEnded == "No"
     ]
   }) }}

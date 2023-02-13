@@ -1,42 +1,72 @@
+{% extends "_templates/page-template.html" %}
 
-{% extends "_templates/form-template.html" %}
-
-{% set serviceName = "GOV.UK One Login" %}
+{% set pageHeading = "Subject matter specialist account" %}
 {% set backLink = "false" %}
-{% set formAction = "account/create-account" %}
-{% set signedOut = "true" %}
+{% set primaryNavActive = "Account" %}
+{% set pageHeading = "Subject matter specialist account" %}
+{% set pageType = "Account" %}
 
-{% block formContent %}
+{# {% if data.applicationStatus == "In review" %}
+  {% set pageHeading = "My application" %}
+{% endif %}
 
-  <h1 class="govuk-heading-l">Create a GOV.UK One Login account or sign in</h1>
+{% if data.applicationStatus == "Application accepted" %}
+  {% set pageHeading = "My account" %}
+  {% set pageType = "Account" %}
+{% endif %} #}
 
-  <p class="govuk-body">You'll need:</p>
+{% block content %}
 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-      an email address
-    </li>
-    <li>
-      a way to get security codes - this can be a UK mobile phone number or an authenticator app
-    </li>
+  <div class="govuk-grid-row">
+  {# Show the success banner if the application has just been submitted #}
+  {% if data.applicationStatus == "Submitted" %}
+    <div class="govuk-grid-column-full">
+      <div class="govuk-width-container">
+        <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Application submitted
+                </h1>
+                <!-- <div class="govuk-panel__body">
+                  Your reference number<br><strong>HDJ2123F</strong>
+                </div> -->
+              </div>
+              <p class="govuk-body">We have sent a confirmation email to <strong>{{ data.email or "name@email.com" }}</strong>.</p>
+              <h2 class="govuk-heading-m">What happens next</h2>
+              <p class="govuk-body">
+                Your application has been received and will now be reviewed.
+              </p>
+              <p class="govuk-body">
+                We will contact you either to confirm if you have been accepted or rejected, or to ask for more information. You should hear the outcome of your application within 60 days.
+              </p>
+              <p class="govuk-body">
+                <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  {% endif %}
     
-  </ul>
+  {% if data.applicationStatus == "In review" or data.applicationStatus == "Application accepted" %}
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">Content to be designed.</p>
+    </div>
+  {% endif %}
 
-  {{ govukButton({
-    text: "Create a GOV.UK One Login account"
-  }) }}
-
-  <p class="govuk-body">If you already have a GOV.UK One Login account you can <a href="/account/sign-in" class="govuk-link">sign in</a>.</p>
-
-  {% set govukDetailsHtml %}        
-    <p>GOV.UK One Login accounts are new. At the moment you can only use your GOV.UK One Login account with a few services.</p> 
-    <p>GOV.UK One Login accounts are currently separate from other government accounts (for example Government Gateway or Universal Credit.)</p> 
-    <p>In the future, you'll be able to use your GOV.UK One Login account to sign in to most services on GOV.UK</p> 
-  {% endset %}
-
-  {{ govukDetails({
-    summaryText: "About GOV.UK accounts",
-    html: govukDetailsHtml
-  }) }}
+  {% if data.applicationStatus == "In review" or data.applicationStatus == "Application accepted" %}
+    <div class="govuk-grid-column-full">   
+      <section class="govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Status</h2>
+        {% include "_includes/summary-cards/application-status.html" %}
+      </section>
+      {# Include all the application sections #}
+      {% include "_includes/shared/application-sections.html" %}
+    <div>
+  {% endif %}
 
 {% endblock %}

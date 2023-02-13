@@ -14,7 +14,7 @@
           visuallyHiddenText: " relevant to your application?",
           href: "./../qualifications"
         }]
-      }
+      } if pageType != "Account"
     }]
 }) }}
 
@@ -30,7 +30,7 @@
         visuallyHiddenText: data.qualName,
         href: "/application/qualifications/delete?delete=" + data.qualName
       }]
-    },
+    } if pageType != "Account",
     rows: [
       {
         key: {
@@ -45,7 +45,7 @@
             visuallyHiddenText: "college, school, training provider, university or other organisation",
             href: "/application/qualifications/add-qualifcation"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -60,7 +60,7 @@
             visuallyHiddenText: "awarding organisation",
             href: "/application/qualifications/add-qualifcation"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -75,7 +75,7 @@
             visuallyHiddenText: "qualification, course or subject name",
             href: "/application/qualifications/add-qualifcation"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -90,7 +90,7 @@
             visuallyHiddenText: "grade",
             href: "/application/qualifications/add-qualifcation"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -105,7 +105,7 @@
             visuallyHiddenText: "year qualification was awarded",
             href: "/application/qualifications/add-qualifcation"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -120,7 +120,7 @@
             visuallyHiddenText: "Are you able to upload a copy of a certificate for this qualification?",
             href: "/application/qualifications/upload-available"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -135,7 +135,7 @@
             visuallyHiddenText: "Provide a reason for not being able to upload a copy of a certificate for this qualification",
             href: "/application/qualifications/upload-available"
           }]
-        }
+        } if pageType != "Account"
       } if data.qualUploadAvailable == "No",
       {
         key: {
@@ -150,7 +150,7 @@
             visuallyHiddenText: "Uploaded file",
             href: "/application/qualifications/upload-qualification"
           }]
-        }
+        } if pageType != "Account"
       } if data.qualUploadAvailable == "Yes"
     ]
   }) }}

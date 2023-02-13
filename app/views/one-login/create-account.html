@@ -2,12 +2,12 @@
 {% extends "_templates/form-template.html" %}
 
 {% set serviceName = "GOV.UK One Login" %}
-{% set formAction = "/account/enter-password" %}
+{% set formAction = "/one-login/check-your-emails" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Enter your email address to sign in to your GOV.UK account</h1>
+  <h1 class="govuk-heading-l">Enter your email address</h1>
 
   {{ govukInput({
     label: { 

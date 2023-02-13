@@ -155,7 +155,7 @@
             visuallyHiddenText: "Does your assessment experience relate to a subject?",
             href: "/application/search/assessment-subject"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -170,7 +170,7 @@
             visuallyHiddenText: "Does your assessment experience relate to specific qualifications?",
             href: "/application/search/assessment-qualifications"
           }]
-        }
+        } if pageType != "Account"
       } if data.assessmentSubject == "No",
       {
         key: {
@@ -185,7 +185,7 @@
             visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
             href: "/application/search/assessment-experience"
           }]
-        }
+        } if pageType != "Account"
       } if data.assessmentQual == "No"
     ]
   }) }}
@@ -202,7 +202,7 @@
         visuallyHiddenText: data.selectedSubject,
         href: "/application/search/delete?delete=" + data.selectedSubject
       }]
-    },
+    } if pageType != "Account",
     rows: [
       {
         key: {
@@ -217,7 +217,7 @@
             visuallyHiddenText: "Subjects, apprenticeship or T Level",
             href: "/application/search/subject-search"
           }]
-        }
+        } if pageType != "Account"
       } if data.assessmentSubject == "Yes",
       {
         key: {
@@ -232,7 +232,7 @@
             visuallyHiddenText: "Qualification type",
             href: "/application/search/select-qualification?referrer=assessmentQualOnly"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -247,7 +247,7 @@
             visuallyHiddenText: "Qualification level",
             href: "/application/search/select-level?referrer=assessmentQualOnly"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -262,7 +262,7 @@
             visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
             href: "/application/search/assessment-experience"
           }]
-        }
+        } if pageType != "Account"
       }
     ]
   }) }}
@@ -278,7 +278,7 @@
       visuallyHiddenText: data.selectedSubject,
       href: "/application/search/delete?delete=" + data.selectedSubject
     }]
-  },
+  } if pageType != "Account",
   rows: [
     {
       key: {
@@ -293,7 +293,7 @@
           visuallyHiddenText: "Subjects, apprenticeship or T Level",
           href: "/application/search/subject-search"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -308,7 +308,7 @@
           visuallyHiddenText: "Qualification type",
           href: "/application/search/select-qualification"
         }]
-      } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
+      } if (pageType != "Account" and data.resultQualType != "End-point assessment")
     },
     {
       key: {
@@ -323,7 +323,7 @@
           visuallyHiddenText: "Qualification level",
           href: "/application/search/select-level"
         }]
-      } if (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment")
+      } if (pageType != "Account" and data.resultQualType != "End-point assessment")
     },
     {
       key: {
@@ -339,7 +339,7 @@
           visuallyHiddenText: "What type(s) of experience do you have for this subject or occupational area?",
           href: "/application/search/select-expertise-type"
         }]
-      } 
+      } if pageType != "Account"
     },
     {
       key: {
@@ -354,7 +354,7 @@
           visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
           href: "/application/search/assessment-experience"
         }]
-      }
+      } if pageType != "Account"
     } if data.isAssessment,
     {
       key: {
@@ -369,7 +369,7 @@
           visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?",
           href: "/application/search/teaching-experience"
         }]
-      }
+      } if pageType != "Account"
     } if data.isTeaching
   ]
 }) }}

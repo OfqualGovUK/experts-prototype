@@ -13,7 +13,7 @@
           visuallyHiddenText: "Which document(s) can you provide to verify your identity?",
           href: "/application/verify-identity"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -30,7 +30,7 @@
             href: "/application/verify-identity/passport-upload"
           }
         ]
-      }      
+      } if pageType != "Account"  
     } if data.identityCheckType == "A UK or Irish passport",
     {
       key: {
@@ -45,7 +45,7 @@
           visuallyHiddenText: "Upload your birth or adoption certificate",
           href: "/application/verify-identity/birth-certificate-upload"
         }]
-      }
+      } if pageType != "Account"
     } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number",
     {
       key: {
@@ -60,7 +60,7 @@
           visuallyHiddenText: "Upload a national insurance letter",
           href: "/application/verify-identity/national-insurance-upload"
         }]
-      }
+      } if pageType != "Account"
     } if data.identityCheckType == "A UK or Irish birth or adoption certificate and a letter from a government agency or employer that includes your full name and national insurance number"
     ]   
   }) }}

@@ -28,11 +28,31 @@
 
 .govuk-header__link__primary-nav {
     color: $govuk-brand-colour !important;
-    text-decoration: underline;
+/*     text-decoration: underline;
     text-decoration-thickness: max(1px, 0.0625rem);
-    text-underline-offset: 0.1em; 
+    text-underline-offset: 0.1em;  */
 }
 
+.govuk-header__link__primary-nav:hover {
+    text-underline-offset: 0.4em;
+}
+
+.govuk-header__link__primary-nav[aria-current] {
+    position: relative;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.govuk-header__link__primary-nav[aria-current]:before {
+    background-color: #1d70b8;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+}
 .govuk-header__navigation-item__primary-nav {
     border-bottom: 1px solid $govuk-border-colour;
 }

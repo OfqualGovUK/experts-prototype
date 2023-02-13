@@ -342,6 +342,7 @@ var completedApplicationDataAssessmentSpecialist = {
 
   // Subjects
   // Assessment only route - doesn't select a subject 
+  "referrer": "assessmentExpertise",
   "assessmentSubject": "No",
   "assessmentQual": "No",
   "isAssessment": "true",  
