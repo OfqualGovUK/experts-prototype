@@ -1,4 +1,4 @@
-# Apply to be a subject matter expert (prototype)
+# Apply to be a subject matter specialist (prototype)
 
 This prototype is based on the [GOV.UK prototype kit](https://github.com/alphagov/govuk-prototype-kit)
 
