@@ -144,7 +144,7 @@
     rows: [
       {
         key: {
-          text: "Does your assessment expertise relate to a subject?"
+          text: "Does your assessment experience relate to a subject?"
         },
         value: { 
           html: assessmentSubjectHtml
@@ -152,14 +152,14 @@
         actions: {
           items: [{
             text: "Change ",
-            visuallyHiddenText: "Does your assessment expertise relate to a subject?",
+            visuallyHiddenText: "Does your assessment experience relate to a subject?",
             href: "/application/search/assessment-subject"
           }]
         }
       },
       {
         key: {
-          text: "Does your assessment expertise relate to specific qualifications?"
+          text: "Does your assessment experience relate to specific qualifications?"
         },
         value: { 
           html: assessmentQualHtml 
@@ -167,14 +167,14 @@
         actions: {
           items: [{
             text: "Change ",
-            visuallyHiddenText: "Does your assessment expertise relate to specific qualifications?",
+            visuallyHiddenText: "Does your assessment experience relate to specific qualifications?",
             href: "/application/search/assessment-qualifications"
           }]
         }
       } if data.assessmentSubject == "No",
       {
         key: {
-          text: "Which assessment activities or responsibilities have you completed in this subject?"
+          text: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?"
         },
         value: { 
           html: assessmentExpertiseHtml
@@ -182,7 +182,7 @@
         actions: {
           items: [{
             text: "Change ",
-            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+            visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
             href: "/application/search/assessment-experience"
           }]
         }
@@ -251,7 +251,7 @@
       },
       {
         key: {
-          text: "Which assessment activities or responsibilities have you completed in this subject?"
+          text: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?"
         },
         value: { 
           html: assessmentExpertiseHtml
@@ -259,7 +259,7 @@
         actions: {
           items: [{
             text: "Change ",
-            visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+            visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
             href: "/application/search/assessment-experience"
           }]
         }
@@ -327,7 +327,8 @@
     },
     {
       key: {
-        text: "What best describes your type of expertise for this subject?"
+        text: "What type(s) of experience do you have for this subject or occupational area?
+        "
       },
       value: { 
         html: expertiseTypeHtml
@@ -335,14 +336,14 @@
       actions: {
         items: [{
           text: "Change ",
-          visuallyHiddenText: "what best describes your type of expertise for this subject?",
+          visuallyHiddenText: "What type(s) of experience do you have for this subject or occupational area?",
           href: "/application/search/select-expertise-type"
         }]
       } 
     },
     {
       key: {
-        text: "Which assessment activities or responsibilities have you completed in this subject?"
+        text: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?"
       },
       value: { 
         html: assessmentExpertiseHtml
@@ -350,14 +351,14 @@
       actions: {
         items: [{
           text: "Change ",
-          visuallyHiddenText: "Which assessment activities or responsibilities have you completed in this subject?",
+          visuallyHiddenText: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?",
           href: "/application/search/assessment-experience"
         }]
       }
     } if data.isAssessment,
     {
       key: {
-        text: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?"
+        text: "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?"
       },
       value: { 
         html: teachingExpertiseHtml
@@ -365,7 +366,7 @@
       actions: {
         items: [{
           text: "Change ",
-          visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities have you completed in this subject?",
+          visuallyHiddenText: "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?",
           href: "/application/search/teaching-experience"
         }]
       }

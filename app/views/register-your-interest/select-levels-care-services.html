@@ -11,7 +11,7 @@
   <span class="govuk-caption-l">{{ data.route }}</span>  
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">List the qualification levels you can provide expertise on for each area of focus. <a href="https://www.gov.uk/what-different-qualification-levels-mean/list-of-qualification-levels" class="govuk-link">Learn more about what qualification levels mean</a>.</p>
+  <p class="govuk-body">List the qualification levels you can provide experience on for each area of focus. <a href="https://www.gov.uk/what-different-qualification-levels-mean/list-of-qualification-levels" class="govuk-link">Learn more about what qualification levels mean</a>.</p>
 
   {% set otherHtml %}
     {{ govukInput({
@@ -26,7 +26,7 @@
   {{ govukCheckboxes({
     fieldset: {
       legend: {
-        html: "Which qualification levels for Care services can you provide expertise in?",
+        html: "Which qualification levels for Care services can you provide experience in?",
         classes: "govuk-fieldset__legend--m",
         isPgeHeading: false
       }
@@ -95,8 +95,8 @@
         divider: "or"
       },
       {
-        value: "My expertise in this subject is not related to a qualification level",
-        text: "My expertise in this subject is not related to a qualification level"
+        value: "My experience in this subject or occupational area is not related to a qualification level",
+        text: "My experience in this subject or occupational area is not related to a qualification level"
       }
     ]
   } | decorateAttributes(data, "data.level.careServices")) }}

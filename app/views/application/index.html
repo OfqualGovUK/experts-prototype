@@ -59,10 +59,10 @@
       </section>      
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Subjects that you can provide expertise on</h2>
+        <h2 class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
         <ul class="app-task-list">
           {{ appTaskListItem({
-            name: 'Subjects',
+            name: 'Add your subjects or occupational areas',
             href: 'application/search',
             taskName: data.adviseAreasCompleted
           })}}
@@ -113,7 +113,7 @@
             {{ appTaskListItem({
               name: 'Evidence',
               href: 'application/',
-              hint: "Complete subjects first",
+              hint: "Complete subject or occupational areas first",
               taskName: data.evidenceExpertiseCompleted
             })}}
           {% endif %}

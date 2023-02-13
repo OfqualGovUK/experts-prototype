@@ -19,7 +19,7 @@
   {% if data.referrer == "assessmentExpertise" %}
     What qualification type can you advise on?
     {% else %}
-      What qualification type can you advise on for this subject?
+      What qualification type can you advise on for this subject or occupational area?
   {% endif %}
 {% endset %}
 
@@ -42,7 +42,7 @@
   }) %}
 
   {% set qualifications = qualifications | push ({
-    text: "My expertise in this subject is not related to a qualification type"
+    text: "My experience in this subject or occupational area is not related to a qualification type"
   }) %}
 
   {# Coming through assessment only, qual only flow #}
@@ -56,7 +56,7 @@
         }
       },
       hint: {
-        text: "You will be able to add more qualification types after you have finished telling us about the first one."
+        text: "You will be able to add more qualification types for your subject or occupational area after you have finished telling us about the first one."
       },
       items: qualifications
     } | decorateAttributes(data, "data.selectedQualificationAssessmentOnly")) }}
@@ -71,7 +71,7 @@
           }
         },
         hint: {
-          text: "You will be able to add more qualification types after you have finished telling us about the first one."
+          text: "You will be able to add more qualification types for your subject or occupational area after you have finished telling us about the first one."
         },
         items: qualifications
       } | decorateAttributes(data, "data.selectedQualification")) }}

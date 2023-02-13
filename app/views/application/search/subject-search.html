@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set formAction = "/subject-search-answer" %}
-{% set pageHeading = "Search for a subject" %}
+{% set pageHeading = "Search for a subject or occupational area" %}
 
 {% block formContent %}
 
@@ -34,7 +34,7 @@
       <label for="autocomplete-placeholder" class="govuk-label govuk-label--l">{{ pageHeading }}</label>
       {# <p class="govuk-body">You will be able to add more subjects, apprenticeships or T Levels after you tell us about the first one.</p> #}
       <div id="subject-hint" class="govuk-hint">
-        You will be able to add more subjects after you have finished telling us about the first one.
+        You will be able to add more subject or occupational areas after you have finished telling us about the first one.
       </div>
       <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6"></div>
     </div>
@@ -111,7 +111,7 @@
   
   {% set detailsHtml %}
     <p class="govuk-body govuk-!-margin-bottom-0">
-      If you cannot your subject, find the closest match.
+      If you cannot your subject or occupational area, find the closest match.
     </p>
     <p class="govuk-body govuk-!-margin-bottom-0">
       If you are an assessment specialist <a href="/application/search/assessment-subject">skip search</a>.
@@ -119,7 +119,7 @@
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "I cannot find the subject",
+    summaryText: "I cannot find the subject or occupational area",
     text: detailsHtml | safe
   }) }}
 
