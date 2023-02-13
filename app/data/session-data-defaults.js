@@ -111,7 +111,7 @@ var completedApplicationDataVTQ = {
   "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
   "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentExperienceCompleted": "complete",
+  "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
   "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
@@ -244,7 +244,7 @@ var completedApplicationDataGQ = {
   "assessmentStandardSettingDetails": "I've run quite a few standards meetings. I've been a standards verifier for BTEC performing arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentDesigningDetails": "I would descsribe my involvement, activities and responsibilities to link with the information selected. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentEvaluatingDetails": "Examiner for GCSE Performing Arts for AQA. Examiner for GCC drama and set the standards Btech Performing Arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentExperienceCompleted": "complete",
+  "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
   "industryExpertiseDetails": "",
@@ -366,7 +366,7 @@ var completedApplicationDataAssessmentSpecialist = {
   "assessmentStandardSettingDetails": "I've run quite a few standards meetings. I've been a standards verifier for BTEC performing arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentDesigningDetails": "I would descsribe my involvement, activities and responsibilities to link with the information selected. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
   "assessmentEvaluatingDetails": "Examiner for GCSE Performing Arts for AQA. Examiner for GCC drama and set the standards Btech Performing Arts. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentExperienceCompleted": "complete",
+  "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
   "industryExpertiseDetails": "",

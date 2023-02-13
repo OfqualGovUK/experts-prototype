@@ -309,11 +309,11 @@ router.all('/assessment-type-answer/review', function (req, res) {
     req.session.data.isEvaluating = false 
   }
 
-  let assessmentExperienceCompleted = req.session.data.assessmentExperienceCompleted
+  let assessmentExpertiseCompleted = req.session.data.assessmentExpertiseCompleted
 
-  if (assessmentExperienceCompleted === "complete") {
+  if (assessmentExpertiseCompleted === "complete") {
     res.redirect('/application/assessment-experience/review')
-  } else if (assessmentExperienceCompleted === "inProgress") {
+  } else if (assessmentExpertiseCompleted === "inProgress") {
     res.redirect('/application/assessment-experience/review')
   } 
   
