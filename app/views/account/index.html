@@ -2,8 +2,7 @@
 
 {% set pageHeading = "Subject matter specialist account" %}
 {% set backLink = "false" %}
-{% set primaryNavActive = "Account" %}
-{% set pageHeading = "Subject matter specialist account" %}
+{% set primaryNavActive = "Home" %}
 {% set pageType = "Account" %}
 
 {# {% if data.applicationStatus == "In review" %}
@@ -18,8 +17,14 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-  {# Show the success banner if the application has just been submitted #}
-  {% if data.applicationStatus == "Submitted" %}
+    {% if data.applicationStatus != "Submitted" %}
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">Content to be designed.</p>
+    </div>
+    {% endif %}
+    {# Show the success banner if the application has just been submitted #}
+    {% if data.applicationStatus == "Submitted" %}
     <div class="govuk-grid-column-full">
       <div class="govuk-width-container">
         <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
@@ -48,13 +53,6 @@
           </div>
         </main>
       </div>
-    </div>
-  {% endif %}
-    
-  {% if data.applicationStatus == "In review" or data.applicationStatus == "Application accepted" %}
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">Content to be designed.</p>
     </div>
   {% endif %}
 
