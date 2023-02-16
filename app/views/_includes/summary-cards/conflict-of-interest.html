@@ -16,7 +16,7 @@
           visuallyHiddenText: "do you have any potential conflicts of interests?",
           href: "./../conflict-of-interest"
         }]
-      }
+      } if pageType != "Account"
     }]
 }) }}
 
@@ -31,7 +31,7 @@
         visuallyHiddenText: data.conflictOrganisation,
         href: "/application/conflict-of-interest/delete?delete=" + data.conflictOrganisation
       }]
-    },
+    } if pageType != "Account",
     rows: [
       {
         key: {
@@ -46,7 +46,7 @@
             visuallyHiddenText: "name of organisation",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -61,7 +61,7 @@
             visuallyHiddenText: "Type of conflict",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -76,7 +76,7 @@
             visuallyHiddenText: "Details of conflict",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -91,7 +91,7 @@
             visuallyHiddenText: "Start date",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -106,7 +106,7 @@
             visuallyHiddenText: "Is this a current conflict of interest?",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        }
+        } if pageType != "Account"
       },
       {
         key: {
@@ -121,7 +121,7 @@
             visuallyHiddenText: "End date",
             href: "./add-conflict"
           }]
-        }
+        } if pageType != "Account"
       } if data.currentConflict == "No"
     ]
   }) }}

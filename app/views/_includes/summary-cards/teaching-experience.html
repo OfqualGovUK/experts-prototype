@@ -14,7 +14,7 @@
           visuallyHiddenText: "Are you currently working in a teaching, lecturing or training role?",
           href: "/application/teaching-experience"
         }]
-      }
+      } if pageType != "Account"
     },  
     {
       key: {
@@ -29,7 +29,7 @@
           visuallyHiddenText: "Provide details of your experience in teaching or lecturing",
           href: "/application/teaching-experience/add-details-teaching-lecturing"
         }]
-      }
+      } if pageType != "Account"
     } if data.isLecturing,
     {
       key: {
@@ -44,7 +44,7 @@
           visuallyHiddenText: "Provide details of your experience working in training",
           href: "/application/teaching-experience/add-details-training"
         }]
-      }
+      } if pageType != "Account"
     } if data.isTraining,
     {
       key: {
@@ -59,7 +59,7 @@
           visuallyHiddenText: "Provide details of your experience in educational management",
           href: "/application/teaching-experience/add-details-educational-management"
         }]
-      }
+      } if pageType != "Account"
     } if data.isEducationalManagement,
     {
       key: {
@@ -74,7 +74,7 @@
           visuallyHiddenText: "Provide details of your experience in teacher training",
           href: "/application/teaching-experience/add-details-teacher-training"
         }]
-      }
+      } if pageType != "Account"
     } if data.isTeacherTraining
   ]
 }) }}

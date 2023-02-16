@@ -57,7 +57,7 @@
           visuallyHiddenText: "have you ever been convicted of any of the listed offences?",
           href: "/application/self-declaration"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -72,7 +72,7 @@
           visuallyHiddenText: "have you ever been declared bankrupt?",
           href: "/application/self-declaration/bankrupt"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -87,7 +87,7 @@
           visuallyHiddenText: "have you ever been guilty of grave professional misconduct?",
           href: "/application/self-declaration/misconduct"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -102,7 +102,7 @@
           visuallyHiddenText: "has your organisation, or you as an individual, ever been in breach of obligations related to tax or social security?",
           href: "/application/self-declaration/misconduct"
         }]
-      }
+      } if pageType != "Account"
     }
     ] 
   }) }}

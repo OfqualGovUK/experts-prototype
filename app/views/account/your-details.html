@@ -1,0 +1,18 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Your details" %}
+{% set backLink = "false" %}
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">Section to be designed.</p>
+      <p class="govuk-body"><a href="/account/application">View your application</a></p>
+    </div>
+  </div>
+
+{% endblock %}

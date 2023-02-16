@@ -21,17 +21,17 @@ router.post('/branching-question-answer', function (req, res) {
 
 // ------ Apply to provide expertise ----- //
 
-// Account
+// GOV.UK One Login
 
-// Do you already have an account?
+// Do you already have a GOV.UK One Login account?
 router.post('/existing-account-answer', function (req, res) {
 
   let existingAccount = req.session.data.existingAccount
 
   if (existingAccount === 'Yes, sign in') {
-      res.redirect('/account/check-email')
+      res.redirect('/one-login/check-email')
     } else {
-      res.redirect('/account/create-account')
+      res.redirect('/one-login/create-account')
   }
 
 })
@@ -42,9 +42,9 @@ router.post('/security-code-option', function (req, res) {
   let securityOption = req.session.data.securityCodeOption
 
   if (securityOption === 'Text message') {
-      res.redirect('/account/mobile')
+      res.redirect('/one-login/mobile')
     } else {
-      res.redirect('/account/authenticator-app')
+      res.redirect('/one-login/authenticator-app')
   }
 
 })
@@ -55,9 +55,9 @@ router.post('/phone-code', function (req, res) {
   let linkReferral = req.session.data.referrer
 
   if (linkReferral === 'createAccount') {
-      res.redirect('/account/account-created')
+      res.redirect('/one-login/account-created')
     } if (linkReferral === 'existingSpecialist') {
-      res.redirect('/dashboard?applicationStatus=Submitted')
+      res.redirect('/account?applicationStatus=Submitted')
     } else {
       res.redirect('/application')
   }
@@ -888,7 +888,7 @@ router.all( '/populate-application-vtq', function (req, res) {
 router.all( '/application-submitted-vtq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=In review');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -896,7 +896,7 @@ router.all( '/application-submitted-vtq-in-review', function (req, res) {
 router.all( '/application-submitted-vtq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/dashboard?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Application accepted');
 })
 
 // GQ Application
@@ -912,7 +912,7 @@ router.all( '/populate-application-gq', function (req, res) {
 router.all( '/application-submitted-gq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
-  res.redirect('/dashboard?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=In review');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -920,7 +920,7 @@ router.all( '/application-submitted-gq-in-review', function (req, res) {
 router.all( '/application-submitted-gq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
-  res.redirect('/dashboard?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Application accepted');
 })
 
 // Assessment Specialist (no subject) Application
@@ -936,7 +936,7 @@ router.all( '/populate-application-as', function (req, res) {
 router.all( '/application-submitted-as-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
   
-  res.redirect('/dashboard?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=In review');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -944,7 +944,7 @@ router.all( '/application-submitted-as-in-review', function (req, res) {
 router.all( '/application-submitted-as-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
   
-  res.redirect('/dashboard?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Application accepted');
 })
 
 // Enable all Evidence 

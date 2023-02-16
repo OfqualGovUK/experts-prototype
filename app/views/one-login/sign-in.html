@@ -2,12 +2,12 @@
 {% extends "_templates/form-template.html" %}
 
 {% set serviceName = "GOV.UK One Login" %}
-{% set formAction = "/account/check-phone" %}
+{% set formAction = "/one-login/enter-password" %}
 {% set signedOut = "true" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Enter your password</h1>
+  <h1 class="govuk-heading-l">Enter your email address to sign in to your GOV.UK account</h1>
 
   {{ govukInput({
     label: { 
@@ -17,13 +17,10 @@
     attributes: {
       spellcheck: "false"
     },
-    autocomplete: "password",
-    type: "password"
-    } | decorateAttributes(data, "data.oneLoginPassword")) }}
+    autocomplete: "email",
+    type: "email"
+    } | decorateAttributes(data, "data.oneLoginEmail")) }}
 
-    <p class="govuk-body">
-       <a href="#">I've forgotten my password</a>.
-    </p>
 
   {{ govukButton({
     text: "Continue"

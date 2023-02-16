@@ -10,7 +10,7 @@
       visuallyHiddenText: data.referenceName,
       href: "/application/references/delete?delete=" + data.referenceName
     }]
-  },
+  } if pageType != "Account",
   rows: [
     {
       key: {
@@ -25,7 +25,7 @@
           visuallyHiddenText: "name",
           href: "/application/references/add-reference"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -40,7 +40,7 @@
           visuallyHiddenText: "email address",
           href: "/application/references/add-reference"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -55,7 +55,7 @@
           visuallyHiddenText: "telephone number",
           href: "/application/references/add-reference"
         }]
-      }
+      } if pageType != "Account"
     },
     {
       key: {
@@ -70,7 +70,7 @@
           visuallyHiddenText: "company or organisation name",
           href: "/application/references/add-reference"
         }]
-      }
+      } if pageType != "Account"
     }
   ]
 }) }}
