@@ -475,5 +475,7 @@ module.exports = {
   // set account messages status
   "proofNameChangeReply": "noReply",
   "subjectEvidenceReply": "noReply",
-  "messageSent": "none"
+  "messageSent": "none",
+  "applicationStatus": "In review",
+  "accountMessageSubject": ""
 }

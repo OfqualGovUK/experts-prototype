@@ -1,0 +1,47 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Personal details" %}
+{% set backLink = "false" %}
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Your details" %}
+
+{% block content %}
+  {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal details',
+          href: '/account/your-details/',
+          active: true
+        }, {
+          text: 'Subject or occupational areas',
+          href: '/account/your-details/subjects'
+        }, {
+          text: 'Conflict of interest',
+          href: '/account/your-details/conflict-of-interest'
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Application',
+          href: '/account/your-details/application'
+        }
+        ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      {% include "_includes/summary-cards/personal-details.html" %}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Request to change details",
+          href: "/account/messages/send-message"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
