@@ -29,7 +29,7 @@
     <div class="govuk-button-group govuk-grid-column-one-third govuk-!-display-block">
       {{ govukButton({
         text: "Send a message",
-        href: "/account/messages/send-message",
+        href: "/account/messages/send-message?referrer=",
         classes: "govuk-!-margin-right-0 govuk-button--secondary messages--send-button"
       }) }}
     </div>
@@ -39,7 +39,7 @@
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden govuk-body">Message status</span></th>
             <th scope="col" class="govuk-table__header">Subject</th>
-            <th scope="col" class="messages--govuk-table__cell_last" width="120">Date</th>
+            <th scope="col" class="messages--govuk-table__cell_last" width="160">Date</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -52,8 +52,8 @@
             <!-- sender -->
             <td class="govuk-table__cell messages--govuk-table__cell">
               <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                <h2 class="govuk-heading-m govuk-!-font-weight-regular govuk-!-margin-bottom-1">
-                  <a href="/account/messages/message-sent" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                  <a href="/account/messages/message-sent?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
                     {{ data.accountMessageSubject }}
                   </a>
                 </h2>
@@ -61,7 +61,7 @@
             </td>
             <!-- date -->
             <td valign="top" class="messages--govuk-table__cell_last bold">
-              {{ data.tDate }}
+              <time datetime="">{{ "" | today |  govukDate }}</time>
               <div>&nbsp;</div>
             </td>
           </tr>
@@ -77,13 +77,13 @@
             <td class="govuk-table__cell messages--govuk-table__cell">
               {% if data.subjectEvidenceReply == "replied" %}
                 <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied 1 Mar 2023</p>
+                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
                 </div>
                 {% else %}
               {% endif %}
               <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
-                  <a href="/account/messages/further-evidence-required" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                  <a href="/account/messages/further-evidence-required?referrer=" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
                     Further evidence needed for your subject experience
                   </a>
                 </h2>
@@ -92,7 +92,7 @@
             </td>
             <!-- date -->
             <td valign="top" class="messages--govuk-table__cell_last bold">
-              24 Feb 2023
+              <time datetime="">{{ "" | yesterday |  govukDate }}</time>
               <div>&nbsp;</div>
             </td>
           </tr>
@@ -105,14 +105,14 @@
             <td class="govuk-table__cell messages--govuk-table__cell">
               <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
                 {% if data.proofNameChangeReply == "replied" %}
-                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied 15 Feb 2023</p>
+                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
                 {% else %}
-                  <p class="govuk-body-s govuk-!-margin-bottom-1 ">You replied 12 Feb 2023</p>
+                  <p class="govuk-body-s govuk-!-margin-bottom-1 ">You replied <time datetime="">{{ "" | threedaysago |  govukDate }}</time></p>
                 {% endif %}
               </div>
               <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                <h2 class="govuk-heading-m govuk-!-font-weight-regular govuk-!-margin-top-1">
-                  <a href="/account/messages/name-change-proof" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-top-1">
+                  <a href="/account/messages/name-change-proof?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
                     Proof of name change required
                   </a>
                 </h2>
@@ -120,7 +120,7 @@
             </td>
             <!-- date -->
             <td valign="top" class="messages--govuk-table__cell_last ">
-              10 Feb 2023
+              <time datetime="">{{ "" | fivedaysago |  govukDate }}</time>
               <div>&nbsp;</div>
             </td>
           </tr>
@@ -132,8 +132,8 @@
             <!-- sender -->
             <td class="govuk-table__cell messages--govuk-table__cell">
               <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                <h2 class="govuk-heading-m govuk-!-font-weight-regular govuk-!-margin-bottom-1s">
-                  <a href="/account/messages/application-received" class="black-text no--underline message-subject govuk-link" data-sso="false" lang="en">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1s">
+                  <a href="/account/messages/application-received?referrer=" class="black-text no--underline message-subject govuk-link" data-sso="false" lang="en">
                     Application received
                   </a>
                 </h2>
@@ -141,7 +141,7 @@
             </td>
             <!-- date -->
             <td valign="top" class="messages--govuk-table__cell_last ">
-              8 Feb 2023
+              <time datetime="">{{ "" | twoweeksago |  govukDate }}</time>
               <div>&nbsp;</div>
             </td>
           </tr>

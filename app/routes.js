@@ -1016,15 +1016,42 @@ module.exports = router
 
 // ------ Accounts area ------
 
-// Get todays date 
+// Account - personal details request to change
+router.all('/change-personal-details', function (req, res) {
 
-router.all('/message-sent', function (req, res) {
+  req.session.data.accountMessageSubject = "Request a change to personal details"
+  res.redirect('/account/messages/send-message');
+  
+})
 
-  const dateStructure = new Date();
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+// Account - subjects request to change
+router.all('/change-subjects', function (req, res) {
 
-  let todaysDate = (dateStructure.toLocaleDateString(undefined, options));
-  req.session.data.tDate = todaysDate 
-  res.redirect('/account/messages');
+  req.session.data.accountMessageSubject = "Request to change or remove subject or occupational areas"
+  res.redirect('/account/messages/send-message');
+  
+})
+
+// Account - Reference, add new
+router.all('/add-reference', function (req, res) {
+
+  req.session.data.accountMessageSubject = "Details of another reference"
+  res.redirect('/account/messages/send-message');
+  
+})
+
+// Account - COI request to change
+router.all('/change-coi', function (req, res) {
+
+  req.session.data.accountMessageSubject = "Request to change, add or delete conflict of interest"
+  res.redirect('/account/messages/send-message');
+  
+})
+
+// Account - self declaration request to change
+router.all('/change-self-declaration', function (req, res) {
+
+  req.session.data.accountMessageSubject = "Request changes to self declaration"
+  res.redirect('/account/messages/send-message');
   
 })

@@ -1,5 +1,5 @@
   {% set applicationSubmittedTimeHtml %}
-    <time datetime="">{{ "" | fivedaysago |  govukDate }}, 16:13</time>
+    <time datetime="">{{ "" | twoweeksago |  govukDate }}, 16:13</time>
   {% endset %}
 
   {% set applicationStatusHtml %}
@@ -19,34 +19,46 @@
   {% endset %}
 
   {% set profileUpdatedHtml %}
-    <time datetime="">{{ "" | today |  govukDate }}, 17:55</time>
+    <time datetime="">{{ "" | threedaysago |  govukDate }}, 17:55</time>
   {% endset %}
 
+
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
   {{ xGovukSummaryCard({
+    titleText: "Your application",
+      actions: {
+        items: [
+          {
+            href: "/account/your-details/application",
+            text: "View application",
+            visuallyHiddenText: "Your application"
+          } 
+        ] if subpageType != "Application"
+      },
     rows: [
-    {
-      key: {
-        text: "Application status"
+      {
+        key: {
+          text: "Application status"
+        },
+        value: {
+          html: applicationStatusHtml
+        }
       },
-      value: {
-        html: applicationStatusHtml
-      }
-    },
-    {
-      key: {
-        text: "Application last updated"
+      {
+        key: {
+          text: "Last updated"
+        },
+        value: {
+          html: profileUpdatedHtml
+        }
       },
-      value: {
-        html: profileUpdatedHtml
+      {
+        key: {
+          text: "Date submitted"
+        },
+        value: {
+          html: applicationSubmittedTimeHtml
+        }
       }
-    },
-    {
-      key: {
-        text: "Application submitted"
-      },
-      value: {
-        html: applicationSubmittedTimeHtml
-      }
-    }
     ]
   }) }}
