@@ -1,7 +1,9 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Messages" %}
-{% set backLink = "false" %}
+{% set pageHeading %}
+  {{ data.accountMessageSubject }}
+{% endset %}
+
 {% set primaryNavActive = "Messages" %}
 {% set pageType = "Account" %}
 
@@ -9,9 +11,11 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">{{ data.tDate }} </span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">Section to be designed.</p>
+      <p class="govuk-body">{{ data.accountMessage }}</p>
+      <p><a href="#">{{ data.accountMessageUpload }}</a></p>
     </div>
-  </div>
+  </div>  
 
 {% endblock %}

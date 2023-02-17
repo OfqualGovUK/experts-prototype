@@ -1,0 +1,21 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Application received" %}
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">8 Feb 2023 </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">We have sent a confirmation email to <span class="govuk-!-font-weight-bold">name@email.com</span>.</p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">Your application has been received and will now be reviewed.</p>
+      <p class="govuk-body">We will contact you either to confirm if you have been accepted or rejected, or to ask for more information. You should hear the outcome of your application within 60 days.</p>
+      <p><a href="/account/application">View your application</a></p>
+    </div>
+  </div>  
+
+{% endblock %}
