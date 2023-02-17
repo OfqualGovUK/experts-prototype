@@ -1,0 +1,57 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Proof of name change required" %}
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">10 Feb 2023 </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <p class="govuk-body">To proceed with your application we need to see proof of your name change. Please provide one of the following documents: </p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>marriage or civil partnership certificate </li>
+        <li>overseas marriage or civil partnership certificate </li>
+        <li>enrolled deed poll </li>
+        <li>unenrolled deed poll or change of name deed</li>
+        <li>statutory declaration or affidavit</li>
+      </ul>
+      <hr>
+        <div class="govuk-!-margin-top-6">
+          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 12 Feb 2023</p>
+          <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
+          <p class="govuk-body">Hi, thank you for your email. Find uploaded photo of my marriage certificate.</p>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">marriage-certificate.jpg</a></p>
+        </div>
+      {% if data.proofNameChangeReply == "noReply" %}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Send another reply",
+            href: "/account/messages/reply?referrer=name-change-proof"
+          }) }}
+        </div>
+        {% else %} 
+      {% endif %}
+
+      {% if data.proofNameChangeReply == "replied" %}
+        <hr>
+        <div class="govuk-!-margin-top-6">
+          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 15 Feb 2023</p>
+          <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
+          <p class="govuk-body">{{ data.accountMessageReplyNameChange }}</p>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">{{ data.accountMessageReplyUploadNameChange }}</a></p>
+        </div>
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Send another reply",
+            href: "/account/messages/reply?referrer=name-change-proof"
+          }) }}
+        </div>
+        {% else %} 
+      {% endif %}
+    </div>
+  </div>  
+
+{% endblock %}

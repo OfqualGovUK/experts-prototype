@@ -908,6 +908,19 @@ router.all( '/populate-application-gq', function (req, res) {
 })
 
 // Sets up the tasklist with a completed applicationwhen you visit a link
+router.all( '/application-submitted-gq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  
+  res.redirect('/account');
+})
+// Sets up the tasklist with a completed applicationwhen you visit a link
+router.all( '/application-submitted-vtq', function (req, res) {
+  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
+  
+  res.redirect('/account');
+})
+
+// Sets up the tasklist with a completed applicationwhen you visit a link
 // The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-gq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
@@ -999,3 +1012,19 @@ router.get('*', function(req, res, next){
 })
 
 module.exports = router
+
+
+// ------ Accounts area ------
+
+// Get todays date 
+
+router.all('/message-sent', function (req, res) {
+
+  const dateStructure = new Date();
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+
+  let todaysDate = (dateStructure.toLocaleDateString(undefined, options));
+  req.session.data.tDate = todaysDate 
+  res.redirect('/account/messages');
+  
+})

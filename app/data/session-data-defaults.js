@@ -471,5 +471,9 @@ module.exports = {
   // The section is enabled with hidden inputs in the dependant section
   "evidenceExpertiseCompleted": "canNotStartYet",
   // set GOV.UK email address default
-  "oneLoginEmail": "name@email.com"
+  "oneLoginEmail": "name@email.com",
+  // set account messages status
+  "proofNameChangeReply": "noReply",
+  "subjectEvidenceReply": "noReply",
+  "messageSent": "none"
 }

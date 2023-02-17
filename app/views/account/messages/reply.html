@@ -1,0 +1,116 @@
+{% extends "_templates/form-template.html" %}
+
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% set formAction = "/account/messages?referrer=success" %}
+
+{% set pageHeading = "Send a reply" %}
+
+{% block formContent %}
+  {% set captionHeading %}
+    {% if data.referrer == "name-change-proof"%}
+      Proof of name change required
+    {% elseif data.referrer == "subject-evidence"%}
+      Further evidence needed for your subject experience
+    {% else %}
+    {% endif %}
+  {% endset %}
+
+  {% set detailsHtml %}
+    {% if data.referrer == "name-change-proof"%}
+      <p class="govuk-body">To proceed with your application we need to see proof of your name change. Please provide one of the following documents: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>marriage or civil partnership certificate </li>
+        <li>overseas marriage or civil partnership certificate </li>
+        <li>enrolled deed poll </li>
+        <li>unenrolled deed poll or change of name deed</li>
+        <li>statutory declaration or affidavit</li>
+      </ul>
+    {% elseif data.referrer == "subject-evidence"%}
+      <p class="govuk-body">To proceed with your application we need more evidence of your experience in: </p>
+      <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Making assessment judgements</span> for Asbestos Analyst and Surveyor (End-Point Assessment - level 3)</h2>
+      <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Marking assessments</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>marking exam papers or assessment tasks</li>
+        <li>making judgements about candidate's performance against assessment criteria</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Standardising the marking of others</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>leading a team of of markers/ examiners/ assessors to ensure marking criteria will be applied accurately and consistently</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Moderating the marking of others</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>checking and verifying the marking of others, as a moderator within a school, college, for an awarding organisation or as an internal or external verifier</li>
+      </ul>
+
+      <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Teacher training</span> for Building control surveyor (integrated degree) (End-point assessment - level 6)</h2>
+      <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>teaching on a PGCE or similar course</li>
+        <li>co-tutoring or where you may have mentored trainee teachers or trainers</li>
+      </ul>
+    {% else %}
+    {% endif %}
+  {% endset %}
+
+  <span class="govuk-caption-l">{{ captionHeading }}</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  {% if data.referrer == "name-change-proof" %}
+    {{ govukDetails({
+      summaryText: "View the message you are replying to",
+      html: detailsHtml
+    }) }}
+
+    {{ govukCharacterCount({
+      maxwords: 500,
+      rows: "10",
+      label: {
+        text: "Your message",
+        classes: "govuk-label--m"
+      }
+      } | decorateAttributes(data, "data.accountMessageReplyNameChange")) }}
+
+    {{ govukFileUpload({
+      label: {
+        text: "Upload a file",
+        classes: "govuk-label--m"
+      }
+    } | decorateAttributes(data, "data.accountMessageReplyUploadNameChange")) }}
+
+    {# This sets the reply status on the message list #}
+    <input type="hidden" name="proofNameChangeReply" value="replied">
+    {% elseif data.referrer == "subject-evidence" %}
+      {{ govukDetails({
+        summaryText: "View the message you are replying to",
+        html: detailsHtml
+      }) }}
+
+      {{ govukCharacterCount({
+        maxwords: 500,
+        rows: "10",
+        label: {
+          text: "Your message",
+          classes: "govuk-label--m"
+        }
+      } | decorateAttributes(data, "data.accountMessageReplySubjectEvidence")) }}
+
+    {{ govukFileUpload({
+      label: {
+        text: "Upload a file",
+        classes: "govuk-label--m"
+      }
+    } | decorateAttributes(data, "data.accountMessageReplyUploadSubjectEvidence")) }}
+    
+    {# This sets the reply status on the message list #}
+    <input type="hidden" name="subjectEvidenceReply" value="replied">
+  {% else %}
+  {% endif %}
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Send"
+    }) }}
+    <a class="govuk-link" href="/account/messages">Cancel</a>
+  </div>
+{% endblock %}
