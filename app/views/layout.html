@@ -81,7 +81,7 @@
           </a>
         </div>
         <div class="govuk-header__content">
-          <a href="/" class="govuk-header__link govuk-header__service-name">
+          <a href="/?referrer=" class="govuk-header__link govuk-header__service-name">
             {{ serviceName }}
           </a>
           {# <ul class="govuk-header__signout">
@@ -100,28 +100,28 @@
               <button type="button" class="govuk-header__menu-button govuk-header__menu-button__primary-nav govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu" hidden>Menu</button>
               <ul id="navigation" class="govuk-header__navigation-list govuk-header__navigation-list__primary-nav">
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav govuk-header__navigation-item--active">
-                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account" {{'aria-current=page' if primaryNavActive == 'Home'}}>
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account?referrer=" {{'aria-current=page' if primaryNavActive == 'Home'}}>
                     Home
                   </a>
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
-                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/your-details" {{'aria-current=page' if primaryNavActive == 'Your details'}}>
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/your-details?referrer=" {{'aria-current=page' if primaryNavActive == 'Your details'}}>
                     Your details
                   </a>
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
-                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/messages" {{'aria-current=page' if primaryNavActive == 'Messages'}}>
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/messages?referrer=" {{'aria-current=page' if primaryNavActive == 'Messages'}}>
                     Messages
                   </a>
                   <span class="app-notification-number">1</span>
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
-                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/commissions" {{'aria-current=page' if primaryNavActive == 'Commissions'}}>
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/commissions?referrer=" {{'aria-current=page' if primaryNavActive == 'Commissions'}}>
                     Commissions
                   </a>
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
-                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/subject-matter-specialists">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/subject-matter-specialists?referrer=">
                     Sign out
                   </a>
                 </li>
@@ -139,7 +139,7 @@
       containerClasses: "govuk-width-container",
       navigation: [
         {
-          href: "/subject-matter-specialists",
+          href: "/subject-matter-specialists?referrer=",
           text: "Sign out"
         }
       ] if signedOut != "true"

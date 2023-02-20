@@ -53,6 +53,38 @@ filters.today = () => {
   return new Date()
 }
 
+filters.yesterday = () => {
+  const todayDate = new Date()
+  const yesterdayDate = new Date(todayDate)
+
+  yesterdayDate.setDate(yesterdayDate.getDate() - 1)
+  return yesterdayDate
+}
+
+filters.threedaysago = () => {
+  const todayDate = new Date()
+  const threedaysago = new Date(todayDate)
+
+  threedaysago.setDate(threedaysago.getDate() - 3)
+  return threedaysago
+}
+
+filters.fivedaysago = () => {
+  const todayDate = new Date()
+  const fivedaysago = new Date(todayDate)
+
+  fivedaysago.setDate(fivedaysago.getDate() - 5)
+  return fivedaysago
+}
+
+filters.twoweeksago = () => {
+  const todayDate = new Date()
+  const twoweeksago = new Date(todayDate)
+
+  twoweeksago.setDate(twoweeksago.getDate() - 14)
+  return twoweeksago
+}
+
 /*
   ====================================================================
   todayGovuk

@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <span class="govuk-caption-l">10 Feb 2023 </span>
+      <span class="govuk-caption-l"><time datetime="">{{ "" | fivedaysago |  govukDate }}</time></span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
       <p class="govuk-body">To proceed with your application we need to see proof of your name change. Please provide one of the following documents: </p>
       <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
@@ -20,7 +20,7 @@
       </ul>
       <hr>
         <div class="govuk-!-margin-top-6">
-          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 12 Feb 2023</p>
+          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied <time datetime="">{{ "" | threedaysago |  govukDate }}</time></p>
           <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
           <p class="govuk-body">Hi, thank you for your email. Find uploaded photo of my marriage certificate.</p>
           <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">marriage-certificate.jpg</a></p>
@@ -38,7 +38,7 @@
       {% if data.proofNameChangeReply == "replied" %}
         <hr>
         <div class="govuk-!-margin-top-6">
-          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 15 Feb 2023</p>
+          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
           <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
           <p class="govuk-body">{{ data.accountMessageReplyNameChange }}</p>
           <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">{{ data.accountMessageReplyUploadNameChange }}</a></p>

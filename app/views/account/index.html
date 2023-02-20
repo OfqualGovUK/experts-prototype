@@ -20,7 +20,6 @@
     {% if data.applicationStatus != "Submitted" %}
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">Content to be designed.</p>
     </div>
     {% endif %}
     {# Show the success banner if the application has just been submitted #}
@@ -59,11 +58,8 @@
   {% if data.applicationStatus == "In review" or data.applicationStatus == "Application accepted" %}
     <div class="govuk-grid-column-full">   
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Status</h2>
         {% include "_includes/summary-cards/application-status.html" %}
       </section>
-      {# Include all the application sections #}
-      {% include "_includes/shared/application-sections.html" %}
     <div>
   {% endif %}
 
