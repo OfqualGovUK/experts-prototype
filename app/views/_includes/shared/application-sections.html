@@ -1,5 +1,5 @@
 	    <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
+        <h2 id="personal-details" class="govuk-heading-m govuk-!-font-size-27">Personal details</h2>
         {% if data.personalDetailsCompleted == "complete" %}
           {% include "_includes/summary-cards/personal-details.html" %}
         {% else %}
@@ -12,7 +12,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
+        <h2 id="education" class="govuk-heading-m govuk-!-font-size-27">Education details</h2>
         {% if data.educationCompleted == "complete" %}
           <h2 class="govuk-heading-m">Qualifications</h2>
           {% include "_includes/summary-cards/qualifications.html" %}
@@ -36,7 +36,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
+        <h2 id="work-history" class="govuk-heading-m govuk-!-font-size-27">Work history</h2>
         {% if data.workHistoryCompleted == "complete" %}
           <h2 class="govuk-heading-m">Work history</h2>
           {% include "_includes/summary-cards/work-history.html" %}
@@ -70,7 +70,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
+        <h2 id="subjects" class="govuk-heading-m govuk-!-font-size-27">Subject or occupational areas</h2>
         {% if data.adviseAreasCompleted == "complete" %}
           {% include "_includes/summary-cards/subjects.html" %}
         {% else %}
@@ -83,7 +83,7 @@
       </section>
 
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
+        <h2 id="evidence" class="govuk-heading-m govuk-!-font-size-27">Evidence of experience</h2>
         {# If the Subjects is NOT complete #}
         {% if data.adviseAreasCompleted != "complete" %}
           <p class="govuk-body">You must complete subject or occupational areas first.</p>
@@ -151,7 +151,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
+        <h2 id="conflicts" class="govuk-heading-m govuk-!-font-size-27">Conflict of interest</h2>
         {% if data.conflictOfInterestCompleted == "complete" %}
           {% include "_includes/summary-cards/conflict-of-interest.html" %}
         {% else %}
@@ -164,7 +164,7 @@
       </section>
       
       <section class="govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
+        <h2 id="identity-checks" class="govuk-heading-m govuk-!-font-size-27">Identity and verification checks</h2>
         {% if data.declarationCompleted == "complete" %}
           <h2 class="govuk-heading-m">Self declaration</h2>
           {% include "_includes/summary-cards/self-declaration.html" %}

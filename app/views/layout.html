@@ -113,7 +113,10 @@
                   <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/messages?referrer=" {{'aria-current=page' if primaryNavActive == 'Messages'}}>
                     Messages
                   </a>
-                  <span class="app-notification-number">1</span>
+                  {% if data.accountMessageUnread == "Unread" %}
+                    <span class="app-notification-number">1</span>
+                  {% else %}
+                  {% endif %} 
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
                   <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/commissions?referrer=" {{'aria-current=page' if primaryNavActive == 'Commissions'}}>

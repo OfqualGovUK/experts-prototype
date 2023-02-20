@@ -1016,7 +1016,7 @@ module.exports = router
 
 // ------ Accounts area ------
 
-// Account - personal details request to change
+// Account - Your details - personal details request to change
 router.all('/change-personal-details', function (req, res) {
 
   req.session.data.accountMessageSubject = "Request a change to personal details"
@@ -1024,7 +1024,7 @@ router.all('/change-personal-details', function (req, res) {
   
 })
 
-// Account - subjects request to change
+// Account - Your details - subjects request to change
 router.all('/change-subjects', function (req, res) {
 
   req.session.data.accountMessageSubject = "Request to change or remove subject or occupational areas"
@@ -1032,7 +1032,7 @@ router.all('/change-subjects', function (req, res) {
   
 })
 
-// Account - Reference, add new
+// Account - Your details - Reference, add new
 router.all('/add-reference', function (req, res) {
 
   req.session.data.accountMessageSubject = "Details of another reference"
@@ -1040,7 +1040,7 @@ router.all('/add-reference', function (req, res) {
   
 })
 
-// Account - COI request to change
+// Account - Your details - COI request to change
 router.all('/change-coi', function (req, res) {
 
   req.session.data.accountMessageSubject = "Request to change, add or delete conflict of interest"
@@ -1048,10 +1048,18 @@ router.all('/change-coi', function (req, res) {
   
 })
 
-// Account - self declaration request to change
+// Account - Your details - self declaration request to change
 router.all('/change-self-declaration', function (req, res) {
 
   req.session.data.accountMessageSubject = "Request changes to self declaration"
   res.redirect('/account/messages/send-message');
+  
+})
+
+// Account - Messages - change unread status 
+router.all('/message-further-evidence', function (req, res) {
+
+  req.session.data.accountMessageUnread = "Read"
+  res.redirect('/account/messages/further-evidence-required');
   
 })

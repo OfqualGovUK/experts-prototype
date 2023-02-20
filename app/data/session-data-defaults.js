@@ -477,5 +477,6 @@ module.exports = {
   "subjectEvidenceReply": "noReply",
   "messageSent": "none",
   "applicationStatus": "In review",
-  "accountMessageSubject": ""
+  "accountMessageSubject": "",
+  "accountMessageUnread": "Unread"
 }
