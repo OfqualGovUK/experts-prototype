@@ -138,6 +138,10 @@
   </ul>
 {% endset %}
 
+{% if data.applicationStatus == "Awaiting decision" or data.applicationStatus == "Accepted" %}
+  <p class="govuk-body govuk-!-margin-top-0"><a href="/account/your-details/subjects">See the status of your application per subject or occupational area </a></p>
+{% endif %}
+
 {# If assessment only expertise, display the answers to additional questions #}
 {% if data.referrer == "assessmentExpertise" %}
   {{ xGovukSummaryCard({
