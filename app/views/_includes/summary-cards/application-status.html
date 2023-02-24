@@ -3,15 +3,25 @@
   {% endset %}
 
   {% set applicationStatusHtml %}
-    {% if data.applicationStatus == "In review" %}
-      {{govukTag({
-        text: "Review pending",
+    {% if data.applicationStatus == "Awaiting decision" %}
+      {{ govukTag({
+        text: "Awaiting decision",
+        classes: "govuk-tag--purple"
+      })}}
+    {% elseif data.applicationStatus == "Requires action" %}
+      {{ govukTag({
+        text: "Requires action",
         classes: "govuk-tag--yellow"
       })}}
-    {% elseif data.applicationStatus == "Application accepted" %}
-      {{govukTag({
-        text: "Application accepted",
+    {% elseif data.applicationStatus == "Accepted" %}
+      {{ govukTag({
+        text: "Approved",
         classes: "govuk-tag--green"
+      })}}
+    {% elseif data.applicationStatus == "Rejected" %}
+      {{ govukTag({
+        text: "Rejected",
+        classes: "govuk-tag--red"
       })}}
     {% else %}
       nothing
@@ -20,6 +30,10 @@
 
   {% set profileUpdatedHtml %}
     <time datetime="">{{ "" | threedaysago |  govukDate }}, 17:55</time>
+  {% endset %}
+
+  {% set subjectStatusHtml %}
+    <a href="/account/your-details/subjects">View status per subject or occupational area</a>
   {% endset %}
 
 
@@ -42,6 +56,14 @@
         },
         value: {
           html: applicationStatusHtml
+        }
+      },
+      {
+        key: {
+          text: "Status per subject or occupational area"
+        },
+        value: {
+          html: subjectStatusHtml
         }
       },
       {

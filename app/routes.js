@@ -888,7 +888,7 @@ router.all( '/populate-application-vtq', function (req, res) {
 router.all( '/application-submitted-vtq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/account?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=Awaiting decision');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -896,7 +896,7 @@ router.all( '/application-submitted-vtq-in-review', function (req, res) {
 router.all( '/application-submitted-vtq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
   
-  res.redirect('/account?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Accepted');
 })
 
 // GQ Application
@@ -925,7 +925,7 @@ router.all( '/application-submitted-vtq', function (req, res) {
 router.all( '/application-submitted-gq-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
-  res.redirect('/account?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=Awaiting decision');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -933,7 +933,7 @@ router.all( '/application-submitted-gq-in-review', function (req, res) {
 router.all( '/application-submitted-gq-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
   
-  res.redirect('/account?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Accepted');
 })
 
 // Assessment Specialist (no subject) Application
@@ -949,7 +949,7 @@ router.all( '/populate-application-as', function (req, res) {
 router.all( '/application-submitted-as-in-review', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
   
-  res.redirect('/account?applicationStatus=In review');
+  res.redirect('/account?applicationStatus=Awaiting decision');
 })
 
 // Sets up the tasklist with a completed application when you visit a link
@@ -957,7 +957,7 @@ router.all( '/application-submitted-as-in-review', function (req, res) {
 router.all( '/application-submitted-as-accepted', function (req, res) {
   req.session.data = Object.assign(req.session.data.completedApplicationDataAssessmentSpecialist)
   
-  res.redirect('/account?applicationStatus=Application accepted');
+  res.redirect('/account?applicationStatus=Accepted');
 })
 
 // Enable all Evidence 

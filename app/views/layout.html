@@ -60,7 +60,7 @@
 
 {% block header %}
  {# Set serviceName in config.js. #}
-  {% if pageType == "Account" %}
+  {% if pageType == "Account" and data.applicationStatus != "Submitted" %}
     <header class="govuk-header " role="banner" data-module="govuk-header">
       <div class="govuk-header__container govuk-header__container__no-border govuk-width-container">
         <div class="govuk-header__logo">
