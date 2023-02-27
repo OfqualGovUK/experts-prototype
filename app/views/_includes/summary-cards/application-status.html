@@ -92,7 +92,7 @@
         value: {
           html: subjectStatusHtml
         }
-      } if data.applicationStatus != ("Action required" or "Awaiting decision"),
+      } if data.applicationStatus == ("Accepted") or data.applicationStatus == ("Action required"),
       {
         key: {
           text: "Last updated"
