@@ -48,7 +48,7 @@
       </div>
     {% endif %}
 
-    {% if data.applicationStatus == "Awaiting decision" or data.applicationStatus == "Approved" %}
+    {% if data.applicationStatus != "Submitted" %}
       <div class="govuk-grid-column-full">   
         <section class="govuk-!-margin-bottom-8">
           {% include "_includes/summary-cards/application-status.html" %}

@@ -138,6 +138,39 @@
   </ul>
 {% endset %}
 
+{% set expertiseTypeHtml2 %}
+  <ul class="govuk-list">
+    {# loops through and gets al the checked items  #}
+    {% for type in data.expertiseType2 %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+{% set assessmentExpertiseHtml2 %}
+  <ul class="govuk-list">
+    {# loops through and gets all the checked items  #}
+    {% for type in data.assessmentExpertiseType2 %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+{% set teachingExpertiseHtml2 %}
+  <ul class="govuk-list">
+    {# loops through and gets all the checked items  #}
+    {% for type in data.teachingExpertiseType2 %}
+      <li>
+        {{ type }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
 {% if data.applicationStatus == "Awaiting decision" or data.applicationStatus == "Accepted" %}
   <p class="govuk-body govuk-!-margin-top-0"><a href="/account/your-details/subjects">See the status of your application per subject or occupational area </a></p>
 {% endif %}
@@ -377,3 +410,61 @@
     } if data.isTeaching
   ]
 }) }}
+
+{# 2nd subject, for display in account area only #}
+{% if pageType == "Account" %}
+  {{ xGovukSummaryCard({
+    titleText: data.selectedSubject2,
+    rows: [
+      {
+        key: {
+          text: "Subject"
+        },
+        value: { 
+          text: data.resultName2
+        }
+      },
+      {
+        key: {
+          text: "Qualification type"
+        },
+        value: { 
+          text: data.selectedQualification2
+        }
+      },
+      {
+        key: {
+          text: "Qualification level"
+        },
+        value: { 
+          text: data.selectedLevel2
+        }
+      },
+      {
+        key: {
+          text: "What type(s) of experience do you have for this subject or occupational area?
+          "
+        },
+        value: { 
+          html: expertiseTypeHtml2
+        }
+      },
+      {
+        key: {
+          text: "Which assessment activities or responsibilities are you experienced in for this subject or occupational area?"
+        },
+        value: { 
+          html: assessmentExpertiseHtml2
+        }
+      },
+      {
+        key: {
+          text: "Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?"
+        },
+        value: { 
+          html: teachingExpertiseHtml2
+        }
+      }
+    ]
+  }) }}
+{% endif %}
