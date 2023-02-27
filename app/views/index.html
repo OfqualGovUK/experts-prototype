@@ -11,14 +11,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
       
-      <h1 class="govuk-heading-l">{{ serviceName }} prototype</h1>
+      <h1 class="govuk-heading-xl">{{ serviceName }} prototype</h1>
       
-      <h2 class="govuk-heading-m">Register your interest</h2>
+      <h2 class="govuk-heading-l">Register your interest</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/register-your-interest">Start page</a></li>
       </ul>
 
-      <h2 class="govuk-heading-m">{{ serviceName }}</h2>
+      <h2 class="govuk-heading-l">{{ serviceName }} </h2>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/subject-matter-specialists">GOV.UK start page (signed out)</a></li>
         <li><a href="/one-login">Create a GOV.UK One Login account</a></li>
@@ -31,28 +31,24 @@
       
       {# <hr class="govuk-section-break govuk-section-break--visible"> #}
 
-      <h2 class="govuk-heading-m">View the application in various states<h2>
-      <h3 class="govuk-heading-s">Before submit<h3>
+      <h2 class="govuk-heading-l">View the application in various states</h2>
+      <h3 class="govuk-heading-m">Before submit</h3>
       <ul class="govuk-list govuk-list--bullet">
         <li><a href="/populate-application-gq" class="govuk">GQ - View a completed application</a></li>
         <li><a href="/populate-application-vtq" class="govuk">VTQ - View a completed application</a></li>
         <li><a href="/populate-application-as" class="govuk">Assessment Specialist - View a completed application</a></li>
       </ul>
-      <h3 class="govuk-heading-s">Account - after submit<h3>
+      <h3 class="govuk-heading-m">Account - after submit</h3>
+      <h4 class="govuk-heading-s">View the account with different application statuses </h4>
       <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/application-submitted-gq" class="govuk">Submitted application (with GQ data)</a></li>
-        <li><a href="/application-submitted-vtq" class="govuk">Submitted application (with VTQ data)</a></li>
-        <!-- <li><a href="/application-submitted-gq-in-review" class="govuk">GQ - View a submitted application (Awaiting decision)</a></li>
-        <li><a href="/application-submitted-vtq-in-review" class="govuk">VTQ - View a submitted application (Awaiting decision)</a></li>
-        <li><a href="/application-submitted-as-in-review" class="govuk">Assessment Specialist - View a submitted application (Awaiting decision)</a></li>
-        <li><a href="/application-submitted-gq-accepted" class="govuk">GQ - View a submitted application (Accepted)</a></li>
-        <li><a href="/application-submitted-vtq-accepted" class="govuk">VTQ - View a submitted application (Accepted)</a></li>
-        <li><a href="/application-submitted-as-accepted" class="govuk">Assessment Specialist - View a submitted application (Accepted)</a></li> -->
+        <li><strong class="govuk-tag govuk-tag--purple govuk-!-margin-right-1"> Awaiting decision</strong> <a href="/application-submitted-gq" class="govuk">GQ</a> </li>
+        <li><strong class="govuk-tag govuk-tag--purple govuk-!-margin-right-1"> Awaiting decision</strong> <a href="/application-submitted-vtq" class="govuk">VTQ</a></li>
+        <li><strong class="govuk-tag govuk-tag--purple govuk-!-margin-right-1"> Awaiting decision</strong> <a href="/application-submitted-as" class="govuk">Assessment Specialist</a></li>
+        <li><strong class="govuk-tag govuk-tag--yellow govuk-!-margin-right-1"> Action required</strong> <a href="/application-submitted-action-required" class="govuk">More details needed from the applicant</a></li>
+        <li><strong class="govuk-tag govuk-tag--green govuk-!-margin-right-1"> Accepted</strong> <a href="/application-submitted-accepted" class="govuk">All subjects accepted</a></li>
+        <li><strong class="govuk-tag govuk-tag--green govuk-!-margin-right-1"> Accepted</strong> <a href="/application-submitted-accepted-rejected" class="govuk">Mix of accepted + rejected subjects</a></li>
+        <li><strong class="govuk-tag govuk-tag--red govuk-!-margin-right-1"> Rejected</strong> <a href="/application-submitted-rejected" class="govuk">All subjects rejected</a></li>
       </ul>
-
-      {# <h2 class="govuk-heading-m">Demos</h2>
-      <a href="/application/expertise/select-occupation-demo" class="govuk-body">Select an occupation (Option search/select demo)</a> #}
-      
       <h2 class="govuk-heading-m">Admin settings</h2>
       <p class="govuk-body">The <code>Admin</code> section allows us to set up the prototype in different states.</p>
       <a href="/admin" class="govuk-link govuk-body">View admin settings</a>

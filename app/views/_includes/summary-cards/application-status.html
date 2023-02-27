@@ -1,6 +1,21 @@
   {% set applicationSubmittedTimeHtml %}
     <time datetime="">{{ "" | twoweeksago |  govukDate }}, 16:13</time>
   {% endset %}
+  
+  {% set actionRequiredHtml %}
+    {% if data.proofNameChangeReply == "replied" %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+    {% else %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
+    {% endif %}
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction }}</h4>
+    <p><a href="{{ data.applicationActionLink }}">View message</a></p>
+  {% endset %}
+
+  {% set rejectedFeedbackHtml %}
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationFeedbackCategory }}</h4>
+    <p class="govuk-body">{{ data.applicationFeedback }}</p>
+  {% endset %}
 
   {% set applicationStatusHtml %}
     {% if data.applicationStatus == "Awaiting decision" %}
@@ -8,11 +23,17 @@
         text: "Awaiting decision",
         classes: "govuk-tag--purple"
       })}}
-    {% elseif data.applicationStatus == "Requires action" %}
+    {% elseif data.applicationStatus == "Action required" %}
       {{ govukTag({
-        text: "Requires action",
+        text: "Action required",
         classes: "govuk-tag--yellow"
       })}}
+      {{ govukDetails({
+        summaryText: "Further information required",
+        html: actionRequiredHtml,
+        classes: "govuk-!-margin-top-4",
+        open: "true"
+      }) }} 
     {% elseif data.applicationStatus == "Accepted" %}
       {{ govukTag({
         text: "Approved",
@@ -23,6 +44,12 @@
         text: "Rejected",
         classes: "govuk-tag--red"
       })}}
+      {{ govukDetails({
+        summaryText: "Feedback",
+        html: rejectedFeedbackHtml,
+        classes: "govuk-!-margin-top-4",
+        open: "true"
+      }) }} 
     {% else %}
       nothing
     {% endif %}
@@ -65,7 +92,7 @@
         value: {
           html: subjectStatusHtml
         }
-      },
+      } if data.applicationStatus != ("Action required" or "Awaiting decision"),
       {
         key: {
           text: "Last updated"
