@@ -882,7 +882,7 @@ var allRejected = {
   "resultName": "Asbestos Analyst and Surveyor",
   "selectedQualification": "End-Point Assessment",
   "selectedLevel": [
-    "3"
+    "Level 3"
   ],
   "expertiseType": [
     "Assessment"
@@ -1139,9 +1139,9 @@ var acceptedRejected = {
   "applicationFeedbackCategory": "",
   "applicationFeedback": "",
   // Subject 1
-  "subject1AssessmentMakingStatus": "Accepted", 
-  "subject1AssessmentMakingFeedbackCategory": "",
-  "subject1AssessmentMakingFeedback": "",
+  "subject1AssessmentMakingStatus": "Rejected", 
+  "subject1AssessmentMakingFeedbackCategory": "Type of experience inappropriate",
+  "subject1AssessmentMakingFeedback": "This applicant does not have enough experience in making assessment judgements for this subjects.",
   "subject1AssessmentSettingStatus": "Accepted", 
   "subject1AssessmentSettingFeedbackCategory": "",
   "subject1AssessmentSettingFeedback": "",

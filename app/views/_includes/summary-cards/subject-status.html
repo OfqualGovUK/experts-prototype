@@ -1,0 +1,168 @@
+  
+  {% set actionRequiredHtml %}
+    {% if data.proofNameChangeReply == "replied" %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+    {% else %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
+    {% endif %}
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction }}</h4>
+    <p><a href="{{ data.applicationActionLink }}">View message</a></p>
+  {% endset %}
+
+  {% set makingjudgementsrejectedHtml %}
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.subject1AssessmentMakingFeedbackCategory }}</h4>
+    <p class="govuk-body">{{ data.subject1AssessmentMakingFeedback }}</p>
+  {% endset %}
+
+  {% set applicationStatusHtml %}
+    {% if data.subject1AssessmentMakingStatus == "Awaiting decision" %}
+      {{ govukTag({
+        text: "Awaiting decision",
+        classes: "govuk-tag--purple"
+      })}}
+    {% elseif data.subject1AssessmentMakingStatus == "Action required" %}
+      {{ govukTag({
+        text: "Action required",
+        classes: "govuk-tag--yellow"
+      })}}
+      {{ govukDetails({
+        summaryText: "Further information required",
+        html: actionRequiredHtml,
+        classes: "govuk-!-margin-top-4",
+        open: "true"
+      }) }} 
+    {% elseif data.subject1AssessmentMakingStatus == "Accepted" %}
+      {{ govukTag({
+        text: "Approved",
+        classes: "govuk-tag--green"
+      })}}
+    {% elseif data.subject1AssessmentMakingStatus == "Rejected" %}
+      {{ govukTag({
+        text: "Rejected",
+        classes: "govuk-tag--red"
+      })}}
+    {% else %}
+      nothing
+    {% endif %}
+  {% endset %}
+
+  {% set makingjudgementHtml %}
+  Making assessment judgements
+    {% if data.subject1AssessmentMakingStatus == "Action required" %}
+      {{ govukDetails({
+        summaryText: "Further information required",
+        html: actionRequiredHtml,
+        classes: "govuk-!-margin-top-4",
+        open: "true"
+      }) }} 
+    {% elseif data.subject1AssessmentMakingStatus == "Rejected" %}
+      {{ govukDetails({
+        summaryText: "Feedback",
+        html: makingjudgementsrejectedHtml,
+        classes: "govuk-!-margin-top-4",
+        open: "true"
+      }) }} 
+    {% else %}
+      nothing
+    {% endif %}
+  {% endset %}
+
+  {% set subjectStatusHtml %}
+    <a href="/account/your-details/subjects">View status per subject or occupational area</a>
+  {% endset %}
+
+  <p><a class="govuk-link" href="/account/your-details/application">View application</a></p>
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-1">{{ data.resultName }}</h2>
+  <p class="govuk-body">{{ data.selectedQualification }} - {{ data.selectedLevel }}</p>
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+  {% if data.isAssessment == "true" %}
+  
+  {{ xGovukSummaryCard({
+    titleText: "Assessment",
+    rows: [
+      {
+        key: {
+          html: makingjudgementHtml,
+          classes: "govuk-!-width-three-quarters"
+        },
+        value: {
+          html: applicationStatusHtml
+        }
+      },
+      {
+        key: {
+          text: "Status per subject or occupational area"
+        },
+        value: {
+          html: subjectStatusHtml
+        }
+      } if data.applicationStatus != ("Action required" or "Awaiting decision"),
+      {
+        key: {
+          text: "Last updated"
+        },
+        value: {
+          html: profileUpdatedHtml
+        }
+      },
+      {
+        key: {
+          text: "Date submitted"
+        },
+        value: {
+          html: applicationSubmittedTimeHtml
+        }
+      }
+    ]
+  }) }}
+  {% endif %}
+
+  {% if data.isTeaching == "true" %}
+  
+  {{ xGovukSummaryCard({
+    titleText: "Your application",
+      actions: {
+        items: [
+          {
+            href: "/account/your-details/application",
+            text: "View application",
+            visuallyHiddenText: "Your application"
+          } 
+        ] if pageTypeSub != "Application"
+      },
+    rows: [
+      {
+        key: {
+          text: "test"
+        },
+        value: {
+          html: applicationStatusHtml
+        }
+      },
+      {
+        key: {
+          text: "Status per subject or occupational area"
+        },
+        value: {
+          html: subjectStatusHtml
+        }
+      } if data.applicationStatus != ("Action required" or "Awaiting decision"),
+      {
+        key: {
+          text: "Last updated"
+        },
+        value: {
+          html: profileUpdatedHtml
+        }
+      },
+      {
+        key: {
+          text: "Date submitted"
+        },
+        value: {
+          html: applicationSubmittedTimeHtml
+        }
+      }
+    ]
+  }) }}
+  {% endif %}
