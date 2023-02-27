@@ -526,6 +526,8 @@ var actionRequired = {
   "isTraining": "true",
   "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
+  // Subject2
+  "selectedSubject2": "",
 
   // Evidence of experience
   // Assessment experience
@@ -708,12 +710,21 @@ var allAccepted = {
     "Designing and developing assessments",
     "Evaluating assessments or assessment approaches"
   ],
+  "isTeaching2": "true",  
   "teachingExpertiseType2": [
     "Teaching or lecturing",
     "Training",
     "Educational management",
     "Teacher training"
   ],
+  "isJudgement2": "true",
+  "isStandardSetting2": "true",
+  "isDesigning2": "true",
+  "isEvaluating2": "true",
+  "isLecturing2": "true",
+  "isTraining2": "true",
+  "isEducationalManagement2": "true",
+  "isTeacherTraining2": "true", 
 
   // Evidence of experience
   // Assessment experience
@@ -899,6 +910,8 @@ var allRejected = {
   "isDesigning": "true",
   "isEvaluating": "true",
   "adviseAreasCompleted": "complete",
+  // Subject2
+  "selectedSubject2": "",
 
   // Evidence of experience
   // Assessment experience
@@ -1060,8 +1073,8 @@ var acceptedRejected = {
     "Teacher training"
   ],
   "isTraining": "true",
-  "isTeacherTraining": "true",
-  "adviseAreasCompleted": "complete",
+  "isTeacherTraining": "true", 
+  "adviseAreasCompleted": "complete", 
   // Subject2
   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
   "resultName2": "Building control surveyor (integrated degree)",
@@ -1079,6 +1092,15 @@ var acceptedRejected = {
     "Designing and developing assessments",
     "Evaluating assessments or assessment approaches"
   ],
+  "isJudgement2": "true",
+  "isStandardSetting2": "true",
+  "isDesigning2": "true",
+  "isEvaluating2": "true",
+  "isTeaching2": "false", 
+  "isLecturing2": "false",
+  "isTraining2": "false",
+  "isEducationalManagement2": "false",
+  "isTeacherTraining2": "false", 
 
   // Evidence of experience
   // Assessment experience
@@ -1231,7 +1253,9 @@ module.exports = {
   "proofNameChangeReply": "noReply",
   "subjectEvidenceReply": "noReply",
   "messageSent": "none",
-  "applicationStatus": "Awaiting decision",
+  "applicationStatus": "incomplete",
   "accountMessageSubject": "",
-  "accountMessageUnread": "Unread"
+  "accountMessageUnread": "Unread",
+  // Subject2
+  "selectedSubject2": ""
 }
