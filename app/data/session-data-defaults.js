@@ -695,6 +695,8 @@ var actionRequired = {
   "isTraining": "true",
   "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
+  // Subject2
+  "selectedSubject2": "",
 
   // Evidence of experience
   // Assessment experience
@@ -891,10 +893,10 @@ var allAccepted = {
     "Educational management",
     "Teacher training"
   ],
-  "isTeaching2": "true",
+  "isLecturing2": "true",
   "isTraining2": "true",
   "isEducationalManagement2": "true",
-  "isTeacherTraining2": "true",
+  "isTeacherTraining2": "true", 
 
   // Evidence of experience
   // Assessment experience
@@ -1077,6 +1079,8 @@ var allRejected = {
   "isDesigning": "true",
   "isEvaluating": "true",
   "adviseAreasCompleted": "complete",
+  // Subject2
+  "selectedSubject2": "",
 
   // Evidence of experience
   // Assessment experience
@@ -1239,8 +1243,8 @@ var acceptedRejected = {
     "Teacher training"
   ],
   "isTraining": "true",
-  "isTeacherTraining": "true",
-  "adviseAreasCompleted": "complete",
+  "isTeacherTraining": "true", 
+  "adviseAreasCompleted": "complete", 
   // Subject2
   "subject2": "true", 
   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
@@ -1409,7 +1413,9 @@ module.exports = {
   "proofNameChangeReply": "noReply",
   "subjectEvidenceReply": "noReply",
   "messageSent": "none",
-  "applicationStatus": "Awaiting decision",
+  "applicationStatus": "incomplete",
   "accountMessageSubject": "",
-  "accountMessageUnread": "Unread"
+  "accountMessageUnread": "Unread",
+  // Subject2
+  "selectedSubject2": ""
 }
