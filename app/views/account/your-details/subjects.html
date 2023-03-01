@@ -1,6 +1,6 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details" %}
+{% set pageHeading = "Your details - Subject or occupational areas" %}
 {% set subHeading = "Subject or occupational areas" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
@@ -8,28 +8,6 @@
 {% set pageTypeSub = "Your details" %}
 
 {% block content %}
-<!--   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
-  {{ mojSubNavigation({
-    label: 'Sub navigation',
-    items: [{
-      text: 'Personal details',
-      href: '/account/your-details/'
-    }, {
-      text: 'Subject or occupational areas',
-      href: '/account/your-details/subjects',
-      active: true
-    }, {
-      text: 'Conflict of interest',
-      href: '/account/your-details/conflict-of-interest'
-    }, {
-      text: 'Self declaration',
-      href: '/account/your-details/self-declaration'
-    }, {
-      text: 'Application',
-      href: '/account/your-details/application'
-    }]
-  }) }} -->
   {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
@@ -60,7 +38,11 @@
     </div>
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-      <p>To be designed - will list the subjects and show statuses</p>
+      <p>Here you can view all the subjects and specialisms you applied for and the outcome of your application for each. </p>
+      <p><a class="govuk-link" href="/account/your-details/application">View full application</a></p>
+      <section class="govuk-!-margin-bottom-8">
+        {% include "_includes/summary-cards/subject-status.html" %}
+      </section>
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Request changes",
@@ -69,5 +51,4 @@
       </div>
     </div>
   </div>
-
 {% endblock %}

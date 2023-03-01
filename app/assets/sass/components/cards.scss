@@ -19,15 +19,14 @@ $card-border-hover-color: #003078;
 .eyfs-card-group__item {
   display: flex;
   list-style-type: none;
-  margin-bottom: 0;
+  margin-bottom: govuk-spacing(3);
 
   .eyfs-card--clickable {
-    margin-bottom: govuk-spacing(5);
   }
 
   @include mq($until: desktop) {
     .eyfs-card--clickable {
-      margin-bottom: govuk-spacing(3);
+      
     }
 
     &:last-child .eyfs-card--clickable {
@@ -38,7 +37,6 @@ $card-border-hover-color: #003078;
 }
 
 .eyfs-card--clickable {
-  @include govuk-responsive-margin(5, 'bottom');
   border: 1px solid govuk-colour("mid-grey");
   border-bottom: none;
   box-shadow: 0 2px 0 0 $card-border-color;
@@ -75,12 +73,19 @@ $card-border-hover-color: #003078;
 
 }
 
+.eyfs-link {
+  height: fit-content;
+  text-decoration: none;
+
+  h3 {
+    color: $govuk-link-colour;
+  }
+  &:hover h3 {
+    color: $card-border-hover-color;
+  }
+}
+
 // This method works well for inline svg in the html and aligning with flex
 .eyfs-card__content {
   @include govuk-responsive-padding(5);
-
-  // Maintains the vertical alignment center in Safari mobile browser
-  & > a {
-    align-self: center;
-  }
 }

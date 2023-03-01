@@ -902,7 +902,7 @@ router.all( '/populate-application-vtq', function (req, res) {
 // Sets up the tasklist with a completed applicationwhen you visit a link
 // The '?applicationStatus=...' is tells the prototype which status the aplication is in
 router.all( '/application-submitted-vtq', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationDataVTQ)
+  req.session.data = Object.assign(req.session.data.awaitingDecision)
   
   res.redirect('/account?applicationStatus=Awaiting decision');
 })
