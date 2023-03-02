@@ -25,3 +25,13 @@
 .moj-side-navigation {
   padding-top: 5px;
 }
+
+.moj-side-navigation {
+  padding-top: 5px;
+}
+
+@include govuk-media-query($from: tablet) {
+  .moj-side-navigation {
+    display: flex;
+    }
+}

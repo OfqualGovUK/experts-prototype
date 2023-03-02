@@ -26,4 +26,12 @@
 .float-right {
     float: right;
 }
+
+.x-govuk-summary-card {
+    @include govuk-responsive-margin(8, "top");
+}
+
+.govuk-heading-l {
+    margin-top: 20px;
+}
 }
