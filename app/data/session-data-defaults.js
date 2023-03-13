@@ -1167,7 +1167,8 @@ var allRejected = {
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
-  "subject1TeachingTeacherTrainingFeedback": ""
+  "subject1TeachingTeacherTrainingFeedback": "",
+  "accountMessageUnread": "Read",
 }
 
 var acceptedRejected = {
@@ -1379,7 +1380,8 @@ var acceptedRejected = {
   "subject2TeachingEducationalFeedback": "",
   "subject2TeachingTeacherTrainingStatus": "", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
-  "subject2TeachingTeacherTrainingFeedback": ""
+  "subject2TeachingTeacherTrainingFeedback": "",
+  "accountMessageUnread": "Read",
 }
 
 module.exports = {
