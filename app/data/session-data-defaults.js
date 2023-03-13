@@ -1167,7 +1167,7 @@ var allRejected = {
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
-  "subject1TeachingTeacherTrainingFeedback": ""
+  "subject1TeachingTeacherTrainingFeedback": "",
 }
 
 var acceptedRejected = {
