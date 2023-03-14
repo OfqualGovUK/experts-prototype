@@ -108,28 +108,28 @@ var completedApplicationDataVTQ = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
@@ -533,28 +533,28 @@ var awaitingDecision = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
@@ -700,28 +700,28 @@ var actionRequired = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
@@ -900,28 +900,28 @@ var allAccepted = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
@@ -1084,28 +1084,28 @@ var allRejected = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
@@ -1268,28 +1268,28 @@ var acceptedRejected = {
 
   // Evidence of experience
   // Assessment experience
-  "assessmentJudgementDetails": "I'd detail the process of reviewing qualifications and assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentStandardSettingDetails": "I'd enter the qualifications I've been involved in standardising the assessments. I'd put how long I had worked with the qualification if I had been involved from the start or entered within part of it.  I'd detail the work on standardising.",
-  "assessmentDesigningDetails": "I'd detail my involvement and what we did in terms of designing the assessments. I'd enter the qualifications I've been involved in the work designing the assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
-  "assessmentEvaluatingDetails": " I'd detail the process of evaluating qualifications and assessments. I'd enter the qualifications I've been involved in evaluating assessments. I would include here a specific summary of my experience, relating to the subjects this expertise was selected for.",
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
   "assessmentExpertiseCompleted": "complete",
 
   // Industry, occupational or professional expertise
-  "industryExpertiseDetails": "I'd be entering when I used to work as an Asbestos surveyor, my background, and when I trained and was a practicing surveyor. I would list the years that I had done this work, and who the work was for and I would detail activities, to show my experience and industry knowledge.",
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
   "industryExpertiseCompleted": "complete",
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
-  "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
   // Communication and analytical judgement skills
-  "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
   "communicationCompleted": "complete",
 
   // Further evidence
-  "furtherEvidenceSummary": "I would include here any extra details about achievements I have not already covered.",
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
   "furtherEvidenceDetails": "complete",
 
   // Conflict of interest
