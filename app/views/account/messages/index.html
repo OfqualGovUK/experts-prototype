@@ -96,23 +96,75 @@
                 <div>&nbsp;</div>
               </td>
             </tr>
-          {% else %}
-            <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+            {% else %}
+              <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+                <!-- status -->
+                <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                      <a href="/message-further-evidence" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Further evidence needed for your subject experience
+                      </a>
+                    </h2>
+                  </div>
+                </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+          {% endif %}
+          {% if data.accountMessageUnread == "Read" %}
+            <tr class="govuk-table__row clickable-row message read">
               <!-- status -->
-              <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
-                <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+              <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
                 <div>&nbsp;</div>
               </td>
               <!-- sender -->
               <td class="govuk-table__cell messages--govuk-table__cell">
-                <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-                    <a href="/message-further-evidence" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
-                      Further evidence needed for your subject experience
+                {% if data.teachingEvidenceReply == "replied" %}
+                  <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                    <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+                  </div>
+                  {% else %}                
+                {% endif %}
+                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                  <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                    <a href="./messages/further-evidence-required-teaching" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Further evidence needed for your teaching experience
                     </a>
                   </h2>
                 </div>
               </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+          {% else %}
+              <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+                <!-- status -->
+                <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                      <a href="./messages/further-evidence-required-teaching" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Further evidence needed for your teaching experience
+                      </a>
+                    </h2>
+                  </div>
+                </td>
               <!-- date -->
               <td valign="top" class="messages--govuk-table__cell_last bold">
                 <time datetime="">{{ "" | yesterday |  govukDate }}</time>

@@ -1283,6 +1283,9 @@ var acceptedRejected = {
   "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "Train asbestos training providers. Training other trainers. I would include here a specific summary of my experience training others. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingExpertiseCompleted": "complete",
+  "teachingStatus": "Action required",
+  "teachingAction": "Further evidence needed for your subject experience",
+  "teachingActionLink": "/account/messages/further-evidence-required-teaching",
 
   // Communication and analytical judgement skills
   "communicationDetails": "I would include here any extra details about my communication and analytical judgement skills I have not already covered.",
@@ -1412,6 +1415,7 @@ module.exports = {
   // set account messages status
   "proofNameChangeReply": "noReply",
   "subjectEvidenceReply": "noReply",
+  "teachingEvidenceReply": "noReply",
   "messageSent": "none",
   "applicationStatus": "incomplete",
   "accountMessageSubject": "",
