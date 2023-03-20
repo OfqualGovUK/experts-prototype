@@ -31,8 +31,7 @@
       {{ govukDetails({
         summaryText: "Further information required",
         html: actionRequiredHtml,
-        classes: "govuk-!-margin-top-4",
-        open: "true"
+        classes: "govuk-!-margin-top-4"
       }) }} 
     {% elseif data.applicationStatus == "Accepted" %}
       {{ govukTag({
@@ -47,8 +46,7 @@
       {{ govukDetails({
         summaryText: "Feedback",
         html: rejectedFeedbackHtml,
-        classes: "govuk-!-margin-top-4",
-        open: "true"
+        classes: "govuk-!-margin-top-4"
       }) }} 
     {% else %}
       nothing
