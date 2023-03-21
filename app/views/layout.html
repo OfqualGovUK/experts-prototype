@@ -113,9 +113,13 @@
                   <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/messages?referrer=" {{'aria-current=page' if primaryNavActive == 'Messages'}}>
                     Messages
                   </a>
-                  {% if data.accountMessageUnread == "Unread" %}
+                  {% if (data.accountMessageMakingJudgements == "Unread") and (data.accountMessageTeacherTraining == "Unread") %}
                     <span class="app-notification-number">2</span>
-                  {% else %}
+                    {% elseif data.accountMessageMakingJudgements == "Unread" %}
+                    <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageTeacherTraining == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% else %}
                   {% endif %} 
                 </li>
                 <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">

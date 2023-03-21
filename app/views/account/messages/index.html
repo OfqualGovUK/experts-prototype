@@ -68,7 +68,7 @@
           {% else %}
           {% endif %}
           
-          {% if data.accountMessageUnread == "Read" %}
+          {% if data.accountMessageMakingJudgements == "Read" %}
             <tr class="govuk-table__row clickable-row message read">
               <!-- status -->
               <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
@@ -85,7 +85,7 @@
                 <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
                   <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
                     <a href="/message-further-evidence" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
-                      Further evidence needed for your subject experience
+                      Further evidence needed for your experience in making assessment judgements
                     </a>
                   </h2>
                 </div>
@@ -108,7 +108,7 @@
                   <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
                       <a href="/message-further-evidence" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
-                        Further evidence needed for your subject experience
+                        Further evidence needed for your experience in making assessment judgements
                       </a>
                     </h2>
                   </div>
@@ -120,7 +120,7 @@
               </td>
             </tr>
           {% endif %}
-          {% if data.accountMessageUnread == "Read" %}
+          {% if data.accountMessageTeacherTraining == "Read" %}
             <tr class="govuk-table__row clickable-row message read">
               <!-- status -->
               <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
@@ -136,8 +136,8 @@
                 {% endif %}
                 <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
                   <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
-                    <a href="./messages/further-evidence-required-teaching" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
-                      Further evidence needed for your teaching experience
+                    <a href="/message-further-evidence-ttraining" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Further evidence needed for your experience in teacher training
                     </a>
                   </h2>
                 </div>
@@ -159,8 +159,8 @@
                 <td class="govuk-table__cell messages--govuk-table__cell">
                   <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-                      <a href="./messages/further-evidence-required-teaching" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
-                        Further evidence needed for your teaching experience
+                      <a href="/message-further-evidence-ttraining" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Further evidence needed for your experience in teacher training
                       </a>
                     </h2>
                   </div>

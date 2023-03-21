@@ -1,5 +1,5 @@
   {% set actionRequiredHtml %}
-    {% if data.proofNameChangeReply == "replied" %}
+    {% if data.subjectEvidenceReply == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
     {% else %}
       <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
@@ -8,14 +8,14 @@
     <p><a href="{{ data.applicationActionLink }}">View message</a></p>
   {% endset %}
 
-  {% set actionRequiredTeachingHtml %}
+  {% set actionRequiredTTrainingHtml %}
     {% if data.teachingEvidenceReply == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
     {% else %}
       <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
     {% endif %}
-    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.teachingAction }}</h4>
-    <p><a href="{{ data.teachingActionLink }}">View message</a></p>
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction2 }}</h4>
+    <p><a href="{{ data.applicationActionLink2 }}">View message</a></p>
   {% endset %}
 
   <!-- START Card for subject 1 -->
@@ -492,7 +492,7 @@
               {% if data.subject1TeachingTeacherTrainingStatus == "Action required" %}
                 {{ govukDetails({
                   summaryText: "Further information required",
-                  html: actionRequiredHtml,
+                  html: actionRequiredTTrainingHtml,
                   classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                 }) }} 
               {% elseif data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
@@ -1017,7 +1017,7 @@
               {% if data.subject2TeachingTeacherTrainingStatus == "Action required" %}
                 {{ govukDetails({
                   summaryText: "Further information required",
-                  html: actionRequiredHtml,
+                  html: actionRequiredTTrainingHtml,
                   classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                 }) }} 
               {% elseif data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
