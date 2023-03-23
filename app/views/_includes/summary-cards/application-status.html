@@ -3,13 +3,20 @@
   {% endset %}
   
   {% set actionRequiredHtml %}
-    {% if data.proofNameChangeReply == "replied" %}
+    {% if data.subjectEvidenceReply == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
     {% else %}
       <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
     {% endif %}
     <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction }}</h4>
     <p><a href="{{ data.applicationActionLink }}">View message</a></p>
+    {% if data.teachingEvidenceReply == "replied" %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+    {% else %}
+      <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
+    {% endif %}
+    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction2 }}</h4>
+    <p><a href="{{ data.applicationActionLink2 }}">View message</a></p>
   {% endset %}
 
   {% set rejectedFeedbackHtml %}
@@ -31,8 +38,7 @@
       {{ govukDetails({
         summaryText: "Further information required",
         html: actionRequiredHtml,
-        classes: "govuk-!-margin-top-4",
-        open: "true"
+        classes: "govuk-!-margin-top-4"
       }) }} 
     {% elseif data.applicationStatus == "Accepted" %}
       {{ govukTag({
@@ -47,8 +53,7 @@
       {{ govukDetails({
         summaryText: "Feedback",
         html: rejectedFeedbackHtml,
-        classes: "govuk-!-margin-top-4",
-        open: "true"
+        classes: "govuk-!-margin-top-4"
       }) }} 
     {% else %}
       nothing
