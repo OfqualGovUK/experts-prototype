@@ -1,6 +1,7 @@
 // Summary card
 .x-govuk-summary-card {
     margin-bottom: govuk-spacing(8) !important;
+    // @include govuk-responsive-margin(8, "top");
     
     & + .x-govuk-summary-card {
         margin-top: govuk-spacing(8) !important;
@@ -12,6 +13,5 @@
 
     .x-govuk-summary-card__title .govuk-heading-m {
         font-size: 24px !important;
-    }
-    
+    }   
 }
