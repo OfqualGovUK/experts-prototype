@@ -847,7 +847,11 @@ var actionRequired = {
   "subject2TeachingEducationalFeedback": "",
   "subject2TeachingTeacherTrainingStatus": "Action required", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
-  "subject2TeachingTeacherTrainingFeedback": ""
+  "subject2TeachingTeacherTrainingFeedback": "",
+
+  // Messages 
+  "accountMessageMakingJudgements": "Unread",
+  "accountMessageTeacherTraining": "Unread"
 }
 
 var allAccepted = {
@@ -1075,7 +1079,12 @@ var allAccepted = {
   "subject2TeachingEducationalFeedback": "",
   "subject2TeachingTeacherTrainingStatus": "Accepted", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
-  "subject2TeachingTeacherTrainingFeedback": ""
+  "subject2TeachingTeacherTrainingFeedback": "",
+
+  // Messages
+  "accountMessageMakingJudgements": "Read",
+  "accountMessageTeacherTraining": "Read",
+  "accountMessageOutcome": "Unread"
 }
 
 var allRejected = {
@@ -1232,6 +1241,11 @@ var allRejected = {
   "subject1TeachingTeacherTrainingStatus": "", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
   "subject1TeachingTeacherTrainingFeedback": "",
+
+  // Messages
+  "accountMessageMakingJudgements": "Read",
+  "accountMessageTeacherTraining": "Read",
+  "accountMessageOutcome": "Unread"
 }
 
 var acceptedRejected = {
@@ -1446,7 +1460,12 @@ var acceptedRejected = {
   "subject2TeachingEducationalFeedback": "",
   "subject2TeachingTeacherTrainingStatus": "", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
-  "subject2TeachingTeacherTrainingFeedback": ""
+  "subject2TeachingTeacherTrainingFeedback": "",
+
+  // Messages
+  "accountMessageMakingJudgements": "Read",
+  "accountMessageTeacherTraining": "Read",
+  "accountMessageOutcome": "Unread",
 }
 
 module.exports = {
@@ -1483,8 +1502,6 @@ module.exports = {
   "messageSent": "none",
   "applicationStatus": "incomplete",
   "accountMessageSubject": "",
-  "accountMessageMakingJudgements": "Unread",
-  "accountMessageTeacherTraining": "Unread",
   // Subject2
   "selectedSubject2": ""
 }

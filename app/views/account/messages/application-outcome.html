@@ -10,41 +10,19 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <span class="govuk-caption-l">24 Feb 2023 </span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">Your application has been rejected.</p>
-      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Reason:</span></p>
-      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-body">Qualifications not relevant</span></p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject</li>
-      </ul>
 
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/application">View your application</a></p>
-
-      <!-- {% if data.subjectEvidenceReply == "noReply" %}
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Reply to message",
-            href: "/account/messages/reply?referrer=subject-evidence"
-          }) }}
-        </div>
-        {% else %} 
-      {% endif %} -->
-
-      <!-- {% if data.subjectEvidenceReply == "replied" %}
-        <hr>
-        <div class="govuk-!-margin-top-6">
-          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 1 Mar 2023</p>
-          <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
-          <p class="govuk-body">{{ data.accountMessageReplySubjectEvidence }}</p>
-          <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">{{ data.accountMessageReplyUploadSubjectEvidence }}</a></p>
-        </div>
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Send another reply",
-            href: "/account/messages/reply?referrer=subject-evidence"
-          }) }}
-        </div>
-        {% else %} 
-      {% endif %} -->
+      {% if data.applicationStatus == "Rejected" %}
+        <p class="govuk-body">Your application has been rejected. </p>
+        <p class="govuk-body">Thank you for taking the time to apply to be a Subject matter specialist. Please consider applying again in the future. </p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Rejection reason and feedback</h2>
+        <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-body">{{ data.applicationFeedbackCategory }}</span></p>
+        <p class="govuk-body">{{ data.applicationFeedback }}</p>
+        <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome and feedback by subject</a></p>
+        {% else %}
+          <p class="govuk-body">Your application has been accepted.</p>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome by subject</a></p>
+      {% endif %}
+      
     </div>
   </div>  
 
