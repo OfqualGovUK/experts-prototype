@@ -1058,7 +1058,14 @@ router.all('/change-self-declaration', function (req, res) {
 // Account - Messages - change unread status 
 router.all('/message-further-evidence', function (req, res) {
 
-  req.session.data.accountMessageUnread = "Read"
+  req.session.data.accountMessageMakingJudgements = "Read"
   res.redirect('/account/messages/further-evidence-required');
+  
+})
+
+router.all('/message-further-evidence-ttraining', function (req, res) {
+
+  req.session.data.accountMessageTeacherTraining = "Read"
+  res.redirect('/account/messages/further-evidence-required-ttraining');
   
 })
