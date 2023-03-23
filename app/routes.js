@@ -1061,3 +1061,12 @@ router.all('/message-further-evidence-ttraining', function (req, res) {
   res.redirect('/account/messages/further-evidence-required-ttraining');
   
 })
+
+router.all('/message-identity', function (req, res) {
+
+  req.session.data.accountMessageIdentity = "Read"
+  res.redirect('/account/messages/further-evidence-required-identity-check');
+  
+})
+
+

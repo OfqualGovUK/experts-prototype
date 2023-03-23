@@ -1,6 +1,6 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Further evidence needed for your identity check" %}
+{% set pageHeading = "Verify your identity" %}
 {% set primaryNavActive = "Messages" %}
 {% set pageType = "Account" %}
 
@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <span class="govuk-caption-l">24 Feb 2023 </span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">To proceed with your application we need more evidence of your identity. </p>      
+      <p class="govuk-body">To proceed with your application we need to verify your identity. To do this please provide one of the following: </p>      
       <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">A UK or Irish passport</span></p>
       <ul class="govuk-list govuk-list--bullet">
         <li>An official letter or document from a government agency or previous employer, showing your name and National Insurance number</li>
@@ -23,7 +23,6 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>An official letter or document from a government agency or previous employer, showing your name and National Insurance number</li>
       </ul>
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/application">View the evidence you've already provided </a></p>
 
       {% if data.identityCheckReply == "noReply" %}
         <div class="govuk-button-group">

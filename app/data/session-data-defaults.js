@@ -1489,6 +1489,7 @@ module.exports = {
   "identityCheckReply": "noReply",
   "accountMessageMakingJudgements": "Unread",
   "accountMessageTeacherTraining": "Unread",
+  "accountMessageIdentity": "Unread",
   // Subject2
   "selectedSubject2": ""
 }

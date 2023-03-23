@@ -173,7 +173,7 @@
             </tr>
           {% endif %}
 
-          {% if data.accountMessageUnread == "Read" %}
+          {% if data.accountMessageIdentity == "Read" %}
           <tr class="govuk-table__row clickable-row message read">
             <!-- status -->
             <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
@@ -189,15 +189,15 @@
               {% endif %}
               <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
                 <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
-                  <a href="./messages/further-evidence-required-identity-check" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
-                    Further evidence needed for your identity check
+                  <a href="/message-identity" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                    Verify your identity 
                   </a>
                 </h2>
               </div>
             </td>
             <!-- date -->
             <td valign="top" class="messages--govuk-table__cell_last bold">
-              <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+              <time datetime="">{{ "" | threedaysago |  govukDate }}</time>
               <div>&nbsp;</div>
             </td>
           </tr>
@@ -212,15 +212,15 @@
               <td class="govuk-table__cell messages--govuk-table__cell">
                 <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
                   <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
-                    <a href="./messages/further-evidence-required-identity-check" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
-                      Further evidence needed for your identity check
+                    <a href="/message-identity" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Verify your identity 
                     </a>
                   </h2>
                 </div>
               </td>
                <!-- date -->
               <td valign="top" class="messages--govuk-table__cell_last bold">
-                <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                <time datetime="">{{ "" | threedaysago |  govukDate }}</time>
                 <div>&nbsp;</div>
               </td>
             </tr>
