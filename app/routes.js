@@ -1023,14 +1023,6 @@ router.all('/change-personal-details', function (req, res) {
   
 })
 
-// Account - Your details - subjects request to change
-router.all('/change-subjects', function (req, res) {
-
-  req.session.data.accountMessageSubject = "Request to add or remove subject or occupational areas"
-  res.redirect('/account/messages/send-message');
-  
-})
-
 // Account - Your details - Reference, add new
 router.all('/add-reference', function (req, res) {
 

@@ -25,7 +25,7 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
     </div>
-    <!-- Inbox taken, and edited, from example in Personal tax account -->
+    <!-- Inbox taken, and edited, from example in HMRC Personal tax account -->
     <div class="govuk-button-group govuk-grid-column-one-third govuk-!-display-block">
       {{ govukButton({
         text: "Send a message",
@@ -94,8 +94,7 @@
             {% else %}
               <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
                 <!-- status -->
-                <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
-                  <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
                   <div>&nbsp;</div>
                 </td>
                 <!-- sender -->
@@ -117,6 +116,7 @@
             {% endif %} 
           {% endif %} 
           
+          {% if data.applicationStatus != "Awaiting decision" %} 
             {% if data.accountMessageMakingJudgements == "Read" %}
               <tr class="govuk-table__row clickable-row message read">
                 <!-- status -->
@@ -222,6 +222,8 @@
                 </td>
               </tr>
             {% endif %}
+            {% else %}
+          {% endif %}
           
           <tr class="govuk-table__row clickable-row message read">
             <!-- status -->
@@ -252,28 +254,28 @@
             </td>
           </tr>
           <tr class="govuk-table__row clickable-row message read">
-            <!-- status -->
-            <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
-              <div>&nbsp;</div>
-            </td>
-            <!-- sender -->
-            <td class="govuk-table__cell messages--govuk-table__cell">
-              <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1s">
-                  <a href="/account/messages/application-received?referrer=" class="black-text no--underline message-subject govuk-link" data-sso="false" lang="en">
-                    Application received
-                  </a>
-                </h2>
-              </div>
-            </td>
-            <!-- date -->
-            <td valign="top" class="messages--govuk-table__cell_last ">
-              <time datetime="">{{ "" | twoweeksago |  govukDate }}</time>
-              <div>&nbsp;</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <!-- status -->
+              <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                <div>&nbsp;</div>
+              </td>
+              <!-- sender -->
+              <td class="govuk-table__cell messages--govuk-table__cell">
+                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                  <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1s">
+                    <a href="/account/messages/application-received?referrer=" class="black-text no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Application received
+                    </a>
+                  </h2>
+                </div>
+              </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last ">
+                <time datetime="">{{ "" | twoweeksago |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 {% endblock %}
