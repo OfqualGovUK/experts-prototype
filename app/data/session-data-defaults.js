@@ -783,6 +783,9 @@ var actionRequired = {
   "identityCheckType": "A UK or Irish passport",
   "passportUpload": "passport.pdf",
   "verifyIdentityCompleted": "complete",
+  "identityCheckStatus": "Action required",
+  "identityCheckAction": "Further evidence needed for your identity checks",
+  "identityCheckActionLink": "/account/messages/further-evidence-required-identity-check",
   
   // Application status
   "applicationStatus": "Action required",
@@ -1502,6 +1505,9 @@ module.exports = {
   "messageSent": "none",
   "applicationStatus": "incomplete",
   "accountMessageSubject": "",
+  "identityCheckReply": "noReply",
+  "accountMessageIdentity": "Read",
+
   // Subject2
   "selectedSubject2": ""
 }

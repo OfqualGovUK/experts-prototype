@@ -1054,6 +1054,13 @@ router.all('/message-further-evidence-ttraining', function (req, res) {
   
 })
 
+router.all('/message-identity', function (req, res) {
+
+  req.session.data.accountMessageIdentity = "Read"
+  res.redirect('/account/messages/further-evidence-required-identity-check');
+ 
+})
+
 router.all('/message-outcome', function (req, res) {
 
   req.session.data.accountMessageOutcome = "Read"

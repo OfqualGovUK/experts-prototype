@@ -84,17 +84,18 @@
                       </a>
                     </h2>
                   </div>
-                </td>
-                <!-- date -->
-                <td valign="top" class="messages--govuk-table__cell_last bold">
-                  <time datetime="">{{ "" | yesterday |  govukDate }}</time>
-                  <div>&nbsp;</div>
-                </td>
-              </tr>
+              </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
             {% else %}
               <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
                 <!-- status -->
-                <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
                   <div>&nbsp;</div>
                 </td>
                 <!-- sender -->
@@ -224,7 +225,60 @@
             {% endif %}
             {% else %}
           {% endif %}
-          
+
+          {% if data.accountMessageIdentity == "Read" %}
+          <tr class="govuk-table__row clickable-row message read">
+            <!-- status -->
+            <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+              <div>&nbsp;</div>
+            </td>
+            <!-- sender -->
+            <td class="govuk-table__cell messages--govuk-table__cell">
+              {% if data.identityCheckReply == "replied" %}
+                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+                </div>
+                {% else %}                
+              {% endif %}
+              <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                  <a href="/message-identity" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                    Verify your identity 
+                  </a>
+                </h2>
+              </div>
+            </td>
+            <!-- date -->
+            <td valign="top" class="messages--govuk-table__cell_last bold">
+              <time datetime="">{{ "" | threedaysago |  govukDate }}</time>
+              <div>&nbsp;</div>
+            </td>
+          </tr>
+          {% else %}
+            <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+              <!-- status -->
+              <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                <div>&nbsp;</div>
+              </td>
+              <!-- sender -->
+              <td class="govuk-table__cell messages--govuk-table__cell">
+                <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                    <a href="/message-identity" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Verify your identity 
+                    </a>
+                  </h2>
+                </div>
+              </td>
+               <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | threedaysago |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+          {% endif %}
+
           <tr class="govuk-table__row clickable-row message read">
             <!-- status -->
             <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">

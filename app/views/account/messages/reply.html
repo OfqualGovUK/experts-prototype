@@ -13,14 +13,16 @@
       Proof of name change required
     {% elseif data.referrer == "subject-evidence" %}
       Further evidence needed for your experience in making assessment judgements
-    {% elseif data.referrer == "teaching-evidence" %}
+    {% elseif data.referrer == "identity-check-proof"%}
+      Verify your identity
+    {% elseif data.referrer == "teaching-evidence"%}
       Further evidence needed for your experience in teacher training
     {% else %}
     {% endif %}
   {% endset %}
 
   {% set detailsHtml %}
-    {% if data.referrer == "name-change-proof"%}
+    {% if data.referrer == "name-change-proof" %}
       <p class="govuk-body">To proceed with your application we need to see proof of your name change. Please provide one of the following documents: </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>marriage or civil partnership certificate </li>
@@ -29,7 +31,7 @@
         <li>unenrolled deed poll or change of name deed</li>
         <li>statutory declaration or affidavit</li>
       </ul>
-    {% elseif data.referrer == "subject-evidence"%}
+    {% elseif data.referrer == "subject-evidence" %}
       <p class="govuk-body">To proceed with your application we need more evidence of your experience in: </p>
       <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Making assessment judgements</span> for Asbestos Analyst and Surveyor (End-Point Assessment - level 3)</h2>
       <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
@@ -46,7 +48,7 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>checking and verifying the marking of others, as a moderator within a school, college, for an awarding organisation or as an internal or external verifier</li>
       </ul>
-    {% elseif data.referrer == "teaching-evidence"%}
+    {% elseif data.referrer == "teaching-evidence" %}
     <p class="govuk-body">To proceed with your application we need more evidence of your experience in: </p>
     <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Teacher training</span> for Building control surveyor (integrated degree) (End-point assessment - level 6)</h2>
     <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
@@ -54,6 +56,20 @@
       <li>teaching on a PGCE or similar course</li>
       <li>co-tutoring or where you may have mentored trainee teachers or trainers</li>
     </ul>
+    {% elseif data.referrer == "identity-check-proof" %}
+    <p class="govuk-body">To proceed with your application we need to verify your identity. To do this please provide one of the following: </p>      
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">A UK or Irish passport</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>An official letter or document from a government agency or previous employer, showing your name and National Insurance number</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">A UK birth or adoption certificate</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Upload a clear photograph or scanned copy of your UK birth or adoption certificate</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">A National Insurance letter</span></p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>An official letter or document from a government agency or previous employer, showing your name and National Insurance number</li>
+      </ul>
     {% else %}
     {% endif %}
   {% endset %}
@@ -109,6 +125,31 @@
     
     {# This sets the reply status on the message list #}
     <input type="hidden" name="subjectEvidenceReply" value="replied">
+    
+    {% elseif data.referrer == "identity-check-proof" %}
+      {{ govukDetails({
+        summaryText: "View the message you are replying to",
+        html: detailsHtml
+      }) }}
+
+      {{ govukCharacterCount({
+        maxwords: 500,
+        rows: "10",
+        label: {
+          text: "Your message",
+          classes: "govuk-label--m"
+        }
+      } | decorateAttributes(data, "data.identityMessageReplyEvidence")) }}
+      
+      {{ govukFileUpload({
+      label: {
+        text: "Upload a file",
+        classes: "govuk-label--m"
+      }
+    } | decorateAttributes(data, "data.identityMessageReplyUploadEvidence")) }}
+    
+    {# This sets the reply status on the message list #}
+    <input type="hidden" name="identityCheckReply" value="replied">
 
   {% elseif data.referrer == "teaching-evidence" %}
     {{ govukDetails({
