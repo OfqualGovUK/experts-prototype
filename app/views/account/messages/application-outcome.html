@@ -1,0 +1,29 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Application outcome" %}
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">24 Feb 2023 </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      {% if data.applicationStatus == "Rejected" %}
+        <p class="govuk-body">Your application has been rejected. </p>
+        <p class="govuk-body">Thank you for taking the time to apply to be a Subject matter specialist. Please consider applying again in the future. </p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Rejection reason and feedback</h2>
+        <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-body">{{ data.applicationFeedbackCategory }}</span></p>
+        <p class="govuk-body">{{ data.applicationFeedback }}</p>
+        <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome and feedback by subject</a></p>
+        {% else %}
+          <p class="govuk-body">Your application has been accepted.</p>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome by subject</a></p>
+      {% endif %}
+      
+    </div>
+  </div>  
+
+{% endblock %}

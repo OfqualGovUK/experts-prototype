@@ -25,7 +25,7 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
     </div>
-    <!-- Inbox taken, and edited, from example in Personal tax account -->
+    <!-- Inbox taken, and edited, from example in HMRC Personal tax account -->
     <div class="govuk-button-group govuk-grid-column-one-third govuk-!-display-block">
       {{ govukButton({
         text: "Send a message",
@@ -67,6 +67,55 @@
           </tr>
           {% else %}
           {% endif %}
+          
+          {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
+            {% if data.accountMessageOutcome == "Read" %}
+              <tr class="govuk-table__row clickable-row message read">
+                <!-- status -->
+                <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                      <a href="/message-outcome" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Application outcome
+                      </a>
+                    </h2>
+                  </div>
+                </td>
+                <!-- date -->
+                <td valign="top" class="messages--govuk-table__cell_last bold">
+                  <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                  <div>&nbsp;</div>
+                </td>
+              </tr>
+            {% else %}
+              <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+                <!-- status -->
+                <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                      <a href="/message-outcome" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Application outcome
+                      </a>
+                    </h2>
+                  </div>
+                </td>
+                <!-- date -->
+                <td valign="top" class="messages--govuk-table__cell_last bold">
+                  <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                  <div>&nbsp;</div>
+                </td>
+              </tr>
+            {% endif %} 
+          {% endif %} 
+          
           {% if data.applicationStatus != "Awaiting decision" %} 
             {% if data.accountMessageMakingJudgements == "Read" %}
               <tr class="govuk-table__row clickable-row message read">
@@ -120,6 +169,7 @@
                 </td>
               </tr>
             {% endif %}
+
             {% if data.accountMessageTeacherTraining == "Read" %}
               <tr class="govuk-table__row clickable-row message read">
                 <!-- status -->
@@ -172,8 +222,9 @@
                 </td>
               </tr>
             {% endif %}
-          {% else %}
+            {% else %}
           {% endif %}
+          
           <tr class="govuk-table__row clickable-row message read">
             <!-- status -->
             <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
