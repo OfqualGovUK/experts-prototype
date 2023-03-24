@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
 {% set pageHeading = "Your details" %}
-{% set subHeading = "Personal details" %}
+{% set subHeading = "Personal information" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -38,7 +38,7 @@
       {{ mojSideNavigation({
         label: 'Side navigation',
         items: [{
-          text: 'Personal details',
+          text: 'Personal information',
           href: '/account/your-details/',
           active: true
         }, {
@@ -63,12 +63,6 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
       {% include "_includes/summary-cards/personal-details.html" %}
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Request changes",
-          href: "/change-personal-details"
-        }) }}
-      </div>
     </div>
   </div>
 

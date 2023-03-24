@@ -1015,14 +1015,6 @@ module.exports = router
 
 // ------ Accounts area ------
 
-// Account - Your details - personal details request to change
-router.all('/change-personal-details', function (req, res) {
-
-  req.session.data.accountMessageSubject = "Request a change to personal details"
-  res.redirect('/account/messages/send-message');
-  
-})
-
 // Account - Your details - Reference, add new
 router.all('/add-reference', function (req, res) {
 
@@ -1066,6 +1058,13 @@ router.all('/message-identity', function (req, res) {
 
   req.session.data.accountMessageIdentity = "Read"
   res.redirect('/account/messages/further-evidence-required-identity-check');
+ 
+})
+
+router.all('/message-outcome', function (req, res) {
+
+  req.session.data.accountMessageOutcome = "Read"
+  res.redirect('/account/messages/application-outcome');
   
 })
 
