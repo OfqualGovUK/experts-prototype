@@ -174,37 +174,34 @@
             {% endif %}
           {% else %}
           {% endif %}
-          {% if data.applicationStatus != "Awaiting decision" %}
-            <tr class="govuk-table__row clickable-row message read">
-              <!-- status -->
-              <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
-                <div>&nbsp;</div>
-              </td>
-              <!-- sender -->
-              <td class="govuk-table__cell messages--govuk-table__cell">
-                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                  {% if data.proofNameChangeReply == "replied" %}
-                    <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
-                  {% else %}
-                    <p class="govuk-body-s govuk-!-margin-bottom-1 ">You replied <time datetime="">{{ "" | threedaysago |  govukDate }}</time></p>
-                  {% endif %}
-                </div>
-                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                  <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-top-1">
-                    <a href="/account/messages/name-change-proof?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
-                      Proof of name change required
-                    </a>
-                  </h2>
-                </div>
-              </td>
-              <!-- date -->
-              <td valign="top" class="messages--govuk-table__cell_last ">
-                <time datetime="">{{ "" | fivedaysago |  govukDate }}</time>
-                <div>&nbsp;</div>
-              </td>
-            </tr>
-          {% else %}
-          {% endif %}        
+          <tr class="govuk-table__row clickable-row message read">
+            <!-- status -->
+            <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+              <div>&nbsp;</div>
+            </td>
+            <!-- sender -->
+            <td class="govuk-table__cell messages--govuk-table__cell">
+              <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                {% if data.proofNameChangeReply == "replied" %}
+                  <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+                {% else %}
+                  <p class="govuk-body-s govuk-!-margin-bottom-1 ">You replied <time datetime="">{{ "" | threedaysago |  govukDate }}</time></p>
+                {% endif %}
+              </div>
+              <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-top-1">
+                  <a href="/account/messages/name-change-proof?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                    Proof of name change required
+                  </a>
+                </h2>
+              </div>
+            </td>
+            <!-- date -->
+            <td valign="top" class="messages--govuk-table__cell_last ">
+              <time datetime="">{{ "" | fivedaysago |  govukDate }}</time>
+              <div>&nbsp;</div>
+            </td>
+          </tr>
           <tr class="govuk-table__row clickable-row message read">
               <!-- status -->
               <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
