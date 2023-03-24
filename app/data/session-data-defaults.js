@@ -1506,9 +1506,7 @@ module.exports = {
   "applicationStatus": "incomplete",
   "accountMessageSubject": "",
   "identityCheckReply": "noReply",
-  "accountMessageMakingJudgements": "Unread",
-  "accountMessageTeacherTraining": "Unread",
-  "accountMessageIdentity": "Unread",
+  "accountMessageIdentity": "Read",
 
   // Subject2
   "selectedSubject2": ""
