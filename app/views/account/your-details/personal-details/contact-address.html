@@ -1,0 +1,116 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Your details" %}
+{% set subHeading = "Personal information" %}
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Your details" %}
+{% set formAction = "/account/your-details" %}
+
+{{ data.personalDetailsCompleted | log }}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ subHeading }}</h1>
+
+  {% call govukFieldset({
+    legend: {
+      text: "Contact address",
+      classes: "govuk-fieldset__legend--m",
+      isPageHeading: true
+    }
+  }) %}
+
+  {# If they live inside the UK  #}
+  {% if data.whereDoYouLive == "In the UK" %}
+    {{ govukInput({
+      label: {
+        text: 'Address line 1',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line1"
+    } | decorateAttributes(data, "data.addressLine1")) }}
+
+    {{ govukInput({
+      label: {
+        text: 'Address line 2 (optional)',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line2"
+    } | decorateAttributes(data, "data.addressLine2")) }}
+
+    {{ govukInput({
+      label: {
+        text: "Town or city",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+      autocomplete: "address-level2"
+    } | decorateAttributes(data, "data.townOrCity")) }}
+
+    {{ govukInput({
+      label: {
+        text: "Postcode",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-input--width-10",
+      autocomplete: "postal-code"
+    } | decorateAttributes(data, "data.postCode")) }}
+
+  {# Must be outside the UK #}
+  {% else %}
+    {{ govukInput({
+      label: {
+        text: 'Address line 1',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line1"
+    } | decorateAttributes(data, "data.addressLine1")) }}
+
+    {{ govukInput({
+      label: {
+        text: 'Address line 2 (optional)',
+        classes: "govuk-label--s"
+      },
+      autocomplete: "address-line2"
+    } | decorateAttributes(data, "data.addressLine2")) }}
+
+    {{ govukInput({
+      label: {
+        text: "City, town or village",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+      autocomplete: "address-level2"
+    } | decorateAttributes(data, "data.townOrCity")) }}
+    
+    {{ govukInput({
+      label: {
+        text: "Region, state or province",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-!-width-two-thirds",
+      autocomplete: "address-level2"
+    } | decorateAttributes(data, "data.region")) }}
+
+    {{ govukInput({
+      label: {
+        text: "ZIP or postal code",
+        classes: "govuk-label--s"
+      },
+      classes: "govuk-input--width-10",
+      autocomplete: "postal-code"
+    } | decorateAttributes(data, "data.postCode")) }}
+  {% endif %}
+
+  {% endcall %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/account/your-details">Cancel</a>
+  </div>
+
+{% endblock %}
