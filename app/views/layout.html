@@ -116,8 +116,10 @@
                   {% if (data.accountMessageMakingJudgements == "Unread") and (data.accountMessageTeacherTraining == "Unread") %}
                     <span class="app-notification-number">2</span>
                     {% elseif data.accountMessageMakingJudgements == "Unread" %}
-                    <span class="app-notification-number">1</span>
+                      <span class="app-notification-number">1</span>
                     {% elseif data.accountMessageTeacherTraining == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageOutcome == "Unread" %}
                       <span class="app-notification-number">1</span>
                     {% else %}
                   {% endif %} 

@@ -1,0 +1,44 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Your details" %}
+{% set subHeading = "Personal information" %}
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Your details" %}
+{% set formAction = "/account/your-details" %}
+
+{{ data.personalDetailsCompleted | log }}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ subHeading }}</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Email address",
+      classes: "govuk-label--s"
+    },
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false
+  } | decorateAttributes(data, "data.email")) }}
+
+  {% set detailsHtml %}
+    <p class="govuk-body">The email address you provide here will be used for notifications and communication with Ofqual. It is not connected to your GOV.UK One Login account, which you used to sign in to this service.  
+    </p>
+  {% endset %} 
+
+  {{ govukDetails({
+    summaryText: "What's this email address used for?",
+    html: detailsHtml
+  }) }} 
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link govuk-body" href="/account/your-details/account/your-details">Cancel</a>
+  </div>
+
+{% endblock %}

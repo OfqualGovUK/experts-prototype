@@ -8,141 +8,282 @@
     {% endif %}
   {% endset %}
   
-  {{ xGovukSummaryCard({
-    rows: [
-    {
-      key: {
-        text: "Full name"
+  {% if pageType != "Account" %}
+    {{ xGovukSummaryCard({
+      rows: [
+      {
+        key: {
+          text: "Full name"
+        },
+        value: {
+          html: data.fullName or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "full name",
+            href: "/application/personal-details"
+          }]
+        }
+      }, 
+      {
+        key: {
+          text: "Telephone number"
+        },
+        value: {
+          text: data.telephone or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Telephone number",
+            href: "/application/personal-details"
+          }]
+        } 
       },
-      value: {
-        html: data.fullName or "Not provided"
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: data.email or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "email address",
+            href: "/application/personal-details"
+          }]
+        }
       },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "full name",
-          href: "/application/personal-details"
-        }]
-      } if pageType != "Account"
-    }, 
-    {
-      key: {
-        text: "Telephone number"
+      {
+        key: {
+          text: "Country"
+        },
+        value: {
+          html: livingLocation
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Country",
+            href: "/application/personal-details/where-do-you-live"
+          }]
+        }
       },
-      value: {
-        text: data.telephone or "Not provided"
+      {
+        key: {
+          text: "Address line 1"
+        },
+        value: {
+          text: data.addressLine1 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "address line 1",
+            href: "/application/personal-details/contact-address"
+          }]
+        }
+      }, 
+      {
+        key: {
+          text: "Address line 2"
+        },
+        value: {
+          text: data.addressLine2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "address line 2",
+            href: "/application/personal-details/contact-address"
+          }]
+        }
+      }, 
+      {
+        key: {
+          text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
+        },
+        value: {
+          text: data.townOrCity or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "town or city",
+            href: "/application/personal-details/contact-address"
+          }]
+        }
+      }, 
+      {
+        key: {
+          text: "Region, state or province"
+        },
+        value: {
+          text: data.region or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "region, state or province",
+            href: "/application/personal-details/contact-address"
+          }]
+        }
+      } if data.whereDoYouLive == "Outside the UK",
+      {
+        key: {
+          text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
+        },
+        value: {
+          text: data.postCode or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "county",
+            href: "/application/personal-details/contact-address"
+          }]
+        }
+      }]
+    }) }}
+  {% else %}
+    {{ xGovukSummaryCard({
+      rows: [
+      {
+        key: {
+          text: "Full name"
+        },
+        value: {
+          html: data.fullName or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "full name",
+            href: "/account/your-details/personal-details/name"
+          }]
+        } if pageTypeSub != "Application"
+      }, 
+      {
+        key: {
+          text: "Telephone number"
+        },
+        value: {
+          text: data.telephone or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Telephone number",
+            href: "/account/your-details/personal-details/telephone"
+          }]
+        } if pageTypeSub != "Application"
       },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "Telephone number",
-          href: "/application/personal-details"
-        }]
-      } if pageType != "Account"
-    },
-    {
-      key: {
-        text: "Email address"
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: data.email or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "email address",
+            href: "/account/your-details/personal-details/email"
+          }]
+        } if pageTypeSub != "Application"
       },
-      value: {
-        text: data.email or "Not provided"
+      {
+        key: {
+          text: "Country"
+        },
+        value: {
+          html: livingLocation
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Country",
+            href: "/account/your-details/personal-details/where-do-you-live"
+          }]
+        } if pageTypeSub != "Application"
       },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "email address",
-          href: "/application/personal-details"
-        }]
-      } if pageType != "Account"
-    },
-    {
-      key: {
-        text: "Country"
-      },
-      value: {
-        html: livingLocation
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "Country",
-          href: "/application/personal-details/where-do-you-live"
-        }]
-      } if pageType != "Account"
-    },
-    {
-      key: {
-        text: "Address line 1"
-      },
-      value: {
-        text: data.addressLine1 or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "address line 1",
-          href: "/application/personal-details/contact-address"
-        }]
-      } if pageType != "Account"
-    }, 
-    {
-      key: {
-        text: "Address line 2"
-      },
-      value: {
-        text: data.addressLine2 or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "address line 2",
-          href: "/application/personal-details/contact-address"
-        }]
-      } if pageType != "Account"
-    }, 
-    {
-      key: {
-        text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
-      },
-      value: {
-        text: data.townOrCity or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "town or city",
-          href: "/application/personal-details/contact-address"
-        }]
-      } if pageType != "Account"
-    }, 
-    {
-      key: {
-        text: "Region, state or province"
-      },
-      value: {
-        text: data.region or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "region, state or province",
-          href: "/application/personal-details/contact-address"
-        }]
-      } if pageType != "Account"
-    } if data.whereDoYouLive == "Outside the UK",
-    {
-      key: {
-        text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
-      },
-      value: {
-        text: data.postCode or "Not provided"
-      },
-      actions: {
-        items: [{
-          text: "Change ",
-          visuallyHiddenText: "county",
-          href: "/application/personal-details/contact-address"
-        }]
-      } if pageType != "Account"
-    }]
-  }) }}
+      {
+        key: {
+          text: "Address line 1"
+        },
+        value: {
+          text: data.addressLine1 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "address line 1",
+            href: "/account/your-details/personal-details/contact-address"
+          }]
+        } if pageTypeSub != "Application"
+      }, 
+      {
+        key: {
+          text: "Address line 2"
+        },
+        value: {
+          text: data.addressLine2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "address line 2",
+            href: "/account/your-details/personal-details/contact-address"
+          }]
+        } if pageTypeSub != "Application"
+      }, 
+      {
+        key: {
+          text: "Town or city" if data.whereDoYouLive == "In the UK" else "City, town or village"
+        },
+        value: {
+          text: data.townOrCity or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "town or city",
+            href: "/account/your-details/personal-details/contact-address"
+          }]
+        } if pageTypeSub != "Application"
+      }, 
+      {
+        key: {
+          text: "Region, state or province"
+        },
+        value: {
+          text: data.region or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "region, state or province",
+            href: "/account/your-details/personal-details/contact-address"
+          }]
+        } if pageTypeSub != "Application"
+      } if data.whereDoYouLive == "Outside the UK",
+      {
+        key: {
+          text: "Postcode" if data.whereDoYouLive == "In the UK" else "ZIP or postal code"
+        },
+        value: {
+          text: data.postCode or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "county",
+            href: "/account/your-details/personal-details/contact-address"
+          }]
+        } if pageTypeSub != "Application"
+      }]
+    }) }}
+  {% endif %}
