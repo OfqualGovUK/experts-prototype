@@ -39,7 +39,7 @@
             visuallyHiddenText: "Telephone number",
             href: "/application/personal-details"
           }]
-        }
+        } 
       },
       {
         key: {
@@ -163,7 +163,7 @@
             visuallyHiddenText: "full name",
             href: "/account/your-details/personal-details/name"
           }]
-        }
+        } if pageTypeSub != "Application"
       }, 
       {
         key: {
@@ -178,7 +178,7 @@
             visuallyHiddenText: "Telephone number",
             href: "/account/your-details/personal-details/telephone"
           }]
-        }
+        } if pageTypeSub != "Application"
       },
       {
         key: {
@@ -193,7 +193,7 @@
             visuallyHiddenText: "email address",
             href: "/account/your-details/personal-details/email"
           }]
-        }
+        } if pageTypeSub != "Application"
       },
       {
         key: {
@@ -208,7 +208,7 @@
             visuallyHiddenText: "Country",
             href: "/account/your-details/personal-details/where-do-you-live"
           }]
-        }
+        } if pageTypeSub != "Application"
       },
       {
         key: {
@@ -223,7 +223,7 @@
             visuallyHiddenText: "address line 1",
             href: "/account/your-details/personal-details/contact-address"
           }]
-        }
+        } if pageTypeSub != "Application"
       }, 
       {
         key: {
@@ -238,7 +238,7 @@
             visuallyHiddenText: "address line 2",
             href: "/account/your-details/personal-details/contact-address"
           }]
-        }
+        } if pageTypeSub != "Application"
       }, 
       {
         key: {
@@ -253,7 +253,7 @@
             visuallyHiddenText: "town or city",
             href: "/account/your-details/personal-details/contact-address"
           }]
-        }
+        } if pageTypeSub != "Application"
       }, 
       {
         key: {
@@ -268,7 +268,7 @@
             visuallyHiddenText: "region, state or province",
             href: "/account/your-details/personal-details/contact-address"
           }]
-        }
+        } if pageTypeSub != "Application"
       } if data.whereDoYouLive == "Outside the UK",
       {
         key: {
@@ -283,7 +283,7 @@
             visuallyHiddenText: "county",
             href: "/account/your-details/personal-details/contact-address"
           }]
-        }
+        } if pageTypeSub != "Application"
       }]
     }) }}
   {% endif %}

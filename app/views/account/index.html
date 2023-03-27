@@ -60,7 +60,11 @@
                 <div class="eyfs-card--clickable">
                   <div class="eyfs-card__content">
                     <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">View your subject or occupational areas </h3>
-                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See the status of your application for each subject or occupational area you applied for. </p>
+                    {% if data.applicationStatus == "Accepted" %}
+                      <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See a list of the subject or occupational areas you are approved for. </p>
+                      {% else %}
+                      <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See the status of your application for each subject or occupational areas you applied for. </p>
+                    {% endif %}
                   </div>
                 </div>
               </a>
@@ -70,7 +74,7 @@
                 <div class="eyfs-card--clickable">
                   <div class="eyfs-card__content">
                     <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">Read or reply to messages </h3>
-                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">If any futher details are needed to proceed with your application we will send a message. </p>
+                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">View any messages Ofqual have sent you, view your replies or send a reply. </p>
                   </div>
                 </div>
               </a>

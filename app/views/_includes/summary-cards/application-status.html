@@ -1,5 +1,37 @@
+  {% set titleHtml %}
+    {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" %}
+      Your account 
+      {% else %}
+        Your application
+    {% endif %}
+  {% endset %}
+
+  {% set applicationStatusTitleHtml %}
+    {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" %}
+      Account status
+      {% else %}
+      Application status
+    {% endif %}
+  {% endset %}
+
+  {% set subjectStatusTitleHtml %}
+    {% if data.applicationStatus == "Accepted" %}
+      Approved subject or occupational areas
+      {% else %}
+      Status by subject or occupational areas
+    {% endif %}
+  {% endset %}
+  
   {% set applicationSubmittedTimeHtml %}
     <time datetime="">{{ "" | twoweeksago |  govukDate }}, 16:13</time>
+  {% endset %}
+
+  {% set applicationApprovalDateHtml %}
+    <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+  {% endset %}
+
+  {% set applicationRenewalDateHtml %}
+    <time datetime="">{{ "" | threeyearstime |  govukDate }}</time>
   {% endset %}
   
   {% set actionRequiredHtml %}
@@ -56,7 +88,6 @@
         classes: "govuk-!-margin-top-4"
       }) }} 
     {% else %}
-      nothing
     {% endif %}
   {% endset %}
 
@@ -65,26 +96,26 @@
   {% endset %}
 
   {% set subjectStatusHtml %}
-    <a href="/account/your-details/subjects">View status by subject or occupational area</a>
+    <a href="/account/your-details/subjects">Subject or occupational areas</a>
   {% endset %}
 
 
   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
   {{ xGovukSummaryCard({
-    titleText: "Your application",
+    titleText: titleHtml,
       actions: {
         items: [
           {
             href: "/account/your-details/application",
             text: "View application",
             visuallyHiddenText: "Your application"
-          } 
+          } if data.applicationStatus != "Accepted"
         ] if pageTypeSub != "Application"
       },
     rows: [
       {
         key: {
-          text: "Application status"
+          html: applicationStatusTitleHtml
         },
         value: {
           html: applicationStatusHtml
@@ -92,12 +123,12 @@
       },
       {
         key: {
-          text: "Status by subject or occupational area"
+          html: subjectStatusTitleHtml
         },
         value: {
           html: subjectStatusHtml
         }
-      } if data.applicationStatus == ("Accepted") or data.applicationStatus == ("Action required"),
+      } if data.applicationStatus != ("Awaiting decision"),
       {
         key: {
           text: "Last updated"
@@ -105,7 +136,7 @@
         value: {
           html: profileUpdatedHtml
         }
-      },
+      } if data.applicationStatus != "Accepted",
       {
         key: {
           text: "Date submitted"
@@ -113,6 +144,22 @@
         value: {
           html: applicationSubmittedTimeHtml
         }
-      }
+      } if data.applicationStatus != "Accepted",
+      {
+        key: {
+          text: "Date of approval"
+        },
+        value: {
+          html: applicationApprovalDateHtml
+        }
+      } if data.applicationStatus == "Accepted",
+      {
+        key: {
+          text: "Renewal date"
+        },
+        value: {
+          html: applicationRenewalDateHtml
+        }
+      } if data.applicationStatus == "Accepted"
     ]
   }) }}

@@ -85,6 +85,14 @@ filters.twoweeksago = () => {
   return twoweeksago
 }
 
+filters.threeyearstime = () => {
+  const todayDate = new Date()
+  const threeyearstime = new Date(todayDate)
+
+  threeyearstime.setDate(threeyearstime.getDate() + 1094)
+  return threeyearstime
+}
+
 /*
   ====================================================================
   todayGovuk
