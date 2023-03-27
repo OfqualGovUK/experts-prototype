@@ -524,9 +524,9 @@ var awaitingDecision = {
   "isIndustry": "true",
   "isTeaching": "true",  
   "teachingExpertiseType": [
-    "Training",
+    "Teacher training",
   ],
-  "isTraining": "true",
+  "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
   // Subject2
   "subject2": "true", 
@@ -555,12 +555,10 @@ var awaitingDecision = {
   "isIndustry2": "true",
   "isTeaching2": "true",  
   "teachingExpertiseType2": [
-    "Teaching or lecturing",
-    "Training",
+    "Teacher training",
     "Educational management",
   ],
   "isLecturing2": "true",
-  "isTraining2": "true",
   "isEducationalManagement2": "true",
 
   // Evidence of experience
@@ -577,7 +575,6 @@ var awaitingDecision = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
-  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -643,13 +640,13 @@ var awaitingDecision = {
   "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "Awaiting decision", 
+  "subject1TeachingTrainingStatus": "", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
   "subject1TeachingEducationalStatus": "", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
-  "subject1TeachingTeacherTrainingStatus": "", 
+  "subject1TeachingTeacherTrainingStatus": "Awaiting decision", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
   "subject1TeachingTeacherTrainingFeedback": "",
   // Subject 2
@@ -755,9 +752,9 @@ var actionRequired = {
    "isIndustry": "true",
    "isTeaching": "true",  
    "teachingExpertiseType": [
-     "Training",
+    "Teacher training",
    ],
-   "isTraining": "true",
+   "isTeacherTraining": "true",
    "adviseAreasCompleted": "complete",
    // Subject2
    "subject2": "true", 
@@ -787,7 +784,6 @@ var actionRequired = {
    "isTeaching2": "true",  
    "teachingExpertiseType2": [
      "Teaching or lecturing",
-     "Training",
      "Educational management",
    ],
    "isLecturing2": "true",
@@ -808,7 +804,6 @@ var actionRequired = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
-  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -879,7 +874,7 @@ var actionRequired = {
   "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "Awaiting decision", 
+  "subject1TeachingTrainingStatus": "", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
   "subject1TeachingEducationalStatus": "", 
@@ -916,7 +911,7 @@ var actionRequired = {
   "subject2TeachingEducationalStatus": "Awaiting decision", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "Action required", 
+  "subject2TeachingTeacherTrainingStatus": "", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
@@ -994,9 +989,9 @@ var allAccepted = {
    "isIndustry": "true",
    "isTeaching": "true",  
    "teachingExpertiseType": [
-     "Training",
+    "Teacher training",
    ],
-   "isTraining": "true",
+   "isTeacherTraining": "true",
    "adviseAreasCompleted": "complete",
    // Subject2
    "subject2": "true", 
@@ -1047,7 +1042,6 @@ var allAccepted = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
-  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -1113,7 +1107,7 @@ var allAccepted = {
   "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "Accepted", 
+  "subject1TeachingTrainingStatus": "", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
   "subject1TeachingEducationalStatus": "", 
@@ -1150,7 +1144,7 @@ var allAccepted = {
   "subject2TeachingEducationalStatus": "Accepted", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "Accepted", 
+  "subject2TeachingTeacherTrainingStatus": "", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
@@ -1229,9 +1223,9 @@ var allRejected = {
    "isIndustry": "true",
    "isTeaching": "true",  
    "teachingExpertiseType": [
-     "Training",
+    "Teacher training",
    ],
-   "isTraining": "true",
+   "isTeacherTraining": "true",
    "adviseAreasCompleted": "complete",
    // Subject2
    "subject2": "true", 
@@ -1282,7 +1276,6 @@ var allRejected = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
-  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -1348,14 +1341,14 @@ var allRejected = {
   "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "Rejected", 
+  "subject1TeachingTrainingStatus": "", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
   "subject1TeachingEducationalStatus": "", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "", 
-  "subject1TeachingTeacherTrainingFeedbackCategory": "",
+  "subject1TeachingTeacherTrainingFeedbackCategory": "Rejected",
   "subject1TeachingTeacherTrainingFeedback": "",
 
   // Subject 2
@@ -1465,9 +1458,9 @@ var acceptedRejected = {
    "isIndustry": "true",
    "isTeaching": "true",  
    "teachingExpertiseType": [
-     "Training",
+    "Teacher training",
    ],
-   "isTraining": "true",
+   "isTeacherTraining": "true",
    "adviseAreasCompleted": "complete",
    // Subject2
    "subject2": "true", 
@@ -1518,7 +1511,6 @@ var acceptedRejected = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
-  "teachingTrainingDetails": "Employer / Industry asbestos training. Commercial training provider. I would include here a specific summary of my training experience. I would link my work history and my roles and responsibilities and work done to these specific areas as you have directed.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
   "teachingStatus": "Action required",
@@ -1582,15 +1574,15 @@ var acceptedRejected = {
   "subject1AssessmentEvaluatingFeedbackCategory": "",
   "subject1AssessmentEvaluatingFeedback": "",
   "subject1IndustryStatus": "Rejected", 
-  "subject1IndustryFeedbackCategory": "Type of experience inappropriate",
-  "subject1IndustryFeedback": "The applicant does not have enough industry experience.",
-  "subject1TeachingTeachingStatus": "Rejected", 
+  "subject1IndustryFeedbackCategory": "Length or amount of experience not sufficient",
+  "subject1IndustryFeedback": "The applicant does not have enough industry experience in this subject, which is recent enough.",
+  "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "Rejected", 
-  "subject1TeachingTrainingFeedbackCategory": "Length or amount of experience not sufficient",
-  "subject1TeachingTrainingFeedback": "The applicant does not have enough teacher training experience in this subject.",
-  "subject1TeachingEducationalStatus": "Rejected", 
+  "subject1TeachingTrainingStatus": "", 
+  "subject1TeachingTrainingFeedbackCategory": "",
+  "subject1TeachingTrainingFeedback": "",
+  "subject1TeachingEducationalStatus": "", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "Rejected", 

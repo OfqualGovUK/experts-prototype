@@ -11,7 +11,7 @@
       <span class="govuk-caption-l">24 Feb 2023 </span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
       <p class="govuk-body">To proceed with your application we need more evidence of your experience in: </p>
-      <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Teacher training</span> for Building control surveyor (integrated degree) (End-point assessment - level 6)</h2>
+      <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Teacher training</span> for {{ data.selectedSubject2 }} </h2>
       <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>teaching on a PGCE or similar course</li>
@@ -26,7 +26,7 @@
             href: "/account/messages/reply?referrer=teaching-evidence"
           }) }}
         </div>
-        {% else %} 
+        {% else %}
       {% endif %}
 
       {% if data.teachingEvidenceReply == "replied" %}
