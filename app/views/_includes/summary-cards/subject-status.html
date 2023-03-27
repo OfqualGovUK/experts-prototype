@@ -575,22 +575,10 @@
                   summaryText: "Further information required",
                   html: actionRequiredHtml,
                   classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
-                }) }} 
-              {% elseif data.subject2AssessmentMakingStatus == "Rejected" %}
-                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                      Feedback
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2AssessmentMakingFeedbackCategory }}</h4>
-                    <p class="govuk-body">{{ data.subject2AssessmentMakingFeedback }}</p>
-                  </div>
-                </details>
+                }) }}                           
               {% else %}
             {% endif %}
-            </dt>
+            </dt>            
             <dd class="govuk-summary-list__value">
               {% if data.subject2AssessmentMakingStatus == "Awaiting decision" %}
                 {{ govukTag({
@@ -630,17 +618,7 @@
                   classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                 }) }} 
               {% elseif data.subject2AssessmentSettingStatus == "Rejected" %}
-                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                      Feedback
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2AssessmentSettingFeedbackCategory }}</h4>
-                    <p class="govuk-body">{{ data.subject2AssessmentSettingFeedback }}</p>
-                  </div>
-                </details>
+               
               {% else %}
             {% endif %}
             </dt>
@@ -681,19 +659,7 @@
                   summaryText: "Further information required",
                   html: actionRequiredHtml,
                   classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
-                }) }} 
-              {% elseif data.subject2AssessmentDesigningStatus == "Rejected" %}
-                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                      Feedback
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2AssessmentDesigningFeedbackCategory }}</h4>
-                    <p class="govuk-body">{{ data.subject2AssessmentDesigningFeedback }}</p>
-                  </div>
-                </details>
+                }) }}               
               {% else %}
             {% endif %}
             </dt>
@@ -777,7 +743,26 @@
           </div>
         {% endif %}
         <!-- END row for Evaluating assessments or assessment approaches -->
-      </dl>
+        {% if data.subject2AssessmentMakingStatus == "Rejected" and data.subject2AssessmentSettingStatus == "Rejected" and data.subject2AssessmentDesigningStatus == "Rejected" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+            <div class="govuk-summary-list__row">
+              <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Feedback
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2AssessmentMakingFeedbackCategory }}</h4>
+                  <p class="govuk-body">{{ data.subject2AssessmentMakingFeedback }}</p>
+                </div>
+              </details> 
+          </dt>
+        </div>
+        {% else %}
+        {% endif %} 
+      </dl>      
     </div>
   {% endif %}
   <!-- START of Industry, occupational or professional -->
