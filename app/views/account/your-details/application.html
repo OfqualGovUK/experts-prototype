@@ -61,6 +61,13 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
       {% include "_includes/summary-cards/application-status.html" %}
+      {% if data.applicationStatus == "Accepted" %}
+        <section class="govuk-!-margin-bottom-8">
+          <h2 id="subject-status" class="govuk-heading-m govuk-!-font-size-27">Status by subject or occupational area</h2>
+          {% include "_includes/summary-cards/subject-status.html" %}
+        </section>
+      {% endif %}
+
       {# Include all the application sections #}
       {% include "_includes/shared/application-sections.html" %}
     <div>

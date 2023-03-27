@@ -525,11 +525,43 @@ var awaitingDecision = {
   "isTeaching": "true",  
   "teachingExpertiseType": [
     "Training",
-    "Teacher training"
   ],
   "isTraining": "true",
-  "isTeacherTraining": "true",
   "adviseAreasCompleted": "complete",
+  // Subject2
+  "subject2": "true", 
+  "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+  "resultName2": "Building control surveyor (integrated degree)",
+  "selectedQualification2": "End-Point Assessment",
+  "selectedLevel2": [
+    "6"
+  ],
+  "expertiseType2": [
+    "Assessment",
+    "Industry, occupational or professional",
+    "Teaching, lecturing or training"
+  ],
+  "isAssessment2": "true",  
+  "assessmentExpertiseType2": [
+    "Making assessment judgements",
+    "Standard setting and awarding qualifications",
+    "Designing and developing assessments",
+    "Evaluating assessments or assessment approaches"
+  ],
+  "isJudgement2": "true",
+  "isStandardSetting2": "true",
+  "isDesigning2": "true",
+  "isEvaluating2": "true",
+  "isIndustry2": "true",
+  "isTeaching2": "true",  
+  "teachingExpertiseType2": [
+    "Teaching or lecturing",
+    "Training",
+    "Educational management",
+  ],
+  "isLecturing2": "true",
+  "isTraining2": "true",
+  "isEducationalManagement2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -590,6 +622,9 @@ var awaitingDecision = {
   "applicationFeedbackCategory": "",
   "applicationFeedback": "",
   // Subject 1
+  "subject1Status": "Awaiting decision", 
+  "subject1FeedbackCategory": "",
+  "subject1Feedback": "",
   "subject1AssessmentMakingStatus": "Awaiting decision", 
   "subject1AssessmentMakingFeedbackCategory": "",
   "subject1AssessmentMakingFeedback": "",
@@ -614,9 +649,40 @@ var awaitingDecision = {
   "subject1TeachingEducationalStatus": "", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
-  "subject1TeachingTeacherTrainingStatus": "Awaiting decision", 
+  "subject1TeachingTeacherTrainingStatus": "", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
-  "subject1TeachingTeacherTrainingFeedback": ""
+  "subject1TeachingTeacherTrainingFeedback": "",
+  // Subject 2
+  "subject2Status": "Awaiting decision", 
+  "subject2FeedbackCategory": "",
+  "subject2Feedback": "",
+  "subject2AssessmentMakingStatus": "Awaiting decision", 
+  "subject2AssessmentMakingFeedbackCategory": "",
+  "subject2AssessmentMakingFeedback": "",
+  "subject2AssessmentSettingStatus": "Awaiting decision", 
+  "subject2AssessmentSettingFeedbackCategory": "",
+  "subject2AssessmentSettingFeedback": "",
+  "subject2AssessmentDesigningStatus": "Awaiting decision", 
+  "subject2AssessmentDesigningFeedbackCategory": "",
+  "subject2AssessmentDesigningFeedback": "",
+  "subject2AssessmentEvaluatingStatus": "Awaiting decision", 
+  "subject2AssessmentEvaluatingFeedbackCategory": "",
+  "subject2AssessmentEvaluatingFeedback": "",
+  "subject2IndustryStatus": "Awaiting decision", 
+  "subject2IndustryFeedbackCategory": "",
+  "subject2IndustryFeedback": "",
+  "subject2TeachingTeachingStatus": "Awaiting decision", 
+  "subject2TeachingTeachingFeedbackCategory": "",
+  "subject2TeachingTeachingFeedback": "",
+  "subject2TeachingTrainingStatus": "Awaiting decision", 
+  "subject2TeachingTrainingFeedbackCategory": "",
+  "subject2TeachingTrainingFeedback": "",
+  "subject2TeachingEducationalStatus": "Awaiting decision", 
+  "subject2TeachingEducationalFeedbackCategory": "",
+  "subject2TeachingEducationalFeedback": "",
+  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingFeedbackCategory": "",
+  "subject2TeachingTeacherTrainingFeedback": "",
 }
 
 var actionRequired = {
@@ -663,74 +729,70 @@ var actionRequired = {
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
 
-  // Subjects
-  "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
-  "resultName": "Asbestos Analyst and Surveyor",
-  "selectedQualification": "End-Point Assessment",
-  "selectedLevel": [
-    "3, 4"
-  ],
-  "expertiseType": [
-    "Assessment",
-    "Industry, occupational or professional",
-    "Teaching, lecturing or training"
-  ],
-  "isAssessment": "true",  
-  "assessmentExpertiseType": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement": "true",
-  "isStandardSetting": "true",
-  "isDesigning": "true",
-  "isEvaluating": "true",
-  "isIndustry": "true",
-  "isTeaching": "true",  
-  "teachingExpertiseType": [
-    "Training",
-    "Teacher training"
-  ],
-  "isTraining": "true",
-  "isTeacherTraining": "true",
-  "adviseAreasCompleted": "complete",
-  // Subject2
-  "subject2": "true", 
-  "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
-  "resultName2": "Building control surveyor (integrated degree)",
-  "selectedQualification2": "End-Point Assessment",
-  "selectedLevel2": [
-    "6"
-  ],
-  "expertiseType2": [
-    "Assessment",
-    "Industry, occupational or professional",
-    "Teaching, lecturing or training"
-  ],
-  "isAssessment2": "true",  
-  "assessmentExpertiseType2": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement2": "true",
-  "isStandardSetting2": "true",
-  "isDesigning2": "true",
-  "isEvaluating2": "true",
-  "isIndustry2": "true",
-  "isTeaching2": "true",  
-  "teachingExpertiseType2": [
-    "Teaching or lecturing",
-    "Training",
-    "Educational management",
-    "Teacher training"
-  ],
-  "isLecturing2": "true",
-  "isTraining2": "true",
-  "isEducationalManagement2": "true",
-  "isTeacherTraining2": "true",
+   // Subjects
+   "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName": "Asbestos Analyst and Surveyor",
+   "selectedQualification": "End-Point Assessment",
+   "selectedLevel": [
+     "3, 4"
+   ],
+   "expertiseType": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment": "true",  
+   "assessmentExpertiseType": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement": "true",
+   "isStandardSetting": "true",
+   "isDesigning": "true",
+   "isEvaluating": "true",
+   "isIndustry": "true",
+   "isTeaching": "true",  
+   "teachingExpertiseType": [
+     "Training",
+   ],
+   "isTraining": "true",
+   "adviseAreasCompleted": "complete",
+   // Subject2
+   "subject2": "true", 
+   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+   "resultName2": "Building control surveyor (integrated degree)",
+   "selectedQualification2": "End-Point Assessment",
+   "selectedLevel2": [
+     "6"
+   ],
+   "expertiseType2": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment2": "true",  
+   "assessmentExpertiseType2": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement2": "true",
+   "isStandardSetting2": "true",
+   "isDesigning2": "true",
+   "isEvaluating2": "true",
+   "isIndustry2": "true",
+   "isTeaching2": "true",  
+   "teachingExpertiseType2": [
+     "Teaching or lecturing",
+     "Training",
+     "Educational management",
+   ],
+   "isLecturing2": "true",
+   "isTraining2": "true",
+   "isEducationalManagement2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -796,6 +858,9 @@ var actionRequired = {
   "applicationFeedbackCategory": "",
   "applicationFeedback": "",
   // Subject 1
+  "subject1Status": "Action required", 
+  "subject1FeedbackCategory": "",
+  "subject1Feedback": "",
   "subject1AssessmentMakingStatus": "Action required", 
   "subject1AssessmentMakingFeedbackCategory": "",
   "subject1AssessmentMakingFeedback": "",
@@ -824,6 +889,9 @@ var actionRequired = {
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
   "subject1TeachingTeacherTrainingFeedback": "",
   // Subject 2
+  "subject2Status": "Action required", 
+  "subject2FeedbackCategory": "",
+  "subject2Feedback": "",
   "subject2AssessmentMakingStatus": "Awaiting decision", 
   "subject2AssessmentMakingFeedbackCategory": "",
   "subject2AssessmentMakingFeedback": "",
@@ -900,74 +968,70 @@ var allAccepted = {
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
 
-  // Subjects
-  "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
-  "resultName": "Asbestos Analyst and Surveyor",
-  "selectedQualification": "End-Point Assessment",
-  "selectedLevel": [
-    "3, 4"
-  ],
-  "expertiseType": [
-    "Assessment",
-    "Industry, occupational or professional",
-    "Teaching, lecturing or training"
-  ],
-  "isAssessment": "true",  
-  "assessmentExpertiseType": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement": "true",
-  "isStandardSetting": "true",
-  "isDesigning": "true",
-  "isEvaluating": "true",
-  "isIndustry": "true",
-  "isTeaching": "true",  
-  "teachingExpertiseType": [
-    "Training",
-    "Teacher training"
-  ],
-  "isTraining": "true",
-  "isTeacherTraining": "true",
-  "adviseAreasCompleted": "complete",
-  // Subject2
-  "subject2": "true", 
-  "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
-  "resultName2": "Building control surveyor (integrated degree)",
-  "selectedQualification2": "End-Point Assessment",
-  "selectedLevel2": [
-    "6"
-  ],
-  "expertiseType2": [
-    "Assessment",
-    "Industry, occupational or professional",
-    "Teaching, lecturing or training"
-  ],
-  "isAssessment2": "true",  
-  "assessmentExpertiseType2": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement2": "true",
-  "isStandardSetting2": "true",
-  "isDesigning2": "true",
-  "isEvaluating2": "true",
-  "isIndustry2": "true",
-  "isTeaching2": "true",  
-  "teachingExpertiseType2": [
-    "Teaching or lecturing",
-    "Training",
-    "Educational management",
-    "Teacher training"
-  ],
-  "isLecturing2": "true",
-  "isTraining2": "true",
-  "isEducationalManagement2": "true",
-  "isTeacherTraining2": "true", 
+   // Subjects
+   "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName": "Asbestos Analyst and Surveyor",
+   "selectedQualification": "End-Point Assessment",
+   "selectedLevel": [
+     "3, 4"
+   ],
+   "expertiseType": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment": "true",  
+   "assessmentExpertiseType": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement": "true",
+   "isStandardSetting": "true",
+   "isDesigning": "true",
+   "isEvaluating": "true",
+   "isIndustry": "true",
+   "isTeaching": "true",  
+   "teachingExpertiseType": [
+     "Training",
+   ],
+   "isTraining": "true",
+   "adviseAreasCompleted": "complete",
+   // Subject2
+   "subject2": "true", 
+   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+   "resultName2": "Building control surveyor (integrated degree)",
+   "selectedQualification2": "End-Point Assessment",
+   "selectedLevel2": [
+     "6"
+   ],
+   "expertiseType2": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment2": "true",  
+   "assessmentExpertiseType2": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement2": "true",
+   "isStandardSetting2": "true",
+   "isDesigning2": "true",
+   "isEvaluating2": "true",
+   "isIndustry2": "true",
+   "isTeaching2": "true",  
+   "teachingExpertiseType2": [
+     "Teaching or lecturing",
+     "Training",
+     "Educational management",
+   ],
+   "isLecturing2": "true",
+   "isTraining2": "true",
+   "isEducationalManagement2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1028,6 +1092,9 @@ var allAccepted = {
   "applicationFeedbackCategory": "",
   "applicationFeedback": "",
   // Subject 1
+  "subject1Status": "Accepted", 
+  "subject1FeedbackCategory": "",
+  "subject1Feedback": "",
   "subject1AssessmentMakingStatus": "Accepted", 
   "subject1AssessmentMakingFeedbackCategory": "",
   "subject1AssessmentMakingFeedback": "",
@@ -1056,6 +1123,9 @@ var allAccepted = {
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
   "subject1TeachingTeacherTrainingFeedback": "",
   // Subject 2
+  "subject2Status": "Accepted", 
+  "subject2FeedbackCategory": "",
+  "subject2Feedback": "",
   "subject2AssessmentMakingStatus": "Accepted", 
   "subject2AssessmentMakingFeedbackCategory": "",
   "subject2AssessmentMakingFeedback": "",
@@ -1133,30 +1203,70 @@ var allRejected = {
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
 
-  // Subjects
-  "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
-  "resultName": "Asbestos Analyst and Surveyor",
-  "selectedQualification": "End-Point Assessment",
-  "selectedLevel": [
-    "Level 3"
-  ],
-  "expertiseType": [
-    "Assessment"
-  ],
-  "isAssessment": "true",  
-  "assessmentExpertiseType": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement": "true",
-  "isStandardSetting": "true",
-  "isDesigning": "true",
-  "isEvaluating": "true",
-  "adviseAreasCompleted": "complete",
-  // Subject2
-  "selectedSubject2": "",
+   // Subjects
+   "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName": "Asbestos Analyst and Surveyor",
+   "selectedQualification": "End-Point Assessment",
+   "selectedLevel": [
+     "3, 4"
+   ],
+   "expertiseType": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment": "true",  
+   "assessmentExpertiseType": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement": "true",
+   "isStandardSetting": "true",
+   "isDesigning": "true",
+   "isEvaluating": "true",
+   "isIndustry": "true",
+   "isTeaching": "true",  
+   "teachingExpertiseType": [
+     "Training",
+   ],
+   "isTraining": "true",
+   "adviseAreasCompleted": "complete",
+   // Subject2
+   "subject2": "true", 
+   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+   "resultName2": "Building control surveyor (integrated degree)",
+   "selectedQualification2": "End-Point Assessment",
+   "selectedLevel2": [
+     "6"
+   ],
+   "expertiseType2": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment2": "true",  
+   "assessmentExpertiseType2": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement2": "true",
+   "isStandardSetting2": "true",
+   "isDesigning2": "true",
+   "isEvaluating2": "true",
+   "isIndustry2": "true",
+   "isTeaching2": "true",  
+   "teachingExpertiseType2": [
+     "Teaching or lecturing",
+     "Training",
+     "Educational management",
+   ],
+   "isLecturing2": "true",
+   "isTraining2": "true",
+   "isEducationalManagement2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1214,9 +1324,12 @@ var allRejected = {
   "applicationStatus": "Rejected",
   "applicationAction": "",
   "applicationActionLink": "",
-  "applicationFeedbackCategory": "Qualifications not relevant",
-  "applicationFeedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
+  "applicationFeedbackCategory": "",
+  "applicationFeedback": "",
   // Subject 1
+  "subject1Status": "Rejected", 
+  "subject1FeedbackCategory": "Qualifications not relevant",
+  "subject1Feedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
   "subject1AssessmentMakingStatus": "Rejected", 
   "subject1AssessmentMakingFeedbackCategory": "",
   "subject1AssessmentMakingFeedback": "",
@@ -1229,13 +1342,13 @@ var allRejected = {
   "subject1AssessmentEvaluatingStatus": "Rejected", 
   "subject1AssessmentEvaluatingFeedbackCategory": "",
   "subject1AssessmentEvaluatingFeedback": "",
-  "subject1IndustryStatus": "", 
+  "subject1IndustryStatus": "Rejected", 
   "subject1IndustryFeedbackCategory": "",
   "subject1IndustryFeedback": "",
   "subject1TeachingTeachingStatus": "", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "", 
+  "subject1TeachingTrainingStatus": "Rejected", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
   "subject1TeachingEducationalStatus": "", 
@@ -1244,6 +1357,38 @@ var allRejected = {
   "subject1TeachingTeacherTrainingStatus": "", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "",
   "subject1TeachingTeacherTrainingFeedback": "",
+
+  // Subject 2
+  "subject2Status": "Rejected", 
+  "subject2FeedbackCategory": "Not enough experience",
+  "subject2Feedback": "We require a minimum of 3 years experience working in a subject to become a Subject Matter Specialist. This has not been evidenced in your application.",
+  "subject2AssessmentMakingStatus": "Rejected", 
+  "subject2AssessmentMakingFeedbackCategory": "",
+  "subject2AssessmentMakingFeedback": "",
+  "subject2AssessmentSettingStatus": "Rejected", 
+  "subject2AssessmentSettingFeedbackCategory": "",
+  "subject2AssessmentSettingFeedback": "",
+  "subject2AssessmentDesigningStatus": "Rejected", 
+  "subject2AssessmentDesigningFeedbackCategory": "",
+  "subject2AssessmentDesigningFeedback": "",
+  "subject2AssessmentEvaluatingStatus": "Rejected", 
+  "subject2AssessmentEvaluatingFeedbackCategory": "",
+  "subject2AssessmentEvaluatingFeedback": "",
+  "subject2IndustryStatus": "Rejected", 
+  "subject2IndustryFeedbackCategory": "",
+  "subject2IndustryFeedback": "",
+  "subject2TeachingTeachingStatus": "Rejected", 
+  "subject2TeachingTeachingFeedbackCategory": "",
+  "subject2TeachingTeachingFeedback": "",
+  "subject2TeachingTrainingStatus": "Rejected", 
+  "subject2TeachingTrainingFeedbackCategory": "",
+  "subject2TeachingTrainingFeedback": "",
+  "subject2TeachingEducationalStatus": "Rejected", 
+  "subject2TeachingEducationalFeedbackCategory": "",
+  "subject2TeachingEducationalFeedback": "",
+  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingFeedbackCategory": "",
+  "subject2TeachingTeacherTrainingFeedback": "",
 
   // Messages
   "accountMessageMakingJudgements": "Read",
@@ -1294,58 +1439,70 @@ var acceptedRejected = {
   "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
   "referencesCompleted": "complete",
 
-  // Subjects
-  "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
-  "resultName": "Asbestos Analyst and Surveyor",
-  "selectedQualification": "End-Point Assessment",
-  "selectedLevel": [
-    "3, 4"
-  ],
-  "expertiseType": [
-    "Assessment",
-    "Industry, occupational or professional",
-    "Teaching, lecturing or training"
-  ],
-  "isAssessment": "true",  
-  "assessmentExpertiseType": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments",
-    "Evaluating assessments or assessment approaches"
-  ],
-  "isJudgement": "true",
-  "isStandardSetting": "true",
-  "isDesigning": "true",
-  "isEvaluating": "true",
-  "isIndustry": "true",
-  "isTeaching": "true",  
-  "teachingExpertiseType": [
-    "Training",
-    "Teacher training"
-  ],
-  "isTraining": "true",
-  "isTeacherTraining": "true", 
-  "adviseAreasCompleted": "complete", 
-  // Subject2
-  "subject2": "true", 
-  "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
-  "resultName2": "Building control surveyor (integrated degree)",
-  "selectedQualification2": "End-Point Assessment",
-  "selectedLevel2": [
-    "6"
-  ],
-  "expertiseType2": [
-    "Assessment"
-  ],
-  "isAssessment2": "true",  
-  "assessmentExpertiseType2": [
-    "Making assessment judgements",
-    "Standard setting and awarding qualifications",
-    "Designing and developing assessments"
-  ],
-  "isJudgement2": "true",
-  "isStandardSetting2": "true",
-  "isDesigning2": "true",
+   // Subjects
+   "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName": "Asbestos Analyst and Surveyor",
+   "selectedQualification": "End-Point Assessment",
+   "selectedLevel": [
+     "3, 4"
+   ],
+   "expertiseType": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment": "true",  
+   "assessmentExpertiseType": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement": "true",
+   "isStandardSetting": "true",
+   "isDesigning": "true",
+   "isEvaluating": "true",
+   "isIndustry": "true",
+   "isTeaching": "true",  
+   "teachingExpertiseType": [
+     "Training",
+   ],
+   "isTraining": "true",
+   "adviseAreasCompleted": "complete",
+   // Subject2
+   "subject2": "true", 
+   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+   "resultName2": "Building control surveyor (integrated degree)",
+   "selectedQualification2": "End-Point Assessment",
+   "selectedLevel2": [
+     "6"
+   ],
+   "expertiseType2": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment2": "true",  
+   "assessmentExpertiseType2": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement2": "true",
+   "isStandardSetting2": "true",
+   "isDesigning2": "true",
+   "isEvaluating2": "true",
+   "isIndustry2": "true",
+   "isTeaching2": "true",  
+   "teachingExpertiseType2": [
+     "Teaching or lecturing",
+     "Training",
+     "Educational management",
+   ],
+   "isLecturing2": "true",
+   "isTraining2": "true",
+   "isEducationalManagement2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1409,6 +1566,9 @@ var acceptedRejected = {
   "applicationFeedbackCategory": "",
   "applicationFeedback": "",
   // Subject 1
+  "subject1Status": "Accepted", 
+  "subject1FeedbackCategory": "",
+  "subject1Feedback": "",
   "subject1AssessmentMakingStatus": "Rejected", 
   "subject1AssessmentMakingFeedbackCategory": "Type of experience inappropriate",
   "subject1AssessmentMakingFeedback": "This applicant does not have enough experience in making assessment judgements for this subjects.",
@@ -1424,41 +1584,44 @@ var acceptedRejected = {
   "subject1IndustryStatus": "Rejected", 
   "subject1IndustryFeedbackCategory": "Type of experience inappropriate",
   "subject1IndustryFeedback": "The applicant does not have enough industry experience.",
-  "subject1TeachingTeachingStatus": "", 
+  "subject1TeachingTeachingStatus": "Rejected", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
   "subject1TeachingTrainingStatus": "Rejected", 
   "subject1TeachingTrainingFeedbackCategory": "Length or amount of experience not sufficient",
   "subject1TeachingTrainingFeedback": "The applicant does not have enough teacher training experience in this subject.",
-  "subject1TeachingEducationalStatus": "", 
+  "subject1TeachingEducationalStatus": "Rejected", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "Rejected", 
   "subject1TeachingTeacherTrainingFeedbackCategory": "Other",
   "subject1TeachingTeacherTrainingFeedback": "No evidence provided.",
   // Subject 2
+  "subject2Status": "Rejected", 
+  "subject2FeedbackCategory": "Qualifications not relevant",
+  "subject2Feedback": "This applicant does not have evidence of a qualification obtained in this subject.",
   "subject2AssessmentMakingStatus": "Rejected", 
-  "subject2AssessmentMakingFeedbackCategory": "Qualifications not relevant",
-  "subject2AssessmentMakingFeedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
+  "subject2AssessmentMakingFeedbackCategory": "",
+  "subject2AssessmentMakingFeedback": "",
   "subject2AssessmentSettingStatus": "Rejected", 
-  "subject2AssessmentSettingFeedbackCategory": "Qualifications not relevant",
-  "subject2AssessmentSettingFeedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
+  "subject2AssessmentSettingFeedbackCategory": "",
+  "subject2AssessmentSettingFeedback": "",
   "subject2AssessmentDesigningStatus": "Rejected", 
-  "subject2AssessmentDesigningFeedbackCategory": "Qualifications not relevant",
-  "subject2AssessmentDesigningFeedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
+  "subject2AssessmentDesigningFeedbackCategory": "",
+  "subject2AssessmentDesigningFeedback": "",
   "subject2AssessmentEvaluatingStatus": "Rejected", 
-  "subject2AssessmentEvaluatingFeedbackCategory": "Qualifications not relevant",
-  "subject2AssessmentEvaluatingFeedback": "This applicant does not have evidence of a qualification obtained that would give them experience to assess this subject.",
-  "subject2IndustryStatus": "", 
+  "subject2AssessmentEvaluatingFeedbackCategory": "",
+  "subject2AssessmentEvaluatingFeedback": "",
+  "subject2IndustryStatus": "Rejected", 
   "subject2IndustryFeedbackCategory": "",
   "subject2IndustryFeedback": "",
-  "subject2TeachingTeachingStatus": "", 
+  "subject2TeachingTeachingStatus": "Rejected", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "", 
+  "subject2TeachingTrainingStatus": "Rejected", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "", 
+  "subject2TeachingEducationalStatus": "Rejected", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
   "subject2TeachingTeacherTrainingStatus": "", 

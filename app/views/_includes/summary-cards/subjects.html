@@ -171,8 +171,12 @@
   </ul>
 {% endset %}
 
-{% if data.applicationStatus != "incomplete" %}
-  <p class="govuk-body govuk-!-margin-top-0"><a href="/account/your-details/subjects">See the status of your application by subject or occupational area </a></p>
+{% if pageType == "Account" %}
+  {% if (data.applicationStatus == "Accepted") %}
+    {% elseif (data.applicationStatus == "Rejected") %}
+    {% else %}
+    <p class="govuk-body govuk-!-margin-top-0"><a href="/account/your-details/subjects">See the status of your application by subject or occupational area </a></p>
+  {% endif %}
 {% endif %}
 
 {# If assessment only expertise, display the answers to additional questions #}
