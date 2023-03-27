@@ -67,7 +67,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1AssessmentMakingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1AssessmentSpecialismStatus != "Rejected" and data.subject1AssessmentMakingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -123,7 +123,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1AssessmentSettingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1AssessmentSpecialismStatus != "Rejected" and data.subject1AssessmentSettingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -179,7 +179,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1AssessmentDesigningStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1AssessmentSpecialismStatus != "Rejected" and data.subject1AssessmentDesigningStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -235,7 +235,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1AssessmentEvaluatingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1AssessmentSpecialismStatus != "Rejected" and data.subject1AssessmentEvaluatingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -278,6 +278,27 @@
           {% endif %}
         {% endif %}
         <!-- END row for Evaluating assessments or assessment approaches -->
+        <!-- START row for when rejected for all Assessment -->
+        {% if data.subject1Status != "Rejected" and data.subject1AssessmentSpecialismStatus == "Rejected" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject1AssessmentMakingFeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject1AssessmentMakingFeedback }}</p>
+                  </div>
+                </details> 
+            </dt>
+          </div>
+        {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for all Assessment -->
       </dl>
     </div>
     {% endif %}
@@ -302,7 +323,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1IndustryStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1IndustryStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -347,9 +368,9 @@
     {% endif %}
   {% endif %}
   <!-- START of Teaching, lecturing or training -->
-    {% if data.isTeaching == "true" %}
-      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTeachingStatus == "Rejected" and data.subject1TeachingTrainingStatus == "Rejected" and data.subject1TeachingEducationalStatus == "Rejected" and data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
-      {% else %}
+  {% if data.isTeaching == "true" %}
+    {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTeachingStatus == "Rejected" and data.subject1TeachingTrainingStatus == "Rejected" and data.subject1TeachingEducationalStatus == "Rejected" and data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
+    {% else %}
       <header class="x-govuk-summary-card__header">
         <h2 class="x-govuk-summary-card__title">
           Teaching, lecturing or training
@@ -370,7 +391,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1TeachingTeachingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1TeachingSpecialismStatus != "Rejected" and data.subject1TeachingTeachingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -426,7 +447,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1TeachingTrainingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1TeachingSpecialismStatus != "Rejected" and data.subject1TeachingTrainingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -482,7 +503,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1TeachingEducationalStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1TeachingSpecialismStatus != "Rejected" and data.subject1TeachingEducationalStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -538,7 +559,7 @@
                     html: actionRequiredTTrainingHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
+                {% elseif data.subject1Status != "Rejected" and data.subject1TeachingSpecialismStatus != "Rejected" and data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -581,6 +602,49 @@
           {% endif %}
         {% endif %}
         <!-- END row for Teacher training -->
+        <!-- START row for when rejected for all Teaching -->
+        {% if data.subject1Status != "Rejected" and data.subject1TeachingSpecialismStatus == "Rejected" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject1TeachingTeachingFeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject1TeachingTeachingFeedback }}</p>
+                  </div>
+                </details> 
+              </div>
+            </dt>
+          </div>
+        {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for all Teaching -->
+        <!-- START row for when rejected for whole subject -->
+        {% if data.subject1Status == "Rejected" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject1FeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject1Feedback }}</p>
+                  </div>
+                </details> 
+            </dt>
+          </div>
+          {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for whole subject -->
       </dl>
     </div>
     {% endif %}
@@ -590,7 +654,7 @@
 <!-- END Card for subject 1 -->
 <!-- START Card for subject 2 -->
 {% if data.subject2 == "true" %}
-  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2Status == "Rejected" and pageTypeSub != "Application" %}
+  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2Status == "Rejected" %}
   {% else %}
   <section class="x-govuk-summary-card">
     <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
@@ -628,7 +692,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2AssessmentMakingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2AssessmentSpecialismStatus != "Rejected" and data.subject2AssessmentMakingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -684,7 +748,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2AssessmentSettingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2AssessmentSpecialismStatus != "Rejected" and data.subject2AssessmentSettingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -740,7 +804,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2AssessmentDesigningStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2AssessmentSpecialismStatus != "Rejected" and data.subject2AssessmentDesigningStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -796,7 +860,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2AssessmentEvaluatingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2AssessmentSpecialismStatus != "Rejected" and data.subject2AssessmentEvaluatingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -839,7 +903,28 @@
           {% endif %}
         {% endif %}
         <!-- END row for Evaluating assessments or assessment approaches -->
-      </dl>
+        <!-- START row for when rejected for all Assessment -->
+        {% if data.subject2Status != "Rejected" and data.subject2AssessmentSpecialismStatus == "Rejected"  %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2AssessmentMakingFeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject2AssessmentMakingFeedback }}</p>
+                  </div>
+                </details> 
+            </dt>
+          </div>
+        {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for all Assessment -->
+      </dl>      
     </div>
     {% endif %}
   {% endif %}
@@ -863,7 +948,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2IndustryStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2IndustryStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -931,7 +1016,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2TeachingTeachingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2TeachingSpecialismStatus != "Rejected" and data.subject2TeachingTeachingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -987,7 +1072,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2TeachingTrainingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2TeachingSpecialismStatus != "Rejected" and data.subject2TeachingTrainingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -1043,7 +1128,7 @@
                     html: actionRequiredHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2TeachingEducationalStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2TeachingSpecialismStatus != "Rejected" and data.subject2TeachingEducationalStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -1099,7 +1184,7 @@
                     html: actionRequiredTTrainingHtml,
                     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-1"
                   }) }} 
-                {% elseif data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
+                {% elseif data.subject2Status != "Rejected" and data.subject2TeachingSpecialismStatus != "Rejected" and data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
                   <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -1140,12 +1225,59 @@
               </dd>
             </div>
           {% endif %}
-          <!-- END row for Teacher training -->
+        {% endif %}
+        <!-- END row for Teacher training -->
+        <!-- START row for when rejected for all Teaching -->
+        {% if data.subject2Status != "Rejected" and data.subject2TeachingSpecialismStatus == "Rejected" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2TeachingTeachingFeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject2TeachingTeachingFeedback }}</p>
+                  </div>
+                </details> 
+              </div>
+            </dt>
+          </div>
+        {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for all Teaching -->
+        <!-- START row for when rejected for whole subject -->
+        {% if data.subject2Status == "Rejected" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+              <div class="govuk-summary-list__row">
+                <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Feedback
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2FeedbackCategory }}</h4>
+                    <p class="govuk-body">{{ data.subject2Feedback }}</p>
+                  </div>
+                </details> 
+            </dt>
+          </div>
+          {% else %}
+        {% endif %} 
+        <!-- END row for when rejected for whole subject -->
         </dl>
       </div>
+      {% endif %}
     {% endif %}
-    {% endif %}
-  {% endif %}
+    <!-- END Teaching, lecturing -->
   {% endif %}
 </section>
 {% endif %}
+<!-- END subject 2 -->
+
+
