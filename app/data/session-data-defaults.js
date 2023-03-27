@@ -555,11 +555,11 @@ var awaitingDecision = {
   "isIndustry2": "true",
   "isTeaching2": "true",  
   "teachingExpertiseType2": [
+    "Teaching or lecturing",
     "Teacher training",
-    "Educational management",
   ],
   "isLecturing2": "true",
-  "isEducationalManagement2": "true",
+  "isTeacherTraining2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -575,6 +575,7 @@ var awaitingDecision = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -671,13 +672,13 @@ var awaitingDecision = {
   "subject2TeachingTeachingStatus": "Awaiting decision", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "Awaiting decision", 
+  "subject2TeachingTrainingStatus": "", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "Awaiting decision", 
+  "subject2TeachingEducationalStatus": "", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingStatus": "Awaiting decision", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 }
@@ -783,12 +784,11 @@ var actionRequired = {
    "isIndustry2": "true",
    "isTeaching2": "true",  
    "teachingExpertiseType2": [
-     "Teaching or lecturing",
-     "Educational management",
+    "Teaching or lecturing",
+    "Teacher training",
    ],
    "isLecturing2": "true",
-   "isTraining2": "true",
-   "isEducationalManagement2": "true",
+   "isTeacherTraining2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -804,6 +804,7 @@ var actionRequired = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -905,13 +906,13 @@ var actionRequired = {
   "subject2TeachingTeachingStatus": "Awaiting decision", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "Awaiting decision", 
+  "subject2TeachingTrainingStatus": "", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "Awaiting decision", 
+  "subject2TeachingEducationalStatus": "", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingStatus": "Action required", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
@@ -1020,13 +1021,11 @@ var allAccepted = {
    "isIndustry2": "true",
    "isTeaching2": "true",  
    "teachingExpertiseType2": [
-     "Teaching or lecturing",
-     "Training",
-     "Educational management",
+    "Teaching or lecturing",
+    "Teacher training",
    ],
    "isLecturing2": "true",
-   "isTraining2": "true",
-   "isEducationalManagement2": "true",
+   "isTeacherTraining2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1042,6 +1041,7 @@ var allAccepted = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -1138,13 +1138,13 @@ var allAccepted = {
   "subject2TeachingTeachingStatus": "Accepted", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "Accepted", 
+  "subject2TeachingTrainingStatus": "", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "Accepted", 
+  "subject2TeachingEducationalStatus": "", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingStatus": "Accepted", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
@@ -1254,13 +1254,11 @@ var allRejected = {
    "isIndustry2": "true",
    "isTeaching2": "true",  
    "teachingExpertiseType2": [
-     "Teaching or lecturing",
-     "Training",
-     "Educational management",
+    "Teaching or lecturing",
+    "Teacher training",
    ],
    "isLecturing2": "true",
-   "isTraining2": "true",
-   "isEducationalManagement2": "true",
+   "isTeacherTraining2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1276,6 +1274,7 @@ var allRejected = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
 
@@ -1373,13 +1372,13 @@ var allRejected = {
   "subject2TeachingTeachingStatus": "Rejected", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "Rejected", 
+  "subject2TeachingTrainingStatus": "", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "Rejected", 
+  "subject2TeachingEducationalStatus": "", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingStatus": "Rejected", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
@@ -1489,13 +1488,11 @@ var acceptedRejected = {
    "isIndustry2": "true",
    "isTeaching2": "true",  
    "teachingExpertiseType2": [
-     "Teaching or lecturing",
-     "Training",
-     "Educational management",
+    "Teaching or lecturing",
+    "Teacher training",
    ],
    "isLecturing2": "true",
-   "isTraining2": "true",
-   "isEducationalManagement2": "true",
+   "isTeacherTraining2": "true",
 
   // Evidence of experience
   // Assessment experience
@@ -1511,6 +1508,7 @@ var acceptedRejected = {
 
   // Teaching, lecturing or training expertise
   "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
   "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
   "teachingExpertiseCompleted": "complete",
   "teachingStatus": "Action required",
@@ -1576,13 +1574,13 @@ var acceptedRejected = {
   "subject1IndustryStatus": "Rejected", 
   "subject1IndustryFeedbackCategory": "Length or amount of experience not sufficient",
   "subject1IndustryFeedback": "The applicant does not have enough industry experience in this subject, which is recent enough.",
-  "subject1TeachingTeachingStatus": "", 
+  "subject1TeachingTeachingStatus": "Rejected", 
   "subject1TeachingTeachingFeedbackCategory": "",
   "subject1TeachingTeachingFeedback": "",
-  "subject1TeachingTrainingStatus": "", 
+  "subject1TeachingTrainingStatus": "Rejected", 
   "subject1TeachingTrainingFeedbackCategory": "",
   "subject1TeachingTrainingFeedback": "",
-  "subject1TeachingEducationalStatus": "", 
+  "subject1TeachingEducationalStatus": "Rejected", 
   "subject1TeachingEducationalFeedbackCategory": "",
   "subject1TeachingEducationalFeedback": "",
   "subject1TeachingTeacherTrainingStatus": "Rejected", 
@@ -1610,13 +1608,13 @@ var acceptedRejected = {
   "subject2TeachingTeachingStatus": "Rejected", 
   "subject2TeachingTeachingFeedbackCategory": "",
   "subject2TeachingTeachingFeedback": "",
-  "subject2TeachingTrainingStatus": "Rejected", 
+  "subject2TeachingTrainingStatus": "", 
   "subject2TeachingTrainingFeedbackCategory": "",
   "subject2TeachingTrainingFeedback": "",
-  "subject2TeachingEducationalStatus": "Rejected", 
+  "subject2TeachingEducationalStatus": "", 
   "subject2TeachingEducationalFeedbackCategory": "",
   "subject2TeachingEducationalFeedback": "",
-  "subject2TeachingTeacherTrainingStatus": "", 
+  "subject2TeachingTeacherTrainingStatus": "Rejected", 
   "subject2TeachingTeacherTrainingFeedbackCategory": "",
   "subject2TeachingTeacherTrainingFeedback": "",
 
