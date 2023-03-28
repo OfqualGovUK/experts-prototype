@@ -16,9 +16,13 @@ Link to application: https://experts-prototype.herokuapp.com/application
 
 #### Account area for submitted applications, which becomes an approved applicants account. 
 Application with the status 'Awaiting decision' : https://experts-prototype.herokuapp.com/application-submitted-vtq 
+
 Application with the status 'Action required' : https://experts-prototype.herokuapp.com/application-submitted-action-required 
+
 Application 'Approved' for all subjects : https://experts-prototype.herokuapp.com/application-submitted-accepted
+
 Application with a mix of 'Approved' and 'Rejected' subjects : https://experts-prototype.herokuapp.com/application-submitted-accepted-rejected
+
 Application 'Rejected' for all subjects :https://experts-prototype.herokuapp.com/application-submitted-rejected
 
 ### Admin settings
