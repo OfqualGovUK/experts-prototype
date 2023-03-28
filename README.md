@@ -12,9 +12,10 @@ This version will deploy automatically from merges to main and is the 'latest' v
 URL: https://experts-prototype.herokuapp.com/
 Password: ofqual
 
-Link to application form : https://experts-prototype.herokuapp.com/application 
+#### Application form 
+- https://experts-prototype.herokuapp.com/application 
 
-#### Account area for submitted applications, which becomes an approved applicants account. 
+#### Account area for submitted applications, which becomes an approved applicants account 
 - Application with the status 'Awaiting decision' : https://experts-prototype.herokuapp.com/application-submitted-vtq 
 - Application with the status 'Action required' : https://experts-prototype.herokuapp.com/application-submitted-action-required 
 - Application 'Approved' for all subjects : https://experts-prototype.herokuapp.com/application-submitted-accepted
