@@ -78,6 +78,7 @@
         text: "Approved",
         classes: "govuk-tag--green"
       })}}
+    <p class="govuk-body-s govuk-!-margin-top-1">10 areas have been rejected</p>
     {% elseif data.applicationStatus == "Rejected" %}
       {{ govukTag({
         text: "Rejected",
@@ -88,7 +89,7 @@
         html: rejectedFeedbackHtml,
         classes: "govuk-!-margin-top-4"
       }) }} 
-    {% else %}
+    {% else %}    
     {% endif %}
   {% endset %}
 
