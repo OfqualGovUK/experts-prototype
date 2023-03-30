@@ -70,15 +70,19 @@
       <p class="govuk-body-s govuk-!-margin-top-1">2 actions to complete</p>
       {{ govukDetails({
         summaryText: "Further information required",
-        html: actionRequiredHtml,
-        classes: "govuk-!-margin-top-4"
+        html: actionRequiredHtml
       }) }} 
     {% elseif data.applicationStatus == "Accepted" %}
       {{ govukTag({
         text: "Approved",
         classes: "govuk-tag--green"
       })}}
-    <p class="govuk-body-s govuk-!-margin-top-1">10 areas have been rejected</p>
+      {% if data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
+        <p class="govuk-body-s govuk-!-margin-top-1 govuk-!-margin-bottom-1">For 3 of 13 specialisms</p>
+        {% if pageTypeSub != "Application" %}
+          <p class="govuk-!-margin-bottom-1"><a href="/account/your-details/application">View outcome for each specialism </a></p>
+        {% endif %}
+      {% endif %}
     {% elseif data.applicationStatus == "Rejected" %}
       {{ govukTag({
         text: "Rejected",
@@ -87,7 +91,7 @@
       {{ govukDetails({
         summaryText: "Feedback",
         html: rejectedFeedbackHtml,
-        classes: "govuk-!-margin-top-4"
+        classes: "govuk-!-margin-top-2"
       }) }} 
     {% else %}    
     {% endif %}
