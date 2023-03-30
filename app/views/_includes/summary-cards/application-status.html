@@ -37,23 +37,32 @@
   {% set actionRequiredHtml %}
     {% if data.subjectEvidenceReply == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
-    {% else %}
-      <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
+      {% else %}
+        <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
     {% endif %}
     <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction }}</h4>
     <p><a href="{{ data.applicationActionLink }}">View message</a></p>
     {% if data.teachingEvidenceReply == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
-    {% else %}
-      <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
+      {% else %}
+        <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
     {% endif %}
     <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationAction2 }}</h4>
     <p><a href="{{ data.applicationActionLink2 }}">View message</a></p>
   {% endset %}
 
   {% set rejectedFeedbackHtml %}
-    <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.applicationFeedbackCategory }}</h4>
-    <p class="govuk-body">{{ data.applicationFeedback }}</p>
+    {% if data.subject1Status == "Rejected" %}
+      <h3 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.selectedSubject }} </h3>
+      <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.subject1FeedbackCategory }}</h4>
+      <p class="govuk-body">{{ data.subject1Feedback }}</p>
+    {% endif %}
+    {% if data.subject2Status == "Rejected" %}
+      <h3 class="govuk-!-margin-top-5 govuk-!-margin-bottom-1">{{ data.selectedSubject2 }} </h3>
+      <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.subject2FeedbackCategory }}</h4>
+      <p class="govuk-body">{{ data.subject2Feedback }}</p>
+    {% endif %}
+    <a href="/account/your-details/subjects">List of specialisms applied for</a>
   {% endset %}
 
   {% set applicationStatusHtml %}
@@ -129,7 +138,7 @@
         value: {
           html: subjectStatusHtml
         }
-      } if data.applicationStatus != ("Awaiting decision"),
+      } if data.applicationStatus == "Action required" or data.applicationStatus == "Accepted",
       {
         key: {
           text: "Last updated"
