@@ -1,5 +1,5 @@
   {% set actionRequiredHtml %}
-    {% if data.subjectEvidenceReply == "replied" %}
+    {% if data.makingAssessmentsEvidenceSent == "sent" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
     {% else %}
       <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>
@@ -19,7 +19,7 @@
   {% endset %}
 
   {% set actionRequiredTTrainingHtml %}
-    {% if data.teachingEvidenceReply == "replied" %}
+    {% if data.ttrainingEvidenceSent == "replied" %}
       <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
     {% else %}
       <p class="govuk-body-s govuk-!-margin-bottom-1 "><time datetime="">{{ "" | yesterday |  govukDate }}</time></p>

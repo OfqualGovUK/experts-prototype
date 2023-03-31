@@ -8,50 +8,25 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <span class="govuk-caption-l">24 Feb 2023 </span>
+      <span class="govuk-caption-l">{{ "" | yesterday |  govukDate }} </span>
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      <p class="govuk-body">To proceed with your application we need more evidence of your experience in: </p>
-      <h2 class="govuk-heading-m"><span class="govuk-!-font-weight-bold">Making assessment judgements</span> for {{ data.selectedSubject }}</h2>
-      <p class="govuk-body">Please provide information and evidence (examples) about the following areas:</p>
-      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Marking assessments</span></p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>marking exam papers or assessment tasks</li>
-        <li>making judgements about candidate's performance against assessment criteria</li>
-      </ul>
-      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Standardising the marking of others</span></p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>leading a team of of markers/ examiners/ assessors to ensure marking criteria will be applied accurately and consistently</li>
-      </ul>
-      <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Moderating the marking of others</span></p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>checking and verifying the marking of others, as a moderator within a school, college, for an awarding organisation or as an internal or external verifier</li>
-      </ul>
-
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/application">View the evidence you've already provided </a></p>
-
-      {% if data.subjectEvidenceReply == "noReply" %}
+      <p class="govuk-body">To proceed with your application we more information about your experience in <span class="govuk-!-font-weight-bold">Making assessment judgements for {{ data.selectedSubject }}</span>.</h2>
+      <p class="govuk-body">In your application you mention the type of work you have done but you haven't told us how many years of experience you have. We also need to know the exact qualifications you worked on, including the awarding body. </p>
+      {% if data.makingAssessmentsEvidenceSent == "" %}
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Reply to message",
-            href: "/account/messages/reply?referrer=subject-evidence"
+            text: "Provide evidence",
+            href: "/account/your-details/application/further-evidence-making-assessment-judgements"
           }) }}
         </div>
         {% else %} 
       {% endif %}
-
-      {% if data.subjectEvidenceReply == "replied" %}
+      {% if data.makingAssessmentsEvidenceSent == "sent" %}
         <hr>
         <div class="govuk-!-margin-top-6">
-          <p class="govuk-caption-m govuk-!-margin-bottom-0">You replied 1 Mar 2023</p>
-          <h2 class="govuk-heading-l govuk-!-padding-top-0">Your reply</h2>
-          <p class="govuk-body">{{ data.accountMessageReplySubjectEvidence }}</p>
-          <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">{{ data.accountMessageReplyUploadSubjectEvidence }}</a></p>
-        </div>
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Send another reply",
-            href: "/account/messages/reply?referrer=subject-evidence"
-          }) }}
+          <p class="govuk-caption-m govuk-!-margin-bottom-0">You sent evidence {{ "" | today |  govukDate }}</p>
+          <h2 class="govuk-heading-l govuk-!-padding-top-0">Your evidence</h2>
+          <p class="govuk-body">{{ data.assessmentJudgementDetailsFurtherEvidence }}</p>
         </div>
         {% else %} 
       {% endif %}

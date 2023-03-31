@@ -1671,8 +1671,8 @@ module.exports = {
   "oneLoginEmail": "name@email.com",
   // set account messages status
   "proofNameChangeReply": "noReply",
-  "subjectEvidenceReply": "noReply",
-  "teachingEvidenceReply": "noReply",
+  "makingAssessmentsEvidenceSent": "",
+  "ttrainingEvidenceSent": "",
   "messageSent": "none",
   "applicationStatus": "incomplete",
   "accountMessageSubject": "",

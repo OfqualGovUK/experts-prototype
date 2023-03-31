@@ -128,25 +128,25 @@
             {% endif %}
           {% endfor %}
           {% if data.communicationCompleted == "complete" %}
-          <h2 class="govuk-heading-m">Communication and analytical judgement skills</h2>
-          {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Communication and analytical judgement skills",
-            sectionHref: "./communication-analytical-judgement-skills",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %} 
-        {% if data.furtherEvidenceDetails == "complete" %}
-          <h2 class="govuk-heading-m">Further supporting evidence</h2>
-          {% include "_includes/summary-cards/further-evidence.html" %}
-        {% else %}
-          {{ appInsetText({
-            sectionName: "Further supporting evidence",
-            sectionHref: "./further-evidence",
-            classes: "app-inset-text--error" if data.showErrors == "true"
-          })}}
-        {% endif %} 
+            <h2 class="govuk-heading-m">Communication and analytical judgement skills</h2>
+            {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
+            {% else %}
+              {{ appInsetText({
+                sectionName: "Communication and analytical judgement skills",
+                sectionHref: "./communication-analytical-judgement-skills",
+                classes: "app-inset-text--error" if data.showErrors == "true"
+              })}}
+          {% endif %} 
+          {% if data.furtherEvidenceDetails == "complete" %}
+            <h2 class="govuk-heading-m">Further supporting evidence</h2>
+            {% include "_includes/summary-cards/further-evidence.html" %}
+            {% else %}
+              {{ appInsetText({
+                sectionName: "Further supporting evidence",
+                sectionHref: "./further-evidence",
+                classes: "app-inset-text--error" if data.showErrors == "true"
+              })}}
+          {% endif %}
         {% endif %}
       </section>
       
