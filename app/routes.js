@@ -57,7 +57,8 @@ router.post('/phone-code', function (req, res) {
   if (linkReferral === 'createAccount') {
       res.redirect('/one-login/account-created')
     } if (linkReferral === 'existingSpecialist') {
-      res.redirect('/account?applicationStatus=Awa')
+      req.session.data = Object.assign(req.session.data.awaitingDecision)
+      res.redirect('/account?applicationStatus=Awaiting decision');
     } else {
       res.redirect('/application')
   }
