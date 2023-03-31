@@ -57,7 +57,8 @@ router.post('/phone-code', function (req, res) {
   if (linkReferral === 'createAccount') {
       res.redirect('/one-login/account-created')
     } if (linkReferral === 'existingSpecialist') {
-      res.redirect('/account?applicationStatus=Submitted')
+      req.session.data = Object.assign(req.session.data.awaitingDecision)
+      res.redirect('/account?applicationStatus=Awaiting decision');
     } else {
       res.redirect('/application')
   }
@@ -887,7 +888,7 @@ router.all( '/populate-application-gq', function (req, res) {
 
 // Sets up the tasklist with a completed application when you visit a link
 router.all( '/application-submitted-gq', function (req, res) {
-  req.session.data = Object.assign(req.session.data.completedApplicationDataGQ)
+  req.session.data = Object.assign(req.session.data.awaitingDecision)
   
   res.redirect('/account?applicationStatus=Awaiting decision');
 })
@@ -905,6 +906,12 @@ router.all( '/application-submitted-vtq', function (req, res) {
   req.session.data = Object.assign(req.session.data.awaitingDecision)
   
   res.redirect('/account?applicationStatus=Awaiting decision');
+})
+
+router.all( '/submit-application', function (req, res) {
+  req.session.data = Object.assign(req.session.data.awaitingDecision)
+  
+  res.redirect('/account/submitted?applicationStatus=Awaiting decision');
 })
 
 // Assessment Specialist (no subject) Application

@@ -1,0 +1,34 @@
+{% extends "_templates/page-template.html" %}
+
+{% set backLink = "false" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    {# Show the success banner if the application has just been submitted #}
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Application submitted
+          </h1>
+          <!-- <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div> -->
+        </div>
+        <p class="govuk-body">We have sent a confirmation email to <strong>{{ data.email or "name@email.com" }}</strong>.</p>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          Your application has been received and will now be reviewed.
+        </p>
+        <p class="govuk-body">
+          We will contact you either to confirm if you have been accepted or rejected, or to ask for more information. You should hear the outcome of your application within 60 days.
+        </p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+        </p>
+        <p class="govuk-body">
+          <a href="/account" class="govuk-link">View your Subject Matter Specialist account</a>
+        </p>
+      </div>
+  </div>
+{% endblock %}

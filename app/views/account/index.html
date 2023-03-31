@@ -6,93 +6,55 @@
 {% set primaryNavActive = "Home" %}
 {% set pageType = "Account" %}
 
-{# {% if data.applicationStatus == "Awaiting decision" %}
-  {% set pageHeading = "My application" %}
-{% endif %}
-
-{% if data.applicationStatus == "Accepted" %}
-  {% set pageHeading = "My account" %}
-  {% set pageType = "Account" %}
-{% endif %} #}
-
 {% block content %}
   <div class="govuk-grid-row">
-    {% if data.applicationStatus != "Submitted" %}
-      <div class="govuk-grid-column-two-thirds-from-desktop">
-        <span class="govuk-caption-l">{{ caption }} </span>
-        <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-      </div>
-    {% endif %}
-    {# Show the success banner if the application has just been submitted #}
-    {% if data.applicationStatus == "Submitted" %}
-      <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-            Application submitted
-          </h1>
-          <!-- <div class="govuk-panel__body">
-            Your reference number<br><strong>HDJ2123F</strong>
-          </div> -->
-        </div>
-        <p class="govuk-body">We have sent a confirmation email to <strong>{{ data.email or "name@email.com" }}</strong>.</p>
-        <h2 class="govuk-heading-m">What happens next</h2>
-        <p class="govuk-body">
-          Your application has been received and will now be reviewed.
-        </p>
-        <p class="govuk-body">
-          We will contact you either to confirm if you have been accepted or rejected, or to ask for more information. You should hear the outcome of your application within 60 days.
-        </p>
-        <p class="govuk-body">
-          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-        </p>
-      </div>
-    {% endif %}
-
-    {% if data.applicationStatus != "Submitted" %}
-      <div class="govuk-grid-column-full">   
-        <section class="govuk-!-margin-bottom-8">
-          {% include "_includes/summary-cards/application-status.html" %}
-        </section>
-        {# The cards section can span across the full width since it is then further breaking down into one half #}
-          <ul class="govuk-grid-row eyfs-card-group">
-            <li class="govuk-grid-column-one-third eyfs-card-group__item">
-              <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/your-details/subjects">
-                <div class="eyfs-card--clickable">
-                  <div class="eyfs-card__content">
-                    <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">View your subject or occupational areas </h3>
-                    {% if data.applicationStatus == "Accepted" %}
-                      <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See a list of the subject or occupational areas you are approved for. </p>
-                      {% else %}
-                      <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See the status of your application for each subject or occupational areas you applied for. </p>
-                    {% endif %}
-                  </div>
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">{{ caption }} </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+    </div>
+    <div class="govuk-grid-column-full">   
+      <section class="govuk-!-margin-bottom-8">
+        {% include "_includes/summary-cards/application-status.html" %}
+      </section>
+      {# The cards section can span across the full width since it is then further breaking down into one half #}
+        <ul class="govuk-grid-row eyfs-card-group">
+          <li class="govuk-grid-column-one-third eyfs-card-group__item">
+            <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/your-details/subjects">
+              <div class="eyfs-card--clickable">
+                <div class="eyfs-card__content">
+                  <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">View your subject or occupational areas </h3>
+                  {% if data.applicationStatus == "Accepted" %}
+                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See a list of the subject or occupational areas you are approved for. </p>
+                    {% else %}
+                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">See the status of your application for each subject or occupational areas you applied for. </p>
+                  {% endif %}
                 </div>
-              </a>
-            </li>
-            <li class="govuk-grid-column-one-third eyfs-card-group__item">
-              <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/messages">
-                <div class="eyfs-card--clickable">
-                  <div class="eyfs-card__content">
-                    <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">Read or reply to messages </h3>
-                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">View any messages Ofqual have sent you, view your replies or send a reply. </p>
-                  </div>
+              </div>
+            </a>
+          </li>
+          <li class="govuk-grid-column-one-third eyfs-card-group__item">
+            <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/messages">
+              <div class="eyfs-card--clickable">
+                <div class="eyfs-card__content">
+                  <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">Read or reply to messages </h3>
+                  <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">View any messages Ofqual have sent you, view your replies or send a reply. </p>
                 </div>
-              </a>
-            </li>
-            <li class="govuk-grid-column-one-third eyfs-card-group__item">
-              <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/your-details">
-                <div class="eyfs-card--clickable">
-                  <div class="eyfs-card__content">
-                    <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">Update your details</h3>
-                    <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">Request changes to your details, including providing additional references or conflicts of interest.</p>
-                  </div>
+              </div>
+            </a>
+          </li>
+          <li class="govuk-grid-column-one-third eyfs-card-group__item">
+            <a class="eyfs-link govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold govuk-link--no-visited-state" href="/account/your-details">
+              <div class="eyfs-card--clickable">
+                <div class="eyfs-card__content">
+                  <h3 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-0">Update your details</h3>
+                  <p class="govuk-body-s govuk-!-margin-top-2 govuk-!-margin-bottom-0">Request changes to your details, including providing additional references or conflicts of interest.</p>
                 </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      <!--End of cards section-->
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
-    {% endif %}
+    <!--End of cards section-->
+    </div>
   </div>
 {% endblock %}
