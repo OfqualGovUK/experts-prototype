@@ -1,6 +1,7 @@
+{% if pageType != "Account" %}
   {{ xGovukSummaryCard({
-    
-    rows: [{
+    rows: [
+    {
       key: {
         text: "Provide details of any further supporting evidence"
       },
@@ -13,6 +14,37 @@
           visuallyHiddenText: "provide details of any further supporting evidence",
           href: "/application/further-evidence"
         }]
-      } if pageType != "Account"
-    }]
+      }
+    }
+    ]
   }) }}
+  {% else %}
+    {{ xGovukSummaryCard({
+      rows: [
+      {
+        key: {
+          text: "Provide details of any further supporting evidence"
+        },
+        value: {
+          text: data.furtherEvidenceSummary or "Not provided"
+        }
+      } if pageTypeSub != "FurtherEvidence",
+      {
+        key: {
+          text: "Provide further evidence of your experience in making assessment judgements"
+        },
+        value: {
+          text: data.assessmentJudgementDetailsFurtherEvidence
+        }
+      } if data.makingAssessmentsEvidenceSent == "sent",
+      {
+        key: {
+          text: "Provide further evidence of your experience in teacher training"
+        },
+        value: {
+          text: data.teachingTeacherTrainingDetailsFurtherEvidence
+        }
+      } if data.ttrainingEvidenceSent == "sent"
+      ]
+    }) }}
+  {% endif %}

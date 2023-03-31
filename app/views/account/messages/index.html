@@ -19,6 +19,17 @@
           html: html,
           type: 'success'
         }) }}
+        {% elseif data.referrer == "ttrainingevidencesuccess" or data.referrer == "makingjudgementsevidencesuccess" %}
+          {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+          {% set html %}
+            <h3 class="govuk-notification-banner__heading">
+              Your evidence has been sent.
+            </h3>
+          {% endset %}
+          {{ govukNotificationBanner({
+            html: html,
+            type: 'success'
+          }) }}
         {% else %}
       {% endif %}
     </div>
@@ -126,9 +137,9 @@
                 </td>
                 <!-- sender -->
                 <td class="govuk-table__cell messages--govuk-table__cell">
-                  {% if data.subjectEvidenceReply == "replied" %}
+                  {% if data.makingAssessmentsEvidenceSent == "sent" %}
                     <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                      <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+                      <p class="govuk-body-s govuk-!-margin-bottom-1">You sent evidence <time datetime="">{{ "" | today |  govukDate }}</time></p>
                     </div>
                     {% else %}
                   {% endif %}
@@ -179,9 +190,9 @@
                 </td>
                 <!-- sender -->
                 <td class="govuk-table__cell messages--govuk-table__cell">
-                  {% if data.teachingEvidenceReply == "replied" %}
+                  {% if data.ttrainingEvidenceSent == "sent" %}
                     <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
-                      <p class="govuk-body-s govuk-!-margin-bottom-1">You replied <time datetime="">{{ "" | today |  govukDate }}</time></p>
+                      <p class="govuk-body-s govuk-!-margin-bottom-1">You sent evidence <time datetime="">{{ "" | today |  govukDate }}</time></p>
                     </div>
                     {% else %}                
                   {% endif %}

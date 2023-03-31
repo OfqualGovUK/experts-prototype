@@ -1,0 +1,28 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "FurtherEvidence" %}
+
+{% set pageHeading = "Review your further evidence for teacher training" %}
+{% set formAction = "/account/messages?referrer=ttrainingevidencesuccess" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  
+  {% include "_includes/summary-cards/further-evidence-teacher-training.html" %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Send evidence"
+    }) }}
+    <a class="govuk-link" href="/account/messages/further-evidence-required-ttraining">Cancel</a>
+  </div>
+
+  {# This sets the reply status on the message list and status box #}
+  <input type="hidden" name="ttrainingEvidenceSent" value="sent">
+
+{% endblock %}

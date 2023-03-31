@@ -1,0 +1,55 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Your details" %}
+{% set formAction = "/account/your-details/application/further-evidence-teacher-training/review" %}
+
+{% set pageHeading = "Provide further evidence of your experience in teacher training" %}
+
+{% block formContent %}
+  <span class="govuk-caption-l">Further evidence </span>
+  <h1 class="govuk-heading-l">Teacher training</h1>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>teaching on a PGCE or similar course</li>
+      <li>co-tutoring or where you may have mentored trainee teachers or trainers</li>
+    </ul>
+  {% endset %}
+
+  {% set previousAnswerHtml %}
+    <p class="govuk-body">{{ data.teachingTeacherTrainingDetails }}</p>
+  {% endset %}
+  
+  <p class="govuk-body">To proceed with your application we need evidence of your experience in <span class="govuk-!-font-weight-bold">Teacher training for {{ data.selectedSubject2 }}</span>.</p>  
+  {{ govukDetails({
+    summaryText: "Evidence you've already provided",
+    html: previousAnswerHtml,
+    classes: "govuk-!-margin-bottom-2"
+  }) }}
+
+  {{ govukDetails({
+    summaryText: "What should I include?",
+    html: detailsHtml
+  }) }}
+
+  {{ govukCharacterCount({
+    maxwords: 500,
+    rows: "14",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--m"
+    }
+   } | decorateAttributes(data, "data.teachingTeacherTrainingDetailsFurtherEvidence")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/account/messages/further-evidence-required-ttraining">Cancel</a>
+  </div>
+
+{% endblock %}

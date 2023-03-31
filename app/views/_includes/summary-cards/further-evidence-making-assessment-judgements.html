@@ -1,0 +1,20 @@
+
+{{ xGovukSummaryCard({
+  rows: [
+  {
+    key: {
+      text: "Provide further evidence of your experience in making assessment judgements"
+    },
+    value: {
+      text: data.assessmentJudgementDetailsFurtherEvidence
+    },
+    actions: {
+      items: [{
+        text: "Change ",
+        visuallyHiddenText: "Provide further evidence of your experience in teacher training",
+        href: "/account/your-details/application/further-evidence-making-assessment-judgements"
+      }]
+    } if pageTypeSub != "Application"
+  }
+  ]
+}) }}
