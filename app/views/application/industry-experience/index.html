@@ -8,7 +8,7 @@
 
   <h1 class="govuk-heading-l">Industry, occupational or professional experience</h1>
 
-  <p class="govuk-body">Tell us about your industry specialism by describing your experience, skills, achievements, activities and responsibilities in the subject or occupational area(s) you have selected: </p>
+  <p class="govuk-body">You must provide examples of your experiencefor each qualification type and level you are applying for: </p>
 
   {% set subjectsHtml %}
     {# Build an list of the items selected #}
@@ -79,9 +79,16 @@
   {% endset %}
 
   {{ subjectsHtml | safe }}
-    
+  
+  <p class="govuk-body">In your examples you should make it clear:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>how you are keeping up to date with industry practices and your continuing professional development (CPD)</li>
+    <li>which organisations you've worked with (for example: awarding organisations, schools or colleges)</li>
+    <li>how recent your experience is</li>
+  </ul>
+
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
+    <p class="govuk-body">You may want to provide examples in the following areas:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>your experience, skills and current industry, occupational or professional practices</li>
       <li>contribution to industry, occupational or professional standards</li>

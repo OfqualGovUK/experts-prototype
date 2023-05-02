@@ -10,7 +10,7 @@
   <h1 class="govuk-heading-l">Designing and developing assessments</h1>
 
   <p class="govuk-body">
-    Tell us about your experience in the subject or occupational area(s) you have selected:
+    You must provide examples of your experience for each qualification type and level you are applying for:
   </p>
 
   {% set subjectsHtml %}
@@ -83,11 +83,20 @@
 
   {{ subjectsHtml | safe }}
 
+  <p class="govuk-body">
+    In your examples you should make it clear:
+    <ul class="govuk-list govuk-list--bullet">
+      <li>how recent your experience is</li>
+      <li>which organisations you've worked with (for example: awarding organisations, schools or colleges)</li>
+    </ul>
+  </p>
+
+
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
+    <p class="govuk-body">You may want to provide examples in the following areas:</p>
     <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Designing and setting assessments</span></p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>designing the assessment approach for a qualification</li>
+      <li>designing and/or developing the assessment approach for a qualification</li>
       <li>designing and/or writing question papers or assessment tasks</li>
       <li>designing and/or writing mark schemes or assessment criteria</li>
     </ul>
