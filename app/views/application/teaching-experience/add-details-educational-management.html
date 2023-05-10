@@ -9,7 +9,7 @@
   <h1 class="govuk-heading-l">Educational management </h1>
 
   <p class="govuk-body">
-    Tell us about your experience in the subject or occupational area(s) you have selected:
+    You must provide examples of your experience for each qualification type and level you are applying for:
   </p>
 
   {% set subjectsHtml %}
@@ -82,15 +82,22 @@
 
   {{ subjectsHtml | safe }}
   
+  <p class="govuk-body">
+    In your examples you should make it clear:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>how recent your experience is</li>
+    <li>which organisations you've worked with (for example: awarding organisations, schools or colleges)</li>
+  </ul>
+
   {% set detailsHtml %}
-    <p class="govuk-body">This is your opportunity to provide information and evidence about the following areas:</p>
-    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Management of curriculum areas in a school, college or university</span></p>
+    <p class="govuk-body">You may want to provide examples in the following areas:</p>
     <ul class="govuk-list govuk-list--bullet">
-        <li>responsibility for subject departments or faculties</li>
-    </ul>
-    <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Management of whole organisation</span></p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>responsibility for cross organisation issues</li>
+        <li>managing curriculums in a school, college or university</li>
+        <li>responsibility for departments or faculties</li>
+        <li>managing an organisation</li>
+        <li>responsibility for cross organisation activities</li>
+        <li>successful outcomes in education management</li>
       </ul>
   {% endset %}
 
