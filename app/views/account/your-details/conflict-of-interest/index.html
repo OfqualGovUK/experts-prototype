@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details - Conflict of interests" %}
-{% set subHeading = "Conflict of interest" %}
+{% set pageHeading = "Your details - Conflicts of interests" %}
+{% set subHeading = "Conflicts of interest" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -46,7 +46,7 @@
           text: 'References',
           href: '/account/your-details/references'
         }, {
-          text: 'Conflict of interest',
+          text: 'Conflicts of interest',
           href: '/account/your-details/conflict-of-interest',
           active: true
         }, {
@@ -64,8 +64,8 @@
       {% include "_includes/summary-cards/conflict-of-interest.html" %}
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Request changes",
-          href: "/change-coi"
+          text: "Add conflict of interest",
+          href: "/additional-coi"
         }) }}
       </div>
     </div>

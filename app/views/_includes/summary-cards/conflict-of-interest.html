@@ -108,7 +108,14 @@
             visuallyHiddenText: "Is this a current conflict of interest?",
             href: "/application/conflict-of-interest/add-conflict"
           }]
-        } if pageType != "Account"
+        } if pageType != "Account",
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Is this a current conflict of interest?",
+            href: "/account/your-details/conflict-of-interest/edit-conflict"
+          }]
+        } if pageType == "Account"
       },
       {
         key: {
@@ -123,9 +130,138 @@
             visuallyHiddenText: "End date",
             href: "./add-conflict"
           }]
-        } if pageType != "Account"
+        } if pageType != "Account",
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "End date",
+            href: "/account/your-details/conflict-of-interest/edit-conflict"
+          }]
+        } if pageType == "Account"
       } if data.currentConflict == "No"
     ]
   }) }}
 
+  {% if data.conflictOrganisation2 %}
+  {{ xGovukSummaryCard({
+    titleText: data.conflictOrganisation2,
+    actions: {
+      items: [{
+        text: "Delete conflict of interest ",
+        visuallyHiddenText: data.conflictOrganisation2,
+        href: "/application/conflict-of-interest/delete?delete=" + data.conflictOrganisation2
+      }]
+    } if pageType != "Account",
+    rows: [
+      {
+        key: {
+          text: "Name of organisation"
+        },
+        value: { 
+          text: data.conflictOrganisation2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "name of organisation",
+            href: "/application/conflict-of-interest/add-conflict"
+          }]
+        } if pageType != "Account"
+      },
+      {
+        key: {
+          text: "Type of conflict"
+        },
+        value: { 
+          text: data.conflictType2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Type of conflict",
+            href: "/application/conflict-of-interest/add-conflict"
+          }]
+        } if pageType != "Account"
+      },
+      {
+        key: {
+          text: "Details of conflict"
+        },
+        value: { 
+          text: data.conflictDetails2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Details of conflict",
+            href: "/application/conflict-of-interest/add-conflict"
+          }]
+        } if pageType != "Account"
+      },
+      {
+        key: {
+          text: "Start date"
+        },
+        value: { 
+          text: "April 2011"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Start date",
+            href: "/application/conflict-of-interest/add-conflict"
+          }]
+        } if pageType != "Account"
+      },
+      {
+        key: {
+          text: "Is this a current conflict of interest?"
+        },
+        value: { 
+          text: data.currentConflict2 or "Not provided"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Is this a current conflict of interest?",
+            href: "/application/conflict-of-interest/add-conflict"
+          }]
+        } if pageType != "Account",
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "Is this a current conflict of interest?",
+            href: "/edit-conflict2"
+          }]
+        } if pageType == "Account"
+      },
+      {
+        key: {
+          text: "End date"
+        },
+        value: { 
+          text: "September 2014"
+        },
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "End date",
+            href: "./add-conflict"
+          }]
+        } if pageType != "Account",
+        actions: {
+          items: [{
+            text: "Change ",
+            visuallyHiddenText: "End date",
+            href: "/edit-conflict2"
+          }]
+        } if pageType == "Account"
+      } if data.currentConflict2 == "No"
+    ]
+  }) }}
 {% endif %}
+
+
+{% endif %}
+
+  

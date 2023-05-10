@@ -1038,6 +1038,26 @@ router.all('/change-coi', function (req, res) {
   
 })
 
+// Account - Your details – COI add new
+router.all('/additional-coi', function (req, res) {
+
+  req.session.data.addAnother = "yes"
+  res.redirect('/account/your-details/conflict-of-interest/add-conflict');
+})
+
+// Account - Your details – COI edit (Nasty hack)
+router.all('/edit-conflict2', function (req, res) {
+
+  req.session.data.secondConflict = "yes"
+  res.redirect('/account/your-details/conflict-of-interest/edit-conflict');
+})
+
+// Account - Your Details – COI save new conflict
+router.all('/additional-coi-save', function (req, res) {
+
+  res.redirect('/account/your-details/conflict-of-interest');
+})
+
 // Account - Your details - self declaration request to change
 router.all('/change-self-declaration', function (req, res) {
 

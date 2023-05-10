@@ -1,0 +1,266 @@
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Your details - edit conflict of interest" %}
+{% set formAction = "/account/your-details/conflict-of-interest" %}
+{% set subHeading = "Edit conflict of interest" %}
+{% set backLink = "false" %}
+{% set primaryNavActive = "Conflicts of interest" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Conflicts of interest" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+<!--   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+  {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+  {{ mojSubNavigation({
+    label: 'Sub navigation',
+    items: [{
+      text: 'Personal details',
+      href: '/account/your-details/'
+    }, {
+      text: 'Subject or occupational areas',
+      href: '/account/your-details/subjects'
+    }, {
+      text: 'Conflict of interest',
+      href: '/account/your-details/conflict-of-interest',
+      active: true
+    }, {
+      text: 'Self declaration',
+      href: '/account/your-details/self-declaration'
+    }, {
+      text: 'Application',
+      href: '/account/your-details/application'
+    }]
+  }) }} -->
+
+  {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal details',
+          href: '/account/your-details/'
+        }, {
+          text: 'Subject or occupational areas',
+          href: '/account/your-details/subjects'
+        }, {
+          text: 'References',
+          href: '/account/your-details/references'
+        }, {
+          text: 'Conflicts of interest',
+          href: '/account/your-details/conflict-of-interest',
+          active: true
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Application',
+          href: '/account/your-details/application'
+        }
+        ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+
+      {% if data.secondConflict == "yes" %}
+
+      {{ xGovukSummaryCard({
+        titleText: data.conflictOrganisation2,
+        rows: [
+          {
+            key: {
+              text: "Name of organisation"
+            },
+            value: { 
+              text: data.conflictOrganisation2 or "Not provided"
+            }
+          },
+          {
+            key: {
+              text: "Type of conflict"
+            },
+            value: { 
+              text: data.conflictType2 or "Not provided"
+            }
+          },
+          {
+            key: {
+              text: "Details of conflict"
+            },
+            value: { 
+              text: data.conflictDetails2 or "Not provided"
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: { 
+              text: "June 2005"
+            }
+          }
+        ] 
+      }) }}
+
+      {% set conditionalCloseDateHtml %}
+
+        {% set startDateHintHtml %}
+          For example, <time datetime="">5 2021</time>
+        {% endset %}
+
+        {{ govukDateInput({
+          id: data[roleEndDate],
+          namePrefix: data[roleEndDate],
+          fieldset: {
+            legend: {
+            text: "Add the end date",
+            classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            html: startDateHintHtml
+          },
+          items: [
+              {
+                name: "month",
+                classes: "govuk-input--width-2",
+                value: data.roleEndDate2.month
+              },
+              {
+                name: "year",
+                classes: "govuk-input--width-4",
+                value: data.roleEndDate2.year
+              }
+            ]
+        }) }}
+
+      {% endset %}
+
+      {{ govukRadios({
+        fieldset: {
+          legend: {
+            text: "Is this a current conflict of interest?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            text: "Yes"
+          },
+          {
+            text: "No",
+            conditional: {
+              html: conditionalCloseDateHtml
+            }
+          }
+        ]
+      } | decorateAttributes(data, "data.currentConflict2")) }}
+
+      {% else %}
+
+        {{ xGovukSummaryCard({
+          titleText: data.conflictOrganisation,
+          rows: [
+            {
+              key: {
+                text: "Name of organisation"
+              },
+              value: { 
+                text: data.conflictOrganisation or "Not provided"
+              }
+            },
+            {
+              key: {
+                text: "Type of conflict"
+              },
+              value: { 
+                text: data.conflictType or "Not provided"
+              }
+            },
+            {
+              key: {
+                text: "Details of conflict"
+              },
+              value: { 
+                text: data.conflictDetails or "Not provided"
+              }
+            },
+            {
+              key: {
+                text: "Start date"
+              },
+              value: { 
+                text: "June 2005"
+              }
+            }
+          ] 
+        }) }}
+
+        {% set conditionalCloseDateHtml %}
+
+          {% set startDateHintHtml %}
+            For example, <time datetime="">5 2021</time>
+          {% endset %}
+
+          {{ govukDateInput({
+            id: data[roleEndDate],
+            namePrefix: data[roleEndDate],
+            fieldset: {
+              legend: {
+              text: "Add the end date",
+              classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              html: startDateHintHtml
+            },
+            items: [
+                {
+                  name: "month",
+                  classes: "govuk-input--width-2",
+                  value: data.roleEndDate.month
+                },
+                {
+                  name: "year",
+                  classes: "govuk-input--width-4",
+                  value: data.roleEndDate.year
+                }
+              ]
+          }) }}
+
+        {% endset %}
+
+        {{ govukRadios({
+          fieldset: {
+            legend: {
+              text: "Is this a current conflict of interest?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              text: "Yes"
+            },
+            {
+              text: "No",
+              conditional: {
+                html: conditionalCloseDateHtml
+              }
+            }
+          ]
+        } | decorateAttributes(data, "data.currentConflict")) }}
+      {% endif %}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        <a class="govuk-link govuk-body" href="/account/your-details/conflict-of-interest">Cancel</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
