@@ -16,8 +16,8 @@
 
   {% set subjectStatusTitleHtml %}
     {% if data.applicationStatus == "Accepted" %}
-      Approved subject or occupational areas
-      {% else %}
+      Status by subject or occupational areas {# Left in so I can change later if needed - PM #}
+    {% else %}
       Status by subject or occupational areas
     {% endif %}
   {% endset %}
@@ -62,7 +62,7 @@
       <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.subject2FeedbackCategory }}</h4>
       <p class="govuk-body">{{ data.subject2Feedback }}</p>
     {% endif %}
-    <a href="/account/your-details/subjects">List of specialisms applied for</a>
+    <a href="/account/your-details/subjects">List of subjects and occupational areas applied for</a>
   {% endset %}
 
   {% set applicationStatusHtml %}
@@ -89,7 +89,7 @@
       {% if data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
         <p class="govuk-body-s govuk-!-margin-top-1 govuk-!-margin-bottom-1">You have been fully approved for 1 subject and partially approved for 1 subject</p>
         {% if pageTypeSub != "Application" %}
-          <p class="govuk-!-margin-bottom-1"><a href="/account/your-details/application">View outcome for each specialism </a></p>
+          <p class="govuk-!-margin-bottom-1"><a href="/account/your-details/application">Detailed application status</a></p>
         {% endif %}
       {% endif %}
     {% elseif data.applicationStatus == "Rejected" %}
@@ -111,7 +111,7 @@
   {% endset %}
 
   {% set subjectStatusHtml %}
-    <a href="/account/your-details/subjects">Subject or occupational areas</a>
+    <a href="/account/your-details/subjects">Approved subject or occupational areas</a>
   {% endset %}
 
 
