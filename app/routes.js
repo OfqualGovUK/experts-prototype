@@ -1095,4 +1095,16 @@ router.all('/message-outcome', function (req, res) {
   
 })
 
+router.all('/message-supplier-form', function (req, res) {
 
+  req.session.data.accountMessageSupplierform = "Read"
+  res.redirect('/account/messages/supplier-form');
+  
+})
+
+router.all('/message-working-with-ofqual', function (req, res) {
+
+  req.session.data.accountMessageWorkingWithOfqual = "Read"
+  res.redirect('/account/messages/working-with-ofqual');
+
+})
