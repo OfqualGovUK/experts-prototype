@@ -1,0 +1,42 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Information for working with Ofqual" %}
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">06 Jun 2023 </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+        <p class="govuk-body">Congratulations on joining Ofqual's subject matter specialist community.</p>
+        <p class="govuk-body govuk-!-margin-bottom-6">We have now added you to the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1150246/List_of_Ofqual_subject_matter_specialists_14_4_23.ods">list of subject matter specialists.</a></p>
+        <p class="govuk-body">You will be able to work with us on projects related to your approved subjects when they become available.</p>
+      <h2 class="govuk-heading-m">How we appoint subject matter specialists</h2>
+        <p class="govuk-body">Projects become available as and when Ofqual requires.</p>
+        <p class="govuk-body">Ofqual will use the information provided in your application to match you to upcoming projects and contact you to discuss the work.</p>
+        <p class="govuk-body">You can then review the project and decide if you would like to work on it with us.</p>
+        <p class="govuk-body">Joining the list of subject matter specialists is not a guarantee of any work during your tenure.</p>
+      <h2 class="govuk-heading-m">What does the work involve?</h2>
+        <p class="govuk-body">The work can include:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>reviewing the content of qualifications and the quality of their assessments</li>
+            <li>providing specialist opinions to assess the validity of qualifications and assessments</li>
+            <li>working on large-scale projects where qualifications are being developed</li>
+            <li>contributing to research projects</li>
+            <li>contributing to panel meetings to discuss a qualification review</li>
+            <li>completing a written report</li>
+          </ul>
+      <h2 class="govuk-heading-m">Pay and travel</h2>
+        <p class="govuk-body">Pay is usually a standard daily rate, which we will confirm before you agree to do any work.</p>
+        <p class="govuk-body">The majority of projects do not require travel, as most are done remotely. If we need you to travel, we will discuss this and any expenses with you.</p>
+      <h2 class="govuk-heading-m">Applying for more subjects or occupational areas</h2>
+        <p class="govuk-body">You cannot apply for more subjects or occupational areas. This functionality will be available in the future.</p>
+        <p class="govuk-body">You will be contacted when we make updates to the service.</p>
+      <h2 class="govuk-heading-m">Contacting Ofqual</h2>
+        <p class="govuk-body govuk-!-margin-bottom-6">If you need to contact us about anything related to projects or subject matter specialists, <a href="/account/messages/send-message?referrer=">send us a message from your account.</a></p>
+    </div>
+  </div>  
+
+{% endblock %}

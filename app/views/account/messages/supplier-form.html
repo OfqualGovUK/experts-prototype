@@ -1,0 +1,22 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Complete your supplier maintenance form" %}
+{% set primaryNavActive = "Messages" %}
+{% set pageType = "Account" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <span class="govuk-caption-l">06 Jun 2023 </span>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+        <p class="govuk-body">You must fill out and return a supplier maintenance form before we can add you to our list of subject matter specialists and work with you.</p>
+        <p class="govuk-body govuk-!-margin-bottom-6">You need to <a href="/account/messages/supplier-form">download the supplier maintenance form</a> (the link will download the document to your device), complete the required information and return it to <a href="mailto:financial.management@ofqual.gov.uk">financial.management@ofqual.gov.uk</a>.</p>
+        <p class="govuk-body govuk-!-margin-bottom-6"></p>
+        <p class="govuk-body">Once we have received and processed your form, we will add you to the list of subject matter specialists and contact you with more information about working on projects as a subject matter specialist.</p>
+        <p class="govuk-body">If you do not complete and return the supplier maintenance form you will not be added to the list of subject matter specialists and you will not be able to work with us.</p>
+        
+    </div>
+  </div>  
+
+{% endblock %}
