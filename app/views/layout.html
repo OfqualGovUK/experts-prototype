@@ -115,12 +115,24 @@
                   </a>
                   {% if (data.accountMessageMakingJudgements == "Unread") and (data.accountMessageTeacherTraining == "Unread") %}
                     <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageOutcome == "Unread") and (data.accountMessageSupplierform == "Unread") and (data.accountMessageWorkingWithOfqual == "Unread") %}
+                      <span class="app-notification-number">3</span>
+                    {% elseif (data.accountMessageSupplierform == "Unread") and (data.accountMessageWorkingWithOfqual == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageSupplierform == "Unread") and (data.accountMessageOutcome == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageWorkingWithOfqual == "Unread") and (data.accountMessageOutcome == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif data.accountMessageWorkingWithOfqual == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageSupplierform == "Unread" %}
+                      <span class="app-notification-number">1</span>
                     {% elseif data.accountMessageMakingJudgements == "Unread" %}
                       <span class="app-notification-number">1</span>
                     {% elseif data.accountMessageTeacherTraining == "Unread" %}
                       <span class="app-notification-number">1</span>
                     {% elseif data.accountMessageOutcome == "Unread" %}
-                      <span class="app-notification-number">3</span>
+                      <span class="app-notification-number">1</span>
                     {% else %}
                   {% endif %} 
                 </li>
