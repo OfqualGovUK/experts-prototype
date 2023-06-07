@@ -80,6 +80,152 @@
           {% endif %}
           
           {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
+          {% if data.accountMessageWorkingWithOfqual == "Read" %}
+            <tr class="govuk-table__row clickable-row message read">
+              <!-- status -->
+              <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                <div>&nbsp;</div>
+              </td>
+              <!-- sender -->
+              <td class="govuk-table__cell messages--govuk-table__cell">
+                <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                  <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                    <a href="/message-working-with-ofqual" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Information for working with Ofqual
+                    </a>
+                  </h2>
+                </div>
+            </td>
+            <!-- date -->
+            <td valign="top" class="messages--govuk-table__cell_last bold">
+              <time datetime="">{{ "" | today |  govukDate }}</time>
+              <div>&nbsp;</div>
+            </td>
+          </tr>
+          {% else %}
+            <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+              <!-- status -->
+              <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                <div>&nbsp;</div>
+              </td>
+              <!-- sender -->
+              <td class="govuk-table__cell messages--govuk-table__cell">
+                <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                    <a href="/message-working-with-ofqual" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                      Information for working with Ofqual
+                    </a>
+                  </h2>
+                </div>
+              </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | today |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+          {% endif %} 
+        {% endif %} 
+        {% if data.messageSent == "sent" %}
+        <tr class="govuk-table__row clickable-row message read">
+          <!-- status -->
+          <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+            <div>&nbsp;</div>
+          </td>
+          <!-- sender -->
+          <td class="govuk-table__cell messages--govuk-table__cell">
+            <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+              <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                <a href="/account/messages/message-sent?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                  {{ data.accountMessageSubject }}
+                </a>
+              </h2>
+            </div>
+          </td>
+          <!-- date -->
+          <td valign="top" class="messages--govuk-table__cell_last bold">
+            <time datetime="">{{ "" | today |  govukDate }}</time>
+            <div>&nbsp;</div>
+          </td>
+        </tr>
+        {% else %}
+        {% endif %}
+        
+          {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
+            {% if data.accountMessageSupplierform == "Read" %}
+              <tr class="govuk-table__row clickable-row message read">
+                <!-- status -->
+                <td valign="top" class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                      <a href="/message-supplier-form" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Complete your supplier maintenance form
+                      </a>
+                    </h2>
+                  </div>
+              </td>
+              <!-- date -->
+              <td valign="top" class="messages--govuk-table__cell_last bold">
+                <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                <div>&nbsp;</div>
+              </td>
+            </tr>
+            {% else %}
+              <tr class="govuk-table__row clickable-row message unread govuk-!-font-weight-bold">
+                <!-- status -->
+                <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+                  <span class="messages--marker-column__marker messages--message-status-marker">Unread</span>
+                  <div>&nbsp;</div>
+                </td>
+                <!-- sender -->
+                <td class="govuk-table__cell messages--govuk-table__cell">
+                  <div class="message unread message-subject govuk-body govuk-!-margin-bottom-1">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+                      <a href="/message-supplier-form" class="govuk-!-font-weight-bold no--underline message-subject govuk-link" data-sso="false" lang="en">
+                        Complete your supplier maintenance form
+                      </a>
+                    </h2>
+                  </div>
+                </td>
+                <!-- date -->
+                <td valign="top" class="messages--govuk-table__cell_last bold">
+                  <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                  <div>&nbsp;</div>
+                </td>
+              </tr>
+            {% endif %} 
+          {% endif %} 
+          {% if data.messageSent == "sent" %}
+          <tr class="govuk-table__row clickable-row message read">
+            <!-- status -->
+            <td class="govuk-table__cell messages--govuk-table__cell messages--marker-column">
+              <div>&nbsp;</div>
+            </td>
+            <!-- sender -->
+            <td class="govuk-table__cell messages--govuk-table__cell">
+              <div class="message read message-subject govuk-body govuk-!-margin-bottom-1">
+                <h2 class="govuk-heading-s govuk-!-font-weight-regular govuk-!-margin-bottom-1">
+                  <a href="/account/messages/message-sent?referrer=" class="no--underline message-subject govuk-link" data-sso="false" lang="en">
+                    {{ data.accountMessageSubject }}
+                  </a>
+                </h2>
+              </div>
+            </td>
+            <!-- date -->
+            <td valign="top" class="messages--govuk-table__cell_last bold">
+              <time datetime="">{{ "" | today |  govukDate }}</time>
+              <div>&nbsp;</div>
+            </td>
+          </tr>
+          {% else %}
+          {% endif %}
+          
+          {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
             {% if data.accountMessageOutcome == "Read" %}
               <tr class="govuk-table__row clickable-row message read">
                 <!-- status -->
