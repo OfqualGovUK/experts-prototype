@@ -79,7 +79,7 @@
           {% else %}
           {% endif %}
           
-          {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
+          {% if data.applicationStatus == "Accepted" %}
           {% if data.accountMessageWorkingWithOfqual == "Read" %}
             <tr class="govuk-table__row clickable-row message read">
               <!-- status -->
@@ -152,7 +152,7 @@
         {% else %}
         {% endif %}
         
-          {% if data.applicationStatus == "Accepted" or data.applicationStatus == "Rejected" %}
+          {% if data.applicationStatus == "Accepted" %}
             {% if data.accountMessageSupplierform == "Read" %}
               <tr class="govuk-table__row clickable-row message read">
                 <!-- status -->
