@@ -1157,7 +1157,9 @@ var allAccepted = {
   // Messages
   "accountMessageMakingJudgements": "Read",
   "accountMessageTeacherTraining": "Read",
-  "accountMessageOutcome": "Unread"
+  "accountMessageOutcome": "Unread",
+  "accountMessageSupplierform": "Unread",
+  "accountMessageWorkingWithOfqual": "Unread"
 }
 
 var allRejected = {
@@ -1640,6 +1642,8 @@ var acceptedRejected = {
   "accountMessageMakingJudgements": "Read",
   "accountMessageTeacherTraining": "Read",
   "accountMessageOutcome": "Unread",
+  "accountMessageSupplierform": "Unread",
+  "accountMessageWorkingWithOfqual": "Unread",
 }
 
 module.exports = {
