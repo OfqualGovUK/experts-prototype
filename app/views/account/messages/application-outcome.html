@@ -18,8 +18,11 @@
         <p class="govuk-body govuk-!-margin-bottom-1"><span class="govuk-body">{{ data.applicationFeedbackCategory }}</span></p>
         <p class="govuk-body">{{ data.applicationFeedback }}</p>
         <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome and feedback by subject</a></p>
-        {% else %}
+        {% elseif data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
           <p class="govuk-body">You have been approved for 1 subject, and partially approved for 1 subject.</p>
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/application">Review the outcome of your application</a></p>
+        {% elseif data.subject1Status == "Accepted" and data.subject2Status == "Accepted" %}
+          <p class="govuk-body">Your application has been approved.</p>
           <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/application">Review the outcome of your application</a></p>
       {% endif %}
       
