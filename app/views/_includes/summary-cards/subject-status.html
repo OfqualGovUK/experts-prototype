@@ -56,8 +56,6 @@
         <dl class="govuk-summary-list">
         <!-- START row for Making assessment judgements -->
         {% if data.isJudgement == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1AssessmentMakingStatus == "Rejected" %}
-          {% else %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Making assessment judgements
@@ -107,13 +105,10 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
         {% endif %}
         <!-- END row for Making assessment judgements -->
         <!-- START row for Standard setting and awarding qualifications -->
         {% if data.isStandardSetting == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1AssessmentSettingStatus == "Rejected" %}
-          {% else %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Standard setting and awarding qualifications
@@ -163,13 +158,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
         {% endif %}
         <!-- END row for Standard setting and awarding qualifications -->
         <!-- START row for Designing and developing assessments -->
         {% if data.isDesigning == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1AssessmentDesigningStatus == "Rejected" %}
-          {% else %}
+          
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Designing and developing assessments
@@ -219,13 +213,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Designing and developing assessments -->
         <!-- START row for Evaluating assessments or assessment approaches -->
         {% if data.isEvaluating == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1AssessmentEvaluatingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Evaluating assessments or assessment approaches
@@ -275,7 +268,7 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Evaluating assessments or assessment approaches -->
         <!-- START row for when rejected for all Assessment -->
@@ -305,8 +298,7 @@
   {% endif %}
   <!-- START of Industry, occupational or professional -->
     {% if data.isIndustry == "true" %}
-      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1IndustryStatus == "Rejected" %}
-      {% else %}
+      
         <header class="x-govuk-summary-card__header">
           <h2 class="x-govuk-summary-card__title">
             Industry, occupational or professional
@@ -365,12 +357,10 @@
             </div>
         </dl>
       </div>
-    {% endif %}
+    
   {% endif %}
   <!-- START of Teaching, lecturing or training -->
   {% if data.isTeaching == "true" %}
-    {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTeachingStatus == "Rejected" and data.subject1TeachingTrainingStatus == "Rejected" and data.subject1TeachingEducationalStatus == "Rejected" and data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
-    {% else %}
       <header class="x-govuk-summary-card__header">
         <h2 class="x-govuk-summary-card__title">
           Teaching, lecturing or training
@@ -380,8 +370,6 @@
         <dl class="govuk-summary-list">
         <!-- START row for Teaching or lecturing -->
         {% if data.isLecturing == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTeachingStatus == "Rejected" %}
-          {% else %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Teaching or lecturing
@@ -431,13 +419,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Teaching or lecturing -->
         <!-- START row for Training -->
         {% if data.isTraining == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTrainingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Training
@@ -487,13 +474,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Training -->
         <!-- START row for Educational management -->
         {% if data.isEducationalManagement == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingEducationalStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Educational management
@@ -543,13 +529,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Educational management -->
         <!-- START row for Teacher training -->
         {% if data.isTeacherTraining == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Teacher training
@@ -599,7 +584,7 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Teacher training -->
         <!-- START row for when rejected for all Teaching -->
@@ -650,12 +635,10 @@
     {% endif %}
   {% endif %}
 </section>
-{% endif %}
+
 <!-- END Card for subject 1 -->
 <!-- START Card for subject 2 -->
 {% if data.subject2 == "true" %}
-  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2Status == "Rejected" %}
-  {% else %}
   <section class="x-govuk-summary-card">
     <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
       <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
@@ -670,8 +653,8 @@
     </header>
     <!-- START of assessment -->
     {% if data.isAssessment2 == "true" %}
-      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2AssessmentMakingStatus == "Rejected" and data.subject2AssessmentSettingStatus == "Rejected" and data.subject2AssessmentDesigningStatus == "Rejected" and data.subject2AssessmentEvaluatingStatus == "Rejected" %}
-      {% else %}
+      
+      
       <header class="x-govuk-summary-card__header">
         <h2 class="x-govuk-summary-card__title">
           Assessment
@@ -681,8 +664,7 @@
         <dl class="govuk-summary-list">
         <!-- START row for Making assessment judgements -->
         {% if data.isJudgement2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and data.subject2AssessmentMakingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Making assessment judgements
@@ -732,13 +714,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Making assessment judgements -->
         <!-- START row for Standard setting and awarding qualifications -->
         {% if data.isStandardSetting2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2AssessmentSettingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Standard setting and awarding qualifications
@@ -788,13 +769,11 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Standard setting and awarding qualifications -->
         <!-- START row for Designing and developing assessments -->
         {% if data.isDesigning2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2AssessmentDesigningStatus == "Rejected" %}
-          {% else %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Designing and developing assessments
@@ -844,13 +823,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Designing and developing assessments -->
         <!-- START row for Evaluating assessments or assessment approaches -->
         {% if data.isEvaluating2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2AssessmentEvaluatingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Evaluating assessments or assessment approaches
@@ -900,7 +878,7 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Evaluating assessments or assessment approaches -->
         <!-- START row for when rejected for all Assessment -->
@@ -926,12 +904,11 @@
         <!-- END row for when rejected for all Assessment -->
       </dl>      
     </div>
-    {% endif %}
+
   {% endif %}
   <!-- START of Industry, occupational or professional -->
     {% if data.isIndustry2 == "true" %}
-      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2IndustryStatus == "Rejected" %}
-      {% else %}
+      
         <header class="x-govuk-summary-card__header">
           <h2 class="x-govuk-summary-card__title">
             Industry, occupational or professional
@@ -990,12 +967,10 @@
             </div>
         </dl>
       </div>
-    {% endif %}
+    
   {% endif %}
   <!-- START of Teaching, lecturing or training -->
     {% if data.isTeaching2 == "true" %}
-      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2TeachingTeachingStatus == "Rejected" and data.subject2TeachingTrainingStatus == "Rejected" and data.subject2TeachingEducationalStatus == "Rejected" and data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
-      {% else %}
       <header class="x-govuk-summary-card__header">
         <h2 class="x-govuk-summary-card__title">
           Teaching, lecturing or training
@@ -1005,8 +980,7 @@
         <dl class="govuk-summary-list">
         <!-- START row for Teaching or lecturing -->
         {% if data.isLecturing2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2TeachingTeachingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Teaching or lecturing
@@ -1061,8 +1035,7 @@
         <!-- END row for Teaching or lecturing -->
         <!-- START row for Training -->
         {% if data.isTraining2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2TeachingTrainingStatus == "Rejected" %}
-          {% else %}
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Training
@@ -1112,13 +1085,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Training -->
         <!-- START row for Educational management -->
         {% if data.isEducationalManagement2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2TeachingEducationalStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Educational management
@@ -1168,13 +1140,12 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Educational management -->
         <!-- START row for Teacher training -->
         {% if data.isTeacherTraining2 == "true" %}
-          {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
-          {% else %}
+          
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
                 Teacher training
@@ -1224,7 +1195,7 @@
                 {% endif %}
               </dd>
             </div>
-          {% endif %}
+          
         {% endif %}
         <!-- END row for Teacher training -->
         <!-- START row for when rejected for all Teaching -->
@@ -1272,12 +1243,10 @@
         <!-- END row for when rejected for whole subject -->
         </dl>
       </div>
-      {% endif %}
-    {% endif %}
     <!-- END Teaching, lecturing -->
   {% endif %}
 </section>
-{% endif %}
+
 <!-- END subject 2 -->
 
 
