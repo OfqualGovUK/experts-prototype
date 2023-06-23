@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
 {% set pageHeading = "Your details - Subject or occupational areas" %}
-{% set subHeading = "Subject or occupational areas" %}
+{% set subHeading = "Detailed application outcomes" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -17,7 +17,7 @@
           text: 'Personal information',
           href: '/account/your-details/'
         }, {
-          text: 'Subject or occupational areas',
+          text: 'Detailed application outcomes',
           href: '/account/your-details/subjects',
           active: true
         }, {
@@ -38,8 +38,7 @@
     </div>
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-        <p>Here is the status of all the subjects and occupational areas you applied for. </p>
-        <p>You have been partially approved for one subject, and unsuccessful for 1 subject.</p>
+        <p>Outcomes for the subjects and occupational areas, qualification levels and activities you have applied for. </p>
       <section class="govuk-!-margin-bottom-8">
         {% include "_includes/summary-cards/subject-status.html" %}
       </section>
