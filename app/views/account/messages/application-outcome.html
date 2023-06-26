@@ -18,8 +18,8 @@
           <h3 class="govuk-heading-s">{{ data.selectedSubject }} </h3>
           <h4 class="govuk-heading-s">{{ data.subject1FeedbackCategory }}</h4>
           <p class="govuk-body">{{ data.subject1Feedback }}</p>
-          <h3 class="govuk-!-margin-top-5 govuk-!-margin-bottom-1">{{ data.selectedSubject2 }} </h3>
-          <h4 class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">{{ data.subject2FeedbackCategory }}</h4>
+          <h3 class="govuk-heading-s">{{ data.selectedSubject2 }} </h3>
+          <h4 class="govuk-heading-s">{{ data.subject2FeedbackCategory }}</h4>
           <p class="govuk-body">{{ data.subject2Feedback }}</p>
         <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome and feedback by subject</a></p>
         {% elseif data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
