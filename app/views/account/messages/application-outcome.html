@@ -24,7 +24,11 @@
         <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">View the outcome and feedback by subject</a></p>
         {% elseif data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
           <p class="govuk-body">You have been partially approved for 1 subject and unsuccessful for 1 subject.</p>
+          {% if data.outcomeOverview1 == "true" %}
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/outcome-overview">Review the outcome of your application</a></p>
+          {% else %}
           <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">Review the outcome of your application</a></p>
+          {% endif %}
         {% elseif data.subject1Status == "Accepted" and data.subject2Status == "Accepted" %}
           <p class="govuk-body">Your application has been approved.</p>
           <p class="govuk-body govuk-!-margin-bottom-6"><a href="/account/your-details/subjects">Review the outcome of your application</a></p>

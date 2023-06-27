@@ -1646,6 +1646,330 @@ var acceptedRejected = {
   "accountMessageWorkingWithOfqual": "Unread",
 }
 
+
+var outcomeOverview = {
+  //versioning
+  "outcomeOverview1": "true",
+  // Personal details
+  "fullName": "Hans Bowser",
+  "email": "hans@email.com",
+  "telephone": "07701123123",
+  "whereDoYouLive": "In the UK",
+  "addressLine1": "01 School Lane",
+  "townOrCity": "Birmingham",
+  "postCode": "B2 4QA",
+  "personalDetailsCompleted": "complete",
+
+  // Education details
+  "anyQualifications": "Yes",
+  "schoolName": "British Occupational Hygiene Society",
+  "awordingOrganisation": "British Occupational Hygiene Society",
+  "qualName": "Certificate of Competence in Asbestos",
+  "grade": "Pass",
+  "yearQualAwarded": "1995",
+  "qualUploadAvailable": "No",
+  "noQualReasonHtml": "I have lost it temporarily but I have an email from the Awarding Organisation confirming I have the qualification while I am awaiting my replacement certificate",
+  "qualificationUpload": "Not provided",
+  "educationCompleted": "complete",
+
+  // Work history
+  "employerName": "DAC",
+  "jobTitle": "Director",
+  "roleEnded": "No",
+  "workHistoryCompleted": "complete",
+
+  // Professional memberships
+  "anyMemberships": "Yes",
+  "membershipOrganisationName": "BOHS",
+  "membershipType": "Member",
+  "membershipYearJoined": "2000",
+  "professionalMembershipsCompleted": "complete",
+
+  // References
+  "referenceName": "Paul Hograft",
+  "referenceEmail": "PH@email.com",
+  "referenceTelephone": "Not provided",
+  "referenceOrganisation": "Engineering2 Limited (Chosen a colleague from an AO or someone from a professional membership)",
+  "referencesCompleted": "complete",
+
+   // Subjects
+   "selectedSubject": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName": "Asbestos Analyst and Surveyor",
+   "selectedQualification": "End-Point Assessment",
+   "selectedLevel": [
+     "3,4"
+   ],
+   "subject1level1": "Level 3",
+   "subject1level2": "Level 4",
+   "expertiseType": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment": "true",  
+   "assessmentExpertiseType": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement": "true",
+   "isStandardSetting": "true",
+   "isDesigning": "true",
+   "isEvaluating": "true",
+   "isIndustry": "true",
+   "isTeaching": "true",  
+   "teachingExpertiseType": [
+    "Teaching or lecturing",
+    "Teacher training",
+   ],
+   "isLecturing": "true",
+   "isTeacherTraining": "true",
+   "adviseAreasCompleted": "complete",
+   
+   // Subject2
+   "subject2": "true", 
+   "selectedSubject2": "Building control surveyor (integrated degree) (End-point assessment - level 6)",
+   "resultName2": "Building control surveyor (integrated degree)",
+   "selectedQualification2": "End-Point Assessment",
+   "subject2level1": "Level 6",
+   "selectedLevel2": [
+     "6"
+   ],
+   "expertiseType2": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment2": "true",  
+   "assessmentExpertiseType2": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement2": "true",
+   "isStandardSetting2": "true",
+   "isDesigning2": "true",
+   "isEvaluating2": "true",
+   "isIndustry2": "true",
+   "isTeaching2": "true",  
+   "teachingExpertiseType2": [
+    "Teaching or lecturing",
+    "Teacher training",
+   ],
+   "isLecturing2": "true",
+   "isTeacherTraining2": "true",
+   
+   // Subject3
+   "subject3": "true",
+   "selectedSubject3": "Asbestos (End-Point Assessment - Level 3)",
+   "resultName3": "Asbestos Analyst and Surveyor",
+   "selectedQualification3": "End-Point Assessment",
+   "selectedLevel3": [
+     "4"
+   ],
+   "expertiseType3": [
+     "Assessment",
+     "Industry, occupational or professional",
+     "Teaching, lecturing or training"
+   ],
+   "isAssessment3": "true",  
+   "assessmentExpertiseType3": [
+     "Making assessment judgements",
+     "Standard setting and awarding qualifications",
+     "Designing and developing assessments",
+     "Evaluating assessments or assessment approaches"
+   ],
+   "isJudgement3": "true",
+   "isStandardSetting3": "true",
+   "isDesigning3": "true",
+   "isEvaluating3": "true",
+   "isIndustry3": "true",
+   "isTeaching3": "true",  
+   "teachingExpertiseType3": [
+    "Teaching or lecturing3",
+    "Teacher training3",
+   ],
+   "isLecturing3": "true",
+   "isTeacherTraining3": "true",
+   "adviseAreasCompleted3": "complete",
+
+  // Evidence of experience
+  // Assessment experience
+  "assessmentJudgementDetails": "I was involved in the level 3 asbestos end point assessment's ongoing development. Marking assessments - marking exam papers and assessments submitted by assessment centres and candidates and assessing candidate's performance against marking and assessment criteria. Moderating the marking of others - acting as a moderator and internal verifier for the assessment centres and as an external verifier.",
+  "assessmentStandardSettingDetails": "I have reviewed candidate scripts and decided on grade boundaries for the Level 3 qualifications as well as setting learning outcomes and generally overseeing the qualification standards.",
+  "assessmentDesigningDetails": "I was involved in drafting the syllabus/specifications, course content, design of the assessments, development of the question banks, delivering the pilot courses. I have acted as an External Verifier and mentored other trainers and assessors.",
+  "assessmentEvaluatingDetails": "I have had extensive experience in reviewing the question banks, marking schemes and assessment tasks. I have also been involved in research into  asbestos-related qualifications offered by other bodies to ensure that they continue to be relevant and fit for purpose.",
+  "assessmentExpertiseCompleted": "complete",
+
+  // Industry, occupational or professional expertise
+  "industryExpertiseDetails": "I have been advising on asbestos issues for many years. I have run my own specialist asbestos consulting business providing advice and training on compliance with the asbestos regulations to businesses.",
+  "industryExpertiseCompleted": "complete",
+
+  // Teaching, lecturing or training expertise
+  "currentlyInTeachingRole": "No",
+  "teachingLecturingDetails": "I've taught Building control surveying for 15 years.",
+  "teachingTeacherTrainingDetails": "I have been an approved trainer for the public health society for many years for Ofqual regulated Level 3 asbestos qualifications. I also regularly deliver asbestos awareness sessions to tradesmen and construction companies, I have delivered over 2000 hours of training.",
+  "teachingExpertiseCompleted": "complete",
+  "teachingStatus": "Action required",
+  "teachingAction": "Further evidence needed for your subject experience",
+  "teachingActionLink": "/account/messages/further-evidence-required-ttraining",
+
+  // Communication and analytical judgement skills
+  "communicationDetails": "Asbestos consulting means that I speak to many different types of people day to day. For example, I speak to tenants about the asbestos in their home and handle the situation with care to make sure that I can give them the facts whilst also keeping them calm and not fearful.",
+  "communicationCompleted": "complete",
+
+  // Further evidence
+  "furtherEvidenceSummary": "I sit on the Management Committee of the trade association for the Asbestos Consulting sector. It responds to consultation documents published by the regulatory bodies in respect of proposed changes to asbestos-related guidance.",
+  "furtherEvidenceDetails": "complete",
+
+  // Conflict of interest
+  "conflictOfInterest": "Yes",
+  "conflictOrganisation": "RS Public Health",
+  "conflictType": "I work for an Awarding Organisation as an external consultant or advisor",
+  "conflictDetails": "I work for an awarding organisation, but I am not employed. I am contracted externally. I am training, assessor, and examiner for the qualification they award. I would put the detail of the years I was an assessor for them and if I am no longer doing any work for them I'd make it clear I haven't and don't do any work for them etc.",
+  "conflictStartDate": "June 2005",
+  "currentConflict": "No",
+  "conflictEndDate": "March 2015",
+  "conflictOfInterestCompleted": "complete",
+
+  // Self declaration
+  "judgements": "No",
+  // "judgementsDetails": "Test",
+  "bankrupt": "No",
+  // "bankruptDetails": "Test",
+  "misconduct": "No",
+  // "misconductDetails": "Test",
+  "breach": "No",
+  // "breachDetails": "I didn't pay my tax for a REALLY long time.",
+  "declarationCompleted": "complete",
+
+  // ID checks
+  "identityCheckType": "A UK or Irish passport",
+  "passportUpload": "passport.pdf",
+  "verifyIdentityCompleted": "complete",
+
+  // Application status
+  "applicationStatus": "Accepted",
+  "applicationAction": "",
+  "applicationActionLink": "",
+  "applicationFeedbackCategory": "",
+  "applicationFeedback": "",
+  // Subject 1 Level 1
+  "subject1Status": "Accepted", 
+  "subject1FeedbackCategory": "Insufficient experience",
+  "subject1Feedback": "The applicant has not provided enough evidence to demonstrate sufficient experience in teaching, lecturing or traiing for this subject",
+  "subject1level1Status": "Accepted",
+  "subject1AssessmentSpecialismStatus": "Accepted", 
+  "subject1AssessmentMakingStatus": "Accepted", 
+  "subject1AssessmentMakingFeedbackCategory": "",
+  "subject1AssessmentMakingFeedback": "",
+  "subject1AssessmentSettingStatus": "Accepted", 
+  "subject1AssessmentSettingFeedbackCategory": "",
+  "subject1AssessmentSettingFeedback": "",
+  "subject1AssessmentDesigningStatus": "Accepted", 
+  "subject1AssessmentDesigningFeedbackCategory": "",
+  "subject1AssessmentDesigningFeedback": "",
+  "subject1AssessmentEvaluatingStatus": "Accepted", 
+  "subject1AssessmentEvaluatingFeedbackCategory": "",
+  "subject1AssessmentEvaluatingFeedback": "",
+  "subject1IndustryStatus": "Accepted", 
+  "subject1IndustryFeedbackCategory": "",
+  "subject1IndustryFeedback": "",
+  "subject1TeachingSpecialismStatus": "Rejected", 
+  "subject1TeachingTeachingStatus": "Rejected", 
+  "subject1TeachingTeachingFeedbackCategory": "Other",
+  "subject1TeachingTeachingFeedback": "No evidence provided.",
+  "subject1TeachingTrainingStatus": "Rejected", 
+  "subject1TeachingTrainingFeedbackCategory": "",
+  "subject1TeachingTrainingFeedback": "",
+  "subject1TeachingEducationalStatus": "Rejected", 
+  "subject1TeachingEducationalFeedbackCategory": "",
+  "subject1TeachingEducationalFeedback": "",
+  "subject1TeachingTeacherTrainingStatus": "Rejected", 
+  "subject1TeachingTeacherTrainingFeedbackCategory": "Other",
+  "subject1TeachingTeacherTrainingFeedback": "No evidence provided.",
+  "subject1Level1Feedback": "",
+    // Subject 1 Level 2 // also called subject3
+  "subject3Status": "Accepted", 
+  "subject3FeedbackCategory": "Insufficient experience",
+  "subject3Feedback": "The applicant has not provided enough evidence to demonstrate sufficient experience in teaching, lecturing or traiing for this subject. The applicant has also not demonstrated any experience in making assessment judgements at level 4 for this subject",
+  "subject3level1Status": "Accepted",
+  "subject3AssessmentSpecialismStatus": "Accepted", 
+  "subject3AssessmentMakingStatus": "Rejected", 
+  "subject3AssessmentMakingFeedbackCategory": "Type of experience inappropriate",
+  "subject3AssessmentMakingFeedback": "This applicant does not have enough experience in making assessment judgements for this subjects.",
+  "subject3AssessmentSettingStatus": "Accepted", 
+  "subject3AssessmentSettingFeedbackCategory": "",
+  "subject3AssessmentSettingFeedback": "",
+  "subject3AssessmentDesigningStatus": "Accepted", 
+  "subject3AssessmentDesigningFeedbackCategory": "",
+  "subject3AssessmentDesigningFeedback": "",
+  "subject3AssessmentEvaluatingStatus": "Accepted", 
+  "subject3AssessmentEvaluatingFeedbackCategory": "",
+  "subject3AssessmentEvaluatingFeedback": "",
+  "subject3IndustryStatus": "Accepted", 
+  "subject3IndustryFeedbackCategory": "",
+  "subject3IndustryFeedback": "",
+  "subject3TeachingSpecialismStatus": "Rejected", 
+  "subject3TeachingTeachingStatus": "Rejected", 
+  "subject3TeachingTeachingFeedbackCategory": "Other",
+  "subject3TeachingTeachingFeedback": "No evidence provided.",
+  "subject3TeachingTrainingStatus": "Rejected", 
+  "subject3TeachingTrainingFeedbackCategory": "",
+  "subject3TeachingTrainingFeedback": "",
+  "subject3TeachingEducationalStatus": "Rejected", 
+  "subject3TeachingEducationalFeedbackCategory": "",
+  "subject3TeachingEducationalFeedback": "",
+  "subject3TeachingTeacherTrainingStatus": "Rejected", 
+  "subject3TeachingTeacherTrainingFeedbackCategory": "Other",
+  "subject3TeachingTeacherTrainingFeedback": "No evidence provided.",
+  "subject3Level2Feedback": "",
+  // Subject 2
+  "subject2Status": "Rejected", 
+  "subject2FeedbackCategory": "Qualifications not relevant",
+  "subject2Feedback": "This applicant has not obtained a qualification that would be expected in order to be able to provide expertise in this subject.",
+  "subject2level1Status": "Rejected",
+  "subject2AssessmentSpecialismStatus": "Rejected", 
+  "subject2AssessmentMakingStatus": "Rejected", 
+  "subject2AssessmentMakingFeedbackCategory": "",
+  "subject2AssessmentMakingFeedback": "",
+  "subject2AssessmentSettingStatus": "Rejected", 
+  "subject2AssessmentSettingFeedbackCategory": "",
+  "subject2AssessmentSettingFeedback": "",
+  "subject2AssessmentDesigningStatus": "Rejected", 
+  "subject2AssessmentDesigningFeedbackCategory": "",
+  "subject2AssessmentDesigningFeedback": "",
+  "subject2AssessmentEvaluatingStatus": "Rejected", 
+  "subject2AssessmentEvaluatingFeedbackCategory": "",
+  "subject2AssessmentEvaluatingFeedback": "",
+  "subject2IndustryStatus": "Rejected", 
+  "subject2IndustryFeedbackCategory": "",
+  "subject2IndustryFeedback": "",
+  "subject2TeachingSpecialismStatus": "Rejected", 
+  "subject2TeachingTeachingStatus": "Rejected", 
+  "subject2TeachingTeachingFeedbackCategory": "",
+  "subject2TeachingTeachingFeedback": "",
+  "subject2TeachingTrainingStatus": "", 
+  "subject2TeachingTrainingFeedbackCategory": "",
+  "subject2TeachingTrainingFeedback": "",
+  "subject2TeachingEducationalStatus": "", 
+  "subject2TeachingEducationalFeedbackCategory": "",
+  "subject2TeachingEducationalFeedback": "",
+  "subject2TeachingTeacherTrainingStatus": "Rejected", 
+  "subject2TeachingTeacherTrainingFeedbackCategory": "",
+  "subject2TeachingTeacherTrainingFeedback": "",
+
+  // Messages
+  "accountMessageMakingJudgements": "Read",
+  "accountMessageTeacherTraining": "Read",
+  "accountMessageOutcome": "Unread",
+  "accountMessageSupplierform": "Unread",
+  "accountMessageWorkingWithOfqual": "Unread",
+}
+
+
 module.exports = {
 
   // This section pulls in various data sources
@@ -1665,6 +1989,7 @@ module.exports = {
   allAccepted,
   allRejected,
   acceptedRejected,
+  outcomeOverview,
 
   settings: settings,
 

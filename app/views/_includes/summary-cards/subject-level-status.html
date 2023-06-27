@@ -1,0 +1,902 @@
+  <!-- START Card for subject 1 -->
+  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1Status == "Rejected" %}
+  {% else %}
+  <section class="x-govuk-summary-card">
+    <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
+      <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
+        {{ data.resultName }}
+      </h2>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-regular">
+        {{ data.selectedQualification }}
+      </p>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-bold">
+        {{ data.subject1level1 }}
+      </p>
+    </header>
+    <!-- START of assessment -->
+    {% if data.isAssessment == "true" %}
+      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1AssessmentMakingStatus == "Rejected" and data.subject1AssessmentSettingStatus == "Rejected" and data.subject1AssessmentDesigningStatus == "Rejected" and data.subject1AssessmentEvaluatingStatus == "Rejected" %}
+      {% else %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Assessment
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Making assessment judgements -->
+        {% if data.isJudgement == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Making assessment judgements
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1AssessmentMakingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1AssessmentMakingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Making assessment judgements -->
+        <!-- START row for Standard setting and awarding qualifications -->
+        {% if data.isStandardSetting == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Standard setting and awarding qualifications
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1AssessmentSettingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1AssessmentSettingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Standard setting and awarding qualifications -->
+        <!-- START row for Designing and developing assessments -->
+        {% if data.isDesigning == "true" %}
+          
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Designing and developing assessments
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1AssessmentDesigningStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1AssessmentDesigningStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Designing and developing assessments -->
+        <!-- START row for Evaluating assessments or assessment approaches -->
+        {% if data.isEvaluating == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Evaluating assessments or assessment approaches
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1AssessmentEvaluatingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1AssessmentEvaluatingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Evaluating assessments or assessment approaches -->
+        
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START of Industry, occupational or professional -->
+    {% if data.isIndustry == "true" %}
+      
+        <header class="x-govuk-summary-card__header">
+          <h2 class="x-govuk-summary-card__title">
+            Industry, occupational or professional
+          </h2>
+        </header>
+        <div class="x-govuk-summary-card__body">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters govuk-!-padding-bottom-0">
+                Industry, occupational or professional
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1IndustryStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1IndustryStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        </dl>
+      </div>
+    
+  {% endif %}
+  <!-- START of Teaching, lecturing or training -->
+  {% if data.isTeaching == "true" %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Teaching, lecturing or training
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Teaching or lecturing -->
+        {% if data.isLecturing == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teaching or lecturing
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1TeachingTeachingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1TeachingTeachingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teaching or lecturing -->
+        <!-- START row for Training -->
+        {% if data.isTraining == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1TeachingTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1TeachingTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Training -->
+        <!-- START row for Educational management -->
+        {% if data.isEducationalManagement == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Educational management
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1TeachingEducationalStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1TeachingEducationalStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Educational management -->
+        <!-- START row for Teacher training -->
+        {% if data.isTeacherTraining == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teacher training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject1TeachingTeacherTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject1TeachingTeacherTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teacher training -->
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START row for feedback -->
+  <header class="x-govuk-summary-card__header">
+    <h2 class="x-govuk-summary-card__title">
+      Feedback
+    </h2>
+  </header>
+  <div class="x-govuk-summary-card__body">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+          <div class="govuk-summary-list__row">
+            <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Feedback
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject1FeedbackCategory }}</h4>
+                <p class="govuk-body">{{ data.subject1Feedback }}</p>
+              </div>
+            </details> 
+        </dt>
+      </div>
+      <!-- END row for feedback -->
+</section>
+<!-- END Card for subject 1 -->
+
+  <!-- START Card for subject 3 -->
+  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject3Status == "Rejected" %}
+  {% else %}
+  <section class="x-govuk-summary-card">
+    <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
+      <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
+        {{ data.resultName3 }}
+      </h2>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-regular">
+        {{ data.selectedQualification3 }}
+      </p>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-bold">
+        {{ data.subject1level2 }}
+      </p>
+    </header>
+    <!-- START of assessment -->
+    {% if data.isAssessment3 == "true" %}
+      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject3AssessmentMakingStatus == "Rejected" and data.subject3AssessmentSettingStatus == "Rejected" and data.subject3AssessmentDesigningStatus == "Rejected" and data.subject3AssessmentEvaluatingStatus == "Rejected" %}
+      {% else %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Assessment
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Making assessment judgements -->
+        {% if data.isJudgement3 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Making assessment judgements
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3AssessmentMakingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3AssessmentMakingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Making assessment judgements -->
+        <!-- START row for Standard setting and awarding qualifications -->
+        {% if data.isStandardSetting3 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Standard setting and awarding qualifications
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3AssessmentSettingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3AssessmentSettingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Standard setting and awarding qualifications -->
+        <!-- START row for Designing and developing assessments -->
+        {% if data.isDesigning3 == "true" %}
+          
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Designing and developing assessments
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3AssessmentDesigningStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3AssessmentDesigningStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Designing and developing assessments -->
+        <!-- START row for Evaluating assessments or assessment approaches -->
+        {% if data.isEvaluating3 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Evaluating assessments or assessment approaches
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3AssessmentEvaluatingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3AssessmentEvaluatingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Evaluating assessments or assessment approaches -->
+        
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START of Industry, occupational or professional -->
+    {% if data.isIndustry3 == "true" %}
+      
+        <header class="x-govuk-summary-card__header">
+          <h2 class="x-govuk-summary-card__title">
+            Industry, occupational or professional
+          </h2>
+        </header>
+        <div class="x-govuk-summary-card__body">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters govuk-!-padding-bottom-0">
+                Industry, occupational or professional
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3IndustryStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3IndustryStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        </dl>
+      </div>
+    
+  {% endif %}
+  <!-- START of Teaching, lecturing or training -->
+  {% if data.isTeaching3 == "true" %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Teaching, lecturing or training
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Teaching or lecturing -->
+        {% if data.isLecturing3 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teaching or lecturing
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3TeachingTeachingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3TeachingTeachingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teaching or lecturing -->
+        <!-- START row for Training -->
+        {% if data.isTraining3 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3TeachingTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3TeachingTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Training -->
+        <!-- START row for Educational management -->
+        {% if data.isEducationalManagement3 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Educational management
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3TeachingEducationalStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3TeachingEducationalStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Educational management -->
+        <!-- START row for Teacher training -->
+        {% if data.isTeacherTraining3 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teacher training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject3TeachingTeacherTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject3TeachingTeacherTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teacher training -->
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START row for feedback3 -->
+  <header class="x-govuk-summary-card__header">
+    <h2 class="x-govuk-summary-card__title">
+      Feedback
+    </h2>
+  </header>
+  <div class="x-govuk-summary-card__body">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+          <div class="govuk-summary-list__row">
+            <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Feedback
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject3FeedbackCategory }}</h4>
+                <p class="govuk-body">{{ data.subject3Feedback }}</p>
+              </div>
+            </details> 
+        </dt>
+      </div>
+      <!-- END row for feedback3 -->
+</section>
+<!-- END Card for subject 3 -->
+
+  <!-- START Card for subject 2 -->
+  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1Status == "Rejected" %}
+  {% else %}
+  <section class="x-govuk-summary-card">
+    <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
+      <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
+        {{ data.resultName2 }}
+      </h2>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-regular">
+        {{ data.selectedQualification2 }}
+      </p>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-bold">
+        {{ data.subject2level1 }}
+      </p>
+    </header>
+    <!-- START of assessment -->
+    {% if data.isAssessment3 == "true" %}
+      {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject3AssessmentMakingStatus == "Rejected" and data.subject3AssessmentSettingStatus == "Rejected" and data.subject3AssessmentDesigningStatus == "Rejected" and data.subject3AssessmentEvaluatingStatus == "Rejected" %}
+      {% else %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Assessment
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Making assessment judgements -->
+        {% if data.isJudgement2 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Making assessment judgements
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2AssessmentMakingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2AssessmentMakingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Making assessment judgements -->
+        <!-- START row for Standard setting and awarding qualifications -->
+        {% if data.isStandardSetting2 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Standard setting and awarding qualifications
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2AssessmentSettingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2AssessmentSettingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        {% endif %}
+        <!-- END row for Standard setting and awarding qualifications -->
+        <!-- START row for Designing and developing assessments -->
+        {% if data.isDesigning2 == "true" %}
+          
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Designing and developing assessments
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2AssessmentDesigningStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2AssessmentDesigningStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Designing and developing assessments -->
+        <!-- START row for Evaluating assessments or assessment approaches -->
+        {% if data.isEvaluating2 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Evaluating assessments or assessment approaches
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2AssessmentEvaluatingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2AssessmentEvaluatingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Evaluating assessments or assessment approaches -->
+        
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START of Industry, occupational or professional -->
+    {% if data.isIndustry2 == "true" %}
+      
+        <header class="x-govuk-summary-card__header">
+          <h2 class="x-govuk-summary-card__title">
+            Industry, occupational or professional
+          </h2>
+        </header>
+        <div class="x-govuk-summary-card__body">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters govuk-!-padding-bottom-0">
+                Industry, occupational or professional
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2IndustryStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2IndustryStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+        </dl>
+      </div>
+    
+  {% endif %}
+  <!-- START of Teaching, lecturing or training -->
+  {% if data.isTeaching2 == "true" %}
+      <header class="x-govuk-summary-card__header">
+        <h2 class="x-govuk-summary-card__title">
+          Teaching, lecturing or training
+        </h2>
+      </header>
+      <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <!-- START row for Teaching or lecturing -->
+        {% if data.isLecturing2 == "true" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teaching or lecturing
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2TeachingTeachingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2TeachingTeachingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teaching or lecturing -->
+        <!-- START row for Training -->
+        {% if data.isTraining2 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2TeachingTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2TeachingTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Training -->
+        <!-- START row for Educational management -->
+        {% if data.isEducationalManagement2 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Educational management
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2TeachingEducationalStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2TeachingEducationalStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Educational management -->
+        <!-- START row for Teacher training -->
+        {% if data.isTeacherTraining2 == "true" %}
+          
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+                Teacher training
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data.subject2TeachingTeacherTrainingStatus == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% elseif data.subject2TeachingTeacherTrainingStatus == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+              </dd>
+            </div>
+          
+        {% endif %}
+        <!-- END row for Teacher training -->
+      </dl>
+    </div>
+    {% endif %}
+  {% endif %}
+  <!-- START row for feedback3 -->
+  <header class="x-govuk-summary-card__header">
+    <h2 class="x-govuk-summary-card__title">
+      Feedback
+    </h2>
+  </header>
+  <div class="x-govuk-summary-card__body">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-three-quarters">
+          <div class="govuk-summary-list__row">
+            <details class="govuk-details govuk-!-margin-top-2 govuk-!-margin-bottom-1" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Feedback
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h4 class="govuk-!-margin-top-0 govuk-!-margin-bottom-1">{{ data.subject2FeedbackCategory }}</h4>
+                <p class="govuk-body">{{ data.subject2Feedback }}</p>
+              </div>
+            </details> 
+        </dt>
+      </div>
+      <!-- END row for feedback3 -->
+</section>
+<!-- END Card for subject 3 -->

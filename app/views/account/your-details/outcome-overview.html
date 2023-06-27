@@ -1,0 +1,92 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Application outcomes" %}
+{% set subHeading = "Application outcomes" %}
+{% set backLink = "false" %}
+{% set primaryNavActive = "Your details" %}
+{% set pageType = "Account" %}
+{% set pageTypeSub = "Your details" %}
+
+{% block content %}
+  {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Application outcomes',
+          href: '/account/your-details/outcome-overview',
+          active: true
+        }, {
+          text: 'References',
+          href: '/account/your-details/references'
+        }, {
+          text: 'Conflicts of interest',
+          href: '/account/your-details/conflict-of-interest'
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Application',
+          href: '/account/your-details/application'
+        }
+        ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">{{ subHeading }}</h1>
+        <p>Outcomes for the subjects, occupational areas and qualification levels you have applied for. </p>
+      <section class="govuk-!-margin-bottom-8">
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">Your application</h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Application status
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <strong class="govuk-tag govuk-tag--green">
+                      Approved
+                    </strong>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Last updated
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <time datetime="">{{ "" | yesterday |  govukDate }}</time>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Renewal date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <time datetime="">{{ "" | threeyearstime |  govukDate }}</time>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Detailed outcomes
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <a href="/account/your-details/detailed-outcomes">View your detailed application outcomes</a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+      </section>
+        <section class="govuk-!-margin-bottom-8">
+        {% include "_includes/summary-cards/subject-outcome-overview.html" %}
+      </section>
+    </div>
+  </div>
+{% endblock %}

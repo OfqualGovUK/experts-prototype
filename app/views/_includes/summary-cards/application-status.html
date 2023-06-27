@@ -110,7 +110,11 @@
   {% endset %}
 
   {% set subjectStatusHtml %}
+    {% if data.outcomeOverview1 == "true" %}
+    <a href="/account/your-details/outcome-overview">Application outcomes</a>
+    {% else %}
     <a href="/account/your-details/subjects">Detailed application outcomes</a>
+    {% endif %}
   {% endset %}
 
 
