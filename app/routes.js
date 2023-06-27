@@ -965,6 +965,13 @@ router.all( '/application-submitted-accepted-rejected', function (req, res) {
   res.redirect('/account?applicationStatus=Accepted');
 })
 
+// Sets up the tasklist with a completed application when you visit a link
+// The '?applicationStatus=...' is tells the prototype which status the aplication is in
+router.all( '/application-submitted-overview', function (req, res) {
+  req.session.data = Object.assign(req.session.data.outcomeOverview)
+  
+  res.redirect('/account?applicationStatus=Accepted');
+})
 
 // Enable all Evidence 
 // Sets up the tasklist 

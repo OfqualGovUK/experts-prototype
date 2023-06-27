@@ -1,0 +1,74 @@
+  <!-- START Card for subject 1 -->
+  {% if data.applicationStatus == "Accepted" and pageTypeSub != "Application" and data.subject1Status == "Rejected" %}
+  {% else %}
+  <!-- START row for subject1 -->
+  <section class="x-govuk-summary-card">
+    <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
+      <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
+        {{ data.resultName }}
+      </h2>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-regular">
+        {{ data.selectedQualification }}
+      </p>
+    </header>
+    <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-one-half">
+                {{ data.subject1level1 }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {% if data.subject1Status == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved 5/7",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-one-half">
+                {{ data.subject1level2 }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {% if data.subject3Status == "Accepted" %}
+                  {{ govukTag({
+                    text: "Approved 4/7",
+                    classes: "govuk-tag--green float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+            </dd>
+        </div>
+    </div>
+  </section>
+  <section class="x-govuk-summary-card">
+    <header class="x-govuk-summary-card__header govuk-!-display-block govuk-!-margin-bottom-2">
+      <h2 class="x-govuk-summary-card__title govuk-!-font-size-24">
+        {{ data.resultName2 }}
+      </h2>
+      <p class="x-govuk-summary-card__title govuk-!-font-weight-regular">
+        {{ data.selectedQualification2 }}
+      </p>
+    </header>
+    <div class="x-govuk-summary-card__body">
+        <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key vertical-align govuk-!-font-weight-regular govuk-!-width-one-half">
+                {{ data.subject2level1 }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {% if data.subject2Status == "Rejected" %}
+                  {{ govukTag({
+                    text: "Unsuccessful",
+                    classes: "govuk-tag--red float-right"
+                  })}}
+                {% else %}
+                {% endif %}
+            </dd>
+        </div>
+    </div>
+  </section>
+    {% endif %}
+    <!-- START level1 -->

@@ -8,7 +8,6 @@
 {% set pageTypeSub = "Your details" %}
 
 {% block content %}
-{% if data.outcomeOverview1 == "true" %}
   {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-third-from-desktop">
@@ -37,51 +36,42 @@
         ]
       }) }}
     </div>
-{% else %}
-  {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third-from-desktop">
-      {{ mojSideNavigation({
-        label: 'Side navigation',
-        items: [{
-          text: 'Personal information',
-          href: '/account/your-details/'
-        }, {
-          text: 'Detailed application outcomes',
-          href: '/account/your-details/subjects',
-          active: true
-        }, {
-          text: 'References',
-          href: '/account/your-details/references'
-        }, {
-          text: 'Conflicts of interest',
-          href: '/account/your-details/conflict-of-interest'
-        }, {
-          text: 'Self declaration',
-          href: '/account/your-details/self-declaration'
-        }, {
-          text: 'Application',
-          href: '/account/your-details/application'
-        }
-        ]
-      }) }}
-    </div>
-{% endif %}
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      {% if data.outcomeOverview1 == "true" %}
       <a href="/account/your-details/outcome-overview" class="govuk-back-link">Back to outcome overview</a>
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
         <p>Outcomes for the subjects and occupational areas, qualification levels and activities you have applied for. </p>
         <section class="govuk-!-margin-bottom-8">
-        {% include "_includes/summary-cards/subject-status.html" %}
+        {% include "_includes/summary-cards/subject-level-status.html" %}
+        
+        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+        {{ govukPagination({
+          previous: {
+            href: "#"
+          },
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              current: true,
+              href: "#"
+            },
+            {
+              number: 2,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            }
+          ]
+        }) }}
+        {% endblock %}
       </section>
-      {% else %}
-      <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-        <p>Outcomes for the subjects and occupational areas, qualification levels and activities you have applied for. </p>
-        <section class="govuk-!-margin-bottom-8">
-        {% include "_includes/summary-cards/subject-status.html" %}
-      </section>
-      {% endif %}
+      
     </div>
   </div>
-{% endblock %}
+  
+  
