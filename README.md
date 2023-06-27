@@ -22,6 +22,7 @@ Password: ofqual
 - Application 'Approved' for all subjects : https://experts-prototype.herokuapp.com/application-submitted-accepted
 - Application with a mix of 'Approved' and 'Rejected' subjects : https://experts-prototype.herokuapp.com/application-submitted-accepted-rejected
 - Application 'Rejected' for all subjects :https://experts-prototype.herokuapp.com/application-submitted-rejected
+- Aplication accepted and rejected elements, but uses new outcomes flow https://experts-prototype.herokuapp.com/application-submitted-overview
 
 ### Admin settings
 
