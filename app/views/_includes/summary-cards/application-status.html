@@ -86,7 +86,9 @@
         text: "Approved",
         classes: "govuk-tag--green"
       })}}
-      {% if data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
+      {% if data.outcomeOverview1 == "true" and data.subject2Status == "Rejected" %}
+      <p class="govuk-body-s govuk-!-margin-top-1 govuk-!-margin-bottom-1">You will be able to work with Ofqual on projects related to your approved subjects when they become available</p>
+      {% elseif data.subject1Status == "Rejected" or data.subject2Status == "Rejected" %}
         <p class="govuk-body-s govuk-!-margin-top-1 govuk-!-margin-bottom-1">You have been partially approved for 1 subject and unsuccessful for 1 subject</p>
         {% if pageTypeSub != "Application" %}
         {% endif %}
