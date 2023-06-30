@@ -1,0 +1,247 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk"           import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"           import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk"         import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk"              import govukButton %}
+{% from "govuk/components/character-count/macro.njk"     import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk"          import govukCheckboxes %}
+{% from "govuk/components/cookie-banner/macro.njk"       import govukCookieBanner %}
+{% from "govuk/components/date-input/macro.njk"          import govukDateInput %}
+{% from "govuk/components/details/macro.njk"             import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"       import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"       import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk"            import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"         import govukFileUpload %}
+{% from "govuk/components/input/macro.njk"               import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"          import govukInsetText %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk"               import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"        import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk"              import govukRadios %}
+{% from "govuk/components/select/macro.njk"              import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"           import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"        import govukSummaryList %}
+{% from "govuk/components/table/macro.njk"               import govukTable %}
+{% from "govuk/components/tabs/macro.njk"                import govukTabs %}
+{% from "govuk/components/tag/macro.njk"                 import govukTag %}
+{% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
+
+{# custom macros #}
+{% from "_components/task-list/macro.html"               import appTaskList %}
+{% from "_components/task-list-2/macro.html"             import appTaskListItem %}
+{% from "_components/summary-card/macro.njk"             import appSummaryCard %}
+{% from "_components/inset-text/macro.html"              import appInsetText %}
+{# {% from "_components/checkbox-filter/macro.njk"         import appCheckboxFilter %} #}
+
+{# x-gov macros #}
+{% from "x-govuk/components/autocomplete/macro.njk" import xGovukAutocomplete with context %}
+{% from "x-govuk/components/masthead/macro.njk" import xGovukMasthead %}
+{% from "x-govuk/components/related-navigation/macro.njk" import xGovukRelatedNavigation %}
+{% from "x-govuk/components/side-navigation/macro.njk" import xGovukSideNavigation %}
+{% from "x-govuk/components/summary-card/macro.njk" import xGovukSummaryCard %}
+{% from "x-govuk/components/task-list/macro.njk" import xGovukTaskList %}
+
+{% block head %}
+  {% include "_includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% if pageType == "Account"  %}
+  {% set bodyClasses = "govuk-width-container-wide app-primary-nav__on" %}
+{% endif %}
+
+{% block header %}
+ {# Set serviceName in config.js. #}
+  {% if pageType == "Account" %}
+    <header class="govuk-header " role="banner" data-module="govuk-header">
+      <div class="govuk-header__container govuk-header__container__no-border govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="#" class="govuk-header__link govuk-header__link--homepage">
+            <span class="govuk-header__logotype">
+              <!--[if gt IE 8]><!-->
+              <svg aria-hidden="true" focusable="false" class="govuk-header__logotype-crown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 97" height="30" width="36">
+                <path fill="currentColor" fill-rule="evenodd" d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
+              </svg>
+              <!--<![endif]-->
+              <!--[if IE 8]>
+              <img src="/assets/images/govuk-logotype-crown.png" class="govuk-header__logotype-crown-fallback-image" width="36" height="32">
+              <![endif]-->
+              <span class="govuk-header__logotype-text">
+                GOV.UK
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="govuk-header__content">
+          <a href="/?referrer=" class="govuk-header__link govuk-header__service-name">
+            {{ serviceName }}
+          </a>
+          {# <ul class="govuk-header__signout">
+            <li class="govuk-header__navigation-item govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/subject-matter-specialists">
+                Sign out
+              </a>
+            </li>
+          </ul> #}
+        </div>
+      </div>
+      <div class="govuk-header__outer-container__primary-nav">
+        <div class="govuk-header__container govuk-header__container__primary-nav govuk-width-container">
+          <div class="govuk-width-container govuk-width-container__primary-nav">
+            <nav aria-label="Menu" class="govuk-header__navigation govuk-header__navigation__primary-nav">
+              <button type="button" class="govuk-header__menu-button govuk-header__menu-button__primary-nav govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu" hidden>Menu</button>
+              <ul id="navigation" class="govuk-header__navigation-list govuk-header__navigation-list__primary-nav">
+                <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav govuk-header__navigation-item--active">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account?referrer=" {{'aria-current=page' if primaryNavActive == 'Home'}}>
+                    Home
+                  </a>
+                </li>
+                <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/your-details?referrer=" {{'aria-current=page' if primaryNavActive == 'Your details'}}>
+                    Your details
+                  </a>
+                </li>
+                <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/messages?referrer=" {{'aria-current=page' if primaryNavActive == 'Messages'}}>
+                    Messages
+                  </a>
+                  {% if (data.accountMessageMakingJudgements == "Unread") and (data.accountMessageTeacherTraining == "Unread") %}
+                    <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageOutcome == "Unread") and (data.accountMessageSupplierform == "Unread") and (data.accountMessageWorkingWithOfqual == "Unread") %}
+                      <span class="app-notification-number">3</span>
+                    {% elseif (data.accountMessageSupplierform == "Unread") and (data.accountMessageWorkingWithOfqual == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageSupplierform == "Unread") and (data.accountMessageOutcome == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif (data.accountMessageWorkingWithOfqual == "Unread") and (data.accountMessageOutcome == "Unread") %}
+                      <span class="app-notification-number">2</span>
+                    {% elseif data.accountMessageWorkingWithOfqual == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageSupplierform == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageMakingJudgements == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageTeacherTraining == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% elseif data.accountMessageOutcome == "Unread" %}
+                      <span class="app-notification-number">1</span>
+                    {% else %}
+                  {% endif %} 
+                </li>
+                <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/account/Projects?referrer=" {{'aria-current=page' if primaryNavActive == 'Projects'}}>
+                    Projects
+                  </a>
+                </li>
+                <li class="govuk-header__navigation-item govuk-header__navigation-item__primary-nav">
+                  <a class="govuk-header__link govuk-header__link__primary-nav" href="/subject-matter-specialists?referrer=">
+                    Sign out
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+  {% else %}
+    {{ govukHeader({
+      homepageUrl: "/",
+      serviceName: serviceName,
+      serviceUrl: "/",
+      containerClasses: "govuk-width-container",
+      navigation: [
+        {
+          href: "/subject-matter-specialists?referrer=",
+          text: "Sign out"
+        }
+      ] if signedOut != "true"
+    }) }}
+  {% endif %} 
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    classes: 'govuk-!-margin-top-1 govuk-width-container',
+    html: 'This is a prototype of a new service – your <a href="#" class="govuk-link">feedback</a> will help us improve it'
+  }) }}
+
+  <div class="govuk-width-container ">
+    {% block pageNavigation %}
+    {% endblock %}  
+  </div>
+
+  <!-- {# Show primary nav if enabled #}
+  {% if pageType == "Account" %}
+    <div class="moj-primary-navigation">
+      <div class="govuk-width-container">
+        <div class="moj-primary-navigation__container">
+          <div class="moj-primary-navigation__nav">
+            <nav class="moj-primary-navigation" aria-label="Primary navigation">
+              <ul class="moj-primary-navigation__list">
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="#" {{'aria-current="page"' if primaryNavActive == 'Account'}}>My profile</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/application/sorry" {{'aria-current="page"' if primaryNavActive == 'manage settings'}}>Commissions</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/application/sorry" {{'aria-current="page"' if primaryNavActive == 'notifications'}}>Notifications
+                    <span class="app-notification-number">2</span>
+                    </a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="/application/sorry" {{'aria-current="page"' if primaryNavActive == 'setting'}}>Settings
+                    </a>
+                  </li>
+                </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div> 
+  {% endif %} -->
+
+{% endblock %}
+
+{% block beforeContent %}
+  {# {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    classes: 'govuk-!-margin-top-1',
+    html: 'This is a prototype of a new service – your <a href="#" class="govuk-link">feedback</a> will help us improve it'
+  }) }} #}
+
+  {# {% block pageNavigation %}
+  {% endblock %}   #}
+
+
+
+
+  {% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+    {% include "_includes/components/footer.html" %}
+  {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "_includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

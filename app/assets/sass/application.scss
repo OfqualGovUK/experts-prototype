@@ -10,9 +10,11 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Import GOV.UK Frontend and any extension styles if extensions have been configured
 @import "lib/extensions/extensions";
+@import "node_modules/govuk-frontend/govuk/all";
 
 // Overrides
 @import "overrides/layout";
+@import "overrides/service-header";
 @import "overrides/moj-nav";
 @import "overrides/gov-uk-nav";
 // @import "overrides/blank";
