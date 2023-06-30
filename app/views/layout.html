@@ -192,7 +192,7 @@
               <ul class="service-header__nav-list service-header__nav" id="service-header__nav" data-open-class="service-header__nav--open">
                 
                 <!-- Use the "service-header__nav-list-item--active" modifier class on the li to visually highlight the page the user is currently viewing -->
-                <li class="service-header__nav-list-item service-header__nav-list-item--active"> 
+                <li class="service-header__nav-list-item {% if primaryNavActive == 'Home' %}service-header__nav-list-item--active{% endif %}"> 
                   <!-- Use the aria-current="page" attribute on the anchor tag -->
                   <a class="service-header__nav-list-item-link" href="/account?referrer=" {{'aria-current=page' if primaryNavActive == 'Home'}}>
                     Home
@@ -200,7 +200,7 @@
                 </li>
                 
                 <!-- Use the "service-header__nav-list-item--active" modifier class on the li to visually highlight the page the user is currently viewing -->
-                <li class="service-header__nav-list-item">
+                <li class="service-header__nav-list-item  {% if primaryNavActive == 'Your details' %}service-header__nav-list-item--active{% endif %}">
                   <!-- Use the aria-current="page" attribute on the anchor tag -->
                   <a class="service-header__nav-list-item-link" 
                     
@@ -210,7 +210,7 @@
                 </li>
                 
                 <!-- Use the "service-header__nav-list-item--active" modifier class on the li to visually highlight the page the user is currently viewing -->
-                <li class="service-header__nav-list-item">
+                <li class="service-header__nav-list-item  {% if primaryNavActive == 'Messages' %}service-header__nav-list-item--active{% endif %}">
                   <!-- Use the aria-current="page" attribute on the anchor tag -->
                   <a class="service-header__nav-list-item-link" 
                     
@@ -242,7 +242,7 @@
               </li>
                 
               <!-- Use the "service-header__nav-list-item--active" modifier class on the li to visually highlight the page the user is currently viewing -->
-              <li class="service-header__nav-list-item
+              <li class="service-header__nav-list-item  {% if primaryNavActive == 'Projects' %}service-header__nav-list-item--active{% endif %}">
                   <!-- Use the aria-current="page" attribute on the anchor tag -->
                   <a class="service-header__nav-list-item-link"
 
