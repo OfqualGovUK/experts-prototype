@@ -2,9 +2,9 @@ $govuk-new-link-styles: true;
 // dependencies from GOVUK frontend
 // if this is throwing errors, check that you have govuk-frontend installed and that the load paths are correct
 
-@import "C:/Users/michael.tyrrell/prototypes/experts-prototype/node_modules/govuk-frontend/govuk/_base.scss";
-@import "C:/Users/michael.tyrrell/prototypes/experts-prototype/node_modules/govuk-frontend/govuk/objects/_width-container.scss";
-@import "C:/Users/michael.tyrrell/prototypes/experts-prototype/node_modules/govuk-frontend/govuk/objects/_grid";
+@import "node_modules/govuk-frontend/govuk/_base.scss";
+@import "node_modules/govuk-frontend/govuk/objects/_width-container.scss";
+@import "node_modules/govuk-frontend/govuk/objects/_grid";
 
 // end dependencies from GOVUK frontend
 

@@ -9,7 +9,7 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
-  window.CrossServiceHeader(document.querySelector("[data-module='one-login-header']")).init();
+  new window.CrossServiceHeader(document.querySelector("[data-module='one-login-header']")).init();
 });
 
 // Add an alert if you click on a link with a hash
@@ -21,8 +21,6 @@ $('a[href=#]').on('click', function (event) {
 
   }
 });
-
-new window.CrossServiceHeader(document.querySelector("[data-module='one-login-header']")).init()
 
 // Powers the select all checkbox thingo
 // Found here: https://stackoverflow.com/a/21248785
