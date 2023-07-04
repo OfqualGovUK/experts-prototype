@@ -5,8 +5,11 @@ if (window.console && window.console.info) {
   window.console.info('GOV.UK Prototype Kit - do not use for production')
 }
 
+
+
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  new window.CrossServiceHeader(document.querySelector("[data-module='one-login-header']")).init();
 });
 
 // Add an alert if you click on a link with a hash
