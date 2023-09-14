@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details - References" %}
-{% set subHeading = "References" %}
+{% set pageHeading = "Your details - end user research" %}
+{% set subHeading = "End of session" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -19,7 +19,8 @@
         href: '/account/your-details/outcome-overview'
       }, {
         text: 'Applications',
-        href: '/account/your-details/applications-table'
+        href: '/account/your-details/applications-table',
+        active: true
       },{
         text: 'Personal information',
         href: '/account/your-details/'
@@ -34,8 +35,7 @@
         href: '/account/your-details/professional-memberships'
       },{
         text: 'References',
-        href: '/account/your-details/references',
-        active: true
+        href: '/account/your-details/references'
       }, {
         text: 'Conflicts of interest',
         href: '/account/your-details/conflict-of-interest'
@@ -60,8 +60,7 @@
         href: '/account/your-details/subjects'
       }, {
         text: 'References',
-        href: '/account/your-details/references',
-        active: true
+        href: '/account/your-details/references'
       }, {
         text: 'Conflicts of interest',
         href: '/account/your-details/conflict-of-interest'
@@ -69,8 +68,9 @@
         text: 'Self declaration',
         href: '/account/your-details/self-declaration'
       }, {
-        text: 'Application',
-        href: '/account/your-details/application'
+        text: 'Applications',
+        href: '/account/your-details/applications-table',
+        active: true
       }
       ]
     }) }}
@@ -78,11 +78,13 @@
 {% endif %}
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-      {% include "_includes/summary-cards/references.html" %}
+      <div class="govuk-inset-text">
+        At this point, you would go on to provide evidence for the activities, subjects and levels that you selected. Just as the original application
+      </div>
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Provide another reference",
-          href: "/add-reference"
+          text: "Continue",
+          href: "/account/your-details/applications-table"
         }) }}
       </div>
     </div>

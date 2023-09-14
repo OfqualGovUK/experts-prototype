@@ -1,0 +1,161 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "/subject-search-answer2" %}
+{% set pageHeading = "Search for a subject or occupational area" %}
+{% set pageType = "Account" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% block formContent %}
+{%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Detailed application outcomes',
+          href: '/account/your-details/subjects'
+        }, {
+          text: 'References',
+          href: '/account/your-details/references'
+        }, {
+          text: 'Conflicts of interest',
+          href: '/account/your-details/conflict-of-interest'
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Applications',
+          href: '/account/your-details/applications-table',
+          active: true
+        }
+        ]
+      }) }}
+    </div>
+  
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+  {# set up which data set to pull from depednng on which route was chosen #}
+  {% set occupations = []  %}
+  
+  {% for occupation in data.allOccupationData  %}
+    {% set occupations = occupations | push ({ 
+      text: occupation
+    }) %}
+  {% endfor %}
+
+  {# Note for future designers #}
+  {# Joe Ingledew helped me build this feature and I apologise in advance for it being held together with sticky tape and bubble gum! #}
+
+  {# This section is populated by data found here: /data/subjectSearchData2.json #}
+
+  {% set sub = []  %}
+  
+  {% for s in data.subjectSearch2Data  %}
+    {% set sub = sub | push ({ 
+      name: s.name,
+      qualType: s.qualType,
+      level: s.level
+    }) %}
+  {% endfor %}
+
+    <div class="body-text">
+      <label for="autocomplete-placeholder" class="govuk-label govuk-label--l">{{ pageHeading }}</label>
+      {# <p class="govuk-body">You will be able to add more subjects, apprenticeships or T Levels after you tell us about the first one.</p> #}
+      <div id="subject-hint" class="govuk-hint">
+        You will be able to add more subject or occupational areas after you have finished telling us about the first one.
+      </div>
+      <div id="tt-default" class="autocomplete-wrapper govuk-!-margin-bottom-6"></div>
+    </div>
+
+    <input type="hidden" id="selectedObject" name="selectedObject" for="selectedObject" value="{}" />
+    <input type="hidden" id="resultId" name="resultId" for="resultId" value="" />
+    <input type="hidden" id="resultName" name="resultName" for="resultName" value="" />
+    <input type="hidden" id="resultQualType" name="resultQualType" for="resultQualType" value="" />
+    <input type="hidden" id="resultLevel" name="resultLevel" for="resultLevel" value="" />
+
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+    <script type="text/javascript">
+
+      let rawResults = [
+        {% for s in data.subjectSearch2Data %}
+          { "name": "{{s.name}}", "qualType": "{{s.qualType}}", "level": "{{s.level}}" },
+        {% endfor %}
+      ]
+
+      const results = rawResults.map((x, ix) => ({ id: ix, ...x }))
+
+      var getSuggestions = () => {
+        var suggestions = []
+        results.forEach(result => suggestions.push(result.name));
+        return suggestions;
+      }
+
+      function suggest(query, populateResults) {
+        const filteredResults = results.filter(x => x.name.toLowerCase().includes(query.toLowerCase()))
+        populateResults(filteredResults)
+      }
+
+      function onConfirm(confirmedValue) {
+        if (!!confirmedValue) {
+          $("#resultId").val(confirmedValue.id)
+          $("#resultName").val(confirmedValue.name)
+          $("#resultQualType").val(confirmedValue.qualType)
+          $("#resultLevel").val(confirmedValue.level)
+          $('#selectedObject').val(JSON.stringify(confirmedValue))
+        }
+      }
+
+      var element = document.querySelector('#tt-default')
+      var id = 'autocomplete-default'
+      accessibleAutocomplete({
+        element: element,
+        id: id,
+        source: suggest,
+        onConfirm: onConfirm,
+        name: "selectedSubject2",
+        templates: {
+          suggestion: (value) => {
+            var result = results.find(result => result.id == value.id)
+            let finalHtml = `<span class='job-title'>${result.name}</span>`
+            if (result.qualType === "End-point assessment" || result.qualType === "T Level") {
+              finalHtml = `${finalHtml}<span class='govuk-hint govuk-!-margin-bottom-0'>${result.qualType}</span><span class='govuk-hint govuk-!-margin-bottom-0'> (level ${result.level})</span>`
+            }
+            return finalHtml
+          },
+          inputValue: (selection) => {
+            if (!!selection) {
+              let finalVal = selection.name
+              if (selection.qualType === "End-point assessment" || selection.qualType === "T Level") {
+                finalVal = `${selection.name} (${selection.qualType} - level ${selection.level})`
+              }
+              return finalVal
+            }
+            return ""
+          }
+        }
+      })
+    </script>
+  
+  {% set detailsHtml %}
+    <p class="govuk-body govuk-!-margin-bottom-0">
+      If you cannot your subject or occupational area, find the closest match.
+    </p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "I cannot find the subject or occupational area",
+    text: detailsHtml | safe
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/account">Cancel</a>
+  </div>
+</div>
+{% endblock %}

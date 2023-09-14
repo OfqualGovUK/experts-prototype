@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details - Application" %}
-{% set subHeading = "Application" %}
+{% set pageHeading = "Your details - Additional application" %}
+{% set subHeading = "Additional application" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -106,27 +106,81 @@
             <a class="govuk-breadcrumbs__link" href="/account/your-details/applications-table">Applications</a>
           </li>
           <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="/account/your-details/application">Application</a>
+            <a class="govuk-breadcrumbs__link" href="/account/your-details/application">Additional application</a>
           </li>
         </ol>
       </div>
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
           {# Include all the application sections #}
           <h2 class="govuk-heading-m">Subjects or occupational areas</h2>
-          {% include "_includes/summary-cards/subjects.html" %}
+          <section class="x-govuk-summary-card">
+            <header class="x-govuk-summary-card__header">
+              <h2 class="x-govuk-summary-card__title">
+                Asbestos analyst and surveyor (End-point assessment - level 3)
+              </h2>
+            </header>
+            <div class="x-govuk-summary-card__body">
+            <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Subject
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Asbestos analyst and surveyor
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Qualification type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      End-Point Assessment
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Qualification level
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      3
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      What type(s) of experience do you have for this subject or occupational area?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <ul class="govuk-list">
+                        <li>
+                          Teaching, lecturing or training
+                        </li>
+                    </ul>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Which teaching, lecturing or training activities or responsibilities are you experienced in for this subject or occupational area?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <ul class="govuk-list">
+                        <li>
+                          Educational management
+                        </li>
+                        <li>
+                          Training
+                        </li>
+                        <li>
+                          Teacher Training
+                        </li>
+                    </ul>
+                    </dd>
+                  </div>
+            </dl>
+            </div>
+          </section>
           <h2 class="govuk-heading-m">Evidence of experience</h2>
-          <h3 class="govuk-heading-s">Assessment experience</h3>
-          {% include "_includes/summary-cards/assessment-experience.html" %}
-          <h3 class="govuk-heading-s">Industry, occupational or professional experience</h3>
-          {% include "_includes/summary-cards/industry-experience.html" %}
           <h3 class="govuk-heading-s">Teaching, lecturing or training experience</h3>
           {% include "_includes/summary-cards/teaching-experience.html" %}
-          <h2 class="govuk-heading-m">Communication and analytical judgement skills</h2>
-          {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
-          <h2 class="govuk-heading-m">Further supporting evidence</h2>
-          {% include "_includes/summary-cards/further-evidence.html" %}
-          <h2 class="govuk-heading-m">Identity checks</h2>
-          {% include "_includes/summary-cards/verify-identity.html" %}
     <div>
   </div>
 {% endblock %}
