@@ -38,12 +38,24 @@
       {{ mojSideNavigation({
         label: 'Side navigation',
         items: [{
-          text: 'Personal information',
-          href: '/account/your-details/'
-        }, {
           text: 'Application outcomes',
           href: '/account/your-details/outcome-overview'
         }, {
+          text: 'Applications',
+          href: '/account/your-details/applications-table'
+        },{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Education details',
+          href: '/account/your-details/education-details'
+        },{
+          text: 'Work history',
+          href: '/account/your-details/work-history'
+        },{
+          text: 'Professional memberships',
+          href: '/account/your-details/professional-memberships'
+        },{
           text: 'References',
           href: '/account/your-details/references'
         }, {
@@ -53,9 +65,6 @@
           text: 'Self declaration',
           href: '/account/your-details/self-declaration',
           active: true
-        }, {
-          text: 'Application',
-          href: '/account/your-details/application'
         }
         ]
       }) }}

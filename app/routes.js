@@ -1115,3 +1115,31 @@ router.all('/message-working-with-ofqual', function (req, res) {
   res.redirect('/account/messages/working-with-ofqual');
 
 })
+
+// This route has been stolen from above and changed for additional expertise - original was contributed to by Joe Ingledew
+router.get('/subject-search-answer2', function (req, res) {
+  const qualType = req.session.data.resultQualType
+
+  let assessmentReferral = req.session.data.referrer
+
+  // case-insensitive string match
+  const qualTypeRegex = new RegExp(/End-point assessment/i)
+  const qualLevelRegex = new RegExp(/T Level/i)
+
+  const isMatch = qualTypeRegex.test(qualType) || qualLevelRegex.test(qualType)
+
+  // if it's not End-point or T-level qual type they need to specify qual type and level
+  if (assessmentReferral === "assessmentExpertise") {
+    if (isMatch == false) {
+      res.redirect('/account/your-details/application/additional-select-qualification')
+    } else {
+      res.redirect('/application/search/assessment-experience')
+    }
+  } else if (isMatch == false) {
+    res.redirect('/account/your-details/application/additional-select-qualification')
+  } else {
+    res.redirect('/account/your-details/application/additional-select-expertise-type')
+  }
+})
+
+

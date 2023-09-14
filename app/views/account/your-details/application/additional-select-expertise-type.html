@@ -1,0 +1,214 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./end-test" %}
+{% set pageType = "Account" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% set captionHeading %}
+  {# Coming from the assessment only route #}
+  {% if data.referrer == "assessmentExpertise" %}
+    {# Coming from the assessment only, qual only route #}
+    {% if data.assessmentQual2 == "Yes" %}
+      {% if data.selectedQualificationAssessmentOnly2 == "I don't know the qualification type" %}
+        {% else %} 
+          {{ data.selectedQualificationAssessmentOnly2 }}
+      {% endif %}
+      {# Coming from the assessment only, subject route #}
+      {% else %}
+      {% if data.selectedSubject2 and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
+        {{ data.resultName }}
+        {% if data.selectedQualificationAssessmentOnly2 == "I don't know the qualification type" %}
+          {% else %} 
+            ({{ data.selectedQualificationAssessmentOnly2 }})
+        {% endif %}
+        {# It is a subject with defined qual type and level #}
+        {% else %}
+        {{ data.selectedSubject2 }}
+      {% endif %}
+    {% endif %}
+    {# Coming from the subject search #}
+    {% else %}
+    {# If its not an "other" subject, show the subject and qual type/level #}
+    {% if data.selectedSubject2 and (data.resultQualType != "T Level" and data.resultQualType != "End-point assessment") %}
+      {{ data.resultName }}
+      {% if data.selectedQualification2 == "I don't know the qualification type" %}
+        {% else %} 
+          ({{ data.selectedQualification2 }})
+      {% endif %}
+      {# It is a subject with defined qual type and level #}
+      {% else %}
+      {{ data.selectedSubject2 }}
+    {% endif %}
+  {% endif %}
+{% endset %}
+
+
+{% set pageHeading %}
+  What type(s) of experience do you have for this subject or occupational area?
+{% endset %}
+
+
+{% block formContent %}
+{%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Detailed application outcomes',
+          href: '/account/your-details/subjects'
+        }, {
+          text: 'References',
+          href: '/account/your-details/references'
+        }, {
+          text: 'Conflicts of interest',
+          href: '/account/your-details/conflict-of-interest'
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Applications',
+          href: '/account/your-details/applications-table',
+          active: true
+        }
+        ]
+      }) }}
+    </div>
+  
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+<span class="govuk-caption-l">{{ captionHeading }}</span>
+<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+
+
+
+
+  {{ govukCheckboxes({
+    name: "additionalAssessmentExpertise",
+    fieldset: {
+      legend: {
+        text: "Assessment",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Designing and developing, marking, standardising, moderating and researching assessment policy and practice in this subject"
+    },
+    items: [
+      {
+        value: "additionalAssessmentDesign",
+        text: "Designing and developing assessments",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      },
+      {
+        value: "additionalAssessmentMaking",
+        text: "Making assessment judgements",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      },
+      {
+        value: "additionalAssessmentStandards",
+        text: "Standard setting and awarding qualifications",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      },
+      {
+        value: "additionalAssessmentEvaluating",
+        text: "Evaluating assessments or assessment approaches",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      }
+    ]
+  }) }}
+
+  {{ govukCheckboxes({
+    name: "additionalIndustryExpertise",
+    fieldset: {
+      legend: {
+        text: "Industry, occupational or professional",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "additionalIndustry",
+        text: "Industry, occupational or professional",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      }
+    ]
+  }) }}
+
+  {{ govukCheckboxes({
+    name: "additionalTeachingExpertise",
+    fieldset: {
+      legend: {
+        text: "Teaching, lecturing or training",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Developing classroom materials, training others, knowledge of specifications and qualification standards in this subject, management of curriculum areas and organisation"
+    },
+    items: [
+      {
+        value: "addTeaching",
+        text: "Teaching or lecturing",
+        hint: {
+          text: "You have already been approved for this activity for this subject and level"
+        },
+        disabled: "true",
+        checked: "true"
+      },
+      {
+        value: "addTraining",
+        text: "Training",
+        hint: {
+          text: "Training and observing learners in the workplace"
+        }
+      },
+      {
+        value: "addEdMgt",
+        text: "Educational management",
+        hint: {
+          text: "Managing curriculum in schools, college or university, responsible for subject departments or faculties, organisation responsibility"
+        }
+      },
+      {
+        value: "addTeachTraining",
+        text: "Teacher training",
+        hint: {
+          text: "Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers. 
+          You were unsuccessful for this activity on 12 January 2023"
+        }
+      }
+    ]
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/account">Cancel</a>
+  </div>
+{% endblock %}

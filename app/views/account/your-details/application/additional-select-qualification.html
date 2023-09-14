@@ -1,0 +1,118 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./additional-select-level" %}
+{% set pageHeading = "Select the qualifications types you can advise for this subject" %}
+{% set pageType = "Account" %}
+{% set layoutWidth = "fullWidthLayout" %}
+
+{% set captionHeading %}
+  {# If its not an "other" subject, show the subject and qual type/level #}
+  {% if data.selectedSubject2 and (data.resultQualType == ("End-point assessment") or ("T Level")) %}
+    {{ data.selectedSubject2 }}
+    {# If it is an "other" subject, so just show the subject #}
+    {% else %}
+      {{ data.resultName }}
+  {% endif %}
+{% endset %}
+
+{% set pageHeading %}
+  {# If they are coming through assessment specialist route  #}
+  {% if data.referrer == "assessmentExpertise" %}
+    What qualification type can you advise on?
+    {% else %}
+      What qualification type can you advise on for this subject or occupational area?
+  {% endif %}
+{% endset %}
+
+
+{% block formContent %}
+{%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third-from-desktop">
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Detailed application outcomes',
+          href: '/account/your-details/subjects'
+        }, {
+          text: 'References',
+          href: '/account/your-details/references'
+        }, {
+          text: 'Conflicts of interest',
+          href: '/account/your-details/conflict-of-interest'
+        }, {
+          text: 'Self declaration',
+          href: '/account/your-details/self-declaration'
+        }, {
+          text: 'Applications',
+          href: '/account/your-details/applications-table',
+          active: true
+        }
+        ]
+      }) }}
+    </div>
+  
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+  <span class="govuk-caption-l">{{ captionHeading }}</span>
+
+  {# set up which data set to pull from #}
+  {% set qualifications = []  %}
+  
+  {% for qualification in data.qualificationData  %}
+    {% set qualifications = qualifications | push ({ 
+      text: qualification
+    }) %}
+  {% endfor %}
+
+  {% set qualifications = qualifications | push ({
+    divider: "or"
+  }) %}
+
+  {% set qualifications = qualifications | push ({
+    text: "My experience in this subject or occupational area is not related to a qualification type"
+  }) %}
+
+  {# Coming through assessment only, qual only flow #}
+  {% if data.referrer == "assessmentExpertise" %}
+    {{ govukRadios({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          classes: "govuk-fieldset__legend--l",
+          isPgeHeading: true
+        }
+      },
+      hint: {
+        text: "You will be able to add more qualification types for your subject or occupational area after you have finished telling us about the first one."
+      },
+      items: qualifications
+    } | decorateAttributes(data, "data.selectedQualificationAssessmentOnly2")) }}
+    {# Coming through subject flow #}
+    {% else %}
+      {{ govukRadios({
+        fieldset: {
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l",
+            isPgeHeading: true
+          }
+        },
+        hint: {
+          text: "You will be able to add more qualification types for your subject or occupational area after you have finished telling us about the first one."
+        },
+        items: qualifications
+      } | decorateAttributes(data, "data.selectedQualification2")) }}
+  {% endif %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+    <a class="govuk-link" href="/account">Cancel</a>
+  </div>
+
+{% endblock %}

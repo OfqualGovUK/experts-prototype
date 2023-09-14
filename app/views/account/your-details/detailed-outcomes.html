@@ -14,13 +14,25 @@
       {{ mojSideNavigation({
         label: 'Side navigation',
         items: [{
-          text: 'Personal information',
-          href: '/account/your-details/'
-        }, {
           text: 'Application outcomes',
           href: '/account/your-details/outcome-overview',
           active: true
         }, {
+          text: 'Applications',
+          href: '/account/your-details/applications-table'
+        },{
+          text: 'Personal information',
+          href: '/account/your-details/'
+        }, {
+          text: 'Education details',
+          href: '/account/your-details/education-details'
+        },{
+          text: 'Work history',
+          href: '/account/your-details/work-history'
+        },{
+          text: 'Professional memberships',
+          href: '/account/your-details/professional-memberships'
+        },{
           text: 'References',
           href: '/account/your-details/references'
         }, {
@@ -29,9 +41,6 @@
         }, {
           text: 'Self declaration',
           href: '/account/your-details/self-declaration'
-        }, {
-          text: 'Application',
-          href: '/account/your-details/application'
         }
         ]
       }) }}
@@ -40,6 +49,9 @@
       <a href="/account/your-details/outcome-overview" class="govuk-back-link">Back to outcome overview</a>
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
         <p>Outcomes for the subjects and occupational areas, qualification levels and activities you have applied for. </p>
+        <div class="govuk-inset-text">
+          <p>You can reapply for any usuccessful areas or apply for new subjects, levels and activities from <a href="/account/your-details/applications-table" class="govuk-link">your application page</a>.</p>
+        </div>
         <section class="govuk-!-margin-bottom-8">
         {% include "_includes/summary-cards/subject-level-status.html" %}
 

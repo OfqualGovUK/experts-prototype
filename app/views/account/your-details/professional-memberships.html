@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details - References" %}
-{% set subHeading = "References" %}
+{% set pageHeading = "Your details - Professional memberships" %}
+{% set subHeading = "Professional memberships" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -31,11 +31,11 @@
         href: '/account/your-details/work-history'
       },{
         text: 'Professional memberships',
-        href: '/account/your-details/professional-memberships'
+        href: '/account/your-details/professional-memberships',
+        active: true
       },{
         text: 'References',
-        href: '/account/your-details/references',
-        active: true
+        href: '/account/your-details/references'
       }, {
         text: 'Conflicts of interest',
         href: '/account/your-details/conflict-of-interest'
@@ -60,8 +60,7 @@
         href: '/account/your-details/subjects'
       }, {
         text: 'References',
-        href: '/account/your-details/references',
-        active: true
+        href: '/account/your-details/references'
       }, {
         text: 'Conflicts of interest',
         href: '/account/your-details/conflict-of-interest'
@@ -78,11 +77,11 @@
 {% endif %}
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-      {% include "_includes/summary-cards/references.html" %}
+      {% include "_includes/summary-cards/memberships.html" %}
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Provide another reference",
-          href: "/add-reference"
+          text: "Add another professional membership",
+          href: ""
         }) }}
       </div>
     </div>

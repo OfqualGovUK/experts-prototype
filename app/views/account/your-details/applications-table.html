@@ -1,7 +1,7 @@
 {% extends "_templates/page-template.html" %}
 
-{% set pageHeading = "Your details - Application" %}
-{% set subHeading = "Application" %}
+{% set pageHeading = "Your details - Applications" %}
+{% set subHeading = "Applications" %}
 {% set backLink = "false" %}
 {% set primaryNavActive = "Your details" %}
 {% set pageType = "Account" %}
@@ -99,34 +99,70 @@
       }) }}
     </div>
 {% endif %}
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-      <div class="govuk-breadcrumbs">
-        <ol class="govuk-breadcrumbs__list">
-          <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="/account/your-details/applications-table">Applications</a>
-          </li>
-          <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="/account/your-details/application">Application</a>
-          </li>
-        </ol>
+<div class="govuk-grid-column-two-thirds-from-desktop">
+  <h1 class="govuk-heading-l">{{ subHeading }}</h1>
+ <!-- // note for future, this reveals the additional application it's a bit of a hack, but done for some quick UR // -->
+ {% if not data.additionalTeachingExpertise %}
+ <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Your applications</th>
+      <th scope="col" class="govuk-table__header">Created date</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="/account/your-details/application" class="govuk-link">Application</a></td>
+      <td class="govuk-table__cell">01 January 2023</td>
+      <td class="govuk-table__cell">Approved</td>
+    </tr>
+    </tbody>
+  </table>
+  {% else %}
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      Additional application submitted
+    </h3>
+    <p class="govuk-body">You should recieve your outcomes within 60 days</p>
+  </div>
+</div>      
+<table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Your applications</th>
+            <th scope="col" class="govuk-table__header">Created date</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/account/your-details/application" class="govuk-link">Application</a></td>
+            <td class="govuk-table__cell">01 January 2023</td>
+            <td class="govuk-table__cell">Approved</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/account/your-details/additional-application1" class="govuk-link">Additional application</a></td>
+            <td class="govuk-table__cell"><time datetime="">{{ "" | today |  govukDate }}</time></td>
+            <td class="govuk-table__cell">Awaiting decision</td>
+          </tr>
+        </tbody>
+      </table>
+{% endif %}
+      <div class="govuk-inset-text">
+        <p>You can reapply for any usuccessful areas or apply for new subjects, levels and activities. </p>
+        <a href="/account/your-details/application/additional-subject-search" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Start an additional application
+        </a>
       </div>
-      <h1 class="govuk-heading-l">{{ subHeading }}</h1>
-          {# Include all the application sections #}
-          <h2 class="govuk-heading-m">Subjects or occupational areas</h2>
-          {% include "_includes/summary-cards/subjects.html" %}
-          <h2 class="govuk-heading-m">Evidence of experience</h2>
-          <h3 class="govuk-heading-s">Assessment experience</h3>
-          {% include "_includes/summary-cards/assessment-experience.html" %}
-          <h3 class="govuk-heading-s">Industry, occupational or professional experience</h3>
-          {% include "_includes/summary-cards/industry-experience.html" %}
-          <h3 class="govuk-heading-s">Teaching, lecturing or training experience</h3>
-          {% include "_includes/summary-cards/teaching-experience.html" %}
-          <h2 class="govuk-heading-m">Communication and analytical judgement skills</h2>
-          {% include "_includes/summary-cards/communication-analytical-judgement-skills.html" %}
-          <h2 class="govuk-heading-m">Further supporting evidence</h2>
-          {% include "_includes/summary-cards/further-evidence.html" %}
-          <h2 class="govuk-heading-m">Identity checks</h2>
-          {% include "_includes/summary-cards/verify-identity.html" %}
     <div>
   </div>
 {% endblock %}
