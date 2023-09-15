@@ -95,8 +95,8 @@
 
 
 
-
-  {{ govukCheckboxes({
+<!-- Original nunjucks commented out for additional formatting in html below
+ {{ govukCheckboxes({
     name: "additionalAssessmentExpertise",
     fieldset: {
       legend: {
@@ -110,9 +110,12 @@
     items: [
       {
         value: "additionalAssessmentDesign",
-        text: "Designing and developing assessments",
+        text: "Designing and developing assessments",  
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -121,7 +124,10 @@
         value: "additionalAssessmentMaking",
         text: "Making assessment judgements",
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -130,7 +136,10 @@
         value: "additionalAssessmentStandards",
         text: "Standard setting and awarding qualifications",
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -139,7 +148,10 @@
         value: "additionalAssessmentEvaluating",
         text: "Evaluating assessments or assessment approaches",
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -160,7 +172,10 @@
         value: "additionalIndustry",
         text: "Industry, occupational or professional",
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -184,7 +199,10 @@
         value: "addTeaching",
         text: "Teaching or lecturing",
         hint: {
-          text: "You have already been approved for this activity for this subject and level"
+          html: govukTag({
+            text: "Approved",
+            classes: "govuk-tag--green"
+          })
         },
         disabled: "true",
         checked: "true"
@@ -207,12 +225,156 @@
         value: "addTeachTraining",
         text: "Teacher training",
         hint: {
-          text: "Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers. 
-          You were unsuccessful for this activity on 12 January 2023"
+          text: "Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers."
         }
       }
     ]
   }) }}
+-->
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="Assessment options">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Assessment
+        </h2>
+      </legend>
+      <div id="assessment-expertise-hint" class="govuk-hint">
+        Designing and developing, marking, standardising, moderating and researching assessment policy and practice in this subject
+      </div>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="additionalAssessmentDesign" name="additionalAssessmentDesign" type="checkbox" value="additionalAssessmentDesign" aria-describedby="assessment-item-hint" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="nationality">
+            Designing and developing assessments
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="assessment-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Designing the assessment approach, writing question papers, designing mark schemes or assessment criteria
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="additionalAssessmentMaking" name="additionalAssessmentMaking" type="checkbox" value="additionalAssessmentMaking" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="additionalAssessmentMaking">
+            Making assessment judgements
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="Making-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Marking assessments, standardising or moderating the marking of others
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="additionalAssessmentStandards" name="additionalAssessmentStandards" type="checkbox" value="additionalAssessmentStandards" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="addEdMgt">
+            Standard setting and awarding qualifications
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="Standards-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Reviewing marked scripts to determine grade boundaries, setting grade standards for qualification outcomes, reviewing qualification standards over time
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="additionalAssessmentEvaluating" name="additionalAssessmentEvaluating" type="checkbox" value="additionalAssessmentEvaluating" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="additionalAssessmentEvaluating">
+            Evaluating assessments or assessment approaches
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="addeval-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Reviewing the performance of assessments, experience evaluating assessment approaches
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="Industry, occupational or professional">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Industry, occupational or professional
+        </h2>
+      </legend>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="addIndustryExpertise" name="addIndustryExpertise" type="checkbox" value="addIndustryExpertise" aria-describedby="industry-item-hint" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="nationality">
+            Industry, occupational or professional
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="teaching-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Experience, specific knowledge and skills, understanding of standards, technologies and procedures
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="Teaching, lecturing and training options">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Teaching, lecturing and training
+        </h2>
+      </legend>
+      <div id="teaching-expertise-hint" class="govuk-hint">
+        Developing classroom materials, training others, knowledge of specifications and qualification standards in this subject, management of curriculum areas and organisation.
+      </div>
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="addTeachingExpertise" name="additionalTeaching" type="checkbox" value="additionalTeachingExpertise" aria-describedby="teaching-item-hint" disabled="true" checked="true">
+          <label class="govuk-label govuk-checkboxes__label" for="nationality">
+            Teaching or lecturing
+            <strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>
+          </label>
+          <div id="teaching-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Experience in schools, colleges, further education or higher education
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="addTraining" name="addTraining" type="checkbox" value="addTraining">
+          <label class="govuk-label govuk-checkboxes__label" for="addTraining">
+            Training
+          </label>
+          <div id="Training-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Training and observing learners in the workplace
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="addEdMgt" name="addEdMgt" type="checkbox" value="addEdMgt">
+          <label class="govuk-label govuk-checkboxes__label" for="addEdMgt">
+            Educational management
+          </label>
+          <div id="addEdMgt-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            Managing curriculum in schools, college or university, responsible for subject departments or faculties, organisation responsibility
+          </div>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="addTeachTraining" name="addTeachTraining" type="checkbox" value="addTeachTraining">
+          <label class="govuk-label govuk-checkboxes__label" for="addTeachTraining">
+            Teacher training
+            <strong class="govuk-tag govuk-tag--red">
+              Unsuccessful
+            </strong>
+          </label>
+          <div id="addTeachTraining-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            <p class="govuk-body-s govuk-!-margin-bottom-1">You were previously unsuccessful for this activity for this subject and level</p>
+            Teaching on a PGCE or similar course, tutoring, mentoring trainee teachers or trainers.
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
 
   <div class="govuk-button-group">
     {{ govukButton({
