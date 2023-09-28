@@ -47,10 +47,29 @@
     </div>
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">{{ subHeading }}</h1>
+      {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+
+      <div style="float: right;">
+        {{ mojButtonMenu({
+          items: [{
+            text: "First action",
+            href: "#"
+          }, {
+            text: "Second action",
+            href: "#",
+            classes: "govuk-button--secondary"
+          }, {
+            text: "Third action",
+            href: "#",
+            classes: "govuk-button--secondary"
+          }]
+        }) }}
+      </div>
         <p>Outcomes for the subjects, occupational areas and qualification levels you have applied for. </p>
         <div class="govuk-inset-text">
           <p>You can reapply for any unsuccessful areas or apply for new subjects, levels and activities from <a href="/account/your-details/applications-table" class="govuk-link">your application page</a>.</p>
         </div>
+
       <section class="govuk-!-margin-bottom-8">
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
