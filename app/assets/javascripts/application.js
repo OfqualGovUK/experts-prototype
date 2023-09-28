@@ -9,6 +9,7 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  window.MOJFrontend.initAll()
   new window.CrossServiceHeader(document.querySelector("[data-module='one-login-header']")).init();
 });
 
